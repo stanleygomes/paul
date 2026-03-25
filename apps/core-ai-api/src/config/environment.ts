@@ -73,7 +73,7 @@ export const config: Environment = {
     },
   },
   database: {
-    url: DATABASE_URL || "file:./.docker/revelation.db",
+    url: DATABASE_URL || "file:./.docker/core-ai.db",
     authToken: DATABASE_AUTH_TOKEN,
   },
 };

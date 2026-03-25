@@ -1,5 +1,5 @@
 {
-  "name": "paul-ui",
+  "name": "core-ai-ui",
   "type": "module",
   "version": "1.6.0",
   "private": true,
@@ -32,9 +32,9 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@paul/eslint-config": "file:../../packages/eslint-config",
-    "@paul/typescript-config": "file:../../packages/typescript-config",
-    "@paul/ui": "file:../../packages/ui",
+    "@core-ai/eslint-config": "file:../../packages/eslint-config",
+    "@core-ai/typescript-config": "file:../../packages/typescript-config",
+    "@core-ai/ui": "file:../../packages/ui",
     "@done/utils": "file:../../packages/utils",
     "@tailwindcss/postcss": "^4",
     "@types/next-pwa": "5.6.9",

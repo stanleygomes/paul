@@ -1,5 +1,5 @@
 {
-  "extends": "@paul/typescript-config/nextjs.json",
+  "extends": "@core-ai/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {

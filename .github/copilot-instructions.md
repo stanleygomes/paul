@@ -54,7 +54,7 @@ essence-tube/
 │   │       ├── services/             # API clients, utilities
 │   │       ├── shared/               # Reusable components
 │   │       └── style/                # Global styles
-│   └── paul-ui/                      # Alternative Frontend (Next.js with Hero UI)
+│   └── core-ai-ui/                      # Alternative Frontend (Next.js with Hero UI)
 │       └── src/
 │           ├── app/                  # Next.js app router
 │           ├── config/               # Frontend configuration

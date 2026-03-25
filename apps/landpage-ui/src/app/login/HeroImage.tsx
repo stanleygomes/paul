@@ -5,7 +5,7 @@ export default function HeroImage() {
   return (
     <div className="flex-1 flex items-center justify-center p-6">
       {/* <Image
-        src="/img/paul-writting.jpg"
+        src="/img/core-ai-writting.jpg"
         alt="Paul writing"
         width={500}
         height={500}

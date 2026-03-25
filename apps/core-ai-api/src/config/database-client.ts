@@ -15,7 +15,7 @@ const client = createClient({
 export const db = drizzle(client, { schema });
 
 export async function ensureDatabaseSchema() {
-  logger.info("Ensuring revelation database schema...");
+  logger.info("Ensuring core-ai database schema...");
 
   await db.run(sql`
     CREATE TABLE IF NOT EXISTS prompt_logs (
@@ -28,5 +28,5 @@ export async function ensureDatabaseSchema() {
     )
   `);
 
-  logger.info("Revelation database schema is ready");
+  logger.info("core-ai database schema is ready");
 }

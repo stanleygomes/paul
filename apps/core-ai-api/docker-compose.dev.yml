@@ -1,0 +1,19 @@
+services:
+  libsql:
+    image: ghcr.io/tursodatabase/libsql-server:latest
+    container_name: core-ai-libsql
+    command:
+      [
+        "sqld",
+        "--http-listen-addr",
+        "0.0.0.0:8080",
+        "--db-path",
+        "/var/lib/sqld",
+      ]
+    ports:
+      - "8080:8080"
+    volumes:
+      - core-ai-libsql-data:/var/lib/sqld
+
+volumes:
+  core-ai-libsql-data:

@@ -22,9 +22,9 @@ essence-tube/
 ├── apps/
 │   ├── api/          # Backend API — Fastify/Express, MongoDB, Redis
 │   ├── auth-api/     # Auth service — Fastify, SQLite/Drizzle, Resend, RS256 JWT
-│   ├── revelation/   # AI-powered service — Fastify, Google AI Studio
+│   ├── core-ai/   # AI-powered service — Fastify, Google AI Studio
 │   ├── ui/           # Primary frontend — Next.js 16, React 19, TailwindCSS 4
-│   └── paul-ui/      # Alternative frontend — Next.js 16, Hero UI
+│   └── core-ai-ui/      # Alternative frontend — Next.js 16, Hero UI
 ├── packages/
 │   ├── eslint-config/      # @done/eslint-config — shared ESLint rules
 │   ├── typescript-config/  # @done/typescript-config — shared tsconfig bases
@@ -75,8 +75,8 @@ npm run dev
 
 # Run a single app
 npm run app:auth       # auth-api
-npm run app:revelation # revelation
-npm run app:paul       # paul-ui
+npm run app:core-ai # core-ai
+npm run app:core-ai       # core-ai-ui
 npm run ui             # ui
 
 # Build everything

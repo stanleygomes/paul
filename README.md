@@ -26,7 +26,7 @@ This Turborepo includes the following apps and packages:
 ### Apps
 
 - `auth-api`: Email authentication service (OTP + JWT RS256)
-- `revelation`: Prompt execution API with Google AI Studio
+- `core-ai`: Prompt execution API with Google AI Studio
 
 ### Packages
 

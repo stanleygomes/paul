@@ -16,11 +16,11 @@ Keywords: `log`, `logger`, `logging`, `pino`, `observability`, `tracing`, `metri
 
 ## Stack
 
-| App               | Logger                                        |
-| ----------------- | --------------------------------------------- |
-| `apps/api`        | `pino` + `pino-pretty` (direct)               |
-| `apps/auth-api`   | `@done/logger` (shared package wrapping Pino) |
-| `apps/revelation` | `@done/logger` (shared package wrapping Pino) |
+| App             | Logger                                        |
+| --------------- | --------------------------------------------- |
+| `apps/api`      | `pino` + `pino-pretty` (direct)               |
+| `apps/auth-api` | `@done/logger` (shared package wrapping Pino) |
+| `apps/core-ai`  | `@done/logger` (shared package wrapping Pino) |
 
 The `@done/logger` package lives at `packages/logger/` and re-exports a configured Pino instance.
 
