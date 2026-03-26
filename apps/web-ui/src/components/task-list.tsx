@@ -9,8 +9,8 @@ interface TaskListProps {
   onEditingContentChange: (value: string) => void;
   onToggle: (id: string) => void;
   onStartEdit: (task: Task) => void;
-  onSaveEdit: (id: string) => void;
-  onCancelEdit: () => void;
+  onUpdateEdit: (id: string, content: string) => void;
+  onCloseEdit: () => void;
   onDelete: (id: string) => void;
 }
 
@@ -21,8 +21,8 @@ export function TaskList({
   onEditingContentChange,
   onToggle,
   onStartEdit,
-  onSaveEdit,
-  onCancelEdit,
+  onUpdateEdit,
+  onCloseEdit,
   onDelete,
 }: TaskListProps) {
   if (tasks.length === 0) {
@@ -30,7 +30,7 @@ export function TaskList({
   }
 
   return (
-    <ul className="flex flex-col gap-3">
+    <ul className="flex flex-col gap-3 pb-10">
       {tasks.map((task) => (
         <TaskListItem
           key={task.id}
@@ -40,8 +40,8 @@ export function TaskList({
           onEditingContentChange={onEditingContentChange}
           onToggle={onToggle}
           onStartEdit={onStartEdit}
-          onSaveEdit={onSaveEdit}
-          onCancelEdit={onCancelEdit}
+          onUpdateEdit={onUpdateEdit}
+          onCloseEdit={onCloseEdit}
           onDelete={onDelete}
         />
       ))}

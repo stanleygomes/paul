@@ -35,13 +35,11 @@ export function useTasks() {
     setEditingContent(task.content);
   }
 
-  function saveEdit(id: string) {
-    setTasks(manager.update(id, editingContent));
-    setEditingTaskId(null);
-    setEditingContent("");
+  function updateEdit(id: string, content: string) {
+    setTasks(manager.update(id, content));
   }
 
-  function cancelEdit() {
+  function closeEdit() {
     setEditingTaskId(null);
     setEditingContent("");
   }
@@ -57,7 +55,7 @@ export function useTasks() {
     toggleTask,
     deleteTask,
     startEdit,
-    saveEdit,
-    cancelEdit,
+    updateEdit,
+    closeEdit,
   };
 }
