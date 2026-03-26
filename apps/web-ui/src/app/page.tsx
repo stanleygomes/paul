@@ -4,6 +4,7 @@ import { useTasks } from "@modules/todo/use-tasks";
 import { AppHeader } from "../components/app-header";
 import { TaskList } from "../components/task-list";
 import { TaskInputBar } from "../components/task-input-bar";
+import { TaskDrawer } from "../components/task-drawer";
 
 export default function Home() {
   const {
@@ -14,12 +15,15 @@ export default function Home() {
     editingTaskId,
     editingContent,
     setEditingContent,
+    selectedTask,
     createTask,
     toggleTask,
     deleteTask,
     startEdit,
     updateEdit,
     closeEdit,
+    openDrawer,
+    closeDrawer,
     reorderTodoTasks,
     reorderFinishedTasks,
   } = useTasks();
@@ -41,6 +45,7 @@ export default function Home() {
             onCloseEdit={closeEdit}
             onDelete={deleteTask}
             onReorder={reorderTodoTasks}
+            onOpenDrawer={openDrawer}
           />
         </section>
 
@@ -58,6 +63,7 @@ export default function Home() {
               onCloseEdit={closeEdit}
               onDelete={deleteTask}
               onReorder={reorderFinishedTasks}
+              onOpenDrawer={openDrawer}
             />
           </section>
         )}
@@ -67,6 +73,20 @@ export default function Home() {
         value={newTask}
         onChange={setNewTask}
         onSubmit={createTask}
+      />
+
+      <TaskDrawer
+        task={selectedTask}
+        isOpen={selectedTask !== null}
+        isEditing={editingTaskId === selectedTask?.id}
+        editingContent={editingContent}
+        onEditingContentChange={setEditingContent}
+        onClose={closeDrawer}
+        onToggle={toggleTask}
+        onStartEdit={startEdit}
+        onUpdateEdit={updateEdit}
+        onCloseEdit={closeEdit}
+        onDelete={deleteTask}
       />
     </main>
   );

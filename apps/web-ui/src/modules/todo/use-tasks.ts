@@ -10,6 +10,7 @@ export function useTasks() {
   const [newTask, setNewTask] = useState("");
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null);
   const [editingContent, setEditingContent] = useState("");
+  const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
 
   const manager = useMemo(() => new TaskManager(tasks), [tasks]);
 
@@ -26,6 +27,11 @@ export function useTasks() {
     [tasks],
   );
 
+  const selectedTask = useMemo(
+    () => tasks.find((t) => t.id === selectedTaskId) ?? null,
+    [tasks, selectedTaskId],
+  );
+
   function createTask() {
     setTasks(manager.create(newTask));
     setNewTask("");
@@ -40,6 +46,9 @@ export function useTasks() {
     if (editingTaskId === id) {
       setEditingTaskId(null);
       setEditingContent("");
+    }
+    if (selectedTaskId === id) {
+      setSelectedTaskId(null);
     }
   }
 
@@ -65,6 +74,14 @@ export function useTasks() {
     setTasks((prev) => [...prev.filter((t) => !t.done), ...newFinished]);
   }
 
+  function openDrawer(task: Task) {
+    setSelectedTaskId(task.id);
+  }
+
+  function closeDrawer() {
+    setSelectedTaskId(null);
+  }
+
   return {
     todoTasks,
     finishedTasks,
@@ -73,12 +90,15 @@ export function useTasks() {
     editingTaskId,
     editingContent,
     setEditingContent,
+    selectedTask,
     createTask,
     toggleTask,
     deleteTask,
     startEdit,
     updateEdit,
     closeEdit,
+    openDrawer,
+    closeDrawer,
     reorderTodoTasks,
     reorderFinishedTasks,
   };
