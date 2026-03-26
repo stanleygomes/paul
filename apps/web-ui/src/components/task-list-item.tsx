@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { Reorder, useDragControls } from "framer-motion";
 import { GripVertical } from "lucide-react";
 import type { Task } from "@models/task";
+import { useDebouncedSave } from "../hooks/use-debounced-save";
+import { AutoResizeTextarea } from "./auto-resize-textarea";
 
 interface TaskListItemProps {
   task: Task;
@@ -27,8 +29,8 @@ export function TaskListItem({
   onDelete,
 }: TaskListItemProps) {
   const controls = useDragControls();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const { save, flush } = useDebouncedSave(600);
 
   // Auto-focus when edit mode opens
   useEffect(() => {
@@ -39,21 +41,15 @@ export function TaskListItem({
 
   function handleChange(value: string) {
     onEditingContentChange(value);
-
-    // Debounce: wait 600ms after the user stops typing before saving
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(() => {
+    save(() => {
       onUpdateEdit(task.id, value);
-    }, 600);
+    });
   }
 
   function handleBlur() {
-    // Flush any pending debounced save immediately on blur
-    if (debounceRef.current) {
-      clearTimeout(debounceRef.current);
-      debounceRef.current = null;
+    flush(() => {
       onUpdateEdit(task.id, editingContent);
-    }
+    });
     onCloseEdit();
   }
 
@@ -64,9 +60,9 @@ export function TaskListItem({
       dragControls={controls}
       className="rounded-base border-2 border-black bg-white p-4 shadow-shadow"
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-start gap-3">
         <div
-          className="shrink-0 touch-none cursor-grab text-gray-400 active:cursor-grabbing hover:text-black"
+          className="mt-1.5 shrink-0 touch-none cursor-grab text-gray-400 active:cursor-grabbing hover:text-black"
           onPointerDown={(e) => controls.start(e)}
           tabIndex={0}
           role="button"
@@ -77,7 +73,7 @@ export function TaskListItem({
 
         <button
           type="button"
-          className={`h-8 w-8 shrink-0 rounded-base border-2 border-black text-sm font-black transition-all active:scale-90 ${
+          className={`mt-0.5 h-8 w-8 shrink-0 rounded-base border-2 border-black text-sm font-black transition-all active:scale-90 ${
             task.done ? "bg-[#a7f3d0]" : ""
           }`}
           onClick={() => onToggle(task.id)}
@@ -86,18 +82,19 @@ export function TaskListItem({
           {task.done ? "✓" : ""}
         </button>
 
-        <div className="flex-1">
+        <div className="flex-1 overflow-hidden">
           {isEditing ? (
-            <input
+            <AutoResizeTextarea
               ref={inputRef}
               value={editingContent}
               onChange={(e) => handleChange(e.target.value)}
               onBlur={handleBlur}
-              className="w-full rounded-base border-2 border-black bg-[#fffaf0] px-3 py-0 text-base font-semibold leading-[1.5rem] outline-none"
+              rows={1}
+              className="w-full resize-none overflow-hidden rounded-base border-2 border-black bg-[#fffaf0] px-3 py-1 text-lg font-semibold leading-[1.75rem] outline-none"
             />
           ) : (
             <p
-              className={`cursor-text text-base font-semibold text-lg ${
+              className={`cursor-text whitespace-pre-wrap break-words py-1 text-lg font-semibold leading-[1.75rem] ${
                 task.done ? "text-gray-500 line-through" : "text-black"
               }`}
               onClick={() => !task.done && onStartEdit(task)}
@@ -109,7 +106,7 @@ export function TaskListItem({
 
         <button
           type="button"
-          className="rounded-base border-2 border-black bg-[#ff8fab] px-2 py-1 text-xs font-bold shadow-shadow transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+          className="mt-1 rounded-base border-2 border-black bg-[#ff8fab] px-2 py-1 text-xs font-bold shadow-shadow transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
           onClick={() => onDelete(task.id)}
         >
           Delete
