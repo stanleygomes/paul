@@ -1,9 +1,7 @@
-import { useEffect, useRef } from "react";
 import { Reorder, useDragControls } from "framer-motion";
-import { GripVertical } from "lucide-react";
+import { ChevronRight, GripVertical } from "lucide-react";
 import type { Task } from "@models/task";
-import { useDebouncedSave } from "../hooks/use-debounced-save";
-import { AutoResizeTextarea } from "./auto-resize-textarea";
+import { TaskItemContent } from "./task-item-content";
 
 interface TaskListItemProps {
   task: Task;
@@ -15,6 +13,7 @@ interface TaskListItemProps {
   onUpdateEdit: (id: string, content: string) => void;
   onCloseEdit: () => void;
   onDelete: (id: string) => void;
+  onOpenDrawer: (task: Task) => void;
 }
 
 export function TaskListItem({
@@ -27,31 +26,9 @@ export function TaskListItem({
   onUpdateEdit,
   onCloseEdit,
   onDelete,
+  onOpenDrawer,
 }: TaskListItemProps) {
   const controls = useDragControls();
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-  const { save, flush } = useDebouncedSave(600);
-
-  // Auto-focus when edit mode opens
-  useEffect(() => {
-    if (isEditing) {
-      inputRef.current?.focus();
-    }
-  }, [isEditing]);
-
-  function handleChange(value: string) {
-    onEditingContentChange(value);
-    save(() => {
-      onUpdateEdit(task.id, value);
-    });
-  }
-
-  function handleBlur() {
-    flush(() => {
-      onUpdateEdit(task.id, editingContent);
-    });
-    onCloseEdit();
-  }
 
   return (
     <Reorder.Item
@@ -71,45 +48,27 @@ export function TaskListItem({
           <GripVertical size={16} />
         </div>
 
-        <button
-          type="button"
-          className={`mt-0.5 h-8 w-8 shrink-0 rounded-base border-2 border-black text-sm font-black transition-all active:scale-90 ${
-            task.done ? "bg-[#a7f3d0]" : ""
-          }`}
-          onClick={() => onToggle(task.id)}
-          aria-label={task.done ? "Mark as not done" : "Mark as done"}
-        >
-          {task.done ? "✓" : ""}
-        </button>
-
-        <div className="flex-1 overflow-hidden">
-          {isEditing ? (
-            <AutoResizeTextarea
-              ref={inputRef}
-              value={editingContent}
-              onChange={(e) => handleChange(e.target.value)}
-              onBlur={handleBlur}
-              rows={1}
-              className="w-full resize-none overflow-hidden rounded-base border-2 border-black bg-[#fffaf0] px-3 py-1 text-lg font-semibold leading-[1.75rem] outline-none"
-            />
-          ) : (
-            <p
-              className={`cursor-text whitespace-pre-wrap break-words py-1 text-lg font-semibold leading-[1.75rem] ${
-                task.done ? "text-gray-500 line-through" : "text-black"
-              }`}
-              onClick={() => !task.done && onStartEdit(task)}
-            >
-              {task.content}
-            </p>
-          )}
+        <div className="flex-1 min-w-0">
+          <TaskItemContent
+            task={task}
+            isEditing={isEditing}
+            editingContent={editingContent}
+            onEditingContentChange={onEditingContentChange}
+            onToggle={onToggle}
+            onStartEdit={onStartEdit}
+            onUpdateEdit={onUpdateEdit}
+            onCloseEdit={onCloseEdit}
+            onDelete={onDelete}
+          />
         </div>
 
         <button
           type="button"
-          className="mt-1 rounded-base border-2 border-black bg-[#ff8fab] px-2 py-1 text-xs font-bold shadow-shadow transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-          onClick={() => onDelete(task.id)}
+          className="mt-1 shrink-0 rounded-base border-2 border-black bg-white p-1 text-gray-400 shadow-shadow transition-all hover:bg-[#ffe066] hover:text-black active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+          onClick={() => onOpenDrawer(task)}
+          aria-label="Open task details"
         >
-          Delete
+          <ChevronRight size={16} />
         </button>
       </div>
     </Reorder.Item>

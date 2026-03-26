@@ -17,3 +17,15 @@ export {
   AccordionTrigger,
   AccordionContent,
 } from "./components/ui/accordion";
+export {
+  Drawer,
+  DrawerPortal,
+  DrawerOverlay,
+  DrawerTrigger,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerFooter,
+  DrawerTitle,
+  DrawerDescription,
+} from "./components/ui/drawer";
