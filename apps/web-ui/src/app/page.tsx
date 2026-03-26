@@ -7,7 +7,8 @@ import { TaskInputBar } from "../components/task-input-bar";
 
 export default function Home() {
   const {
-    tasks,
+    todoTasks,
+    finishedTasks,
     newTask,
     setNewTask,
     editingTaskId,
@@ -19,7 +20,8 @@ export default function Home() {
     startEdit,
     updateEdit,
     closeEdit,
-    reorderTasks,
+    reorderTodoTasks,
+    reorderFinishedTasks,
   } = useTasks();
 
   return (
@@ -29,7 +31,7 @@ export default function Home() {
 
         <section className="flex flex-col gap-4">
           <TaskList
-            tasks={tasks}
+            tasks={todoTasks}
             editingTaskId={editingTaskId}
             editingContent={editingContent}
             onEditingContentChange={setEditingContent}
@@ -38,9 +40,27 @@ export default function Home() {
             onUpdateEdit={updateEdit}
             onCloseEdit={closeEdit}
             onDelete={deleteTask}
-            onReorder={reorderTasks}
+            onReorder={reorderTodoTasks}
           />
         </section>
+
+        {finishedTasks.length > 0 && (
+          <section className="flex flex-col gap-4 mt-10">
+            <h2 className="text-2xl font-black text-black px-1">Finished</h2>
+            <TaskList
+              tasks={finishedTasks}
+              editingTaskId={editingTaskId}
+              editingContent={editingContent}
+              onEditingContentChange={setEditingContent}
+              onToggle={toggleTask}
+              onStartEdit={startEdit}
+              onUpdateEdit={updateEdit}
+              onCloseEdit={closeEdit}
+              onDelete={deleteTask}
+              onReorder={reorderFinishedTasks}
+            />
+          </section>
+        )}
       </div>
 
       <TaskInputBar
