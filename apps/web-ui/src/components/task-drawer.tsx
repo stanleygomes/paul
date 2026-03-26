@@ -1,6 +1,6 @@
 "use client";
 
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@done/ui";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@done/ui";
 import type { Task } from "@models/task";
 import { TaskItemContent } from "./task-item-content";
 
@@ -37,11 +37,15 @@ export function TaskDrawer({
   }
 
   return (
-    <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <SheetContent side="right" className="bg-[#fef6d9] p-0">
-        <SheetHeader className="border-b-2 border-black px-6 py-4">
-          <SheetTitle className="text-xl font-black">Task Details</SheetTitle>
-        </SheetHeader>
+    <Drawer
+      open={isOpen}
+      onOpenChange={(open) => !open && onClose()}
+      direction="right"
+    >
+      <DrawerContent className="bg-[#fef6d9]">
+        <DrawerHeader className="border-b-2 border-black px-6 py-4 text-left">
+          <DrawerTitle className="text-xl font-black">Task Details</DrawerTitle>
+        </DrawerHeader>
 
         {task && (
           <div className="p-6">
@@ -60,7 +64,7 @@ export function TaskDrawer({
             </div>
           </div>
         )}
-      </SheetContent>
-    </Sheet>
+      </DrawerContent>
+    </Drawer>
   );
 }
