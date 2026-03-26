@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@done/utils/globals.css";
+import { UserAvatar } from "../components/user-avatar";
 
 export const metadata: Metadata = {
   title: "Todo Tasks",
@@ -13,7 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <div className="fixed right-4 top-4 z-50">
+          <UserAvatar />
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
