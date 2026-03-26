@@ -13,6 +13,19 @@ export function useTasks() {
 
   const manager = useMemo(() => new TaskManager(tasks), [tasks]);
 
+  const { todoTasks, finishedTasks } = useMemo(
+    () =>
+      tasks.reduce<{ todoTasks: Task[]; finishedTasks: Task[] }>(
+        (acc, task) => {
+          if (task.done) acc.finishedTasks.push(task);
+          else acc.todoTasks.push(task);
+          return acc;
+        },
+        { todoTasks: [], finishedTasks: [] },
+      ),
+    [tasks],
+  );
+
   function createTask() {
     setTasks(manager.create(newTask));
     setNewTask("");
@@ -44,12 +57,17 @@ export function useTasks() {
     setEditingContent("");
   }
 
-  function reorderTasks(newTasks: Task[]) {
-    setTasks(newTasks);
+  function reorderTodoTasks(newTodo: Task[]) {
+    setTasks((prev) => [...newTodo, ...prev.filter((t) => t.done)]);
+  }
+
+  function reorderFinishedTasks(newFinished: Task[]) {
+    setTasks((prev) => [...prev.filter((t) => !t.done), ...newFinished]);
   }
 
   return {
-    tasks,
+    todoTasks,
+    finishedTasks,
     newTask,
     setNewTask,
     editingTaskId,
@@ -61,6 +79,7 @@ export function useTasks() {
     startEdit,
     updateEdit,
     closeEdit,
-    reorderTasks,
+    reorderTodoTasks,
+    reorderFinishedTasks,
   };
 }
