@@ -172,7 +172,13 @@ function TaskBoard() {
       <TaskInputBar
         value={newTask}
         onChange={setNewTask}
-        onSubmit={() => createTask(projectId ? { projectId } : undefined)}
+        onSubmit={(fields) =>
+          createTask({
+            ...fields,
+            projectId: fields?.projectId || projectId || undefined,
+          })
+        }
+        currentProjectId={projectId}
       />
 
       <TaskDrawer
