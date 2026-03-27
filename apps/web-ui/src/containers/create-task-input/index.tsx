@@ -1,12 +1,11 @@
 import { FormEvent, useEffect, KeyboardEvent, useState, useRef } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { useDebouncedSave } from "../../hooks/use-debounced-save";
-import { useProjects } from "@modules/todo/use-projects";
 import { Task } from "@models/task";
-import { DatePicker } from "./date-picker";
-import { ProjectSelector } from "./project-selector";
-import { ImportantToggle } from "./important-toggle";
-import { TimeInput } from "./time-input";
+import { TaskDatePicker as DatePicker } from "../../components/task-date-picker";
+import { TaskProjectSelector as ProjectSelector } from "../../components/task-project-selector";
+import { TaskImportantToggle as ImportantToggle } from "../../components/task-important-toggle";
+import { TaskTimeInput as TimeInput } from "../../components/task-time-input";
 import { InputField } from "./input-field";
 import { InputFooter } from "./footer";
 
@@ -25,7 +24,6 @@ export function CreateTaskInput({
 }: CreateTaskInputProps) {
   const [draft, setDraft, removeDraft] = useLocalStorage("task_draft", "");
   const { saveStatus, save, clear } = useDebouncedSave(600);
-  const { projects } = useProjects();
 
   const [isImportant, setIsImportant] = useState(false);
   const [dueDateStr, setDueDateStr] = useState("");
@@ -97,17 +95,26 @@ export function CreateTaskInput({
             <ImportantToggle
               isImportant={isImportant}
               onToggle={() => setIsImportant(!isImportant)}
+              className="bg-white"
             />
 
-            <DatePicker dueDateStr={dueDateStr} onDateChange={setDueDateStr} />
+            <DatePicker
+              dueDateStr={dueDateStr}
+              onDateChange={setDueDateStr}
+              className="bg-white"
+            />
 
-            <TimeInput value={dueTime} onChange={setDueTime} />
+            <TimeInput
+              value={dueTime}
+              onChange={setDueTime}
+              className="bg-white"
+            />
 
             <ProjectSelector
-              projects={projects}
               value={selectedProjectId}
               onChange={setSelectedProjectId}
               isVisible={!currentProjectId}
+              className="bg-white w-36"
             />
           </div>
         </div>

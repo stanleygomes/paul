@@ -3,9 +3,10 @@ import { Clock } from "lucide-react";
 interface TimeInputProps {
   value: string;
   onChange: (value: string) => void;
+  className?: string;
 }
 
-export function TimeInput({ value, onChange }: TimeInputProps) {
+export function TaskTimeInput({ value, onChange, className }: TimeInputProps) {
   function handleTimeChange(newValue: string) {
     let formattedValue = newValue.replace(/\D/g, "");
     if (formattedValue.length > 4) formattedValue = formattedValue.slice(0, 4);
@@ -31,7 +32,7 @@ export function TimeInput({ value, onChange }: TimeInputProps) {
 
   return (
     <div
-      className={`flex items-center gap-1 rounded-base border-2 border-black bg-white px-2 py-1 shadow-sm transition-colors focus-within:text-black ${value ? "text-black" : "text-gray-400"}`}
+      className={`flex items-center gap-1 rounded-base border-2 border-black px-2 py-1 shadow-sm transition-colors focus-within:text-black ${value ? "text-black" : "text-gray-400"} ${className}`}
     >
       <Clock className="h-4 w-4 shrink-0" />
       <input

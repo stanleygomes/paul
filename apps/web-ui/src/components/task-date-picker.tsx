@@ -6,9 +6,14 @@ import { Calendar, Popover, PopoverTrigger, PopoverContent } from "@done/ui";
 interface DatePickerProps {
   dueDateStr: string;
   onDateChange: (dateStr: string) => void;
+  className?: string;
 }
 
-export function DatePicker({ dueDateStr, onDateChange }: DatePickerProps) {
+export function TaskDatePicker({
+  dueDateStr,
+  onDateChange,
+  className,
+}: DatePickerProps) {
   const dueDate = dueDateStr ? parseISO(dueDateStr) : undefined;
 
   return (
@@ -16,9 +21,9 @@ export function DatePicker({ dueDateStr, onDateChange }: DatePickerProps) {
       <PopoverTrigger asChild>
         <button
           type="button"
-          className={`flex items-center gap-1 rounded-base border-2 border-black bg-white px-2 py-1 shadow-sm transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none ${
+          className={`flex items-center gap-1 rounded-base border-2 border-black px-2 py-1 shadow-sm transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none ${
             dueDateStr ? "text-black" : "text-gray-400"
-          }`}
+          } ${className}`}
           title="Set due date"
         >
           <CalendarIcon className="h-4 w-4 shrink-0" />

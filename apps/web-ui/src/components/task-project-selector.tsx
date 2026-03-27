@@ -1,5 +1,5 @@
 import { Folder } from "lucide-react";
-import { Project } from "@models/project";
+import { useProjects } from "@modules/todo/use-projects";
 import {
   Select,
   SelectContent,
@@ -9,23 +9,26 @@ import {
 } from "@done/ui";
 
 interface ProjectSelectorProps {
-  projects: Project[];
   value: string;
   onChange: (value: string) => void;
   isVisible: boolean;
+  className?: string;
 }
 
-export function ProjectSelector({
-  projects,
+export function TaskProjectSelector({
   value,
   onChange,
   isVisible,
+  className,
 }: ProjectSelectorProps) {
+  const { projects } = useProjects();
   if (!isVisible) return null;
 
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="flex items-center gap-2 bg-white rounded-base border-2 border-black px-2 py-1 h-auto text-xs font-bold shadow-sm w-36 outline-none hover:bg-gray-50 focus:ring-0">
+      <SelectTrigger
+        className={`flex items-center gap-2 rounded-base border-2 border-black px-2 py-1 h-auto text-xs font-bold shadow-sm outline-none hover:bg-gray-50 focus:ring-0 ${className}`}
+      >
         {value === "none" && (
           <Folder className="h-4 w-4 shrink-0 text-gray-400" />
         )}

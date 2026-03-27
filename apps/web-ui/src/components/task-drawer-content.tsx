@@ -1,24 +1,14 @@
 import { useEffect, useRef } from "react";
-import { format, parseISO, isValid } from "date-fns";
-import { ptBR } from "date-fns/locale";
-import { Trash2, Maximize2, CalendarIcon } from "lucide-react";
+import { Trash2, Maximize2 } from "lucide-react";
 import type { Task } from "@models/task";
 import { generateUUID } from "@done/utils/src/uuid-utils";
 import { useDebouncedSave } from "../hooks/use-debounced-save";
 import { AutoResizeTextarea } from "./auto-resize-textarea";
 import { TaskToggle } from "./task-toggle";
-import { useProjects } from "@modules/todo/use-projects";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Calendar,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-} from "@done/ui";
+import { TaskDatePicker } from "./task-date-picker";
+import { TaskProjectSelector } from "./task-project-selector";
+import { TaskImportantToggle } from "./task-important-toggle";
+import { TaskTimeInput } from "./task-time-input";
 
 interface TaskDrawerContentProps {
   task: Task;
@@ -63,7 +53,6 @@ export function TaskDrawerContent({
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const tagInputRef = useRef<HTMLInputElement>(null);
   const { save, flush } = useDebouncedSave(600);
-  const { projects } = useProjects();
 
   useEffect(() => {
     if (isEditing) {
@@ -111,28 +100,6 @@ export function TaskDrawerContent({
       projectId: task.projectId,
       ...details,
     });
-  }
-
-  function handleTimeChange(newValue: string) {
-    let value = newValue.replace(/\D/g, "");
-    if (value.length > 4) value = value.slice(0, 4);
-
-    if (value.length >= 3) {
-      value = value.slice(0, 2) + ":" + value.slice(2);
-    }
-
-    // Validate HH range (00-23)
-    if (value.length >= 2) {
-      const hh = parseInt(value.slice(0, 2));
-      if (hh > 23) value = "23" + value.slice(2);
-    }
-    // Validate mm range (00-59)
-    if (value.length >= 5) {
-      const mm = parseInt(value.slice(3, 5));
-      if (mm > 59) value = value.slice(0, 3) + "59";
-    }
-
-    patchDetails({ dueTime: value });
   }
 
   function generateSubtaskId() {
@@ -214,36 +181,14 @@ export function TaskDrawerContent({
 
       <div className="rounded-base border-2 border-black bg-white p-4 shadow-shadow">
         <label className="mb-2 block text-sm font-black">Project</label>
-        <Select
+        <TaskProjectSelector
           value={task.projectId || "none"}
-          onValueChange={(value) =>
+          onChange={(value) =>
             patchDetails({ projectId: value === "none" ? undefined : value })
           }
-        >
-          <SelectTrigger className="w-full bg-[#fffaf0] font-bold outline-none cursor-pointer text-sm py-2 px-3 h-auto">
-            <SelectValue placeholder="No project" />
-          </SelectTrigger>
-          <SelectContent className="bg-[#fffaf0]">
-            <SelectItem value="none" className="font-bold cursor-pointer">
-              No project
-            </SelectItem>
-            {projects.map((p) => (
-              <SelectItem
-                key={p.id}
-                value={p.id}
-                className="font-bold cursor-pointer"
-              >
-                <div className="flex items-center gap-2">
-                  <div
-                    className="w-2.5 h-2.5 rounded-full border border-black"
-                    style={{ backgroundColor: p.color }}
-                  ></div>
-                  <span>{p.name}</span>
-                </div>
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+          isVisible={true}
+          className="bg-[#fffaf0] w-full"
+        />
       </div>
 
       <div className="rounded-base border-2 border-black bg-white p-4 shadow-shadow">
@@ -328,40 +273,16 @@ export function TaskDrawerContent({
 
       <div className="rounded-base border-2 border-black bg-white p-4 shadow-shadow">
         <h3 className="mb-2 text-sm font-black">Due date</h3>
-        <div className="grid grid-cols-2 gap-2">
-          <Popover>
-            <PopoverTrigger asChild>
-              <button
-                type="button"
-                className="flex items-center gap-2 rounded-base border-2 border-black bg-[#fffaf0] px-3 py-2 text-sm font-bold outline-none"
-              >
-                <CalendarIcon className="h-4 w-4" />
-                {task.dueDate && isValid(parseISO(task.dueDate))
-                  ? format(parseISO(task.dueDate), "dd/MM/yyyy")
-                  : "Set date"}
-              </button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
-              <Calendar
-                mode="single"
-                selected={task.dueDate ? parseISO(task.dueDate) : undefined}
-                onSelect={(date) =>
-                  patchDetails({
-                    dueDate: date ? format(date, "yyyy-MM-dd") : "",
-                  })
-                }
-                initialFocus
-                locale={ptBR}
-              />
-            </PopoverContent>
-          </Popover>
-          <input
-            type="text"
+        <div className="flex flex-col gap-2">
+          <TaskDatePicker
+            dueDateStr={task.dueDate || ""}
+            onDateChange={(date) => patchDetails({ dueDate: date })}
+            className="bg-[#fffaf0] w-full justify-start py-2 px-3"
+          />
+          <TaskTimeInput
             value={task.dueTime}
-            onChange={(e) => handleTimeChange(e.target.value)}
-            placeholder="HH:mm"
-            className="rounded-base border-2 border-black bg-[#fffaf0] px-2 py-1 text-sm font-bold outline-none placeholder:text-gray-300"
-            maxLength={5}
+            onChange={(value) => patchDetails({ dueTime: value })}
+            className="bg-[#fffaf0] w-full px-3 py-2"
           />
         </div>
       </div>
@@ -371,19 +292,11 @@ export function TaskDrawerContent({
           <label className="text-sm font-black" htmlFor="important-task">
             Important task
           </label>
-          <button
-            id="important-task"
-            type="button"
-            className={`rounded-base border-2 border-black px-3 py-1 text-lg shadow-shadow transition-all active:translate-x-[3px] active:translate-y-[3px] active:shadow-none ${
-              task.important ? "bg-[#ffe066]" : "bg-white"
-            }`}
-            onClick={() => patchDetails({ important: !task.important })}
-            aria-label={
-              task.important ? "Remove important flag" : "Mark as important"
-            }
-          >
-            ⭐
-          </button>
+          <TaskImportantToggle
+            isImportant={task.important}
+            onToggle={() => patchDetails({ important: !task.important })}
+            className="bg-[#fffaf0]"
+          />
         </div>
 
         <label className="mb-2 block text-sm font-black" htmlFor="task-url">
