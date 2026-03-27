@@ -67,6 +67,10 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null);
   const [editingContent, setEditingContent] = useState("");
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
+  const [zenModeTaskId, setZenModeTaskId] = useLocalStorage<string | null>(
+    "todo-zen-mode",
+    null,
+  );
 
   const hasLegacyTasks = useMemo(() => tasks.some(hasLegacyFields), [tasks]);
   const normalizedTasks = useMemo(
@@ -233,5 +237,9 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
     clearFinishedTasks,
     reorderTodoTasks,
     reorderFinishedTasks,
+    zenModeTaskId,
+    zenModeTask: normalizedTasks.find((t) => t.id === zenModeTaskId) ?? null,
+    enterZenMode: (id: string) => setZenModeTaskId(id),
+    exitZenMode: () => setZenModeTaskId(null),
   };
 }

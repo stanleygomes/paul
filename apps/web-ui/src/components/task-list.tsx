@@ -15,6 +15,7 @@ interface TaskListProps {
   onDelete: (id: string) => void;
   onReorder: (tasks: Task[]) => void;
   onOpenDrawer: (task: Task) => void;
+  onEnterZenMode?: (id: string) => void;
   showProject?: boolean;
 }
 
@@ -30,6 +31,7 @@ export function TaskList({
   onDelete,
   onReorder,
   onOpenDrawer,
+  onEnterZenMode,
   showProject,
 }: TaskListProps) {
   if (tasks.length === 0) {
@@ -56,6 +58,7 @@ export function TaskList({
           onCloseEdit={onCloseEdit}
           onDelete={onDelete}
           onOpenDrawer={onOpenDrawer}
+          onEnterZenMode={onEnterZenMode}
           showProject={showProject}
         />
       ))}

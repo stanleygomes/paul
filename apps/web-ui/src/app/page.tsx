@@ -9,6 +9,7 @@ import { AppHeader } from "../components/app-header";
 import { TaskList } from "../components/task-list";
 import { TaskInputBar } from "../components/task-input-bar";
 import { TaskDrawer } from "../components/task-drawer";
+import { ZenModeView } from "../components/zen-mode-view";
 import { Search } from "lucide-react";
 
 function TaskBoard() {
@@ -44,7 +45,23 @@ function TaskBoard() {
     reorderTodoTasks,
     reorderFinishedTasks,
     clearFinishedTasks,
+    zenModeTask,
+    enterZenMode,
+    exitZenMode,
   } = useTasks(projectId, filter);
+
+  if (zenModeTask) {
+    return (
+      <main className="min-h-screen bg-[#fef6d9]">
+        <ZenModeView
+          task={zenModeTask}
+          onExit={exitZenMode}
+          onToggle={toggleTask}
+          onUpdateContent={updateEdit}
+        />
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-[#fef6d9] pb-32">
@@ -117,6 +134,7 @@ function TaskBoard() {
             onDelete={deleteTask}
             onReorder={reorderTodoTasks}
             onOpenDrawer={openDrawer}
+            onEnterZenMode={enterZenMode}
             showProject={!projectId}
           />
         </section>
@@ -144,6 +162,7 @@ function TaskBoard() {
               onDelete={deleteTask}
               onReorder={reorderFinishedTasks}
               onOpenDrawer={openDrawer}
+              onEnterZenMode={enterZenMode}
               showProject={!projectId}
             />
           </section>
@@ -168,6 +187,7 @@ function TaskBoard() {
         onUpdateEdit={updateEdit}
         onCloseEdit={closeEdit}
         onDelete={deleteTask}
+        onEnterZenMode={enterZenMode}
         onUpdateDetails={updateTaskDetails}
       />
     </main>

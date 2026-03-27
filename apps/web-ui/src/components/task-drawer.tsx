@@ -16,6 +16,7 @@ interface TaskDrawerProps {
   onUpdateEdit: (id: string, content: string) => void;
   onCloseEdit: () => void;
   onDelete: (id: string) => void;
+  onEnterZenMode?: (id: string) => void;
   onUpdateDetails: (
     id: string,
     details: Pick<
@@ -44,6 +45,7 @@ export function TaskDrawer({
   onUpdateEdit,
   onCloseEdit,
   onDelete,
+  onEnterZenMode,
   onUpdateDetails,
 }: TaskDrawerProps) {
   function handleDelete(id: string) {
@@ -74,6 +76,10 @@ export function TaskDrawer({
               onUpdateEdit={onUpdateEdit}
               onCloseEdit={onCloseEdit}
               onDelete={handleDelete}
+              onEnterZenMode={(id) => {
+                onEnterZenMode?.(id);
+                onClose();
+              }}
               onUpdateDetails={onUpdateDetails}
             />
           </div>

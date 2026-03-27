@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Trash2 } from "lucide-react";
+import { Trash2, Maximize2 } from "lucide-react";
 import type { Task } from "@models/task";
 import { generateUUID } from "@done/utils/src/uuid-utils";
 import { useDebouncedSave } from "../hooks/use-debounced-save";
@@ -24,6 +24,7 @@ interface TaskDrawerContentProps {
   onUpdateEdit: (id: string, content: string) => void;
   onCloseEdit: () => void;
   onDelete: (id: string) => void;
+  onEnterZenMode?: (id: string) => void;
   onUpdateDetails: (
     id: string,
     details: Pick<
@@ -50,6 +51,7 @@ export function TaskDrawerContent({
   onUpdateEdit,
   onCloseEdit,
   onDelete,
+  onEnterZenMode,
   onUpdateDetails,
 }: TaskDrawerContentProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -347,7 +349,18 @@ export function TaskDrawerContent({
         />
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 flex flex-col gap-3">
+        {onEnterZenMode && (
+          <button
+            type="button"
+            className="w-full flex items-center justify-center gap-2 rounded-base border-2 border-black bg-[#a7f3d0] py-4 text-lg font-black shadow-shadow transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none hover:bg-[#86efac]"
+            onClick={() => {
+              onEnterZenMode(task.id);
+            }}
+          >
+            <Maximize2 className="h-6 w-6" /> Enter Zen Mode
+          </button>
+        )}
         <button
           type="button"
           className="w-full flex items-center justify-center gap-2 rounded-base border-2 border-black bg-[#ff8fab] py-3 text-base font-bold shadow-shadow transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none hover:bg-[#ff7597]"

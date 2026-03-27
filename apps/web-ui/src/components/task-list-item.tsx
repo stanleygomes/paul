@@ -1,5 +1,5 @@
 import { Reorder, useDragControls } from "framer-motion";
-import { ChevronRight, GripVertical } from "lucide-react";
+import { ChevronRight, GripVertical, Maximize2 } from "lucide-react";
 import type { Task } from "@models/task";
 import { TaskItemContent } from "./task-item-content";
 import { useProjects } from "@modules/todo/use-projects";
@@ -15,6 +15,7 @@ interface TaskListItemProps {
   onCloseEdit: () => void;
   onDelete: (id: string) => void;
   onOpenDrawer: (task: Task) => void;
+  onEnterZenMode?: (id: string) => void;
   showProject?: boolean;
 }
 
@@ -29,6 +30,7 @@ export function TaskListItem({
   onCloseEdit,
   onDelete,
   onOpenDrawer,
+  onEnterZenMode,
   showProject,
 }: TaskListItemProps) {
   const controls = useDragControls();
@@ -143,14 +145,28 @@ export function TaskListItem({
           </aside>
         </div>
 
-        <button
-          type="button"
-          className="mt-1 shrink-0 rounded-base border-2 border-black bg-white p-1 text-gray-400 shadow-shadow transition-all hover:bg-[#ffe066] hover:text-black active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-          onClick={() => onOpenDrawer(task)}
-          aria-label="Open task details"
-        >
-          <ChevronRight size={16} />
-        </button>
+        <div className="flex flex-col gap-2 shrink-0 self-start mt-1">
+          {onEnterZenMode && (
+            <button
+              type="button"
+              className="shrink-0 rounded-base border-2 border-black bg-[#a7f3d0] p-1 text-black shadow-shadow transition-all hover:bg-[#86efac] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+              onClick={() => onEnterZenMode(task.id)}
+              aria-label="Enter Zen Mode"
+              title="Enter Zen Mode"
+            >
+              <Maximize2 size={16} />
+            </button>
+          )}
+          <button
+            type="button"
+            className="shrink-0 rounded-base border-2 border-black bg-white p-1 text-gray-400 shadow-shadow transition-all hover:bg-[#ffe066] hover:text-black active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            onClick={() => onOpenDrawer(task)}
+            aria-label="Open task details"
+            title="Open Task Details"
+          >
+            <ChevronRight size={16} />
+          </button>
+        </div>
       </div>
     </Reorder.Item>
   );
