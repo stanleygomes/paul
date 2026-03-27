@@ -43,7 +43,7 @@ export default function Home() {
           onToggleSearch={() => {
             setIsSearchVisible(!isSearchVisible);
             if (isSearchVisible) {
-              setSearchQuery(""); // Clear search when hiding
+              setSearchQuery("");
             }
           }}
           isSearchVisible={isSearchVisible}

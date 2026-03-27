@@ -1,5 +1,0 @@
-{
-  "extends": "@done/typescript-config/base.json",
-  "include": ["../search-ranker/src/**/*"],
-  "exclude": ["../search-ranker/node_modules"]
-}
