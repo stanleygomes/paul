@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  transpilePackages: ["@done/search-ranker", "@done/utils", "@done/ui"],
   // experimental: {
   //   turbopackUseSystemTlsCerts: true,
   // },

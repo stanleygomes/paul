@@ -1,15 +1,21 @@
 "use client";
 
+import { useState } from "react";
+
 import { useTasks } from "@modules/todo/use-tasks";
 import { AppHeader } from "../components/app-header";
 import { TaskList } from "../components/task-list";
 import { TaskInputBar } from "../components/task-input-bar";
 import { TaskDrawer } from "../components/task-drawer";
+import { Search } from "lucide-react";
 
 export default function Home() {
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
   const {
     todoTasks,
     finishedTasks,
+    searchQuery,
+    setSearchQuery,
     newTask,
     setNewTask,
     editingTaskId,
@@ -33,7 +39,31 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#fef6d9] pb-32">
       <div className="mx-auto max-w-2xl px-4">
-        <AppHeader />
+        <AppHeader
+          onToggleSearch={() => {
+            setIsSearchVisible(!isSearchVisible);
+            if (isSearchVisible) {
+              setSearchQuery(""); // Clear search when hiding
+            }
+          }}
+          isSearchVisible={isSearchVisible}
+        />
+
+        {isSearchVisible && (
+          <div className="mb-8 relative">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+              <Search className="w-5 h-5 text-gray-400" />
+            </div>
+            <input
+              type="text"
+              placeholder="Search tasks..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-white border-2 border-black rounded-xl pl-12 pr-4 py-3 text-lg font-bold placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black/90 transition-shadow outline-none"
+              autoFocus
+            />
+          </div>
+        )}
 
         <section className="flex flex-col gap-4">
           <TaskList

@@ -37,6 +37,7 @@
     "@done/typescript-config": "file:../../packages/typescript-config",
     "@done/ui": "file:../../packages/ui",
     "@done/utils": "file:../../packages/utils",
+    "@done/search-ranker": "file:../../packages/search-ranker",
     "@tailwindcss/postcss": "^4",
     "@types/next-pwa": "5.6.9",
     "@types/node": "^22.15.3",

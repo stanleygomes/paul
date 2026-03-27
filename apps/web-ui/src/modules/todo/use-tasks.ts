@@ -5,6 +5,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { TaskManager } from "@modules/todo/task-manager";
 import type { Task } from "@models/task";
 import { isUUID, generateUUID } from "@done/utils/src/uuid-utils";
+import { SearchRanker } from "@done/search-ranker";
 
 function normalizeTask(task: Task): Task {
   return {
@@ -61,6 +62,7 @@ function deriveParentTaskDoneState(
 export function useTasks() {
   const [tasks, setTasks] = useLocalStorage<Task[]>("todo-tasks", []);
   const [newTask, setNewTask] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null);
   const [editingContent, setEditingContent] = useState("");
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
@@ -83,9 +85,13 @@ export function useTasks() {
     [normalizedTasks],
   );
 
+  const filteredTasks = useMemo(() => {
+    return SearchRanker.search(normalizedTasks, searchQuery);
+  }, [normalizedTasks, searchQuery]);
+
   const { todoTasks, finishedTasks } = useMemo(
     () =>
-      normalizedTasks.reduce<{ todoTasks: Task[]; finishedTasks: Task[] }>(
+      filteredTasks.reduce<{ todoTasks: Task[]; finishedTasks: Task[] }>(
         (acc, task) => {
           if (task.done) acc.finishedTasks.push(task);
           else acc.todoTasks.push(task);
@@ -93,7 +99,7 @@ export function useTasks() {
         },
         { todoTasks: [], finishedTasks: [] },
       ),
-    [normalizedTasks],
+    [filteredTasks],
   );
 
   const selectedTask = useMemo(
@@ -193,6 +199,8 @@ export function useTasks() {
   return {
     todoTasks,
     finishedTasks,
+    searchQuery,
+    setSearchQuery,
     newTask,
     setNewTask,
     editingTaskId,
