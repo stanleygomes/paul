@@ -3,6 +3,7 @@ export interface Task {
   content: string;
   done: boolean;
   createdAt: number;
+  projectId: string | null;
   notes: string;
   important: boolean;
   dueDate: string;

@@ -8,7 +8,7 @@ export class TaskManager {
     private readonly now: () => number = () => Date.now(),
   ) {}
 
-  create(content: string): Task[] {
+  create(content: string, projectId: string | null = null): Task[] {
     const value = content.trim();
     if (!value) {
       return this.tasks;
@@ -20,6 +20,7 @@ export class TaskManager {
         content: value,
         done: false,
         createdAt: this.now(),
+        projectId,
         notes: "",
         important: false,
         dueDate: "",
