@@ -4,7 +4,8 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { UserAvatar } from "../../components/user-avatar";
 import { Menu as MenuIcon, X } from "lucide-react";
-import { MENU_LINKS, MenuItem } from "./items";
+import { MenuItem } from "./items";
+import { MENU_LINKS } from "../../constants/menu-links";
 
 function renderMenuLinks(
   pathname: string,
