@@ -17,7 +17,7 @@ export function BoardHeader({
       >
         ← Back to Projects
       </a>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center mt-2 gap-2">
         {color && (
           <div
             className="w-5 h-5 rounded-full border-2 border-black"

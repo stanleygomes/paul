@@ -20,6 +20,7 @@ interface TaskListItemProps {
   onCloseEdit: () => void;
   onDelete: (id: string) => void;
   onOpenDrawer: (task: Task) => void;
+  onUpdateTaskDetails: (id: string, details: any) => void;
   onEnterZenMode?: (id: string) => void;
   showProject?: boolean;
 }
@@ -35,6 +36,7 @@ export function TaskListItem({
   onCloseEdit,
   onDelete,
   onOpenDrawer,
+  onUpdateTaskDetails,
   onEnterZenMode,
   showProject,
 }: TaskListItemProps) {
@@ -105,6 +107,7 @@ export function TaskListItem({
             task={task}
             project={project}
             showProject={showProject}
+            onUpdateDetails={onUpdateTaskDetails}
           />
         </div>
       </div>

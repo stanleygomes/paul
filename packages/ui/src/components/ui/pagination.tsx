@@ -2,7 +2,7 @@ import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 
 import * as React from "react";
 
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "./button";
 
 import { cn } from "../../lib/utils";
 

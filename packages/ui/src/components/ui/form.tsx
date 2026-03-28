@@ -14,7 +14,7 @@ import {
 
 import * as React from "react";
 
-import { Label } from "@/components/ui/label";
+import { Label } from "./label";
 
 import { cn } from "../../lib/utils";
 

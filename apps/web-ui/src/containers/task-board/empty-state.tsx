@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 
 const MESSAGES = [
   {
@@ -45,14 +45,14 @@ export function EmptyState() {
   if (!mounted || !message) return null;
 
   return (
-    <div className="flex flex-col items-center rounded-base mx-20 border-2 border-black bg-[#ffe066] text-center shadow-shadow transition-all">
-      <Image
+    <div className="flex flex-col mt-10 items-center rounded-base mx-20 border-2 border-black bg-[#ffe066] text-center shadow-shadow transition-all">
+      {/* <Image
         src={message.image}
         alt={message.title}
         width={300}
         height={300}
         className="w-full object-contain"
-      />
+      /> */}
       <div className="px-8 py-4">
         <p className="text-xl font-bold">{message.title}</p>
         <p className="mt-2 text-sm font-medium">{message.body}</p>

@@ -117,6 +117,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
             onDelete={deleteTask}
             onReorder={reorderTodoTasks}
             onOpenDrawer={openDrawer}
+            onUpdateDetails={updateTaskDetails}
             onEnterZenMode={enterZenMode}
             showProject={!projectId}
           />
@@ -137,6 +138,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
               onDelete={deleteTask}
               onReorder={reorderFinishedTasks}
               onOpenDrawer={openDrawer}
+              onUpdateDetails={updateTaskDetails}
               onEnterZenMode={enterZenMode}
               showProject={!projectId}
             />
