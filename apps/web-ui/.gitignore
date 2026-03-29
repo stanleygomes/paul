@@ -45,3 +45,9 @@ certificates
 # firebase
 firebase-debug.log
 .firebase/*
+
+# PWA
+public/sw.js*
+public/workbox-*.js*
+public/worker-*.js*
+public/manifest.json
