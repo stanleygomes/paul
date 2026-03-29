@@ -15,6 +15,11 @@ export default function MenuRight() {
   const searchParams = useSearchParams();
   const isSearchVisible = searchParams.get("search") === "true";
 
+  const isLogin = pathname === "/login";
+  const isLanding = pathname === "/landing";
+
+  if (isLogin || isLanding) return null;
+
   const showSearch = pathname === "/";
 
   const toggleSearch = () => {

@@ -407,7 +407,7 @@
   },
   "login": {
     "title": "Faça mais com Done.",
-    "footer": "Estrutura de Gerenciamento de Tarefas Minimalista © {{year}}",
+    "footer": "Done. © {{year}}",
     "links": {
       "privacy": "Privacidade",
       "terms": "Termos",

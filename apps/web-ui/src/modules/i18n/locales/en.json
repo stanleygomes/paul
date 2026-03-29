@@ -407,7 +407,7 @@
   },
   "login": {
     "title": "Get more Done.",
-    "footer": "Minimalist Task Management Framework © {{year}}",
+    "footer": "Done. © {{year}}",
     "links": {
       "privacy": "Privacy",
       "terms": "Terms",
