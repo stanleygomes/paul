@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Icon } from "@done/ui/components/ui/icon";
 import { Button } from "@done/ui/components/ui/button";
 import { Input } from "@done/ui/components/ui/input";
+import { useTranslation } from "react-i18next";
 import {
   Card,
   CardContent,
@@ -17,7 +18,7 @@ import {
 } from "@done/ui/components/ui/card";
 
 const emailSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
+  email: z.string().email("invalid_email"),
 });
 
 type EmailFormData = z.infer<typeof emailSchema>;
@@ -27,6 +28,7 @@ interface EmailFormProps {
 }
 
 export default function EmailForm({ onSubmit }: EmailFormProps) {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -49,7 +51,7 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
           <div className="flex h-14 w-14 items-center justify-center rounded-base border-4 border-border bg-main text-main-foreground shadow-shadow">
             <Icon icon="solar:check-read-linear" className="h-8 w-8" />
           </div>
-          <div>Manage your tasks with focus and simplicity.</div>
+          <div>{t("login.form.title")}</div>
         </CardTitle>
       </CardHeader>
       <CardContent className="mt-4">
@@ -57,19 +59,19 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
               <p className="text-sm font-bold text-foreground/60 mb-1 uppercase tracking-wider">
-                Your Email Address
+                {t("login.form.email_label")}
               </p>
               <Input
                 id="email"
                 type="email"
                 {...register("email")}
-                placeholder="name@example.com"
+                placeholder={t("login.form.email_placeholder")}
                 className="h-12 rounded-base border-2 border-border bg-background px-4 font-bold ring-offset-background placeholder:text-foreground/30 focus-visible:ring-2 focus-visible:ring-main"
                 required
               />
               {errors.email && (
                 <p className="text-xs font-black text-red-500 uppercase mt-1 italic">
-                  {errors.email.message}
+                  {t(`login.form.errors.${errors.email.message}`)}
                 </p>
               )}
             </div>
@@ -83,22 +85,22 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
           disabled={!isValid}
           className="h-14 w-full rounded-base border-2 border-border bg-main text-lg font-black uppercase text-main-foreground shadow-shadow transition-all active:translate-x-1 active:translate-y-1 active:shadow-none hover:bg-main/90"
         >
-          Check In
+          {t("login.form.submit")}
         </Button>
         <span className="text-center text-xs font-bold text-foreground/40 leading-tight">
-          By continuing, you agree to our{" "}
+          {t("login.form.agreement")}{" "}
           <a
             href="/privacy"
             className="text-foreground underline decoration-2 underline-offset-2 hover:text-main"
           >
-            Privacy Policy
+            {t("login.links.privacy")}
           </a>{" "}
-          and{" "}
+          {t("login.form.and")}{" "}
           <a
             href="/terms"
             className="text-foreground underline decoration-2 underline-offset-2 hover:text-main"
           >
-            Terms of Service
+            {t("login.links.terms")}
           </a>
           .
         </span>

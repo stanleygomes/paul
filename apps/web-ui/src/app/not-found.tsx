@@ -1,4 +1,6 @@
-import ErrorPage from "src/containers/error-page";
+"use client";
+
+import ErrorPage from "@containers/error";
 
 export default function NotFound() {
   return (

@@ -9,12 +9,15 @@ interface TaskSubtasksProps {
   onUpdateSubtaskTitle: (id: string, title: string) => void;
 }
 
+import { useTranslation } from "react-i18next";
+
 export function TaskSubtasks({
   subtasks,
   onAddSubtask,
   onToggleSubtask,
   onUpdateSubtaskTitle,
 }: TaskSubtasksProps) {
+  const { t } = useTranslation();
   const lastSubtaskCount = useRef(subtasks.length);
   const listContainerRef = useRef<HTMLDivElement>(null);
 
@@ -31,14 +34,14 @@ export function TaskSubtasks({
 
   return (
     <FormField
-      label="Subtasks"
+      label={t("task_form.labels.subtasks")}
       action={
         <button
           type="button"
           className="rounded-base border-2 border-border bg-main text-main-foreground px-2 py-1 text-xs font-bold shadow-shadow transition-all active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
           onClick={onAddSubtask}
         >
-          Add subtask
+          {t("task_form.buttons.add_subtask")}
         </button>
       }
     >
@@ -55,8 +58,8 @@ export function TaskSubtasks({
               onClick={() => onToggleSubtask(subtask.id)}
               aria-label={
                 subtask.done
-                  ? "Mark subtask as not done"
-                  : "Mark subtask as done"
+                  ? t("task_form.aria.mark_subtask_undone")
+                  : t("task_form.aria.mark_subtask_done")
               }
             >
               {subtask.done ? "✓" : ""}
@@ -71,7 +74,7 @@ export function TaskSubtasks({
                 }
               }}
               className="w-full rounded-base border-2 border-border bg-secondary-background px-2 py-1 text-sm outline-none"
-              placeholder="Subtask title"
+              placeholder={t("task_form.placeholders.subtask_title")}
             />
           </div>
         ))}

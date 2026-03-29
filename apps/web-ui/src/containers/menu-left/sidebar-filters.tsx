@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { PROJECT_FILTERS } from "src/constants/task-filters";
 
@@ -6,6 +7,7 @@ export function SidebarFilters({
 }: {
   searchParams: URLSearchParams;
 }) {
+  const { t } = useTranslation();
   const currentFilter = searchParams.get("filter");
 
   return (
@@ -23,7 +25,7 @@ export function SidebarFilters({
             }`}
           >
             <filter.icon className={"w-5 h-5 text-main-foreground"} />
-            <span className="text-sm">{filter.name}</span>
+            <span className="text-sm">{t(`sidebar.filters.${filter.id}`)}</span>
           </Link>
         );
       })}

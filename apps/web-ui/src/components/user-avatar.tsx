@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,6 +20,7 @@ interface UserAvatarProps {
 }
 
 export function UserAvatar({ className }: UserAvatarProps) {
+  const { t } = useTranslation();
   const [avatar, setAvatar] = useState<string | null>(null);
 
   useEffect(() => {
@@ -39,7 +41,12 @@ export function UserAvatar({ className }: UserAvatarProps) {
       <div
         className={`relative overflow-hidden rounded-full bg-black transition-all group-hover:scale-110 group-hover:rotate-3 group-active:scale-95 shadow-sm group-hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:group-hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.2)] ${className}`}
       >
-        <Image src={avatar} alt="Avatar" fill className="object-cover" />
+        <Image
+          src={avatar}
+          alt={t("common.components.user_avatar.alt")}
+          fill
+          className="object-cover"
+        />
       </div>
     </Link>
   );

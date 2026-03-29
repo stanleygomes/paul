@@ -117,7 +117,7 @@ export function CreateTaskInput({
               value={selectedProjectId}
               onChange={setSelectedProjectId}
               isVisible={!currentProjectId}
-              className="bg-secondary-background w-36"
+              className="bg-secondary-background w-40"
             />
           </div>
         </div>

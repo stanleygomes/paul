@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FormField } from "./form-field";
 
 interface TaskUrlProps {
@@ -6,8 +7,10 @@ interface TaskUrlProps {
 }
 
 export function TaskUrl({ url, onUpdateUrl }: TaskUrlProps) {
+  const { t } = useTranslation();
+
   return (
-    <FormField label="URL">
+    <FormField label={t("task_form.labels.url")}>
       <input
         type="url"
         value={url || ""}

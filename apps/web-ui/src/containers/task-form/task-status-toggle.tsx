@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { Task } from "@models/task";
 import { TaskToggle } from "../../components/task-toggle";
 
@@ -7,11 +8,15 @@ interface TaskStatusToggleProps {
 }
 
 export function TaskStatusToggle({ task, onToggle }: TaskStatusToggleProps) {
+  const { t } = useTranslation();
+
   return (
     <>
       <TaskToggle task={task} onToggle={onToggle} className="mt-0" />
       <span className="text-lg font-bold">
-        {task.done ? "Completed" : "Mark as completed"}
+        {task.done
+          ? t("task_form.status.completed")
+          : t("task_form.status.mark_completed")}
       </span>
     </>
   );

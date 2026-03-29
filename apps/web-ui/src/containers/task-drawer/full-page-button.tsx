@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Maximize2 } from "lucide-react";
 
 interface TaskDrawerFullPageProps {
@@ -9,6 +10,8 @@ export function TaskDrawerFullPageButton({
   taskId,
   onClick,
 }: TaskDrawerFullPageProps) {
+  const { t } = useTranslation();
+
   return (
     <button
       type="button"
@@ -17,7 +20,7 @@ export function TaskDrawerFullPageButton({
         onClick(taskId);
       }}
     >
-      <Maximize2 className="h-5 w-5" /> Open Full Page
+      <Maximize2 className="h-5 w-5" /> {t("task_drawer.buttons.full_page")}
     </button>
   );
 }

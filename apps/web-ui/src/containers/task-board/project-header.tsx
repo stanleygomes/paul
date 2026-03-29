@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 interface BoardHeaderProps {
   title: string;
   color?: string;
@@ -9,6 +11,14 @@ export function BoardHeader({
   color,
   isFilter = false,
 }: BoardHeaderProps) {
+  const { t } = useTranslation();
+
+  const displayTitle = isFilter
+    ? t("task_board.header.filter_tasks", {
+        filter: t(`sidebar.filters.${title}`),
+      })
+    : title;
+
   return (
     <div className="mb-6 px-1 flex flex-col gap-2 animate-in fade-in slide-in-from-left-2 duration-300">
       {/* <a
@@ -24,9 +34,7 @@ export function BoardHeader({
             style={{ backgroundColor: color }}
           ></div>
         )}
-        <h2 className={`text-2xl font-black ${isFilter ? "capitalize" : ""}`}>
-          {isFilter ? `${title} Tasks` : title}
-        </h2>
+        <h2 className="text-2xl font-black">{displayTitle}</h2>
       </div>
     </div>
   );

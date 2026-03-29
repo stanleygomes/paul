@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Clock } from "lucide-react";
 
 interface TimeInputProps {
@@ -7,6 +8,8 @@ interface TimeInputProps {
 }
 
 export function TaskTimeInput({ value, onChange, className }: TimeInputProps) {
+  const { t } = useTranslation();
+
   function handleTimeChange(newValue: string) {
     let formattedValue = newValue.replace(/\D/g, "");
     if (formattedValue.length > 4) formattedValue = formattedValue.slice(0, 4);
@@ -32,14 +35,16 @@ export function TaskTimeInput({ value, onChange, className }: TimeInputProps) {
 
   return (
     <div
-      className={`flex items-center gap-1 rounded-base border-2 border-border px-2 py-1 shadow-sm transition-colors focus-within:text-foreground ${value ? "text-foreground" : "text-foreground/40"} ${className}`}
+      className={`flex h-8 cursor-pointer items-center gap-1 rounded-base border-2 border-border px-2 py-1 shadow-sm transition-colors focus-within:text-foreground whitespace-nowrap ${
+        value ? "text-foreground" : "text-foreground/40"
+      } ${className}`}
     >
       <Clock className="h-4 w-4 shrink-0" />
       <input
         type="text"
         value={value}
         onChange={(e) => handleTimeChange(e.target.value)}
-        placeholder="HH:mm"
+        placeholder={t("common.components.time_input.placeholder")}
         className="bg-transparent outline-none text-xs font-bold w-[45px] cursor-pointer placeholder:text-foreground/40"
         maxLength={5}
       />

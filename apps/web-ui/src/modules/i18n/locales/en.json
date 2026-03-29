@@ -2,13 +2,39 @@
   "settings": {
     "title": "Settings",
     "back": "Back",
-    "language": "Language",
-    "language_description": "Select your preferred language",
-    "en": "English",
-    "pt": "Portuguese",
     "account": "Account",
     "theme": "Theme",
-    "notifications": "Notifications"
+    "language": "Language",
+    "notifications": "Notifications",
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "privacy_desc": "Read how we handle your data and privacy.",
+      "terms": "Terms of Service",
+      "terms_desc": "By using this app, you agree to these legal terms."
+    },
+    "guest": {
+      "title": "You're browsing as a guest",
+      "subtitle": "Log in to sync your tasks, access your history, and enjoy all the benefits.",
+      "login_button": "Log in"
+    },
+    "themes": {
+      "light": "Light",
+      "dark": "Dark",
+      "auto": "Auto"
+    },
+    "notification_settings": {
+      "title": "Task Reminders",
+      "status": {
+        "granted": "Notifications are enabled on this device.",
+        "unsupported": "Notifications are not supported by your browser.",
+        "default": "Enable to receive reminders for scheduled tasks."
+      },
+      "buttons": {
+        "enable": "Enable Notifications",
+        "denied": "Enable in Settings"
+      }
+    }
   },
   "projects": {
     "header": {
@@ -41,6 +67,362 @@
       "scheduled": "Scheduled",
       "all": "All Tasks",
       "important": "Important"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: March 29, 2026",
+    "sections": {
+      "data_collected": {
+        "title": "1. Data Collected",
+        "p1": "Our application, <0>Done.</0>, collects and stores data necessary for task management. This includes task content, project names, due dates, and your preferences.",
+        "p2": "When you create an account, we may store your name and email address to sync your data across devices."
+      },
+      "usage": {
+        "title": "2. How We Use Your Data",
+        "p1": "Your data is used exclusively to facilitate your productivity. We organize your tasks and send you notifications for due dates. We do not use your task content for training AI models or for any advertising profiling."
+      },
+      "storage": {
+        "title": "3. Local vs. Cloud Storage",
+        "p1": "We prioritize your privacy by keeping most of your data in your device's local storage.",
+        "p2": "If you use our cloud sync feature, your tasks are encrypted during transmission and when stored on our secure servers."
+      },
+      "sharing": {
+        "title": "4. Sharing and Disclosure",
+        "p1": "We <0>NEVER</0> sell, trade, or otherwise transfer your personal data to third parties. Your productivity is private."
+      },
+      "rights": {
+        "title": "5. Your Rights",
+        "p1": "You have the right to access, export, or delete all your data at any time. Within the app settings, you can clear your local storage or delete your account."
+      }
+    },
+    "footer": "Done. Application © 2026"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "last_updated": "Last updated: March 29, 2026",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "p1": "By accessing or using <0>Done.</0>, you agree to be bound by these Terms of Service. If you do not agree to all these terms, you may not use the application."
+      },
+      "description": {
+        "title": "2. Description of Service",
+        "p1": "Done. is a task management application designed to help you organize your productivity. We provide tools to create, manage, and sync tasks across your devices."
+      },
+      "responsibilities": {
+        "title": "3. User Responsibilities",
+        "p1": "You are responsible for the content you create within the app. You agree not to use the service for any illegal or unauthorized purpose.",
+        "p2": "You must maintain the security of your account and notify us immediately of any unauthorized use."
+      },
+      "property": {
+        "title": "4. Intellectual Property",
+        "p1": "The application, including its design, code, and original content, is the property of Done. Application. You may not reproduce or distribute any part of the service without our permission."
+      },
+      "liability": {
+        "title": "5. Limitation of Liability",
+        "p1": "Done. is provided \"as is\" without any warranties. We are not liable for any data loss or productivity issues resulting from the use of the application."
+      },
+      "modifications": {
+        "title": "6. Modifications",
+        "p1": "We reserve the right to modify these terms at any time. Your continued use of the app after such changes constitutes acceptance of the new terms."
+      }
+    },
+    "footer": "Done. Application © 2026"
+  },
+  "errors": {
+    "not_found": {
+      "title": "Page not found",
+      "description": "The page you are looking for does not exist.",
+      "button": "Back to home"
+    },
+    "task_not_found": {
+      "title": "Task not found",
+      "description": "We couldn't find the task you're looking for. It might have been deleted.",
+      "button": "Back to Tasks"
+    }
+  },
+  "task_form": {
+    "labels": {
+      "subtasks": "Subtasks",
+      "notes": "Notes",
+      "project": "Project",
+      "due_date": "Due date",
+      "tags": "Tags",
+      "url": "URL",
+      "is_important": "Is it an important task?"
+    },
+    "status": {
+      "completed": "Completed",
+      "mark_completed": "Mark as completed"
+    },
+    "buttons": {
+      "add_subtask": "Add subtask",
+      "delete_task": "Delete Task"
+    },
+    "placeholders": {
+      "subtask_title": "Subtask title",
+      "notes": "Write notes about this task",
+      "tags": "Add tag (press Enter or comma)"
+    },
+    "aria": {
+      "remove_tag": "Remove tag {{tag}}",
+      "mark_subtask_done": "Mark subtask as done",
+      "mark_subtask_undone": "Mark subtask as not done"
+    }
+  },
+  "common": {
+    "components": {
+      "date_picker": {
+        "title": "Set due date",
+        "default_label": "Date"
+      },
+      "time_input": {
+        "placeholder": "HH:mm"
+      },
+      "project_selector": {
+        "placeholder": "Project...",
+        "no_project": "No project"
+      },
+      "important_toggle": {
+        "mark": "Mark as important",
+        "unmark": "Remove importance"
+      },
+      "user_avatar": {
+        "alt": "User Avatar"
+      }
+    }
+  },
+  "task_drawer": {
+    "title": "Task Details",
+    "description": "View and edit the details of your task here.",
+    "buttons": {
+      "full_page": "Open Full Page",
+      "zen_mode": "Enter Zen Mode"
+    }
+  },
+  "zen_mode": {
+    "exit": "Exit Zen Mode",
+    "complete_button": {
+      "completed": "COMPLETED",
+      "complete_task": "COMPLETE TASK"
+    },
+    "sections": {
+      "notes": "Notes",
+      "subtasks": "Subtasks"
+    },
+    "badges": {
+      "important": "Important"
+    }
+  },
+  "task_item": {
+    "actions": {
+      "delete": "Delete task",
+      "zen_mode": "Enter Zen Mode",
+      "details": "Open Task Details"
+    },
+    "delete_confirm": {
+      "title": "Are you absolutely sure?",
+      "description": "This action cannot be undone. This will permanently delete your task.",
+      "cancel": "Cancel",
+      "confirm": "Delete"
+    },
+    "metadata": {
+      "aria_label": "Task metadata",
+      "due_date_aria": "Due date: {{date}}",
+      "due_date_tooltip": "Due date",
+      "view_notes": "View notes",
+      "subtasks_aria": "Subtasks completed: {{completed}} of {{total}}",
+      "subtasks_tooltip": "{{completed}} tasks completed of total {{total}}",
+      "remove_tag": "Remove tag"
+    }
+  },
+  "task_board": {
+    "empty_state": [
+      {
+        "title": "Wow, you did it!",
+        "body": "Every task is complete. Enjoy your free time!"
+      },
+      {
+        "title": "All caught up!",
+        "body": "You crushed your to-do list. Time to relax."
+      },
+      {
+        "title": "Zero tasks remaining!",
+        "body": "Great job tackling everything for today."
+      },
+      {
+        "title": "Nothing to do here!",
+        "body": "You're an absolute productivity machine."
+      },
+      {
+        "title": "Boom! List cleared.",
+        "body": "Take a deep breath, smile, and rest up."
+      }
+    ],
+    "finished_header": {
+      "title": "Finished",
+      "clear_all": "Clear All",
+      "delete_all": "Delete all finished tasks"
+    },
+    "header": {
+      "filter_tasks": "{{filter}} Tasks"
+    },
+    "search": {
+      "placeholder": "Search tasks..."
+    }
+  },
+  "create_task": {
+    "placeholder": "New task...",
+    "add_button": "Add",
+    "status": {
+      "saving": "Saving...",
+      "saved": "Saved ✓"
+    },
+    "footer": {
+      "keyboard_hint": "Type and press <kbd>Ctrl + Enter</kbd> to add a task"
+    }
+  },
+  "sidebar": {
+    "title": "Done.",
+    "sections": {
+      "filters": "Filters",
+      "projects": "Projects"
+    },
+    "filters": {
+      "today": "Today",
+      "scheduled": "Scheduled",
+      "all": "All Tasks",
+      "important": "Important"
+    },
+    "buttons": {
+      "manage_projects": "Manage Projects"
+    }
+  },
+  "menu": {
+    "search_toggle": "Search",
+    "mobile_toggle": "Menu",
+    "links": {
+      "tasks": "Tasks",
+      "projects": "Projects"
+    }
+  },
+  "landing": {
+    "menu": {
+      "features": "Features",
+      "testimonials": "Testimonials",
+      "pricing": "Pricing",
+      "login": "Login"
+    },
+    "hero": {
+      "framework": "Focused Work Framework",
+      "title_main": "Focus on what",
+      "title_highlight": "Matters.",
+      "description": "Done. is the minimalist task manager designed to clear your head and amplify your focus. No clutter, just your list.",
+      "cta": "Get Started for free"
+    },
+    "features": {
+      "title": "Built for focus.",
+      "cards": {
+        "clarity": {
+          "title": "Mental Clarity",
+          "description": "Stop holding everything in your head. Done. is designed to help you offload your thoughts instantly so you can actually focus on working."
+        },
+        "distractions": {
+          "title": "Zero Distractions",
+          "description": "Most apps are cluttered with features you'll never use. We keep it simple: one list, one goal, and a pure sense of accomplishment."
+        },
+        "priorities": {
+          "title": "Master Priorities",
+          "description": "Instantly mark what's critical and what can wait. Our visual hierarchy ensures you always know your most important next step."
+        },
+        "followups": {
+          "title": "Smart Follow-ups",
+          "description": "Get gentle nudges that keep you moving forward. We handle the reminders so you can keep your focus where it belongs: on the task."
+        }
+      }
+    },
+    "pricing": {
+      "title": "Choose Focus.",
+      "subtitle": "Get started for free or unlock the full power of Done.",
+      "best_fit": "Best fit",
+      "month": "/month",
+      "plans": {
+        "started": {
+          "title": "Started",
+          "description": "Everything you need to stop holding tasks in your head.",
+          "cta": "Start for free",
+          "features": [
+            "Unlimited Daily Tasks",
+            "Up to 3 Projects",
+            "PWA & Mobile Support",
+            "Core Goal Management",
+            "Web App Access"
+          ]
+        },
+        "pro": {
+          "title": "Pro",
+          "description": "Unlock the full potential of your focus and workflow.",
+          "cta": "Upgrade to Pro",
+          "features": [
+            "Everything in Started",
+            "Unlimited Projects",
+            "Advanced Notifications",
+            "Weekly Productivity Stats",
+            "Priority Early Access",
+            "Custom Themes"
+          ]
+        }
+      }
+    },
+    "cta": {
+      "title": "Stop Overcomplicating.",
+      "subtitle": "Start getting your life in order today.",
+      "button": "Join now"
+    },
+    "testimonials": {
+      "title": "Focus-Seekers Choice.",
+      "subtitle": "Join thousands of users who simplified their life this week.",
+      "items": {
+        "marcos": {
+          "name": "Marcos Oliveira",
+          "role": "Software Engineer",
+          "content": "The clean UI helps me reach deep focus in seconds. No more distraction-heavy todo apps."
+        },
+        "juliana": {
+          "name": "Juliana Souza",
+          "role": "Freelance Designer",
+          "content": "Projects and importance flags changed my game. Simple hierarchy for a complex workflow."
+        },
+        "ricardo": {
+          "name": "Ricardo Lima",
+          "role": "Final Year Student",
+          "content": "PWA notifications on my Android phone ensure I never miss an assignment. Simple and works."
+        }
+      }
+    },
+    "footer": {
+      "rights": "© {{year}} DONE. APPLICATION"
+    }
+  },
+  "login": {
+    "title": "Get more Done.",
+    "footer": "Minimalist Task Management Framework © {{year}}",
+    "links": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "home": "Home"
+    },
+    "form": {
+      "title": "Manage your tasks with focus and simplicity.",
+      "email_label": "Your Email Address",
+      "email_placeholder": "name@example.com",
+      "submit": "Check In",
+      "agreement": "By continuing, you agree to our",
+      "and": "and",
+      "errors": {
+        "invalid_email": "Please enter a valid email address"
+      }
     }
   }
 }

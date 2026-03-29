@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Search } from "lucide-react";
 
 interface SearchToggleProps {
@@ -7,11 +8,14 @@ interface SearchToggleProps {
 }
 
 export function SearchToggle({ isVisible, onToggle, show }: SearchToggleProps) {
+  const { t } = useTranslation();
+
   if (!show) return null;
 
   return (
     <button
       onClick={onToggle}
+      aria-label={t("menu.search_toggle")}
       className={`cursor-pointer rounded-full p-2 transition-colors ${
         isVisible
           ? "bg-main shadow-[2px_2px_0px_0px_var(--border)] text-main-foreground border-2 border-border"

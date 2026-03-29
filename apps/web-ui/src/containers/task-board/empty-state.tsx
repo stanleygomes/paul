@@ -1,46 +1,39 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 
-const MESSAGES = [
-  {
-    title: "Wow, you did it!",
-    body: "Every task is complete. Enjoy your free time!",
-    image: "/images/cool-1.png",
-  },
-  {
-    title: "All caught up!",
-    body: "You crushed your to-do list. Time to relax.",
-    image: "/images/cool-1.png",
-  },
-  {
-    title: "Zero tasks remaining!",
-    body: "Great job tackling everything for today.",
-    image: "/images/cool-1.png",
-  },
-  {
-    title: "Nothing to do here!",
-    body: "You're an absolute productivity machine.",
-    image: "/images/cool-1.png",
-  },
-  {
-    title: "Boom! List cleared.",
-    body: "Take a deep breath, smile, and rest up.",
-    image: "/images/cool-1.png",
-  },
-];
+interface EmptyMessage {
+  title: string;
+  body: string;
+  image: string;
+}
 
 export function EmptyState() {
-  const [message, setMessage] = useState(MESSAGES[0]);
+  const { t } = useTranslation();
+  const [message, setMessage] = useState<EmptyMessage | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const messages = t("task_board.empty_state", {
+      returnObjects: true,
+    }) as Array<{ title: string; body: string }>;
+
+    if (!Array.isArray(messages)) return;
+
     const randomMsg =
-      MESSAGES[Math.floor(Math.random() * MESSAGES.length)] ?? MESSAGES[0];
-    setMessage(randomMsg);
+      messages[Math.floor(Math.random() * messages.length)] ?? messages[0];
+
+    if (randomMsg) {
+      setMessage({
+        title: randomMsg.title,
+        body: randomMsg.body,
+        image: "/images/cool-1.png",
+      });
+    }
     setMounted(true);
-  }, []);
+  }, [t]);
 
   if (!mounted || !message) return null;
 

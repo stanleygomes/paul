@@ -3,8 +3,12 @@
 import React from "react";
 import EmailForm from "./email-form";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function Login() {
+  const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
+
   const handleProceed = (data: { email: string }) => {
     console.log("Sending code to", data.email);
     // Aqui no futuro você integrará com o seu auth-api
@@ -20,7 +24,7 @@ export default function Login() {
             </div>
           </Link>
           <h2 className="text-center text-4xl font-black uppercase tracking-tighter text-foreground drop-shadow-sm md:text-5xl">
-            Get more Done.
+            {t("login.title")}
           </h2>
         </div>
 
@@ -31,25 +35,25 @@ export default function Login() {
             href="/privacy"
             className="hover:text-main underline decoration-2 underline-offset-2"
           >
-            Privacy
+            {t("login.links.privacy")}
           </Link>
           <Link
             href="/terms"
             className="hover:text-main underline decoration-2 underline-offset-2"
           >
-            Terms
+            {t("login.links.terms")}
           </Link>
           <Link
             href="/"
             className="hover:text-main underline decoration-2 underline-offset-2"
           >
-            Home
+            {t("login.links.home")}
           </Link>
         </div>
       </div>
 
       <div className="bg-border p-4 text-center text-xs font-black uppercase tracking-wider text-background md:p-6 italic">
-        Minimalist Task Management Framework &copy; 2026
+        {t("login.footer", { year: currentYear })}
       </div>
     </div>
   );

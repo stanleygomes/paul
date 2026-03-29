@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
 import type { Task } from "@models/task";
 
@@ -6,12 +7,14 @@ interface ZenSubtasksProps {
 }
 
 export function ZenSubtasks({ subtasks }: ZenSubtasksProps) {
+  const { t } = useTranslation();
+
   if (subtasks.length === 0) return null;
 
   return (
     <div className="w-full rounded-base border-4 border-border bg-secondary-background p-6 shadow-shadow">
       <h3 className="font-black text-xl mb-4 border-b-2 border-border pb-2 text-foreground">
-        Subtasks
+        {t("zen_mode.sections.subtasks")}
       </h3>
       <div className="flex flex-col gap-3">
         {subtasks.map((subtask) => (

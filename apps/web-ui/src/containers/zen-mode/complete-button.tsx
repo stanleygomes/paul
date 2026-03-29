@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
 
 interface ZenCompleteButtonProps {
@@ -6,6 +7,8 @@ interface ZenCompleteButtonProps {
 }
 
 export function ZenCompleteButton({ done, onClick }: ZenCompleteButtonProps) {
+  const { t } = useTranslation();
+
   return (
     <button
       onClick={onClick}
@@ -22,7 +25,9 @@ export function ZenCompleteButton({ done, onClick }: ZenCompleteButtonProps) {
       >
         {done && <Check className="w-6 h-6" strokeWidth={4} />}
       </div>
-      {done ? "COMPLETED" : "COMPLETE TASK"}
+      {done
+        ? t("zen_mode.complete_button.completed")
+        : t("zen_mode.complete_button.complete_task")}
     </button>
   );
 }

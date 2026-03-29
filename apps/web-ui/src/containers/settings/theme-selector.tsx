@@ -1,15 +1,17 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import { useTheme, type Theme } from "@modules/theme/use-theme";
 
-const THEME_OPTIONS: { value: Theme; label: string }[] = [
-  { value: "light", label: "Light" },
-  { value: "dark", label: "Dark" },
-  { value: "auto", label: "Auto" },
-];
-
 export function ThemeSelector() {
+  const { t } = useTranslation();
   const { theme, setTheme } = useTheme();
+
+  const THEME_OPTIONS: { value: Theme; label: string }[] = [
+    { value: "light", label: t("settings.themes.light") },
+    { value: "dark", label: t("settings.themes.dark") },
+    { value: "auto", label: t("settings.themes.auto") },
+  ];
 
   return (
     <div className="flex gap-2">

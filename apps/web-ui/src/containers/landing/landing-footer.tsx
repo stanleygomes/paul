@@ -1,7 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export function LandingFooter() {
+  const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-border p-8 border-t-4 border-black">
       <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
@@ -10,17 +14,17 @@ export function LandingFooter() {
         </div>
         <div className="flex gap-8 text-sm font-black uppercase text-background">
           <Link href="/login" className="hover:underline">
-            Login
+            {t("landing.menu.login")}
           </Link>
           <Link href="/privacy" className="hover:underline">
-            Privacy
+            {t("login.links.privacy")}
           </Link>
           <Link href="/terms" className="hover:underline">
-            Terms
+            {t("login.links.terms")}
           </Link>
         </div>
         <p className="text-xs font-black text-background/60">
-          © 2026 DONE. APPLICATION
+          {t("landing.footer.rights", { year: currentYear })}
         </p>
       </div>
     </footer>

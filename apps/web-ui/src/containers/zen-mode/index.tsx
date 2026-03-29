@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from "react";
 import { Task } from "@models/task";
 import { Star, Clock, Tag } from "lucide-react";
@@ -22,6 +23,7 @@ export function ZenModeView({
   onToggle,
   onUpdateContent,
 }: ZenModeViewProps) {
+  const { t } = useTranslation();
   const [editingContent, setEditingContent] = useState(task.content);
   const { projects } = useProjects();
   const project = task.projectId
@@ -74,7 +76,7 @@ export function ZenModeView({
               {task.important && (
                 <TaskDetailBadge className="flex items-center gap-2 bg-main text-main-foreground">
                   <Star className="w-4 h-4" fill="currentColor" />
-                  Important
+                  {t("zen_mode.badges.important")}
                 </TaskDetailBadge>
               )}
               {hasDueDate && (

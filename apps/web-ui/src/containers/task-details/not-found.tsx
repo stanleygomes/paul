@@ -1,11 +1,14 @@
-import ErrorPage from "src/containers/error-page";
+import ErrorPage from "@containers/error";
+import { useTranslation } from "react-i18next";
 
 export default function TaskDetailsNotFound() {
+  const { t } = useTranslation();
+
   return (
     <ErrorPage
-      title="Task not found"
-      description="We couldn't find the task you're looking for. It might have been deleted."
-      buttonText="Back to Tasks"
+      title={t("errors.task_not_found.title")}
+      description={t("errors.task_not_found.description")}
+      buttonText={t("errors.task_not_found.button")}
       buttonHref="/"
     />
   );

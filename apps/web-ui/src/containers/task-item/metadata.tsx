@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { Task } from "@models/task";
 import type { Project } from "@models/project";
 import { Clock, Globe, FileText, CheckCircle2, Tag, X } from "lucide-react";
@@ -29,6 +30,7 @@ export function TaskMetadata({
   showProject = true,
   onUpdateDetails,
 }: TaskMetadataProps) {
+  const { t } = useTranslation();
   const [isHoveredTag, setIsHoveredTag] = useState<string | null>(null);
 
   const hasDueDate = Boolean(task.dueDate);
@@ -63,7 +65,7 @@ export function TaskMetadata({
   return (
     <aside
       className="mt-2 flex flex-wrap items-center gap-2 text-xs font-bold"
-      aria-label="Task metadata"
+      aria-label={t("task_item.metadata.aria_label")}
     >
       {showProject && (
         <div className="relative group">
@@ -91,7 +93,9 @@ export function TaskMetadata({
           </div>
         </TooltipTrigger>
         <TooltipContent>
-          {task.important ? "Unmark as important" : "Mark as important"}
+          {task.important
+            ? t("common.components.important_toggle.unmark")
+            : t("common.components.important_toggle.mark")}
         </TooltipContent>
       </Tooltip>
 
@@ -100,13 +104,17 @@ export function TaskMetadata({
           <TooltipTrigger asChild>
             <TaskDetailBadge
               className="bg-secondary-background flex items-center gap-1.5 px-2 h-7 border border-border/50"
-              aria-label={`Due date: ${dueDateLabel}`}
+              aria-label={t("task_item.metadata.due_date_aria", {
+                date: dueDateLabel,
+              })}
             >
               <Clock className="w-3.5 h-3.5" />
               {dueDateLabel}
             </TaskDetailBadge>
           </TooltipTrigger>
-          <TooltipContent>Due date</TooltipContent>
+          <TooltipContent>
+            {t("task_item.metadata.due_date_tooltip")}
+          </TooltipContent>
         </Tooltip>
       )}
 
@@ -140,7 +148,9 @@ export function TaskMetadata({
                 </button>
               </PopoverTrigger>
             </TooltipTrigger>
-            <TooltipContent>View notes</TooltipContent>
+            <TooltipContent>
+              {t("task_item.metadata.view_notes")}
+            </TooltipContent>
           </Tooltip>
           <PopoverContent className="w-80 p-4 bg-secondary-background border-2 border-border shadow-shadow text-xs font-semibold whitespace-pre-wrap">
             {task.notes}
@@ -153,14 +163,20 @@ export function TaskMetadata({
           <TooltipTrigger asChild>
             <TaskDetailBadge
               className="bg-secondary-background flex items-center gap-1.5 px-2 h-7 border border-border/50"
-              aria-label={`Subtasks completed: ${completedSubtasks} of ${task.subtasks.length}`}
+              aria-label={t("task_item.metadata.subtasks_aria", {
+                completed: completedSubtasks,
+                total: task.subtasks.length,
+              })}
             >
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
               {completedSubtasks} / {task.subtasks.length}
             </TaskDetailBadge>
           </TooltipTrigger>
           <TooltipContent>
-            {completedSubtasks} tasks completed of total {task.subtasks.length}
+            {t("task_item.metadata.subtasks_tooltip", {
+              completed: completedSubtasks,
+              total: task.subtasks.length,
+            })}
           </TooltipContent>
         </Tooltip>
       )}
@@ -178,7 +194,7 @@ export function TaskMetadata({
             <button
               onClick={() => removeTag(tag)}
               className="ml-1 p-0.5 rounded-full hover:bg-black/10 transition-colors"
-              title="Remove tag"
+              title={t("task_item.metadata.remove_tag")}
             >
               <X className="w-3 h-3" />
             </button>

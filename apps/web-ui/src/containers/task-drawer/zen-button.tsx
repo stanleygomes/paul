@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Maximize2 } from "lucide-react";
 
 interface TaskDrawerZenButtonProps {
@@ -11,6 +12,8 @@ export function TaskDrawerZenButton({
   onClick,
   onClose,
 }: TaskDrawerZenButtonProps) {
+  const { t } = useTranslation();
+
   return (
     <button
       type="button"
@@ -20,7 +23,7 @@ export function TaskDrawerZenButton({
         onClose();
       }}
     >
-      <Maximize2 className="h-6 w-6" /> Enter Zen Mode
+      <Maximize2 className="h-6 w-6" /> {t("task_drawer.buttons.zen_mode")}
     </button>
   );
 }

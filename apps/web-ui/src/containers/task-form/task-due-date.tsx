@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { TaskDatePicker } from "../../components/task-date-picker";
 import { TaskTimeInput } from "../../components/task-time-input";
 import { FormField } from "./form-field";
@@ -15,8 +16,10 @@ export function TaskDueDate({
   onUpdateDate,
   onUpdateTime,
 }: TaskDueDateProps) {
+  const { t } = useTranslation();
+
   return (
-    <FormField label="Due date">
+    <FormField label={t("task_form.labels.due_date")}>
       <div className="flex flex-col gap-2">
         <TaskDatePicker
           dueDateStr={dueDate}

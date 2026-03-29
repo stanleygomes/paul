@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { TaskProjectSelector } from "../../components/task-project-selector";
 import { FormField } from "./form-field";
 
@@ -7,8 +8,10 @@ interface TaskProjectProps {
 }
 
 export function TaskProject({ projectId, onUpdateProject }: TaskProjectProps) {
+  const { t } = useTranslation();
+
   return (
-    <FormField label="Project">
+    <FormField label={t("task_form.labels.project")}>
       <TaskProjectSelector
         value={projectId || "none"}
         onChange={(value) =>

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { LayoutGrid, Menu as MenuIcon } from "lucide-react";
 import { Project } from "@models/project";
@@ -11,6 +12,7 @@ interface SidebarContentProps {
 }
 
 export function SidebarContent({ projects }: SidebarContentProps) {
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const { isOpen, setIsOpen, mounted } = useSidebar();
 
@@ -30,14 +32,14 @@ export function SidebarContent({ projects }: SidebarContentProps) {
           <MenuIcon className="w-6 h-6" />
         </button>
         <span className="text-2xl font-black uppercase tracking-tighter italic text-black dark:text-white">
-          Done.
+          {t("sidebar.title")}
         </span>
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-6 h-[calc(100%-80px)]">
         <section>
           <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/40 mb-2 px-3">
-            Filters
+            {t("sidebar.sections.filters")}
           </h3>
           <SidebarFilters
             searchParams={new URLSearchParams(searchParams.toString())}
@@ -46,7 +48,7 @@ export function SidebarContent({ projects }: SidebarContentProps) {
 
         <section>
           <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/40 mb-2 px-3">
-            Projects
+            {t("sidebar.sections.projects")}
           </h3>
           <SidebarProjectList
             projects={projects}
@@ -59,7 +61,7 @@ export function SidebarContent({ projects }: SidebarContentProps) {
           className="mt-auto flex items-center justify-center gap-2 w-full bg-[#f0f0f0] dark:bg-[#222] border-2 border-black dark:border-white/20 rounded-xl p-3 text-xs font-black uppercase tracking-widest hover:bg-main hover:text-main-foreground hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all text-black dark:text-white"
         >
           <LayoutGrid className="w-4 h-4" />
-          Manage Projects
+          {t("sidebar.buttons.manage_projects")}
         </Link>
       </div>
     </aside>

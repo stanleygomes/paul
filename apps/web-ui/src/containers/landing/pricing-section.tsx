@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 function PricingCard({
   title,
@@ -19,6 +20,8 @@ function PricingCard({
   buttonText: string;
   isPopular?: boolean;
 }) {
+  const { t } = useTranslation();
+
   return (
     <div
       className={`relative flex flex-col p-8 rounded-base border-4 border-border ${
@@ -29,7 +32,7 @@ function PricingCard({
     >
       {isPopular && (
         <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-4 py-1 bg-yellow-400 text-black border-2 border-border font-black uppercase text-xs rounded-full shadow-[2px_2px_0px_0px_var(--border)]">
-          Best fit
+          {t("landing.pricing.best_fit")}
         </div>
       )}
 
@@ -39,7 +42,9 @@ function PricingCard({
         </h3>
         <div className="flex items-baseline gap-1">
           <span className="text-5xl font-black italic">{price}</span>
-          <span className="text-sm font-bold opacity-60">/month</span>
+          <span className="text-sm font-bold opacity-60">
+            {t("landing.pricing.month")}
+          </span>
         </div>
         <p className="mt-4 text-sm font-bold opacity-70">{description}</p>
       </div>
@@ -72,6 +77,8 @@ function PricingCard({
 }
 
 export function PricingSection() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="pricing"
@@ -79,41 +86,36 @@ export function PricingSection() {
     >
       <div className="mb-20 text-center">
         <h2 className="inline-block border-4 border-border bg-secondary-background px-8 py-4 text-4xl font-black uppercase tracking-tighter text-foreground shadow-[8px_8px_0px_0px_var(--border)] md:text-6xl">
-          Choose Focus.
+          {t("landing.pricing.title")}
         </h2>
         <p className="mt-8 text-xl font-bold text-foreground/50">
-          Get started for free or unlock the full power of Done.
+          {t("landing.pricing.subtitle")}
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 items-stretch max-w-4xl mx-auto">
         <PricingCard
-          title="Started"
+          title={t("landing.pricing.plans.started.title")}
           price="$0"
-          description="Everything you need to stop holding tasks in your head."
-          buttonText="Start for free"
-          features={[
-            "Unlimited Daily Tasks",
-            "Up to 3 Projects",
-            "PWA & Mobile Support",
-            "Core Goal Management",
-            "Web App Access",
-          ]}
+          description={t("landing.pricing.plans.started.description")}
+          buttonText={t("landing.pricing.plans.started.cta")}
+          features={
+            t("landing.pricing.plans.started.features", {
+              returnObjects: true,
+            }) as string[]
+          }
         />
         <PricingCard
-          title="Pro"
+          title={t("landing.pricing.plans.pro.title")}
           price="$5"
-          description="Unlock the full potential of your focus and workflow."
+          description={t("landing.pricing.plans.pro.description")}
           isPopular={true}
-          buttonText="Upgrade to Pro"
-          features={[
-            "Everything in Started",
-            "Unlimited Projects",
-            "Advanced Notifications",
-            "Weekly Productivity Stats",
-            "Priority Early Access",
-            "Custom Themes",
-          ]}
+          buttonText={t("landing.pricing.plans.pro.cta")}
+          features={
+            t("landing.pricing.plans.pro.features", {
+              returnObjects: true,
+            }) as string[]
+          }
         />
       </div>
     </section>

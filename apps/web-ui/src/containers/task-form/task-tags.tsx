@@ -6,7 +6,10 @@ interface TaskTagsProps {
   onTagsChange: (tags: string[]) => void;
 }
 
+import { useTranslation } from "react-i18next";
+
 export function TaskTags({ tags, onTagsChange }: TaskTagsProps) {
+  const { t } = useTranslation();
   const tagInputRef = useRef<HTMLTextAreaElement>(null);
 
   function handleTagKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -25,7 +28,7 @@ export function TaskTags({ tags, onTagsChange }: TaskTagsProps) {
   }
 
   return (
-    <FormField label="Tags">
+    <FormField label={t("task_form.labels.tags")}>
       <div className="flex flex-wrap gap-2 mb-2">
         {tags?.map((tag) => (
           <span
@@ -37,7 +40,7 @@ export function TaskTags({ tags, onTagsChange }: TaskTagsProps) {
               type="button"
               className="hover:text-red-500"
               onClick={() => removeTag(tag)}
-              aria-label={`Remove tag ${tag}`}
+              aria-label={t("task_form.aria.remove_tag", { tag })}
             >
               &times;
             </button>
@@ -46,7 +49,7 @@ export function TaskTags({ tags, onTagsChange }: TaskTagsProps) {
       </div>
       <textarea
         ref={tagInputRef}
-        placeholder="Add tag (press Enter or comma)"
+        placeholder={t("task_form.placeholders.tags")}
         onKeyDown={handleTagKeyDown}
         rows={2}
         className="w-full rounded-base border-2 border-border bg-secondary-background px-3 py-2 text-sm outline-none resize-none"

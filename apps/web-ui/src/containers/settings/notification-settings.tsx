@@ -1,10 +1,12 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { NotificationManager } from "@modules/notifications/manager";
 import { Bell, BellOff } from "lucide-react";
 
 export function NotificationSettings() {
+  const { t } = useTranslation();
   const [permission, setPermission] = useState<
     NotificationPermission | "unsupported"
   >("default");
@@ -36,14 +38,14 @@ export function NotificationSettings() {
         )}
         <div className="flex-1">
           <h3 className="text-sm font-black text-foreground">
-            Lembretes de Tarefas
+            {t("settings.notification_settings.title")}
           </h3>
           <p className="text-xs font-medium text-foreground/60 leading-tight mt-1">
             {permission === "granted"
-              ? "As notificações estão ativadas neste dispositivo."
+              ? t("settings.notification_settings.status.granted")
               : permission === "unsupported"
-                ? "Notificações não são suportadas pelo seu navegador."
-                : "Ative para receber lembretes das tarefas agendadas."}
+                ? t("settings.notification_settings.status.unsupported")
+                : t("settings.notification_settings.status.default")}
           </p>
         </div>
       </div>
@@ -54,8 +56,8 @@ export function NotificationSettings() {
           className="mt-2 w-full rounded-base border-2 border-border bg-main py-2 text-sm font-bold text-main-foreground shadow-shadow transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none hover:bg-main/90"
         >
           {permission === "denied"
-            ? "Habilitar nas Configurações"
-            : "Habilitar Notificações"}
+            ? t("settings.notification_settings.buttons.denied")
+            : t("settings.notification_settings.buttons.enable")}
         </button>
       )}
     </div>
