@@ -35,12 +35,12 @@ export function LandingMenu() {
           >
             {t("landing.menu.testimonials")}
           </a>
-          <a
+          {/* <a
             href="#pricing"
             className="text-foreground/60 hover:text-foreground hover:no-underline transition-colors"
           >
             {t("landing.menu.pricing")}
-          </a>
+          </a> */}
           <Link
             href="/login"
             className="flex h-11 items-center justify-center rounded-base border-2 border-border bg-main px-6 text-xs font-black uppercase text-main-foreground shadow-[4px_4px_0px_0px_var(--border)] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:no-underline active:translate-x-1 active:translate-y-1 active:shadow-none"

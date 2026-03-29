@@ -7,7 +7,7 @@ import { TestimonialsSection } from "./testimonials-section";
 import { CTASection } from "./cta-section";
 import { LandingFooter } from "./landing-footer";
 import { LandingMenu } from "./landing-menu";
-import { PricingSection } from "./pricing-section";
+// import { PricingSection } from "./pricing-section";
 
 export default function LandingPage() {
   return (
@@ -16,7 +16,7 @@ export default function LandingPage() {
       <HeroSection />
       <FeaturesSection />
       <TestimonialsSection />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <CTASection />
       <LandingFooter />
     </div>

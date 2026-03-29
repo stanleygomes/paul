@@ -20,7 +20,7 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <TestimonialCard
             name={t("landing.testimonials.items.marcos.name")}
             role={t("landing.testimonials.items.marcos.role")}
@@ -32,6 +32,12 @@ export function TestimonialsSection() {
             role={t("landing.testimonials.items.juliana.role")}
             content={t("landing.testimonials.items.juliana.content")}
             avatarColor="bg-blue-400"
+          />
+          <TestimonialCard
+            name={t("landing.testimonials.items.ricardo.name")}
+            role={t("landing.testimonials.items.ricardo.role")}
+            content={t("landing.testimonials.items.ricardo.content")}
+            avatarColor="bg-yellow-400"
           />
           <TestimonialCard
             name={t("landing.testimonials.items.ricardo.name")}

@@ -5,12 +5,17 @@ import { useSidebar } from "src/hooks/use-sidebar";
 import { SidebarToggle } from "./sidebar-toggle";
 import { AppLogo } from "./app-logo";
 import { SidebarContent } from "./sidebar-content";
+import { usePathname } from "next/navigation";
 
 export default function MenuLeft() {
   const { isOpen, mounted } = useSidebar();
   const { projects } = useProjects();
+  const pathname = usePathname();
 
-  if (!mounted) return null;
+  // Sidebar ONLY on the main tasks page
+  const isTasksPage = pathname === "/";
+
+  if (!mounted || !isTasksPage) return null;
 
   return (
     <>
