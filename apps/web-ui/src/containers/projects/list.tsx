@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { Trash2 } from "lucide-react";
 import { Project } from "@models/project";
@@ -13,11 +14,13 @@ export default function ProjectList({
   onEdit,
   onDelete,
 }: ProjectListProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col gap-3">
       {projects.length === 0 ? (
         <div className="text-foreground/40 text-center py-10 font-bold border-2 border-dashed border-border rounded-xl">
-          No projects yet.
+          {t("projects.list.empty")}
         </div>
       ) : (
         projects.map((project) => (
@@ -40,7 +43,7 @@ export default function ProjectList({
                 onClick={() => onEdit(project)}
                 className="px-3 py-2 font-bold hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-lg cursor-pointer transition-colors text-foreground/60 hover:text-foreground"
               >
-                Edit
+                {t("projects.list.edit")}
               </button>
               <button
                 onClick={() => onDelete(project)}

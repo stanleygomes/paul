@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { PROJECT_FILTERS } from "src/constants/task-filters";
 
+import { useTranslation } from "react-i18next";
+
 export default function TaskFilters() {
+  const { t } = useTranslation();
+
   return (
     <div className="grid grid-cols-2 gap-4 mb-10">
       {PROJECT_FILTERS.map((filter) => (
@@ -13,7 +17,9 @@ export default function TaskFilters() {
           <filter.icon
             className={`w-8 h-8 transition-colors group-hover:text-foreground/60 text-foreground/60`}
           />
-          <span className="font-bold text-lg">{filter.name}</span>
+          <span className="font-bold text-lg">
+            {t(`projects.filters.${filter.id}`)}
+          </span>
         </Link>
       ))}
     </div>

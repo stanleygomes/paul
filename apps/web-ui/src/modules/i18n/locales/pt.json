@@ -9,5 +9,38 @@
     "account": "Conta",
     "theme": "Tema",
     "notifications": "Notificações"
+  },
+  "projects": {
+    "header": {
+      "back": "Voltar para Tarefas",
+      "title": "Projetos e Filtros"
+    },
+    "list": {
+      "title": "Meus Projetos",
+      "new": "Novo Projeto",
+      "empty": "Nenhum projeto ainda.",
+      "edit": "Editar"
+    },
+    "form": {
+      "edit_title": "Editar Projeto",
+      "new_title": "Novo Projeto",
+      "name_label": "Nome",
+      "name_placeholder": "Nome do projeto...",
+      "color_label": "Cor",
+      "save_button": "Salvar Projeto"
+    },
+    "delete": {
+      "title": "Excluir Projeto",
+      "confirm_question": "Tem certeza que deseja excluir",
+      "warning": "Tarefas vinculadas a este projeto NÃO serão excluídas.",
+      "cancel": "Cancelar",
+      "confirm": "Excluir"
+    },
+    "filters": {
+      "today": "Hoje",
+      "scheduled": "Agendado",
+      "all": "Todas Tarefas",
+      "important": "Importante"
+    }
   }
 }

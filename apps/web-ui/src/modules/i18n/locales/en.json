@@ -9,5 +9,38 @@
     "account": "Account",
     "theme": "Theme",
     "notifications": "Notifications"
+  },
+  "projects": {
+    "header": {
+      "back": "Back to Tasks",
+      "title": "Projects & Filters"
+    },
+    "list": {
+      "title": "My Projects",
+      "new": "New Project",
+      "empty": "No projects yet.",
+      "edit": "Edit"
+    },
+    "form": {
+      "edit_title": "Edit Project",
+      "new_title": "New Project",
+      "name_label": "Name",
+      "name_placeholder": "Project name...",
+      "color_label": "Color",
+      "save_button": "Save Project"
+    },
+    "delete": {
+      "title": "Delete Project",
+      "confirm_question": "Are you sure you want to delete",
+      "warning": "Tasks linked to this project will NOT be deleted.",
+      "cancel": "Cancel",
+      "confirm": "Delete"
+    },
+    "filters": {
+      "today": "Today",
+      "scheduled": "Scheduled",
+      "all": "All Tasks",
+      "important": "Important"
+    }
   }
 }
