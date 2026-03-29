@@ -6,13 +6,17 @@ import { TooltipProvider } from "@done/ui/components/ui/tooltip";
 import { Toaster } from "@done/ui";
 import { NotificationWatcher } from "@containers/notifications/watcher";
 
+import { SidebarProvider } from "../hooks/use-sidebar";
+
 export function Providers({ children }: { children: ReactNode }) {
   useTheme();
   return (
-    <TooltipProvider>
-      <NotificationWatcher />
-      {children}
-      <Toaster />
-    </TooltipProvider>
+    <SidebarProvider>
+      <TooltipProvider>
+        <NotificationWatcher />
+        {children}
+        <Toaster />
+      </TooltipProvider>
+    </SidebarProvider>
   );
 }

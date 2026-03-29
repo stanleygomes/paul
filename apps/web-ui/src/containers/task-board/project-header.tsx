@@ -11,12 +11,12 @@ export function BoardHeader({
 }: BoardHeaderProps) {
   return (
     <div className="mb-6 px-1 flex flex-col gap-2 animate-in fade-in slide-in-from-left-2 duration-300">
-      <a
+      {/* <a
         href="/projects"
         className="text-sm font-bold text-foreground/50 hover:text-foreground transition-colors w-fit"
       >
         ← Back to Projects
-      </a>
+      </a> */}
       <div className="flex items-center mt-2 gap-2">
         {color && (
           <div

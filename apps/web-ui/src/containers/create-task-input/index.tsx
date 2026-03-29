@@ -6,6 +6,7 @@ import { TaskDatePicker as DatePicker } from "../../components/task-date-picker"
 import { TaskProjectSelector as ProjectSelector } from "../../components/task-project-selector";
 import { TaskImportantToggle as ImportantToggle } from "../../components/task-important-toggle";
 import { TaskTimeInput as TimeInput } from "../../components/task-time-input";
+import { useSidebar } from "../../hooks/use-sidebar";
 import { InputField } from "./input-field";
 import { InputFooter } from "./footer";
 
@@ -22,6 +23,7 @@ export function CreateTaskInput({
   onSubmit,
   currentProjectId,
 }: CreateTaskInputProps) {
+  const { isOpen, mounted } = useSidebar();
   const [draft, setDraft, removeDraft] = useLocalStorage("task_draft", "");
   const { saveStatus, save, clear } = useDebouncedSave(600);
 
@@ -80,7 +82,9 @@ export function CreateTaskInput({
   return (
     <form
       onSubmit={handleSubmit}
-      className="fixed bottom-0 left-0 right-0 bg-background p-4"
+      className={`fixed bottom-0 left-0 right-0 bg-background p-4 transition-all duration-300 ${
+        mounted && isOpen ? "pl-0 lg:pl-76" : "pl-4"
+      }`}
     >
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-2">
         <div className="flex flex-col overflow-hidden rounded-xl border-2 border-border bg-secondary-background shadow-[4px_4px_0px_0px_var(--border)] transition-all">

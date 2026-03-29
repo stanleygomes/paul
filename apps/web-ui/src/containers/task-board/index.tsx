@@ -3,12 +3,11 @@
 import { useEffect, useState } from "react";
 import { useProjects } from "@modules/todo/use-projects";
 import { useTasks } from "@modules/todo/use-tasks";
-import { AppHeader } from "./task-header";
 import { TaskList } from "./task-list";
 import { CreateTaskInput } from "../create-task-input";
 import { TaskDrawer } from "../task-drawer";
 import { ZenModeView } from "../zen-mode";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { TaskSearch } from "./task-search";
 import { BoardHeader } from "./project-header";
 import { FinishedHeader } from "./finished-header";
@@ -20,13 +19,15 @@ interface TaskBoardProps {
 
 export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const isSearchVisible = searchParams.get("search") === "true";
+
   const { projects } = useProjects();
   const currentProject = projectId
     ? projects.find((p) => p.id === projectId)
     : null;
 
   const [mounted, setMounted] = useState(false);
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -60,6 +61,12 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
     isLoading,
   } = useTasks(projectId, filter);
 
+  useEffect(() => {
+    if (!isSearchVisible && searchQuery !== "") {
+      setSearchQuery("");
+    }
+  }, [isSearchVisible, searchQuery, setSearchQuery]);
+
   if (!mounted) {
     return null;
   }
@@ -79,19 +86,11 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
 
   return (
     <main className="min-h-screen bg-background pb-40 px-4">
-      <div className="mx-auto max-w-2xl">
-        <AppHeader
-          onToggleSearch={() => {
-            setIsSearchVisible(!isSearchVisible);
-            if (isSearchVisible) {
-              setSearchQuery("");
-            }
-          }}
-          isSearchVisible={isSearchVisible}
-        />
-
+      <div className="mx-auto max-w-2xl pt-28 sm:pt-32">
         {isSearchVisible && (
-          <TaskSearch query={searchQuery} onQueryChange={setSearchQuery} />
+          <div className="mb-10 animate-in fade-in slide-in-from-top-4 duration-300">
+            <TaskSearch query={searchQuery} onQueryChange={setSearchQuery} />
+          </div>
         )}
 
         {currentProject && (

@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "@done/ui/globals.css";
 import { Providers } from "./providers";
-import Menu from "src/containers/menu";
+import MenuRight from "@containers/menu-right";
+import MenuLeft from "@containers/menu-left";
 
 export const metadata: Metadata = {
   title: "Done.",
@@ -34,6 +35,8 @@ const themeScript = `
   } catch (e) {}
 `;
 
+import { MainWrapper } from "./main-wrapper";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,8 +49,9 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <Providers>
-          <Menu />
-          {children}
+          <MenuRight />
+          <MenuLeft />
+          <MainWrapper>{children}</MainWrapper>
         </Providers>
       </body>
     </html>
