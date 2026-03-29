@@ -6,6 +6,7 @@ import { UserAvatar } from "../../components/user-avatar";
 import { Menu as MenuIcon, X } from "lucide-react";
 import { MenuItem } from "./items";
 import { MENU_LINKS } from "../../constants/menu-links";
+// import { useUser } from "@modules/user/use-user";
 
 function renderMenuLinks(
   pathname: string,
@@ -27,6 +28,9 @@ function renderMenuLinks(
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  // const { user } = useUser();
+
+  // if (pathname === "/login" || !user) return null;
 
   return (
     <>
