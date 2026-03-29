@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "title": "Configurações",
+    "back": "Voltar",
+    "language": "Idioma",
+    "language_description": "Selecione seu idioma preferido",
+    "en": "Inglês",
+    "pt": "Português",
+    "account": "Conta",
+    "theme": "Tema",
+    "notifications": "Notificações"
+  }
+}

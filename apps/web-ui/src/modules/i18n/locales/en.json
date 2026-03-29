@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "title": "Settings",
+    "back": "Back",
+    "language": "Language",
+    "language_description": "Select your preferred language",
+    "en": "English",
+    "pt": "Portuguese",
+    "account": "Account",
+    "theme": "Theme",
+    "notifications": "Notifications"
+  }
+}

@@ -17,6 +17,7 @@
       "@styles/*": ["src/styles/*"],
       "@models/*": ["src/models/*"],
       "@containers/*": ["src/containers/*"],
+      "@constants/*": ["src/constants/*"],
       "@done/ui": ["../../packages/ui/src"],
       "@done/ui/*": ["../../packages/ui/src/*"],
       "@done/utils": ["../../packages/utils/src"],

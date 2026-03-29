@@ -1,5 +1,7 @@
 "use client";
 
+import "../modules/i18n/config";
+
 import type { ReactNode } from "react";
 import { useTheme } from "@modules/theme/use-theme";
 import { TooltipProvider } from "@done/ui/components/ui/tooltip";
