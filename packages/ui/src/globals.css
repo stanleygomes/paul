@@ -25,13 +25,13 @@
 }
 
 .dark {
-  --background: #1a1a1a;
-  --secondary-background: #333333;
-  --foreground: oklch(92.49% 0 0);
-  --main-foreground: oklch(0% 0 0);
+  --background: #09090b;
+  --secondary-background: #18181b;
+  --foreground: #fafafa;
+  --main-foreground: #000000;
   --main: oklch(84.08% 0.1725 84.2);
-  --border: oklch(28.22% 0.02743 101.934);
-  --ring: oklch(0% 0 0);
+  --border: #3f3f46;
+  --ring: #fafafa;
   --shadow: 4px 4px 0px 0px var(--border);
   --chart-1: #e5ac00;
   --chart-2: #008ae5;
