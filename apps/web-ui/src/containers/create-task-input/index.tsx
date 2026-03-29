@@ -80,7 +80,7 @@ export function CreateTaskInput({
   return (
     <form
       onSubmit={handleSubmit}
-      className="fixed bottom-0 left-0 right-0 bg-background p-6"
+      className="fixed bottom-0 left-0 right-0 bg-background p-4"
     >
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-2">
         <div className="flex flex-col overflow-hidden rounded-xl border-2 border-border bg-secondary-background shadow-[4px_4px_0px_0px_var(--border)] transition-all">

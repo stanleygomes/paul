@@ -8,20 +8,20 @@ interface AppHeaderProps {
 export function AppHeader({ onToggleSearch, isSearchVisible }: AppHeaderProps) {
   return (
     <header className="flex flex-col items-start gap-2 py-20">
-      <div className="w-20 h-20 rounded-full bg-black flex items-center justify-center text-[#fef6d9] text-xl font-black select-none">
+      <div className="flex h-20 w-20 select-none items-center justify-center rounded-full bg-foreground text-xl font-black text-background">
         D
       </div>
-      <div className="flex items-center justify-between w-full mt-5">
-        <span className="text-5xl font-black tracking-tight leading-none text-foreground">
+      <div className="mt-5 flex w-full items-center justify-between">
+        <span className="text-5xl font-black leading-none tracking-tight text-foreground">
           Done.
         </span>
         {onToggleSearch && (
           <button
             onClick={onToggleSearch}
-            className={`p-3 rounded-full border-2 border-border transition-colors cursor-pointer ${
+            className={`cursor-pointer rounded-full border-2 border-border p-3 transition-colors ${
               isSearchVisible
-                ? "bg-main text-main-foreground shadow-shadow"
-                : "bg-secondary-background text-foreground/60 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                ? "bg-main shadow-shadow text-main-foreground"
+                : "bg-secondary-background text-foreground/60 hover:bg-main/20"
             }`}
           >
             <Search className="w-6 h-6" />

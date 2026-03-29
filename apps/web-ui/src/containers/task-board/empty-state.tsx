@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import Image from "next/image";
+import { CheckCircle2 } from "lucide-react";
 
 const MESSAGES = [
   {
@@ -45,18 +45,12 @@ export function EmptyState() {
   if (!mounted || !message) return null;
 
   return (
-    <div className="flex flex-col mt-10 items-center rounded-base mx-20 border-2 border-black bg-[#ffe066] text-center shadow-shadow transition-all">
-      {/* <Image
-        src={message.image}
-        alt={message.title}
-        width={300}
-        height={300}
-        className="w-full object-contain"
-      /> */}
-      <div className="px-8 py-4">
-        <p className="text-xl font-bold">{message.title}</p>
-        <p className="mt-2 text-sm font-medium">{message.body}</p>
+    <div className="mb-20 mt-10 flex flex-col items-center rounded-base border-2 border-border bg-main px-6 py-8 text-center text-main-foreground shadow-shadow transition-all md:px-8 md:py-12">
+      <div className="mb-6 rounded-full border-2 border-border bg-background p-4 text-foreground shadow-shadow">
+        <CheckCircle2 className="h-10 w-10" />
       </div>
+      <p className="text-xl font-bold">{message.title}</p>
+      <p className="mt-2 text-sm font-medium opacity-80">{message.body}</p>
     </div>
   );
 }
