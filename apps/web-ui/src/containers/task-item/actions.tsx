@@ -38,7 +38,7 @@ export function TaskItemActions({
             <AlertDialogTrigger asChild>
               <button
                 type="button"
-                className="rounded-base border-2 border-black bg-[#ff8fab] p-1.5 shadow-shadow transition-all hover:bg-[#ff6b8e] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shrink-0 cursor-pointer"
+                className="rounded-base border-2 border-border bg-[#ff8fab] dark:bg-[#ff8fab]/20 p-1.5 shadow-shadow transition-all hover:bg-[#ff6b8e] dark:hover:bg-[#ff6b8e]/30 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shrink-0 cursor-pointer"
                 aria-label="Delete task"
               >
                 <Trash2 size={16} />
@@ -72,7 +72,7 @@ export function TaskItemActions({
           <TooltipTrigger asChild>
             <button
               type="button"
-              className="shrink-0 rounded-base border-2 border-black bg-[#a7f3d0] p-1.5 text-black shadow-shadow transition-all hover:bg-[#86efac] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none cursor-pointer"
+              className="shrink-0 rounded-base border-2 border-border bg-[#a7f3d0] dark:bg-[#a7f3d0]/20 p-1.5 text-foreground shadow-shadow transition-all hover:bg-[#86efac] dark:hover:bg-[#86efac]/30 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none cursor-pointer"
               onClick={() => onEnterZenMode(task.id)}
               aria-label="Enter Zen Mode"
             >
@@ -87,7 +87,7 @@ export function TaskItemActions({
         <TooltipTrigger asChild>
           <button
             type="button"
-            className="shrink-0 rounded-base border-2 border-black bg-white p-1.5 text-gray-400 shadow-shadow transition-all hover:bg-[#ffe066] hover:text-black active:translate-x-[2px] active:translate-y-[2px] active:shadow-none cursor-pointer"
+            className="shrink-0 rounded-base border-2 border-border bg-secondary-background p-1.5 text-foreground/40 shadow-shadow transition-all hover:bg-main hover:text-main-foreground active:translate-x-[2px] active:translate-y-[2px] active:shadow-none cursor-pointer"
             onClick={() => onOpenDrawer(task)}
             aria-label="Open task details"
           >

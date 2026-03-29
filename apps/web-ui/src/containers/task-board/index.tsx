@@ -6,11 +6,11 @@ import { useTasks } from "@modules/todo/use-tasks";
 import { AppHeader } from "./task-header";
 import { TaskList } from "./task-list";
 import { CreateTaskInput } from "../create-task-input";
-import { TaskDrawer } from "./task-drawer";
+import { TaskDrawer } from "../task-drawer";
 import { ZenModeView } from "../zen-mode";
 import { useRouter } from "next/navigation";
 import { TaskSearch } from "./task-search";
-import { BoardHeader } from "./board-header";
+import { BoardHeader } from "./project-header";
 import { FinishedHeader } from "./finished-header";
 
 interface TaskBoardProps {
@@ -65,7 +65,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
 
   if (zenModeTask) {
     return (
-      <main className="min-h-screen bg-[#fef6d9]">
+      <main className="min-h-screen bg-background">
         <ZenModeView
           task={zenModeTask}
           onExit={exitZenMode}
@@ -77,7 +77,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#fef6d9] pb-32">
+    <main className="min-h-screen bg-background pb-32">
       <div className="mx-auto max-w-2xl">
         <AppHeader
           onToggleSearch={() => {

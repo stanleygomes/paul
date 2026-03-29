@@ -21,13 +21,12 @@ export const TaskTitle = forwardRef<HTMLTextAreaElement, TaskTitleProps>(
             value={editingContent}
             onChange={(e) => onChange(e.target.value)}
             onBlur={onBlur}
-            rows={1}
-            className="w-full resize-none overflow-hidden rounded-base border-2 border-black bg-[#fffaf0] px-3 py-2 font-black leading-tight outline-none focus:bg-white transition-all"
+            className="w-full resize-none overflow-hidden rounded-base border-2 border-border bg-secondary-background px-3 py-2 font-black leading-tight outline-none transition-all"
           />
         ) : (
           <h2
             className={`cursor-text whitespace-pre-wrap break-words py-2 font-black leading-tight border-2 border-transparent ${
-              task.done ? "text-gray-500 line-through" : "text-black"
+              task.done ? "text-foreground/50 line-through" : "text-foreground"
             }`}
             onClick={() => !task.done && onStartEdit(task)}
           >

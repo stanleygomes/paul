@@ -38,13 +38,16 @@ export default function TaskDetails({ id }: TaskDetailsProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#fef6d9] pb-32">
+    <main className="min-h-screen bg-background pb-32">
       <div className="mx-auto max-w-2xl px-4 py-10">
-        <Link href="/" className="font-bold text-gray-700 hover:text-black">
+        <Link
+          href="/"
+          className="font-bold text-foreground/70 hover:text-foreground"
+        >
           ← Back to Tasks
         </Link>
 
-        <div className="mt-8 rounded-base border-2 border-black bg-white p-6 md:p-10 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="mt-8 rounded-base border-2 border-border bg-secondary-background p-6 md:p-10 shadow-[8px_8px_0px_0px_var(--border)]">
           <TaskForm
             task={task}
             isEditing={isEditing}

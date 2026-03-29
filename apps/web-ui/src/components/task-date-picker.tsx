@@ -21,8 +21,10 @@ export function TaskDatePicker({
       <PopoverTrigger asChild>
         <button
           type="button"
-          className={`flex items-center gap-1 rounded-base border-2 border-black px-2 py-1 shadow-sm transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none ${
-            dueDateStr ? "text-black" : "text-gray-700"
+          className={`flex cursor-pointer items-center gap-1 rounded-base border-2 border-border px-2 py-1 font-bold shadow-sm transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none ${
+            dueDateStr
+              ? "bg-main text-main-foreground"
+              : "bg-secondary-background text-foreground/60 hover:text-foreground"
           } ${className}`}
           title="Set due date"
         >
@@ -32,7 +34,7 @@ export function TaskDatePicker({
           </span>
         </button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
+      <PopoverContent className="w-auto p-0 border-2 border-border shadow-shadow bg-secondary-background">
         <Calendar
           mode="single"
           selected={dueDate}

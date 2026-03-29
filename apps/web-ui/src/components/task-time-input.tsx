@@ -32,7 +32,7 @@ export function TaskTimeInput({ value, onChange, className }: TimeInputProps) {
 
   return (
     <div
-      className={`flex items-center gap-1 rounded-base border-2 border-black px-2 py-1 shadow-sm transition-colors focus-within:text-black ${value ? "text-black" : "text-gray-400"} ${className}`}
+      className={`flex items-center gap-1 rounded-base border-2 border-border px-2 py-1 shadow-sm transition-colors focus-within:text-foreground ${value ? "text-foreground" : "text-foreground/40"} ${className}`}
     >
       <Clock className="h-4 w-4 shrink-0" />
       <input
@@ -40,7 +40,7 @@ export function TaskTimeInput({ value, onChange, className }: TimeInputProps) {
         value={value}
         onChange={(e) => handleTimeChange(e.target.value)}
         placeholder="HH:mm"
-        className="bg-transparent outline-none text-xs font-bold w-[45px] cursor-pointer placeholder:text-gray-700"
+        className="bg-transparent outline-none text-xs font-bold w-[45px] cursor-pointer placeholder:text-foreground/40"
         maxLength={5}
       />
     </div>

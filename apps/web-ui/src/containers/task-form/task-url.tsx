@@ -12,7 +12,7 @@ export function TaskUrl({ url, onUpdateUrl }: TaskUrlProps) {
         type="url"
         value={url || ""}
         onChange={(e) => onUpdateUrl(e.target.value)}
-        className="w-full rounded-base border-2 border-black bg-[#fffaf0] px-3 py-2 text-sm outline-none"
+        className="w-full rounded-base border-2 border-border bg-secondary-background px-3 py-2 text-sm outline-none"
         placeholder="https://..."
       />
     </FormField>

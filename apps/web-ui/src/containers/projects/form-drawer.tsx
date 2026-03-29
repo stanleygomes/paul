@@ -25,7 +25,7 @@ export default function ProjectFormDrawer({
 }: ProjectFormDrawerProps) {
   return (
     <Drawer open={open} onOpenChange={onOpenChange} direction="bottom">
-      <DrawerContent className="bg-[#fef6d9] flex flex-col pt-4 max-w-2xl mx-auto focus:outline-none">
+      <DrawerContent className="bg-background border-t-2 border-border rounded-t-[30px] p-6 pb-10">
         <DrawerHeader className="px-6 pb-4 pt-2 text-left shrink-0">
           <DrawerTitle className="text-2xl font-black">
             {editingProject ? "Edit Project" : "New Project"}

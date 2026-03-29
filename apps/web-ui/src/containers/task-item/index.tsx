@@ -74,7 +74,7 @@ export function TaskListItem({
       value={task}
       dragListener={false}
       dragControls={controls}
-      className={`rounded-base border-2 border-black bg-white p-4 transition-opacity ${
+      className={`rounded-base border-2 border-border bg-secondary-background p-4 transition-opacity ${
         task.done ? "opacity-60" : ""
       }`}
     >
@@ -83,7 +83,11 @@ export function TaskListItem({
 
         <div className="flex-1 min-w-0">
           <div className="flex items-start gap-3">
-            <TaskToggle task={task} onToggle={onToggle} className="mt-1" />
+            <TaskToggle
+              task={task}
+              onToggle={onToggle}
+              className="mt-1 cursor-pointer"
+            />
 
             <TaskItemDescription
               ref={inputRef}

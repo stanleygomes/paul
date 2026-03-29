@@ -30,7 +30,7 @@ export function TaskTags({ tags, onTagsChange }: TaskTagsProps) {
         {tags?.map((tag) => (
           <span
             key={tag}
-            className="flex items-center gap-1 rounded-base border-2 border-black bg-[#cbf0f8] px-2 py-1 text-xs font-bold"
+            className="flex items-center gap-1 rounded-base border-2 border-border bg-[#cbf0f8] dark:bg-[#cbf0f8]/20 px-2 py-1 text-xs font-bold"
           >
             {tag}
             <button
@@ -49,7 +49,7 @@ export function TaskTags({ tags, onTagsChange }: TaskTagsProps) {
         placeholder="Add tag (press Enter or comma)"
         onKeyDown={handleTagKeyDown}
         rows={2}
-        className="w-full rounded-base border-2 border-black bg-[#fffaf0] px-3 py-2 text-sm outline-none resize-none"
+        className="w-full rounded-base border-2 border-border bg-secondary-background px-3 py-2 text-sm outline-none resize-none"
       />
     </FormField>
   );

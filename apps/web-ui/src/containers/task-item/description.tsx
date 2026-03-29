@@ -24,12 +24,12 @@ export const TaskItemDescription = forwardRef<
           onChange={(e) => onChange(e.target.value)}
           onBlur={onBlur}
           rows={1}
-          className="w-full resize-none overflow-hidden rounded-base border-2 border-black bg-[#fffaf0] px-3 py-1 text-lg font-semibold leading-[1.75rem] outline-none"
+          className="w-full resize-none overflow-hidden rounded-base border-2 border-border bg-secondary-background px-3 py-1 text-lg font-semibold leading-[1.75rem] outline-none"
         />
       ) : (
         <p
           className={`cursor-text whitespace-pre-wrap break-words py-1 text-lg font-semibold leading-[1.75rem] ${
-            task.done ? "text-gray-500 line-through" : "text-black"
+            task.done ? "text-foreground/50 line-through" : "text-foreground"
           }`}
           onClick={() => !task.done && onStartEdit(task)}
         >

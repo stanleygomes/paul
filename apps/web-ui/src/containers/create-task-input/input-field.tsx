@@ -11,7 +11,7 @@ interface InputFieldProps {
 export const InputField = forwardRef<HTMLTextAreaElement, InputFieldProps>(
   ({ value, onChange, onKeyDown }, ref) => {
     return (
-      <div className="flex bg-white z-10">
+      <div className="flex bg-secondary-background z-10">
         <AutoResizeTextarea
           ref={ref}
           value={value}
@@ -19,11 +19,11 @@ export const InputField = forwardRef<HTMLTextAreaElement, InputFieldProps>(
           onKeyDown={onKeyDown}
           placeholder="New task..."
           rows={1}
-          className="flex-1 resize-none bg-transparent px-5 py-4 text-sm font-medium outline-none placeholder:text-black/30 max-h-[160px] overflow-y-auto"
+          className="flex-1 resize-none bg-transparent px-5 py-4 text-sm font-medium outline-none placeholder:text-foreground/30 max-h-[160px] overflow-y-auto"
         />
         <button
           type="submit"
-          className="m-1.5 h-fit rounded-lg bg-black px-4 py-2.5 text-sm font-bold text-white transition-all hover:opacity-80 active:scale-95 flex items-center gap-1"
+          className="m-1.5 h-fit rounded-lg bg-main border-2 border-border px-4 py-2.5 text-sm font-bold text-main-foreground transition-all hover:shadow-shadow active:scale-95 flex items-center gap-1 cursor-pointer"
         >
           Add <Rocket className="hidden sm:block h-4 w-4 ml-2" />
         </button>

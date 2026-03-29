@@ -27,19 +27,19 @@ export function TaskProjectSelector({
   return (
     <Select value={value} onValueChange={onChange}>
       <SelectTrigger
-        className={`flex items-center gap-2 rounded-base border-2 border-black px-2 py-1 h-auto text-xs font-bold shadow-sm outline-none hover:bg-gray-50 focus:ring-0 ${className}`}
+        className={`flex cursor-pointer items-center gap-2 rounded-base border-2 border-border px-2 py-1 h-auto text-xs font-bold shadow-sm outline-none hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors focus:ring-0 ${className}`}
       >
         {value === "none" && (
-          <Folder className="h-4 w-4 shrink-0 text-gray-700" />
+          <Folder className="h-4 w-4 shrink-0 text-foreground/60" />
         )}
         <SelectValue placeholder="Project..." className="truncate" />
       </SelectTrigger>
-      <SelectContent className="bg-[#fffaf0] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <SelectContent className="bg-secondary-background border-2 border-border shadow-shadow">
         <SelectItem
           value="none"
           className="font-bold cursor-pointer hover:bg-black/5"
         >
-          <span className="text-gray-700">No project</span>
+          <span className="text-foreground/60">No project</span>
         </SelectItem>
         {projects.map((p) => (
           <SelectItem
@@ -49,10 +49,10 @@ export function TaskProjectSelector({
           >
             <div className="flex items-center gap-2">
               <div
-                className="w-2.5 h-2.5 shrink-0 rounded-full border border-black"
+                className="w-2.5 h-2.5 shrink-0 rounded-full border border-border"
                 style={{ backgroundColor: p.color }}
               ></div>
-              <span className="truncate">{p.name}</span>
+              <span className="truncate text-foreground/60">{p.name}</span>
             </div>
           </SelectItem>
         ))}

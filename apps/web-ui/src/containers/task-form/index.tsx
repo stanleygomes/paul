@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Trash2 } from "lucide-react";
 import type { Task } from "@models/task";
 import { generateUUID } from "@done/utils/src/uuid-utils";
 import { useDebouncedSave } from "../../hooks/use-debounced-save";
@@ -12,6 +11,7 @@ import { TaskSubtasks } from "./task-subtasks";
 import { TaskDueDate } from "./task-due-date";
 import { TaskImportant } from "./task-important";
 import { TaskUrl } from "./task-url";
+import { TaskDelete } from "./task-delete";
 
 interface TaskFormProps {
   task: Task;
@@ -147,7 +147,7 @@ export function TaskForm({
         />
       </div>
 
-      <div className="flex items-center justify-between rounded-base border-2 border-black bg-white p-4">
+      <div className="flex items-center justify-between rounded-base border-2 border-border bg-secondary-background p-4">
         <div className="flex items-center gap-3">
           <TaskStatusToggle task={task} onToggle={onToggle} />
         </div>
@@ -194,15 +194,7 @@ export function TaskForm({
         <TaskUrl url={task.url} onUpdateUrl={(url) => patchDetails({ url })} />
       </div>
 
-      <div className="mt-4 flex flex-col gap-3">
-        <button
-          type="button"
-          className="w-full flex items-center justify-center gap-2 rounded-base border-2 border-black bg-[#ff8fab] py-3 text-base font-bold transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none hover:bg-[#ff7597] shadow-shadow"
-          onClick={() => onDelete(task.id)}
-        >
-          <Trash2 className="h-5 w-5" /> Delete Task
-        </button>
-      </div>
+      <TaskDelete onDelete={() => onDelete(task.id)} />
     </div>
   );
 }

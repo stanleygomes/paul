@@ -9,11 +9,7 @@ interface TaskImportantProps {
 export function TaskImportant({ isImportant, onToggle }: TaskImportantProps) {
   return (
     <FormField label="Is it an important task?" noBox={true}>
-      <TaskImportantToggle
-        isImportant={isImportant}
-        onToggle={onToggle}
-        className="bg-[#fffaf0]"
-      />
+      <TaskImportantToggle isImportant={isImportant} onToggle={onToggle} />
     </FormField>
   );
 }

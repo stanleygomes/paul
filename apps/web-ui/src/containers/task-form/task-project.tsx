@@ -15,7 +15,7 @@ export function TaskProject({ projectId, onUpdateProject }: TaskProjectProps) {
           onUpdateProject(value === "none" ? undefined : value)
         }
         isVisible={true}
-        className="bg-[#fffaf0] w-full"
+        className="w-full rounded-base border-2 border-border bg-secondary-background px-3 py-2 text-sm outline-none"
       />
     </FormField>
   );

@@ -12,7 +12,7 @@ export function TaskDetailBadge({
 }: TaskDetailBadgeProps) {
   return (
     <div
-      className={`rounded-base border-2 border-black px-3 py-1 shadow-sm ${className}`}
+      className={`rounded-base border-2 border-border px-3 py-1 shadow-sm ${className}`}
       title={title}
       {...props}
     >

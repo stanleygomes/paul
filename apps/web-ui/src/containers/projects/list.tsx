@@ -16,21 +16,21 @@ export default function ProjectList({
   return (
     <div className="flex flex-col gap-3">
       {projects.length === 0 ? (
-        <div className="text-gray-500 text-center py-10 font-bold border-2 border-dashed border-gray-300 rounded-xl">
+        <div className="text-foreground/40 text-center py-10 font-bold border-2 border-dashed border-border rounded-xl">
           No projects yet.
         </div>
       ) : (
         projects.map((project) => (
           <div
             key={project.id}
-            className="group flex items-center justify-between bg-white border-2 border-black rounded-xl p-4 shadow-sm hover:bg-gray-50 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer"
+            className="group flex items-center justify-between bg-secondary-background border-2 border-border rounded-xl p-4 shadow-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:shadow-[4px_4px_0px_0px_var(--border)] transition-all cursor-pointer"
           >
             <Link
               href={`/?projectId=${project.id}`}
               className="flex items-center gap-3 flex-1 cursor-pointer"
             >
               <div
-                className="w-5 h-5 rounded-full border-2 border-black"
+                className="w-5 h-5 rounded-full border-2 border-border"
                 style={{ backgroundColor: project.color }}
               ></div>
               <span className="font-bold text-xl">{project.name}</span>
@@ -38,13 +38,13 @@ export default function ProjectList({
             <div className="flex items-center gap-2">
               <button
                 onClick={() => onEdit(project)}
-                className="px-3 py-2 font-bold hover:bg-gray-300 rounded-lg cursor-pointer transition-colors text-gray-500 hover:text-black"
+                className="px-3 py-2 font-bold hover:bg-zinc-200 dark:hover:bg-zinc-700 rounded-lg cursor-pointer transition-colors text-foreground/60 hover:text-foreground"
               >
                 Edit
               </button>
               <button
                 onClick={() => onDelete(project)}
-                className="p-2 hover:bg-red-100 text-red-500 rounded-lg cursor-pointer transition-colors"
+                className="p-2 hover:bg-red-500/20 text-red-500 rounded-lg cursor-pointer transition-colors"
               >
                 <Trash2 className="w-5 h-5" />
               </button>

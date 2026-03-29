@@ -1,15 +1,11 @@
 "use client";
 
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-} from "@done/ui";
-import { Maximize2 } from "lucide-react";
+import { Drawer, DrawerContent } from "@done/ui";
 import type { Task } from "@models/task";
 import { TaskForm } from "../task-form";
+import { TaskDrawerZenButton } from "./zen-button";
+import { TaskDrawerFullPageButton } from "./full-page-button";
+import { TaskDrawerHeader } from "./header";
 
 interface TaskDrawerProps {
   task: Task | null;
@@ -68,13 +64,8 @@ export function TaskDrawer({
       onOpenChange={(open) => !open && onClose()}
       direction="right"
     >
-      <DrawerContent className="bg-[#fef6d9] flex flex-col sm:!max-w-2xl w-full">
-        <DrawerHeader className="border-b-2 border-black px-6 py-4 text-left shrink-0">
-          <DrawerTitle className="text-xl font-black">Task Details</DrawerTitle>
-          <DrawerDescription className="sr-only">
-            View and edit the details of your task here.
-          </DrawerDescription>
-        </DrawerHeader>
+      <DrawerContent className="bg-background flex flex-col sm:!max-w-2xl w-full">
+        <TaskDrawerHeader />
 
         {task && (
           <div className="p-6 flex-1 overflow-y-auto h-full">
@@ -93,27 +84,17 @@ export function TaskDrawer({
 
             <div className="mt-4 flex flex-col gap-3">
               {onEnterZenMode && (
-                <button
-                  type="button"
-                  className="w-full flex items-center justify-center gap-2 rounded-base border-2 border-black bg-[#a7f3d0] py-4 text-lg font-black shadow-shadow transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none hover:bg-[#86efac]"
-                  onClick={() => {
-                    onEnterZenMode(task.id);
-                    onClose();
-                  }}
-                >
-                  <Maximize2 className="h-6 w-6" /> Enter Zen Mode
-                </button>
+                <TaskDrawerZenButton
+                  taskId={task.id}
+                  onClick={onEnterZenMode}
+                  onClose={onClose}
+                />
               )}
               {onOpenFullPage && (
-                <button
-                  type="button"
-                  className="w-full flex items-center justify-center gap-2 rounded-base border-2 border-black bg-white py-3 text-base font-bold shadow-shadow transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none hover:bg-gray-50"
-                  onClick={() => {
-                    onOpenFullPage(task.id);
-                  }}
-                >
-                  <Maximize2 className="h-5 w-5" /> Open Full Page
-                </button>
+                <TaskDrawerFullPageButton
+                  taskId={task.id}
+                  onClick={onOpenFullPage}
+                />
               )}
             </div>
           </div>

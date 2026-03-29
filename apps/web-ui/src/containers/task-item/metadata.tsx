@@ -75,7 +75,7 @@ export function TaskMetadata({
               })
             }
             isVisible={true}
-            className="bg-[#fef6d9] px-2 h-7 border-2 border-black"
+            className="bg-secondary-background px-2 h-7 border-2 border-border"
           />
         </div>
       )}
@@ -99,7 +99,7 @@ export function TaskMetadata({
         <Tooltip>
           <TooltipTrigger asChild>
             <TaskDetailBadge
-              className="bg-white flex items-center gap-1.5 px-2 h-7"
+              className="bg-secondary-background flex items-center gap-1.5 px-2 h-7 border border-border/50"
               aria-label={`Due date: ${dueDateLabel}`}
             >
               <Clock className="w-3.5 h-3.5" />
@@ -119,7 +119,7 @@ export function TaskMetadata({
               rel="noopener noreferrer"
               className="inline-flex"
             >
-              <TaskDetailBadge className="bg-white flex items-center px-1.5 h-7 hover:bg-gray-100 transition-colors">
+              <TaskDetailBadge className="bg-secondary-background flex items-center px-1.5 h-7 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors border border-border/50">
                 <Globe className="w-3.5 h-3.5" />
               </TaskDetailBadge>
             </a>
@@ -134,7 +134,7 @@ export function TaskMetadata({
             <TooltipTrigger asChild>
               <PopoverTrigger asChild>
                 <button className="inline-flex">
-                  <TaskDetailBadge className="bg-white flex items-center px-1.5 h-7 hover:bg-gray-100 transition-colors">
+                  <TaskDetailBadge className="bg-secondary-background flex items-center px-1.5 h-7 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors border border-border/50">
                     <FileText className="w-3.5 h-3.5" />
                   </TaskDetailBadge>
                 </button>
@@ -142,7 +142,7 @@ export function TaskMetadata({
             </TooltipTrigger>
             <TooltipContent>View notes</TooltipContent>
           </Tooltip>
-          <PopoverContent className="w-80 p-4 bg-[#fffaf0] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-xs font-semibold whitespace-pre-wrap">
+          <PopoverContent className="w-80 p-4 bg-secondary-background border-2 border-border shadow-shadow text-xs font-semibold whitespace-pre-wrap">
             {task.notes}
           </PopoverContent>
         </Popover>
@@ -152,7 +152,7 @@ export function TaskMetadata({
         <Tooltip>
           <TooltipTrigger asChild>
             <TaskDetailBadge
-              className="bg-white flex items-center gap-1.5 px-2 h-7"
+              className="bg-secondary-background flex items-center gap-1.5 px-2 h-7 border border-border/50"
               aria-label={`Subtasks completed: ${completedSubtasks} of ${task.subtasks.length}`}
             >
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
@@ -168,7 +168,7 @@ export function TaskMetadata({
       {task.tags?.map((tag) => (
         <TaskDetailBadge
           key={tag}
-          className="bg-[#cbf0f8] flex items-center gap-1.5 px-2 h-7 relative group"
+          className="bg-[#cbf0f8] dark:bg-[#cbf0f8]/20 flex items-center gap-1.5 px-2 h-7 relative group border border-border/50"
           onMouseEnter={() => setIsHoveredTag(tag)}
           onMouseLeave={() => setIsHoveredTag(null)}
         >

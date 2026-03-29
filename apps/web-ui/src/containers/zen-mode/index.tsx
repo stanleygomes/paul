@@ -45,7 +45,7 @@ export function ZenModeView({
     : "";
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-[#fef6d9] overflow-y-auto animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[9999] bg-background overflow-y-auto animate-in fade-in duration-300">
       <div className="min-h-full flex flex-col items-center py-20">
         <ZenExitButton onClick={onExit} />
 
@@ -58,27 +58,27 @@ export function ZenModeView({
                 onUpdateContent?.(task.id, e.target.value);
               }}
               rows={1}
-              className="w-full resize-none overflow-hidden bg-transparent text-center text-5xl md:text-6xl font-black leading-tight outline-none placeholder:text-gray-300 transition-all text-black"
+              className="w-full resize-none overflow-hidden bg-transparent text-center text-5xl md:text-6xl font-black leading-tight outline-none placeholder:text-foreground/30 transition-all text-foreground"
             />
 
             <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-bold mt-2">
               {project && (
-                <TaskDetailBadge className="flex items-center gap-2 bg-white">
+                <TaskDetailBadge className="flex items-center gap-2 bg-secondary-background">
                   <div
-                    className="w-3 h-3 rounded-full border border-black"
+                    className="w-3 h-3 rounded-full border border-border"
                     style={{ backgroundColor: project.color }}
                   />
                   {project.name}
                 </TaskDetailBadge>
               )}
               {task.important && (
-                <TaskDetailBadge className="flex items-center gap-2 bg-[#ffe066]">
+                <TaskDetailBadge className="flex items-center gap-2 bg-main text-main-foreground">
                   <Star className="w-4 h-4" fill="currentColor" />
                   Important
                 </TaskDetailBadge>
               )}
               {hasDueDate && (
-                <TaskDetailBadge className="flex items-center gap-2 bg-white">
+                <TaskDetailBadge className="flex items-center gap-2 bg-secondary-background">
                   <Clock className="w-4 h-4" />
                   {dueDateLabel}
                 </TaskDetailBadge>
@@ -87,7 +87,7 @@ export function ZenModeView({
                 task.tags.map((tag) => (
                   <TaskDetailBadge
                     key={tag}
-                    className="flex items-center gap-2 bg-[#cbf0f8]"
+                    className="flex items-center gap-2 bg-[#cbf0f8] dark:bg-[#cbf0f8]/20"
                   >
                     <Tag className="w-4 h-4" />
                     {tag}

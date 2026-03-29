@@ -12,16 +12,16 @@ export function AppHeader({ onToggleSearch, isSearchVisible }: AppHeaderProps) {
         D
       </div>
       <div className="flex items-center justify-between w-full mt-5">
-        <span className="text-5xl font-black tracking-tight leading-none text-black">
+        <span className="text-5xl font-black tracking-tight leading-none text-foreground">
           Done.
         </span>
         {onToggleSearch && (
           <button
             onClick={onToggleSearch}
-            className={`p-3 rounded-full border-2 border-black transition-colors cursor-pointer ${
+            className={`p-3 rounded-full border-2 border-border transition-colors cursor-pointer ${
               isSearchVisible
-                ? "bg-black text-[#fef6d9]"
-                : "bg-white text-black hover:bg-gray-100"
+                ? "bg-main text-main-foreground shadow-shadow"
+                : "bg-secondary-background text-foreground/60 hover:bg-zinc-100 dark:hover:bg-zinc-800"
             }`}
           >
             <Search className="w-6 h-6" />

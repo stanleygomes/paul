@@ -17,7 +17,7 @@ export function FormField({
 }: FormFieldProps) {
   const boxStyles = noBox
     ? ""
-    : "rounded-base border-2 border-black bg-white p-4";
+    : "rounded-base border-2 border-border bg-secondary-background p-4";
 
   return (
     <div className={`${boxStyles} ${className}`}>

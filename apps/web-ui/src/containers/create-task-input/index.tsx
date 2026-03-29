@@ -80,10 +80,10 @@ export function CreateTaskInput({
   return (
     <form
       onSubmit={handleSubmit}
-      className="fixed bottom-0 left-0 right-0 bg-[#fef6d9] p-6"
+      className="fixed bottom-0 left-0 right-0 bg-background p-6"
     >
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-2">
-        <div className="flex flex-col overflow-hidden rounded-xl border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+        <div className="flex flex-col overflow-hidden rounded-xl border-2 border-border bg-secondary-background shadow-[4px_4px_0px_0px_var(--border)] transition-all">
           <InputField
             ref={inputRef}
             value={value}
@@ -91,30 +91,29 @@ export function CreateTaskInput({
             onKeyDown={handleKeyDown}
           />
 
-          <div className="flex flex-wrap items-center gap-2 border-t-2 border-gray-100 bg-gray-50 px-3 py-2 text-sm z-0">
+          <div className="flex flex-wrap items-center gap-2 border-t-2 border-border/50 bg-secondary-background/50 px-3 py-2 text-sm z-0">
             <ImportantToggle
               isImportant={isImportant}
               onToggle={() => setIsImportant(!isImportant)}
-              className="bg-white"
             />
 
             <DatePicker
               dueDateStr={dueDateStr}
               onDateChange={setDueDateStr}
-              className="bg-white"
+              className="bg-secondary-background"
             />
 
             <TimeInput
               value={dueTime}
               onChange={setDueTime}
-              className="bg-white"
+              className="bg-secondary-background"
             />
 
             <ProjectSelector
               value={selectedProjectId}
               onChange={setSelectedProjectId}
               isVisible={!currentProjectId}
-              className="bg-white w-36"
+              className="bg-secondary-background w-36"
             />
           </div>
         </div>

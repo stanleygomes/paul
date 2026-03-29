@@ -8,10 +8,10 @@ export default function TaskFilters() {
         <Link
           key={filter.id}
           href={filter.href}
-          className="group bg-white border-2 border-black rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-gray-50 text-black hover:text-black transition-all hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] shadow-sm cursor-pointer"
+          className="group bg-secondary-background border-2 border-border rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:shadow-[4px_4px_0px_0px_var(--border)] transition-all cursor-pointer"
         >
           <filter.icon
-            className={`w-8 h-8 transition-colors group-hover:text-black text-black`}
+            className={`w-8 h-8 transition-colors group-hover:text-foreground/60 text-foreground/60`}
           />
           <span className="font-bold text-lg">{filter.name}</span>
         </Link>

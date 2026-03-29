@@ -21,12 +21,12 @@ export function TaskDueDate({
         <TaskDatePicker
           dueDateStr={dueDate}
           onDateChange={onUpdateDate}
-          className="bg-[#fffaf0] w-full justify-start py-2 px-3"
+          className="bg-secondary-background w-full justify-start py-2 px-3"
         />
         <TaskTimeInput
           value={dueTime}
           onChange={onUpdateTime}
-          className="bg-[#fffaf0] w-full px-3 py-2"
+          className="bg-secondary-background w-full px-3 py-2"
         />
       </div>
     </FormField>

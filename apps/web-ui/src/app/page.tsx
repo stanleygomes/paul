@@ -10,7 +10,7 @@ export default function Home() {
   const filter = searchParams.get("filter");
 
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#fef6d9] pb-32" />}>
+    <Suspense fallback={<div className="min-h-screen bg-background pb-32" />}>
       <TaskBoard projectId={projectId} filter={filter} />
     </Suspense>
   );

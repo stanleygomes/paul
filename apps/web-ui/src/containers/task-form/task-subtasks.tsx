@@ -35,7 +35,7 @@ export function TaskSubtasks({
       action={
         <button
           type="button"
-          className="rounded-base border-2 border-black bg-[#ffe066] px-2 py-1 text-xs font-bold shadow-shadow transition-all active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+          className="rounded-base border-2 border-border bg-main text-main-foreground px-2 py-1 text-xs font-bold shadow-shadow transition-all active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
           onClick={onAddSubtask}
         >
           Add subtask
@@ -47,8 +47,10 @@ export function TaskSubtasks({
           <div key={subtask.id} className="flex items-center gap-2">
             <button
               type="button"
-              className={`h-7 w-7 shrink-0 rounded-base border-2 border-black text-xs font-black ${
-                subtask.done ? "bg-[#a7f3d0]" : "bg-white"
+              className={`h-7 w-7 shrink-0 rounded-base border-2 border-border text-xs font-black ${
+                subtask.done
+                  ? "bg-[#a7f3d0] dark:bg-[#a7f3d0]/30"
+                  : "bg-zinc-100 dark:bg-zinc-800"
               }`}
               onClick={() => onToggleSubtask(subtask.id)}
               aria-label={
@@ -68,7 +70,7 @@ export function TaskSubtasks({
                   onAddSubtask();
                 }
               }}
-              className="w-full rounded-base border-2 border-black bg-[#fffaf0] px-2 py-1 text-sm outline-none"
+              className="w-full rounded-base border-2 border-border bg-secondary-background px-2 py-1 text-sm outline-none"
               placeholder="Subtask title"
             />
           </div>
