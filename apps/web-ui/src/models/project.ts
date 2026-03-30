@@ -1,5 +1,1 @@
-export interface Project {
-  id: string;
-  name: string;
-  color: string;
-}
+export type { Project } from "@done/entities";

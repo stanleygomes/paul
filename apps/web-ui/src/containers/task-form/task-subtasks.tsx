@@ -38,7 +38,7 @@ export function TaskSubtasks({
       action={
         <button
           type="button"
-          className="rounded-base border-2 border-border bg-main text-main-foreground px-2 py-1 text-xs font-bold shadow-shadow transition-all active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+          className="rounded-base cursor-pointer border-2 border-border bg-main text-main-foreground px-2 py-1 text-xs font-bold shadow-shadow transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none"
           onClick={onAddSubtask}
         >
           {t("task_form.buttons.add_subtask")}

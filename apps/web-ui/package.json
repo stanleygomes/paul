@@ -37,6 +37,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@done/entities": "file:../../packages/entities",
     "@done/eslint-config": "file:../../packages/eslint-config",
     "@done/http": "file:../../packages/http",
     "@done/search-ranker": "file:../../packages/search-ranker",

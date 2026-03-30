@@ -18,7 +18,7 @@ Keywords: `monorepo`, `turborepo`, `workspace`, `package`, `boundary`, `dependen
 ## Workspace layout
 
 ```
-essence-tube/
+logos/
 ├── apps/
 │   ├── api/          # Backend API — Fastify/Express, MongoDB, Redis
 │   ├── auth-api/     # Auth service — Fastify, SQLite/Drizzle, Resend, RS256 JWT
