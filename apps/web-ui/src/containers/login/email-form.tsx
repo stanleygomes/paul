@@ -91,6 +91,8 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
           {t("login.form.agreement")}{" "}
           <a
             href="/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-foreground underline decoration-2 underline-offset-2 hover:text-main"
           >
             {t("login.links.privacy")}
@@ -98,6 +100,8 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
           {t("login.form.and")}{" "}
           <a
             href="/terms"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-foreground underline decoration-2 underline-offset-2 hover:text-main"
           >
             {t("login.links.terms")}
