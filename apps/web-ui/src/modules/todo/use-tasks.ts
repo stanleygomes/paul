@@ -68,8 +68,11 @@ function deriveParentTaskDoneState(
   return currentDone;
 }
 
+import { useSync } from "./use-sync";
+
 export function useTasks(projectId?: string | null, filter?: string | null) {
   const [tasks, setTasks] = useLocalStorage<Task[]>("todo-tasks", []);
+  const { isSyncing, performSync } = useSync();
   const [newTask, setNewTask] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null);
@@ -87,6 +90,12 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
     }, 250);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && !isSyncing) {
+      performSync();
+    }
+  }, [isLoading, isSyncing, performSync]);
 
   const hasLegacyTasks = useMemo(() => tasks.some(hasLegacyFields), [tasks]);
   const normalizedTasks = useMemo(
@@ -150,6 +159,7 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
   function createTask(additionalFields?: Partial<Task>) {
     setTasks(manager.create(newTask, additionalFields));
     setNewTask("");
+    setTimeout(performSync, 1000);
   }
 
   function toggleTask(id: string) {
@@ -162,6 +172,7 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
       }
     }
     setTasks(manager.toggle(id));
+    setTimeout(performSync, 1000);
   }
 
   function deleteTask(id: string) {
@@ -188,11 +199,13 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
     if (selectedTaskId === id) {
       setSelectedTaskId(null);
     }
+    setTimeout(performSync, 1000);
   }
 
   function restoreTask(id: string) {
     setTasks(manager.restore(id));
     toast.success("Task restored");
+    setTimeout(performSync, 1000);
   }
 
   function startEdit(task: Task) {
@@ -202,6 +215,7 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
 
   function updateEdit(id: string, content: string) {
     setTasks(manager.update(id, content));
+    setTimeout(performSync, 2000);
   }
 
   function updateTaskDetails(
@@ -239,6 +253,7 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
         };
       }),
     );
+    setTimeout(performSync, 1000);
   }
 
   function closeEdit() {
@@ -248,10 +263,12 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
 
   function reorderTodoTasks(newTodo: Task[]) {
     setTasks((prev) => [...newTodo, ...prev.filter((t) => t.done)]);
+    setTimeout(performSync, 5000);
   }
 
   function reorderFinishedTasks(newFinished: Task[]) {
     setTasks((prev) => [...prev.filter((t) => !t.done), ...newFinished]);
+    setTimeout(performSync, 5000);
   }
 
   function openDrawer(task: Task) {
@@ -264,12 +281,14 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
 
   function clearFinishedTasks() {
     setTasks((prev) => prev.filter((t) => !t.done));
+    setTimeout(performSync, 1000);
   }
 
   return {
     todoTasks,
     finishedTasks,
     isLoading,
+    isSyncing,
     searchQuery,
     setSearchQuery,
     newTask,
@@ -295,5 +314,6 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
     zenModeTask: normalizedTasks.find((t) => t.id === zenModeTaskId) ?? null,
     enterZenMode: (id: string) => setZenModeTaskId(id),
     exitZenMode: () => setZenModeTaskId(null),
+    performSync,
   };
 }

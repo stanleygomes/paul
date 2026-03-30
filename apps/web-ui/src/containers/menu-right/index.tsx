@@ -9,6 +9,7 @@ import { MenuLinks } from "./menu-links";
 import { SearchToggle } from "./search-toggle";
 
 import { UserHints } from "../onboarding/user-hints";
+import { SyncIndicator } from "../../components/sync-indicator";
 
 export default function MenuRight() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,8 @@ export default function MenuRight() {
           onToggle={toggleSearch}
           show={showSearch}
         />
+
+        <SyncIndicator />
 
         <div className="hidden md:flex items-center gap-4 px-1">
           <MenuLinks pathname={pathname} variant="desktop" />
