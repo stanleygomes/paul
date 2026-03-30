@@ -450,5 +450,26 @@
         "invalid_email": "Por favor, insira um e-mail válido"
       }
     }
+  },
+  "hints": {
+    "title": "Ajuda e Guia",
+    "menu_left": {
+      "title": "Menu Lateral (Esquerda)",
+      "description": "Aqui você encontra seus filtros (Hoje, Agendadas, Importantes) e todos os seus projetos."
+    },
+    "menu_right": {
+      "title": "Acessos Rápidos (Direita)",
+      "description": "Busca rápida, navegação e suas configurações de tema, idioma e perfil através do seu avatar."
+    },
+    "task_list": {
+      "title": "Gestos nas Tarefas",
+      "swipe_done": "Arraste uma tarefa para a direita para marcar como concluída rapidamente.",
+      "swipe_delete": "Arraste uma tarefa para a esquerda para excluí-la de forma instantânea."
+    },
+    "task_details": {
+      "title": "Poder das Tarefas",
+      "description": "Clique em uma tarefa para abrir os detalhes. Você pode adicionar subtarefas, notas complexas, datas de entrega, tags, URLs e marcar como importante."
+    },
+    "close": "Entendi!"
   }
 }

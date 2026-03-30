@@ -8,6 +8,8 @@ import { MobileMenu } from "./mobile-menu";
 import { MenuLinks } from "./menu-links";
 import { SearchToggle } from "./search-toggle";
 
+import { UserHints } from "../onboarding/user-hints";
+
 export default function MenuRight() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -44,6 +46,8 @@ export default function MenuRight() {
         <div className="hidden md:flex items-center gap-4 px-1">
           <MenuLinks pathname={pathname} variant="desktop" />
         </div>
+
+        <UserHints />
 
         <UserAvatar className="h-10 w-10" />
 

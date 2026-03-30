@@ -450,5 +450,26 @@
         "invalid_email": "Please enter a valid email address"
       }
     }
+  },
+  "hints": {
+    "title": "Help & Guide",
+    "menu_left": {
+      "title": "Sidebar Menu (Left)",
+      "description": "Here you find your filters (Today, Scheduled, Important) and all your custom projects."
+    },
+    "menu_right": {
+      "title": "Quick Access (Right)",
+      "description": "Search, navigation, and your theme, language, and profile settings through your avatar."
+    },
+    "task_list": {
+      "title": "Task Gestures",
+      "swipe_done": "Swipe a task to the right to quickly mark it as completed.",
+      "swipe_delete": "Swipe a task to the left to delete it instantly."
+    },
+    "task_details": {
+      "title": "Task Possibilities",
+      "description": "Click on a task to open details. You can add subtasks, complex notes, due dates, tags, URLs, and mark as important."
+    },
+    "close": "Got it!"
   }
 }
