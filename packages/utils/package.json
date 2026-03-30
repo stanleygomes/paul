@@ -4,6 +4,13 @@
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./date-utils.js": "./src/date-utils.ts",
+    "./template-utils.js": "./src/template-utils.ts",
+    "./uuid-utils.js": "./src/uuid-utils.ts",
+    "./verification-code-utils.js": "./src/verification-code-utils.ts"
+  },
   "dependencies": {
     "date-fns": "^4.1.0",
     "mustache": "^4.2.0",
