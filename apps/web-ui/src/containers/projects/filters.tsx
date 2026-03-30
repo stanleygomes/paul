@@ -15,7 +15,7 @@ export default function TaskFilters() {
           className="group bg-secondary-background border-2 border-border rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:shadow-[4px_4px_0px_0px_var(--border)] transition-all cursor-pointer text-center"
         >
           <filter.icon
-            className={`w-8 h-8 transition-colors group-hover:text-foreground/60 text-foreground/60`}
+            className={`w-8 h-8 transition-colors ${filter.color}`}
           />
           <span className="font-bold text-lg">
             {t(`projects.filters.${filter.id}`)}

@@ -24,7 +24,11 @@ export function SidebarFilters({
                 : "text-foreground/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-foreground"
             }`}
           >
-            <filter.icon className={"w-5 h-5 text-main-foreground"} />
+            <filter.icon
+              className={`w-5 h-5 ${
+                isActive ? "text-main-foreground" : filter.color
+              }`}
+            />
             <span className="text-sm">{t(`sidebar.filters.${filter.id}`)}</span>
           </Link>
         );
