@@ -1,11 +1,13 @@
 import "dotenv/config";
 import Fastify, { FastifyInstance } from "fastify";
+import cors from "@fastify/cors";
+import rateLimit from "@fastify/rate-limit";
 import { AppRouter } from "./router.js";
 import { PinoLogger } from "./config/pino.logger.js";
 import { config } from "./config/environment.js";
 import { Docs } from "./config/docs.js";
+import { runMigrations } from "./config/database-client.js";
 import { setupErrorHandler } from "./middlewares/error-handler.middleware.js";
-import { ensureDatabaseSchema } from "./config/database-client.js";
 
 export class AppServer {
   private fastify: FastifyInstance;
@@ -13,6 +15,18 @@ export class AppServer {
 
   constructor() {
     this.fastify = Fastify();
+
+    this.fastify.register(rateLimit, {
+      global: true,
+      max: 100,
+      timeWindow: 60 * 1000, // 1 minute
+    });
+
+    this.fastify.register(cors, {
+      origin: config.app.cors.allowedOrigin,
+      methods: config.app.cors.allowedMethods.split(","),
+      allowedHeaders: config.app.cors.allowedHeaders.split(","),
+    });
 
     setupErrorHandler(this.fastify);
   }
@@ -23,7 +37,7 @@ export class AppServer {
 
   public async start() {
     try {
-      await ensureDatabaseSchema();
+      await runMigrations();
     } catch (error) {
       this.logger.error(error, "Database setup failed");
       process.exit(1);

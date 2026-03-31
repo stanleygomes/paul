@@ -1,4 +1,4 @@
-import { RevelationController } from "../controllers/prompt/prompt.controller.js";
+import { PromptController } from "../controllers/prompt/prompt.controller.js";
 import { PromptLogRepository } from "../repositories/prompt-log.repository.js";
 import { GoogleAiStudioService } from "../services/google-ai-studio.service.js";
 import { PromptExecutionService } from "../services/prompt-execution.service.js";
@@ -10,6 +10,4 @@ const promptExecutionService = new PromptExecutionService(
   promptLogRepository,
 );
 
-export const PromptController = new RevelationController(
-  promptExecutionService,
-);
+export const promptController = new PromptController(promptExecutionService);
