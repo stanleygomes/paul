@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import type { Task } from "@done/entities";
 
 interface ZenSubtasksProps {
-  subtasks: Task["subtasks"];
+  subtasks: Task[];
 }
 
 export function ZenSubtasks({ subtasks }: ZenSubtasksProps) {
@@ -35,7 +35,7 @@ export function ZenSubtasks({ subtasks }: ZenSubtasksProps) {
                   : "text-foreground"
               }`}
             >
-              {subtask.title}
+              {subtask.content}
             </span>
           </div>
         ))}

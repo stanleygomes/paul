@@ -1,11 +1,4 @@
-import {
-  boolean,
-  index,
-  jsonb,
-  pgTable,
-  text,
-  timestamp,
-} from "drizzle-orm/pg-core";
+import { boolean, index, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { projects } from "./projects";
 
 export const tasks = pgTable(
@@ -22,10 +15,12 @@ export const tasks = pgTable(
     due_date: text("due_date").notNull().default(""),
     due_time: text("due_time").notNull().default(""),
     url: text("url").notNull().default(""),
-    subtasks: jsonb("subtasks").notNull().default([]),
     tags: text("tags").array().notNull().default([]),
     project_id: text("project_id").references(() => projects.id, {
       onDelete: "set null",
+    }),
+    parent_id: text("parent_id").references((): any => tasks.id, {
+      onDelete: "cascade",
     }),
     is_deleted: boolean("is_deleted").notNull().default(false),
     deleted_at: timestamp("deleted_at", { mode: "date" }),
@@ -33,6 +28,7 @@ export const tasks = pgTable(
   (table) => [
     index("tasks_user_id_idx").on(table.user_id),
     index("tasks_project_id_idx").on(table.project_id),
+    index("tasks_parent_id_idx").on(table.parent_id),
     index("tasks_user_id_is_deleted_updated_at_idx").on(
       table.user_id,
       table.is_deleted,

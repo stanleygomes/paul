@@ -9,15 +9,10 @@ export interface Task {
   dueDate: string;
   dueTime: string;
   url: string;
-  subtasks: TaskSubtask[];
+  subtasks: Task[];
   tags: string[];
   projectId?: string;
+  parentId?: string | null;
   isDeleted?: boolean;
   deletedAt?: number | null;
-}
-
-export interface TaskSubtask {
-  id: string;
-  title: string;
-  done: boolean;
 }

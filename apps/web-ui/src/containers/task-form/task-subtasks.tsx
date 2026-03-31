@@ -3,10 +3,10 @@ import type { Task } from "@done/entities";
 import { FormField } from "./form-field";
 
 interface TaskSubtasksProps {
-  subtasks: Task["subtasks"];
+  subtasks: Task[];
   onAddSubtask: () => void;
   onToggleSubtask: (id: string) => void;
-  onUpdateSubtaskTitle: (id: string, title: string) => void;
+  onUpdateSubtaskContent: (id: string, content: string) => void;
 }
 
 import { useTranslation } from "react-i18next";
@@ -15,7 +15,7 @@ export function TaskSubtasks({
   subtasks,
   onAddSubtask,
   onToggleSubtask,
-  onUpdateSubtaskTitle,
+  onUpdateSubtaskContent,
 }: TaskSubtasksProps) {
   const { t } = useTranslation();
   const lastSubtaskCount = useRef(subtasks.length);
@@ -65,8 +65,10 @@ export function TaskSubtasks({
               {subtask.done ? "✓" : ""}
             </button>
             <input
-              value={subtask.title}
-              onChange={(e) => onUpdateSubtaskTitle(subtask.id, e.target.value)}
+              value={subtask.content}
+              onChange={(e) =>
+                onUpdateSubtaskContent(subtask.id, e.target.value)
+              }
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();

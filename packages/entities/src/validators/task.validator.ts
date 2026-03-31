@@ -1,37 +1,37 @@
 import { z } from "zod";
 
-export const taskSubtaskSchema = z.object({
-  id: z.string().uuid(),
-  title: z.string().min(1).max(200),
-  done: z.boolean(),
-});
+import type { Task } from "../task.js";
 
-export const taskSchema = z.object({
+const baseTaskSchema = z.object({
   id: z.string().uuid(),
   content: z.string().min(1).max(500),
   done: z.boolean(),
-  createdAt: z.number().positive(),
-  updatedAt: z.number().positive(),
   notes: z.string().max(5000),
   important: z.boolean(),
   dueDate: z.string().max(50),
   dueTime: z.string().max(20),
   url: z.string().max(2000),
-  subtasks: z.array(taskSubtaskSchema),
   tags: z.array(z.string().max(50)),
   projectId: z.string().uuid().optional(),
+  parentId: z.string().uuid().nullable().optional(),
   isDeleted: z.boolean().optional(),
   deletedAt: z.number().nullable().optional(),
 });
 
-export const createTaskSchema = taskSchema.omit({
-  createdAt: true,
-  updatedAt: true,
+export const taskSchema: z.ZodType<Task> = baseTaskSchema.extend({
+  createdAt: z.number().positive(),
+  updatedAt: z.number().positive(),
+  subtasks: z.array(z.lazy(() => taskSchema)),
 });
 
-export const updateTaskSchema = taskSchema.partial().required({
-  id: true,
-  updatedAt: true,
+export const createTaskSchema = baseTaskSchema.extend({
+  subtasks: z.array(z.lazy(() => taskSchema)).optional(),
+});
+
+export const updateTaskSchema = baseTaskSchema.partial().extend({
+  id: z.string().uuid(),
+  updatedAt: z.number().positive(),
+  subtasks: z.array(z.lazy(() => taskSchema)).optional(),
 });
 
 export const bulkSyncTasksSchema = z.object({

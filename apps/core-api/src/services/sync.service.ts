@@ -55,14 +55,28 @@ export class SyncService {
     userId: string,
     clientTasks: Task[],
   ): Promise<Task[]> {
+    const flattenedClientTasks: Task[] = [];
+    const flatten = (t: Task) => {
+      flattenedClientTasks.push(t);
+      if (t.subtasks) {
+        t.subtasks.forEach((st) => {
+          st.parentId = t.id;
+          flatten(st);
+        });
+      }
+    };
+    clientTasks.forEach(flatten);
+
     const serverTasks = await this.taskRepository.findByUser(userId);
     const serverTasksMap = new Map(serverTasks.map((task) => [task.id, task]));
-    const clientTasksMap = new Map(clientTasks.map((task) => [task.id, task]));
+    const clientTasksMap = new Map(
+      flattenedClientTasks.map((task) => [task.id, task]),
+    );
 
     const tasksToUpsert: Task[] = [];
     const tasksToReturn: Task[] = [];
 
-    for (const clientTask of clientTasks) {
+    for (const clientTask of flattenedClientTasks) {
       const serverTask = serverTasksMap.get(clientTask.id);
 
       if (!serverTask) {

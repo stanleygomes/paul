@@ -111,10 +111,10 @@ export function TaskForm({
     return generateUUID();
   }
 
-  function updateSubtaskTitle(subtaskId: string, title: string) {
+  function updateSubtaskContent(subtaskId: string, content: string) {
     patchDetails({
       subtasks: task.subtasks.map((subtask) =>
-        subtask.id === subtaskId ? { ...subtask, title } : subtask,
+        subtask.id === subtaskId ? { ...subtask, content } : subtask,
       ),
     });
   }
@@ -133,7 +133,21 @@ export function TaskForm({
     patchDetails({
       subtasks: [
         ...task.subtasks,
-        { id: generateSubtaskId(), title: "", done: false },
+        {
+          id: generateSubtaskId(),
+          content: "",
+          done: false,
+          createdAt: Date.now(),
+          updatedAt: Date.now(),
+          notes: "",
+          important: false,
+          dueDate: "",
+          dueTime: "",
+          url: "",
+          subtasks: [],
+          tags: [],
+          parentId: task.id,
+        },
       ],
     });
   }
@@ -182,7 +196,7 @@ export function TaskForm({
         subtasks={task.subtasks}
         onAddSubtask={addSubtask}
         onToggleSubtask={toggleSubtask}
-        onUpdateSubtaskTitle={updateSubtaskTitle}
+        onUpdateSubtaskContent={updateSubtaskContent}
       />
 
       <TaskNotes

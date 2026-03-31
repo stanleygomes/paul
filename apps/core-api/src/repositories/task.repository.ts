@@ -14,9 +14,9 @@ export interface DbTask {
   due_date: string;
   due_time: string;
   url: string;
-  subtasks: unknown;
   tags: string[];
   project_id: string | null;
+  parent_id: string | null;
   is_deleted: boolean;
   deleted_at: Date | null;
 }
@@ -52,9 +52,9 @@ export class TaskRepository {
           due_date: sql`excluded.due_date`,
           due_time: sql`excluded.due_time`,
           url: sql`excluded.url`,
-          subtasks: sql`excluded.subtasks`,
           tags: sql`excluded.tags`,
           project_id: sql`excluded.project_id`,
+          parent_id: sql`excluded.parent_id`,
           is_deleted: sql`excluded.is_deleted`,
           deleted_at: sql`excluded.deleted_at`,
         },
