@@ -15,7 +15,7 @@ export function CTASection() {
           {t("landing.cta.subtitle")}
         </p>
         <Link
-          href="/login"
+          href="/"
           className="inline-flex h-16 items-center justify-center rounded-base border-4 border-border bg-main px-12 text-xl font-black uppercase text-main-foreground shadow-[8px_8px_0px_0px_var(--border)] transition-all hover:translate-x-2 hover:translate-y-2 hover:shadow-none hover:no-underline active:translate-x-2 active:translate-y-2 active:shadow-none"
         >
           {t("landing.cta.button")}

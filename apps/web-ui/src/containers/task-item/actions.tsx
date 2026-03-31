@@ -14,6 +14,7 @@ interface TaskItemActionsProps {
   onEnterZenMode?: (id: string) => void;
   onOpenDrawer: (task: Task) => void;
   isRecentlyDeleted?: boolean;
+  className?: string;
 }
 
 export function TaskItemActions({
@@ -23,11 +24,12 @@ export function TaskItemActions({
   onEnterZenMode,
   onOpenDrawer,
   isRecentlyDeleted,
+  className = "",
 }: TaskItemActionsProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-start gap-2">
+    <div className={`flex items-start gap-2 ${className}`}>
       <Tooltip>
         <TooltipTrigger asChild>
           <button

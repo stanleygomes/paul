@@ -9,16 +9,7 @@ import { DragHandle } from "./drag-handle";
 import { TaskMetadata } from "./metadata";
 import { TaskItemActions } from "./actions";
 import { TaskItemDescription } from "./description";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@done/ui/components/ui/alert-dialog";
+import { TaskDeleteConfirmDialog } from "./delete-confirm-dialog";
 
 interface TaskListItemProps {
   task: Task;
@@ -61,7 +52,6 @@ export function TaskListItem({
   const { projects } = useProjects();
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const { t } = useTranslation();
   const { save, flush } = useDebouncedSave(600);
 
   const project = task.projectId
@@ -110,7 +100,7 @@ export function TaskListItem({
         onDelete={handleSoftDelete}
         className="h-full w-full"
       >
-        <div className="bg-secondary-background p-4 flex items-start gap-3">
+        <div className="group bg-secondary-background p-4 flex items-start gap-3">
           <DragHandle controls={controls} />
 
           <div className="flex-1 min-w-0">
@@ -138,6 +128,7 @@ export function TaskListItem({
                 onEnterZenMode={onEnterZenMode}
                 onOpenDrawer={onOpenDrawer}
                 isRecentlyDeleted={isRecentlyDeleted}
+                className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-auto"
               />
             </div>
 
@@ -151,29 +142,11 @@ export function TaskListItem({
         </div>
       </SwipeableActionItem>
 
-      <AlertDialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              {t("task_item.delete_confirm.title")}
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              {t("task_item.delete_confirm.description")}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>
-              {t("task_item.delete_confirm.cancel")}
-            </AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => onDelete(task.id)}
-              className="bg-red-500 hover:bg-red-600 text-white"
-            >
-              {t("task_item.delete_confirm.confirm")}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <TaskDeleteConfirmDialog
+        open={showDeleteConfirm}
+        onOpenChange={setShowDeleteConfirm}
+        onConfirm={() => onDelete(task.id)}
+      />
     </Reorder.Item>
   );
 }

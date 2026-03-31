@@ -13,11 +13,8 @@ export function LanguageSelector() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <h4 className="text-sm font-bold text-foreground">
-          {t("settings.language")}
-        </h4>
         <p className="text-secondary-foreground text-xs">
-          {t("settings.language_description")}
+          {t("settings.language.language_description")}
         </p>
       </div>
       <div className="flex gap-2">

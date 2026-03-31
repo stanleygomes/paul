@@ -38,11 +38,7 @@ export default function Login() {
 
       login(response.token, response.refreshToken);
 
-      if (response.isNew) {
-        router.push("/onboarding");
-      } else {
-        router.push("/dashboard");
-      }
+      router.push("/");
 
       return true;
     } catch (error) {

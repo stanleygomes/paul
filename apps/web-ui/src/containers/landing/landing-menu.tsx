@@ -11,7 +11,7 @@ export function LandingMenu() {
     <nav className="fixed top-0 left-0 right-0 z-[100] border-b-4 border-border bg-background/80 backdrop-blur-md px-6 h-20 flex items-center shadow-sm">
       <div className="mx-auto max-w-7xl w-full flex justify-between items-center">
         <Link
-          href="/"
+          href="/landing"
           className="flex items-center gap-2 group hover:no-underline"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-base border-2 border-border bg-main text-lg font-black text-main-foreground italic shadow-[2px_2px_0px_0px_var(--border)] transition-transform group-hover:-translate-x-[1px] group-hover:-translate-y-[1px] group-hover:shadow-[4px_4px_0px_0px_var(--border)]">
@@ -54,7 +54,7 @@ export function LandingMenu() {
             {t("landing.menu.pricing")}
           </a> */}
           <Link
-            href="/login"
+            href="/"
             className="flex h-11 items-center justify-center rounded-base border-2 border-border bg-main px-6 text-xs font-black uppercase text-main-foreground shadow-[4px_4px_0px_0px_var(--border)] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:no-underline active:translate-x-1 active:translate-y-1 active:shadow-none"
           >
             {t("landing.menu.login")}

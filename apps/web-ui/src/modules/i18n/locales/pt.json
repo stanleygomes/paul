@@ -4,7 +4,6 @@
     "back": "Voltar",
     "account": "Conta",
     "theme": "Tema",
-    "language": "Idioma",
     "notifications": "Notificações",
     "legal": {
       "title": "Jurídico",
@@ -34,6 +33,10 @@
         "enable": "Habilitar Notificações",
         "denied": "Habilitar nas Configurações"
       }
+    },
+    "language": {
+      "title": "Idioma",
+      "language_description": "Escolha o idioma para o aplicativo."
     }
   },
   "projects": {

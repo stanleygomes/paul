@@ -66,7 +66,7 @@ export function TaskMetadata({
       className="mt-2 flex flex-wrap items-center gap-2 text-xs font-bold"
       aria-label={t("task_item.metadata.aria_label")}
     >
-      {showProject && (
+      {showProject && task.projectId && (
         <div className="relative group">
           <ProjectSelector
             value={task.projectId || "none"}
@@ -76,7 +76,7 @@ export function TaskMetadata({
               })
             }
             isVisible={true}
-            className="bg-secondary-background px-2 h-7 border-2 border-border"
+            className="bg-secondary-background px-2 h-8 border-2 border-border"
           />
         </div>
       )}
@@ -87,7 +87,7 @@ export function TaskMetadata({
             <ImportantToggle
               isImportant={task.important}
               onToggle={() => handleUpdate({ important: !task.important })}
-              className="h-7 px-1.5"
+              className="h-8 px-1.5"
             />
           </div>
         </TooltipTrigger>
@@ -102,7 +102,7 @@ export function TaskMetadata({
         <Tooltip>
           <TooltipTrigger asChild>
             <TaskDetailBadge
-              className="bg-secondary-background flex items-center gap-1.5 px-2 h-7 border border-border/50"
+              className="bg-secondary-background flex items-center gap-1.5 px-2 h-8 border-2 border-border"
               aria-label={t("task_item.metadata.due_date_aria", {
                 date: dueDateLabel,
               })}
@@ -126,7 +126,7 @@ export function TaskMetadata({
               rel="noopener noreferrer"
               className="inline-flex"
             >
-              <TaskDetailBadge className="bg-secondary-background flex items-center px-1.5 h-7 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors border border-border/50">
+              <TaskDetailBadge className="bg-secondary-background flex items-center px-1.5 h-8 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors border-2 border-border">
                 <Globe className="w-3.5 h-3.5" />
               </TaskDetailBadge>
             </a>
@@ -141,7 +141,7 @@ export function TaskMetadata({
             <TooltipTrigger asChild>
               <PopoverTrigger asChild>
                 <button className="inline-flex">
-                  <TaskDetailBadge className="bg-secondary-background flex items-center px-1.5 h-7 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors border border-border/50">
+                  <TaskDetailBadge className="bg-secondary-background flex items-center px-1.5 h-8 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors border-2 border-border">
                     <FileText className="w-3.5 h-3.5" />
                   </TaskDetailBadge>
                 </button>
@@ -161,7 +161,7 @@ export function TaskMetadata({
         <Tooltip>
           <TooltipTrigger asChild>
             <TaskDetailBadge
-              className="bg-secondary-background flex items-center gap-1.5 px-2 h-7 border border-border/50"
+              className="bg-secondary-background flex items-center gap-1.5 px-2 h-8 border-2 border-border"
               aria-label={t("task_item.metadata.subtasks_aria", {
                 completed: completedSubtasks,
                 total: task.subtasks.length,
@@ -183,7 +183,7 @@ export function TaskMetadata({
       {task.tags?.map((tag) => (
         <TaskDetailBadge
           key={tag}
-          className="bg-[#cbf0f8] dark:bg-[#cbf0f8]/20 flex items-center gap-1.5 px-2 h-7 relative group border border-border/50"
+          className="bg-[#cbf0f8] dark:bg-[#cbf0f8]/20 flex items-center gap-1.5 px-2 h-8 relative group border-2 border-border"
           onMouseEnter={() => setIsHoveredTag(tag)}
           onMouseLeave={() => setIsHoveredTag(null)}
         >

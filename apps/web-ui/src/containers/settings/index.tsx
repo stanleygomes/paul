@@ -36,7 +36,7 @@ export default function Settings() {
 
           <section className="flex flex-col gap-4">
             <h2 className="text-lg font-black text-foreground">
-              {t("settings.language")}
+              {t("settings.language.title")}
             </h2>
             <LanguageSelector />
           </section>

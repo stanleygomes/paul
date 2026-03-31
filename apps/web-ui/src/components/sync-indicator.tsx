@@ -9,7 +9,7 @@ export function SyncIndicator() {
   const { isSyncing, lastSyncAt, syncError, performSync } = useSync();
 
   return (
-    <div className="flex items-center gap-2 text-xs text-muted-foreground mr-4">
+    <div className="flex items-center gap-2 text-xs text-muted-foreground mr-4 cursor-pointer">
       <AnimatePresence mode="wait">
         {isSyncing ? (
           <motion.div
@@ -29,7 +29,7 @@ export function SyncIndicator() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={() => performSync()}
-            className="flex items-center gap-1.5 text-destructive hover:underline"
+            className="flex items-center gap-1.5 text-destructive hover:underline cursor-pointer"
           >
             <AlertCircle className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Sync Error</span>

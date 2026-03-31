@@ -4,7 +4,6 @@
     "back": "Back",
     "account": "Account",
     "theme": "Theme",
-    "language": "Language",
     "notifications": "Notifications",
     "legal": {
       "title": "Legal",
@@ -34,6 +33,10 @@
         "enable": "Enable Notifications",
         "denied": "Enable in Settings"
       }
+    },
+    "language": {
+      "title": "Language",
+      "language_description": "Choose the language for the app."
     }
   },
   "projects": {
