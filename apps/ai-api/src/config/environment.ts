@@ -11,6 +11,10 @@ const {
   DATABASE_URL,
   DATABASE_AUTH_TOKEN,
   DATABASE_MIGRATIONS_FOLDER,
+  JWT_PRIVATE_KEY,
+  JWT_PUBLIC_KEY,
+  JWT_ACCESS_EXPIRES_IN,
+  JWT_REFRESH_EXPIRES_IN,
   LOG_LEVEL,
   LOG_TRANSPORT,
 } = process.env;
@@ -50,6 +54,12 @@ export interface Environment {
     authToken?: string;
     migrationsFolder: string;
   };
+  auth: {
+    jwtPrivateKey: string;
+    jwtPublicKey: string;
+    accessTokenExpiresIn: string;
+    refreshTokenExpiresIn: string;
+  };
 }
 
 export const config: Environment = {
@@ -86,5 +96,11 @@ export const config: Environment = {
     url: DATABASE_URL || "file:./.docker/core-ai.db",
     authToken: DATABASE_AUTH_TOKEN,
     migrationsFolder: DATABASE_MIGRATIONS_FOLDER || "./src/database/migrations",
+  },
+  auth: {
+    jwtPrivateKey: (JWT_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
+    jwtPublicKey: (JWT_PUBLIC_KEY || "").replace(/\\n/g, "\n"),
+    accessTokenExpiresIn: JWT_ACCESS_EXPIRES_IN || "1h",
+    refreshTokenExpiresIn: JWT_REFRESH_EXPIRES_IN || "30d",
   },
 };

@@ -1,4 +1,12 @@
+import { JwtService } from "@done/node-utils";
 import { FastifyRequest } from "fastify";
+import { AuthError } from "../errors/AuthError.js";
+import { config } from "../config/environment.js";
+
+const jwtService = new JwtService(
+  config.auth.jwtPrivateKey,
+  config.auth.jwtPublicKey,
+);
 
 export interface UserAuth {
   id: string;
@@ -11,14 +19,22 @@ type AuthenticatedRequest = FastifyRequest & {
 
 export class AuthMiddleware {
   static async authorize(request: FastifyRequest): Promise<void> {
-    const userId =
-      (request.headers["x-user-id"] as string) || "default-user-id";
-    const userEmail =
-      (request.headers["x-user-email"] as string) || "default@example.com";
+    const authHeader = request.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      throw new AuthError("Not authorized");
+    }
+
+    const token = authHeader.replace("Bearer ", "").trim();
+    const payload = jwtService.verify(token);
+
+    if (!payload.id || !payload.email) {
+      throw new AuthError("Invalid token payload");
+    }
 
     (request as AuthenticatedRequest).user = {
-      id: userId,
-      email: userEmail,
+      id: payload.id,
+      email: payload.email,
     };
   }
 }
