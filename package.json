@@ -7,7 +7,7 @@
     "dev": "turbo run dev",
     "app:auth": "turbo run dev --filter=auth-api",
     "app:core": "turbo run dev --filter=core-api",
-    "app:core-ai": "turbo run dev --filter=core-ai",
+    "app:ai": "turbo run dev --filter=ai-api",
     "app:web": "turbo run dev --filter=web-ui",
     "app:desktop": "turbo run electron:dev --filter=desktop",
     "lint": "turbo run lint",
