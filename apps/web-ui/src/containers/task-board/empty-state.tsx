@@ -2,48 +2,46 @@
 
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { CheckCircle2 } from "lucide-react";
-
-interface EmptyMessage {
-  title: string;
-  body: string;
-  image: string;
-}
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export function EmptyState() {
   const { t } = useTranslation();
-  const [message, setMessage] = useState<EmptyMessage | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const messages = t("task_board.empty_state", {
-      returnObjects: true,
-    }) as Array<{ title: string; body: string }>;
-
-    if (!Array.isArray(messages)) return;
-
-    const randomMsg =
-      messages[Math.floor(Math.random() * messages.length)] ?? messages[0];
-
-    if (randomMsg) {
-      setMessage({
-        title: randomMsg.title,
-        body: randomMsg.body,
-        image: "/images/cool-1.png",
-      });
-    }
     setMounted(true);
-  }, [t]);
+  }, []);
 
-  if (!mounted || !message) return null;
+  if (!mounted) return null;
 
   return (
-    <div className="mb-20 mt-10 flex flex-col items-center rounded-base border-2 border-border bg-main px-6 py-8 text-center text-main-foreground shadow-shadow transition-all md:px-8 md:py-12">
-      <div className="mb-6 rounded-full border-2 border-border bg-background p-4 text-foreground shadow-shadow">
-        <CheckCircle2 className="h-10 w-10" />
-      </div>
-      <p className="text-xl font-bold">{message.title}</p>
-      <p className="mt-2 text-sm font-medium opacity-80">{message.body}</p>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="mb-20 mt-10 flex flex-col items-center px-6 py-8 text-center transition-all md:px-8 md:py-12"
+    >
+      <motion.div
+        initial={{ scale: 0.95 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.1, duration: 0.6, ease: "easeOut" }}
+        className="mb-6"
+      >
+        <Image
+          src="/images/tasks.png"
+          alt={t("task_board.empty_state.title")}
+          width={240}
+          height={240}
+          className="h-auto w-48 object-contain md:w-60"
+        />
+      </motion.div>
+      <h3 className="text-2xl font-bold tracking-tight text-foreground">
+        {t("task_board.empty_state.title")}
+      </h3>
+      <p className="mt-3 max-w-sm text-base font-medium opacity-70">
+        {t("task_board.empty_state.body")}
+      </p>
+    </motion.div>
   );
 }

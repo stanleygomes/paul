@@ -198,28 +198,10 @@
     }
   },
   "task_board": {
-    "empty_state": [
-      {
-        "title": "Uau, você conseguiu!",
-        "body": "Todas as tarefas estão concluídas. Aproveite seu tempo livre!"
-      },
-      {
-        "title": "Tudo em dia!",
-        "body": "Você detonou sua lista de tarefas. Hora de relaxar."
-      },
-      {
-        "title": "Zero tarefas restantes!",
-        "body": "Ótimo trabalho resolvendo tudo por hoje."
-      },
-      {
-        "title": "Nada para fazer aqui!",
-        "body": "Você é uma máquina absoluta de produtividade."
-      },
-      {
-        "title": "Boom! Lista limpa.",
-        "body": "Respire fundo, dê um sorriso e descanse."
-      }
-    ],
+    "empty_state": {
+      "title": "Tudo em dia. Aproveite o intervalo!",
+      "body": "Sua lista está vazia por enquanto. Que tal relaxar um pouco antes de começar algo novo?"
+    },
     "finished_header": {
       "title": "Concluídas",
       "clear_all": "Limpar Tudo",

@@ -198,28 +198,10 @@
     }
   },
   "task_board": {
-    "empty_state": [
-      {
-        "title": "Wow, you did it!",
-        "body": "Every task is complete. Enjoy your free time!"
-      },
-      {
-        "title": "All caught up!",
-        "body": "You crushed your to-do list. Time to relax."
-      },
-      {
-        "title": "Zero tasks remaining!",
-        "body": "Great job tackling everything for today."
-      },
-      {
-        "title": "Nothing to do here!",
-        "body": "You're an absolute productivity machine."
-      },
-      {
-        "title": "Boom! List cleared.",
-        "body": "Take a deep breath, smile, and rest up."
-      }
-    ],
+    "empty_state": {
+      "title": "All caught up. Enjoy the break!",
+      "body": "Your task list is empty for now. How about relaxing for a bit before starting something new?"
+    },
     "finished_header": {
       "title": "Finished",
       "clear_all": "Clear All",
