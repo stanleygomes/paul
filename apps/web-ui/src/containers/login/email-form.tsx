@@ -6,7 +6,6 @@ import { z } from "zod";
 import Image from "next/image";
 // @ts-expect-error - Module declaration for resolvers/zod may be missing or hard to resolve
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Icon } from "@paul/ui/components/ui/icon";
 import { Button } from "@paul/ui/components/ui/button";
 import { Input } from "@paul/ui/components/ui/input";
 import { useTranslation } from "react-i18next";

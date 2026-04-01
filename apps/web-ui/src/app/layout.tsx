@@ -38,7 +38,6 @@ const themeScript = `
   } catch (e) {}
 `;
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
