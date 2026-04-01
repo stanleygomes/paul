@@ -32,6 +32,7 @@ jobs:
             "core-api") echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_CORE_API_PROJECT_ID }}" >> $GITHUB_ENV ;;
             "ai-api")   echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_AI_API_PROJECT_ID }}"   >> $GITHUB_ENV ;;
             "web-ui")   echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_UI_PROJECT_ID }}"       >> $GITHUB_ENV ;;
+            "landpage-ui")   echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_LANDPAGE_PROJECT_ID }}"       >> $GITHUB_ENV ;;
           esac
 
       - name: Setup Node.js
