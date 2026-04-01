@@ -34,17 +34,19 @@ jobs:
             "web-ui")   echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_UI_PROJECT_ID }}"       >> $GITHUB_ENV ;;
           esac
 
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Setup pnpm
-        run: corepack prepare pnpm@10.31.0 --activate
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup pnpm
+        run: |
+          npm install -g pnpm@10.31.0
+          corepack prepare pnpm@10.31.0 --activate
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
