@@ -20,12 +20,32 @@
       "extra-files": [
         {
           "type": "json",
-          "path": "apps/api/package.json",
+          "path": "apps/ai-api/package.json",
           "jsonpath": "$.version"
         },
         {
           "type": "json",
-          "path": "apps/ui/package.json",
+          "path": "apps/auth-api/package.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "apps/core-api/package.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "apps/desktop/package.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "apps/landpage-ui/package.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "apps/web-ui/package.json",
           "jsonpath": "$.version"
         }
       ]
