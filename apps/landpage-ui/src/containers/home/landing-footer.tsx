@@ -10,9 +10,9 @@ export function LandingFooter() {
   return (
     <footer className="bg-border p-8 border-t-4 border-black">
       <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="relative h-12 w-12 overflow-hidden rounded-base border-4 border-background bg-main shadow-[4px_4px_0px_0px_var(--border)]">
+        <div className="relative h-12 w-12 overflow-hidden rounded-base border-4 border-background bg-background shadow-[4px_4px_0px_0px_var(--border)]">
           <Image
-            src="/images/logo.jpg"
+            src="/images/logo.png"
             alt="Logo Done"
             fill
             className="object-cover"

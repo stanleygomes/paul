@@ -17,7 +17,7 @@ export function LandingMenu() {
         >
           <div className="relative h-12 w-12 overflow-hidden rounded-base border-2 border-border shadow-[2px_2px_0px_0px_var(--border)] transition-transform group-hover:-translate-x-[1px] group-hover:-translate-y-[1px] group-hover:shadow-[4px_4px_0px_0px_var(--border)]">
             <Image
-              src="/images/logo.jpg"
+              src="/images/logo.png"
               alt="Logo"
               fill
               className="object-cover"
@@ -30,16 +30,16 @@ export function LandingMenu() {
 
         <div className="hidden md:flex items-center gap-8 text-sm font-black uppercase tracking-wider">
           <a
-            href="#why"
-            className="text-foreground/60 hover:text-foreground hover:no-underline transition-colors"
-          >
-            {t("landing.menu.comparison")}
-          </a>
-          <a
             href="#app"
             className="text-foreground/60 hover:text-foreground hover:no-underline transition-colors"
           >
             {t("landing.menu.preview")}
+          </a>
+          <a
+            href="#why"
+            className="text-foreground/60 hover:text-foreground hover:no-underline transition-colors"
+          >
+            {t("landing.menu.comparison")}
           </a>
           <a
             href="#features"

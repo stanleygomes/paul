@@ -76,7 +76,7 @@ export function HeroSection() {
         className="absolute right-[10%] bottom-[20%] hidden h-40 w-40 overflow-hidden rounded-base border-4 border-border bg-white lg:block shadow-[10px_10px_0px_0px_var(--border)]"
       >
         <Image
-          src="/images/logo.jpg"
+          src="/images/logo-paul.jpg"
           alt="Done Logo"
           fill
           className="object-cover"

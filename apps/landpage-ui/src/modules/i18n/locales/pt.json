@@ -86,7 +86,7 @@
       "framework": "Estrutura de Trabalho Focada",
       "title_main": "Foque no que",
       "title_highlight": "Importa.",
-      "description": "Paul é o gerenciador de tarefas minimalista projetado para limpar sua mente e amplificar seu foco. Sem bagunça, apenas sua lista.",
+      "description": "Paul é o assistente de tarefas minimalista projetado para limpar sua mente e amplificar seu foco. Sem bagunça, apenas sua lista.",
       "cta": "Começar gratuitamente"
     },
     "features": {
@@ -191,6 +191,12 @@
     },
     "footer": {
       "rights": "© {{year}} PAUL - Seu assistente de tarefas"
+    }
+  },
+  "login": {
+    "links": {
+      "privacy": "Privacidade",
+      "terms": "Termos"
     }
   },
   "metadata": {
