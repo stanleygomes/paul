@@ -19,16 +19,15 @@ Paul is a task assistant that helps you manage your tasks and stay organized.
 
 ## 📁 Monorepo Structure
 
-This Turborepo includes the following apps and packages:
+This Turborepo includes the following apps:
 
-### Apps
+### Apps (`/apps`)
 
-- `auth-api`: Email authentication service (OTP + JWT RS256)
-- `core-ai`: Prompt execution API with Google AI Studio
-
-### Packages
-
-lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+- `auth-api`: authentication service (OTP/JWT, security integrations, and email utilities).
+- `core-api`: main domain API.
+- `ai-api`: API for AI features.
+- `web-ui`: primary web app built with Next.js.
+- `desktop`: Electron desktop client.
 
 Each app/package is 100% [TypeScript](https://www.typescriptlang.org/).
 
@@ -36,33 +35,41 @@ Each app/package is 100% [TypeScript](https://www.typescriptlang.org/).
 
 ### Prerequisites
 
-- Node.js v24.x
-- npm
+- Node.js `>=22`
+- pnpm `10.x`
 
-### Scripts
+### Installation
 
-| Script                            | Description                                   |
-| :-------------------------------- | :-------------------------------------------- |
-| `npm install`                     | Install all dependencies                      |
-| `npm run dev`                     | Start all apps and packages in development    |
-| `npm run build`                   | Build all projects in the monorepo            |
-| `npm run lint`                    | Run ESLint across all projects                |
-| `npm run check-types`             | Run TypeScript type checks                    |
-| `npx turbo <cmd> --filter=<name>` | Run a specific project (`dev`, `build`, etc.) |
+```bash
+pnpm install
+```
 
-## 📖 Usage
+### Root Scripts
 
-lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+| Script                 | Description                                       |
+| :--------------------- | :------------------------------------------------ |
+| `pnpm run dev`         | Starts apps in development mode (except desktop). |
+| `pnpm run app:web`     | Starts only `web-ui`.                             |
+| `pnpm run app:auth`    | Starts only `auth-api`.                           |
+| `pnpm run app:core`    | Starts only `core-api`.                           |
+| `pnpm run app:ai`      | Starts only `ai-api`.                             |
+| `pnpm run app:desktop` | Starts desktop (Electron).                        |
+| `pnpm run build`       | Builds all workspaces.                            |
+| `pnpm run lint`        | Runs lint across all workspaces.                  |
+| `pnpm run check-types` | Runs type-check across all workspaces.            |
+| `pnpm run check`       | `format:check + lint + check-types`.              |
+| `pnpm run fix`         | `format + lint:fix + check-types`.                |
 
 ## 🔧 Environment Variables
 
-Consult the `.env.example` files in each app for the necessary variables.
+Each app has its own template:
 
-## 📦 Deployment
+- `apps/auth-api/.env.template`
+- `apps/core-api/.env.template`
+- `apps/ai-api/.env.template`
+- `apps/web-ui/.env.template`
 
-- **API**: XXXXXXXXXX
-- **UI**: XXXXXXXXXX
-- **Docs/Web**: XXXXXXXXXX
+Copy the template for the desired app to `.env` and fill in the values.
 
 ## 🤝 How to Contribute
 
