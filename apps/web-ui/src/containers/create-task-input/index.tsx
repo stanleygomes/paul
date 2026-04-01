@@ -96,29 +96,33 @@ export function CreateTaskInput({
           />
 
           <div className="flex flex-wrap items-center gap-2 border-t-2 border-border/50 bg-secondary-background/50 px-3 py-2 text-sm z-0">
-            <ImportantToggle
-              isImportant={isImportant}
-              onToggle={() => setIsImportant(!isImportant)}
-            />
+            <div className="flex w-full items-center gap-2 sm:w-auto">
+              <ImportantToggle
+                isImportant={isImportant}
+                onToggle={() => setIsImportant(!isImportant)}
+              />
 
-            <DatePicker
-              dueDateStr={dueDateStr}
-              onDateChange={setDueDateStr}
-              className="bg-secondary-background"
-            />
+              <DatePicker
+                dueDateStr={dueDateStr}
+                onDateChange={setDueDateStr}
+                className="bg-secondary-background flex-1 sm:flex-initial"
+              />
+            </div>
 
-            <TimeInput
-              value={dueTime}
-              onChange={setDueTime}
-              className="bg-secondary-background"
-            />
+            <div className="flex w-full items-center gap-2 sm:w-auto">
+              <TimeInput
+                value={dueTime}
+                onChange={setDueTime}
+                className="bg-secondary-background flex-1 sm:flex-initial"
+              />
 
-            <ProjectSelector
-              value={selectedProjectId}
-              onChange={setSelectedProjectId}
-              isVisible={!currentProjectId}
-              className="bg-secondary-background w-40"
-            />
+              <ProjectSelector
+                value={selectedProjectId}
+                onChange={setSelectedProjectId}
+                isVisible={!currentProjectId}
+                className="bg-secondary-background flex-1 sm:w-40"
+              />
+            </div>
           </div>
         </div>
         <InputFooter saveStatus={saveStatus} />

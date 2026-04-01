@@ -72,7 +72,7 @@ export function TaskDrawer({
       onOpenChange={(open) => !open && onClose()}
       direction="right"
     >
-      <DrawerContent className="bg-background flex flex-col sm:!max-w-2xl w-full">
+      <DrawerContent className="bg-background flex flex-col sm:!max-w-2xl w-[calc(100%-1.5rem)] ml-auto">
         <TaskDrawerHeader />
 
         {task && (

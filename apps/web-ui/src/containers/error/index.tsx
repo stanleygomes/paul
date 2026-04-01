@@ -28,7 +28,7 @@ export default function ErrorPage({
       )}
       <Link
         href={buttonHref}
-        className="rounded-base border-4 border-border bg-main dark:bg-[#7a83ff] dark:text-[#fafafa] px-10 py-5 text-2xl font-black shadow-[8px_8px_0px_0px_var(--border)] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none"
+        className="rounded-base border-4 border-border bg-main px-10 py-5 text-2xl font-black shadow-[8px_8px_0px_0px_var(--border)] transition-all hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_var(--border)] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none dark:text-black"
       >
         {finalButtonText}
       </Link>

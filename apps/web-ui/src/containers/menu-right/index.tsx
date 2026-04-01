@@ -50,7 +50,9 @@ export default function MenuRight() {
           <MenuLinks pathname={pathname} variant="desktop" />
         </div>
 
-        <UserHints />
+        <div className="hidden md:block">
+          <UserHints />
+        </div>
 
         <UserAvatar className="h-10 w-10" />
 

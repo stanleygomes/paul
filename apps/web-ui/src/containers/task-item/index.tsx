@@ -114,7 +114,7 @@ export function TaskListItem({
               <TaskToggle
                 task={task}
                 onToggle={onToggle}
-                className="mt-1 cursor-pointer"
+                className="mt-1 cursor-pointer hidden md:flex"
               />
 
               <TaskItemDescription
