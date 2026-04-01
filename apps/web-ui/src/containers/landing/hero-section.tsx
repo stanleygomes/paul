@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { ArrowRight as ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
@@ -67,6 +68,20 @@ export function HeroSection() {
         transition={{ duration: 1, delay: 1, type: "spring" }}
         className="absolute left-[5%] bottom-[15%] hidden h-24 w-24 border-4 border-border bg-blue-400 lg:block shadow-shadow"
       ></motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 1.2, type: "spring" }}
+        className="absolute right-[10%] bottom-[20%] hidden h-40 w-40 overflow-hidden rounded-base border-4 border-border bg-white lg:block shadow-[10px_10px_0px_0px_var(--border)]"
+      >
+        <Image
+          src="/images/logo.jpg"
+          alt="Done Logo"
+          fill
+          className="object-cover"
+        />
+      </motion.div>
     </section>
   );
 }

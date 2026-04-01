@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 export function LandingMenu() {
@@ -14,11 +15,16 @@ export function LandingMenu() {
           href="/landing"
           className="flex items-center gap-2 group hover:no-underline"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-base border-2 border-border bg-main text-lg font-black text-main-foreground italic shadow-[2px_2px_0px_0px_var(--border)] transition-transform group-hover:-translate-x-[1px] group-hover:-translate-y-[1px] group-hover:shadow-[4px_4px_0px_0px_var(--border)]">
-            P.
+          <div className="relative h-12 w-12 overflow-hidden rounded-base border-2 border-border shadow-[2px_2px_0px_0px_var(--border)] transition-transform group-hover:-translate-x-[1px] group-hover:-translate-y-[1px] group-hover:shadow-[4px_4px_0px_0px_var(--border)]">
+            <Image
+              src="/images/logo.jpg"
+              alt="Logo"
+              fill
+              className="object-cover"
+            />
           </div>
           <span className="text-xl font-black tracking-tighter uppercase text-foreground">
-            Paul
+            {t("landing.menu.title")}
           </span>
         </Link>
 

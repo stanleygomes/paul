@@ -4,10 +4,12 @@ import { Providers } from "./providers";
 import MenuRight from "@containers/menu-right";
 import MenuLeft from "@containers/menu-left";
 import { Suspense } from "react";
+import en from "@modules/i18n/locales/en.json";
+import { MainWrapper } from "./main-wrapper";
 
 export const metadata: Metadata = {
-  title: "Paul",
-  description: "Minimal todo task page",
+  title: en.metadata.title,
+  description: en.metadata.description,
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -36,7 +38,6 @@ const themeScript = `
   } catch (e) {}
 `;
 
-import { MainWrapper } from "./main-wrapper";
 
 export default function RootLayout({
   children,

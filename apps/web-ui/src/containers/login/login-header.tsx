@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 export default function LoginHeader() {
@@ -10,8 +11,13 @@ export default function LoginHeader() {
   return (
     <div className="mb-12 flex flex-col items-center gap-6">
       <Link href="/" className="group">
-        <div className="flex h-16 w-16 items-center justify-center rounded-base border-4 border-border bg-main text-2xl font-black uppercase text-main-foreground shadow-shadow transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-[6px_6px_0px_0px_var(--border)]">
-          D.
+        <div className="relative h-20 w-20 overflow-hidden rounded-base border-4 border-border bg-main shadow-shadow transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-[6px_6px_0px_0px_var(--border)]">
+          <Image
+            src="/images/logo.jpg"
+            alt="Done Logo"
+            fill
+            className="object-cover"
+          />
         </div>
       </Link>
       <h2 className="text-center text-4xl font-black uppercase tracking-tighter text-foreground drop-shadow-sm md:text-5xl">

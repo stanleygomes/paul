@@ -332,6 +332,7 @@
   },
   "landing": {
     "menu": {
+      "title": "Olá, eu sou o Paul",
       "features": "Funcionalidades",
       "comparison": "Por que?",
       "preview": "App",
@@ -447,7 +448,7 @@
       }
     },
     "footer": {
-      "rights": "© {{year}} DONE. APPLICATION"
+      "rights": "© {{year}} PAUL - Seu assistente de tarefas"
     }
   },
   "login": {
@@ -503,5 +504,9 @@
       "description": "Clique em uma tarefa para abrir os detalhes. Você pode adicionar subtarefas, notas complexas, datas de entrega, tags, URLs e marcar como importante."
     },
     "close": "Entendi!"
+  },
+  "metadata": {
+    "title": "Paul, Seu Assistente de Tarefas",
+    "description": "O Paul é um assistente que ajuda você a gerenciar suas tarefas e manter-se organizado."
   }
 }

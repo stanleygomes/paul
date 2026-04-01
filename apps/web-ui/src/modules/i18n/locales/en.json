@@ -332,6 +332,7 @@
   },
   "landing": {
     "menu": {
+      "title": "Hi, I'm Paul",
       "features": "Features",
       "comparison": "Why Done?",
       "preview": "In Action",
@@ -447,7 +448,7 @@
       }
     },
     "footer": {
-      "rights": "© {{year}} DONE. APPLICATION"
+      "rights": "© {{year}} PAUL - Your Task Assistant"
     }
   },
   "login": {
@@ -503,5 +504,9 @@
       "description": "Click on a task to open details. You can add subtasks, complex notes, due dates, tags, URLs, and mark as important."
     },
     "close": "Got it!"
+  },
+  "metadata": {
+    "title": "Paul, Your Task Assistant",
+    "description": "Paul is a task assistant that helps you manage your tasks and stay organized."
   }
 }

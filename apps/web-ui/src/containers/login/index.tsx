@@ -51,7 +51,7 @@ export default function Login() {
   return (
     <div className="flex min-h-screen flex-col bg-background font-base">
       <div className="flex-1 flex flex-col items-center justify-center p-6 bg-secondary-background bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px]">
-        <LoginHeader />
+        {/* <LoginHeader /> */}
 
         {step === "email" ? (
           <EmailForm onSubmit={handleProceed} />

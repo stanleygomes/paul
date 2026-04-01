@@ -3,6 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import Image from "next/image";
 // @ts-expect-error - Module declaration for resolvers/zod may be missing or hard to resolve
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Icon } from "@paul/ui/components/ui/icon";
@@ -48,8 +49,13 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
     <Card className="w-full max-w-lg rounded-base border-4 border-border bg-secondary-background p-4 shadow-[10px_10px_0px_0px_var(--border)] md:p-8">
       <CardHeader className="pb-4">
         <CardTitle className="text-3xl font-black uppercase tracking-tighter text-foreground flex flex-col gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-base border-4 border-border bg-main text-main-foreground shadow-shadow">
-            <Icon icon="solar:check-read-linear" className="h-8 w-8" />
+          <div className="relative h-20 w-20 overflow-hidden rounded-base border-4 border-border bg-main shadow-shadow">
+            <Image
+              src="/images/logo.jpg"
+              alt="Done Logo"
+              fill
+              className="object-cover"
+            />
           </div>
           <div>{t("login.form.title")}</div>
         </CardTitle>
