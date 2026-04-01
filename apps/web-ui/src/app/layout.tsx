@@ -6,12 +6,12 @@ import MenuLeft from "@containers/menu-left";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Done.",
+  title: "Paul",
   description: "Minimal todo task page",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Done.",
+    title: "Paul",
   },
   formatDetection: {
     telephone: false,

@@ -12,7 +12,7 @@ export class NotificationManager {
     const permission = await Notification.requestPermission();
     if (permission === "granted") {
       toast.success("Notificações ativadas!");
-      this.sendNotification("Done.", {
+      this.sendNotification("Paul", {
         body: "Você receberá lembretes das suas tarefas.",
       });
     }

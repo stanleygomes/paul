@@ -15,10 +15,10 @@ export function LandingMenu() {
           className="flex items-center gap-2 group hover:no-underline"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-base border-2 border-border bg-main text-lg font-black text-main-foreground italic shadow-[2px_2px_0px_0px_var(--border)] transition-transform group-hover:-translate-x-[1px] group-hover:-translate-y-[1px] group-hover:shadow-[4px_4px_0px_0px_var(--border)]">
-            D.
+            P.
           </div>
           <span className="text-xl font-black tracking-tighter uppercase text-foreground">
-            Done.
+            Paul
           </span>
         </Link>
 
