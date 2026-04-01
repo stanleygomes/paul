@@ -1,6 +1,6 @@
-import { httpClient } from "@done/http";
+import { httpClient } from "@paul/http";
 import { CORE_API_URL } from "../../config/api-config";
-import type { Task, Project } from "@done/entities";
+import type { Task, Project } from "@paul/entities";
 
 export interface SyncRequest {
   tasks: Task[];

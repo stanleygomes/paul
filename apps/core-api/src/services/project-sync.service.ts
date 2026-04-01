@@ -1,4 +1,4 @@
-import type { Project } from "@done/entities";
+import type { Project } from "@paul/entities";
 import {
   ProjectRepository,
   type DbProject,

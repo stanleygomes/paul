@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { Task } from "@done/entities";
+import type { Task } from "@paul/entities";
 import { FormField } from "./form-field";
 
 interface TaskSubtasksProps {

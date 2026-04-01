@@ -1,8 +1,8 @@
-import { generateUUID } from "@done/utils";
+import { generateUUID } from "@paul/utils";
 import { PlanningRepository } from "../repositories/planning.repository.js";
 import { config } from "../config/environment.js";
 import { BusinessError } from "../errors/BusinessError.js";
-import { Logger } from "@done/node-utils";
+import { Logger } from "@paul/node-utils";
 
 const logger = Logger.getLogger();
 

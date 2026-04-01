@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyRequest } from "fastify";
-import { bulkSyncTasksSchema, bulkSyncProjectsSchema } from "@done/entities";
+import { bulkSyncTasksSchema, bulkSyncProjectsSchema } from "@paul/entities";
 import { syncSchema } from "./sync.doc.js";
-import type { Task, Project } from "@done/entities";
+import type { Task, Project } from "@paul/entities";
 import { SyncService } from "../../services/sync.service.js";
 import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware.js";
 

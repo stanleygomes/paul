@@ -1,4 +1,4 @@
-import { JwtService, JwtPayload } from "@done/node-utils";
+import { JwtService, JwtPayload } from "@paul/node-utils";
 import { AuthError } from "../errors/AuthError.js";
 
 export class RefreshTokenService {

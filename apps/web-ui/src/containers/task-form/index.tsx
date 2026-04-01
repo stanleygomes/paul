@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import type { Task } from "@done/entities";
-import { generateUUID } from "@done/utils";
+import type { Task } from "@paul/entities";
+import { generateUUID } from "@paul/utils";
 import { useDebouncedSave } from "../../hooks/use-debounced-save";
 import { TaskTitle } from "./task-title";
 import { TaskStatusToggle } from "./task-status-toggle";

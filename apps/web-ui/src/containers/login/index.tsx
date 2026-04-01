@@ -9,7 +9,7 @@ import LoginFooter from "./login-footer";
 import { authService } from "../../modules/auth/auth-api.service";
 import { useAuth } from "../../modules/auth/use-auth";
 import { useRouter } from "next/navigation";
-import { toast } from "@done/ui";
+import { toast } from "@paul/ui";
 import { useTranslation } from "react-i18next";
 
 export default function Login() {

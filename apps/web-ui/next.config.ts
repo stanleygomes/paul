@@ -13,10 +13,10 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   transpilePackages: [
-    "@done/search-ranker",
-    "@done/utils",
-    "@done/ui",
-    "@done/http",
+    "@paul/search-ranker",
+    "@paul/utils",
+    "@paul/ui",
+    "@paul/http",
   ],
   turbopack: {},
 };

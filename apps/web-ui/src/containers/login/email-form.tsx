@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 // @ts-expect-error - Module declaration for resolvers/zod may be missing or hard to resolve
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Icon } from "@done/ui/components/ui/icon";
-import { Button } from "@done/ui/components/ui/button";
-import { Input } from "@done/ui/components/ui/input";
+import { Icon } from "@paul/ui/components/ui/icon";
+import { Button } from "@paul/ui/components/ui/button";
+import { Input } from "@paul/ui/components/ui/input";
 import { useTranslation } from "react-i18next";
 import {
   Card,
@@ -15,7 +15,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@done/ui/components/ui/card";
+} from "@paul/ui/components/ui/card";
 
 const emailSchema = z.object({
   email: z.string().email("invalid_email"),

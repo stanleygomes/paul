@@ -1,5 +1,5 @@
-import type { Project, CreateProjectInput } from "@done/entities";
-import { Logger } from "@done/node-utils";
+import type { Project, CreateProjectInput } from "@paul/entities";
+import { Logger } from "@paul/node-utils";
 import type { Logger as PinoLogger } from "pino";
 import { ProjectRepository } from "../repositories/project.repository.js";
 import { ProjectMapper } from "../mappers/project.mapper.js";

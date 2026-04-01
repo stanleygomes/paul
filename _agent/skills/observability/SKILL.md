@@ -1,6 +1,6 @@
 ---
 name: observability
-description: Logging conventions using Pino and @done/logger for all apps in this monorepo.
+description: Logging conventions using Pino and @paul/logger for all apps in this monorepo.
 ---
 
 ## When to apply
@@ -18,8 +18,8 @@ Keywords: `log`, `logger`, `logging`, `pino`, `observability`, `tracing`, `metri
 
 | App             | Logger                                            |
 | --------------- | ------------------------------------------------- |
-| `apps/auth-api` | `@done/node-utils` (shared package wrapping Pino) |
-| `apps/core-ai`  | `@done/node-utils` (shared package wrapping Pino) |
+| `apps/auth-api` | `@paul/node-utils` (shared package wrapping Pino) |
+| `apps/core-ai`  | `@paul/node-utils` (shared package wrapping Pino) |
 | `apps/web-ui`   | `pino` (browser-side if enabled)                  |
 
 The shared logger utility lives at `packages/node-utils/src/logger`.
@@ -45,7 +45,7 @@ The shared logger utility lives at `packages/node-utils/src/logger`.
 
 ## Checklist
 
-- [ ] Logger imported from `@done/logger` (or the app's configured Pino instance)
+- [ ] Logger imported from `@paul/logger` (or the app's configured Pino instance)
 - [ ] Structured context object included with every log call
 - [ ] Log level is appropriate for the event
 - [ ] No sensitive fields logged
@@ -54,8 +54,8 @@ The shared logger utility lives at `packages/node-utils/src/logger`.
 ## Example
 
 ```typescript
-// apps/auth-api — using @done/logger
-import { logger } from "@done/logger";
+// apps/auth-api — using @paul/logger
+import { logger } from "@paul/logger";
 
 export class SendEmailCodeService {
   async execute(email: string): Promise<void> {

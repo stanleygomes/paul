@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from "react";
-import { Task } from "@done/entities";
+import { Task } from "@paul/entities";
 import { Star, Clock, Tag } from "lucide-react";
 import { AutoResizeTextarea } from "../../components/auto-resize-textarea";
 import { useProjects } from "@modules/project/use-projects";

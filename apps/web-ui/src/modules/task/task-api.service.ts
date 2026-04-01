@@ -1,6 +1,6 @@
-import { httpClient } from "@done/http";
+import { httpClient } from "@paul/http";
 import { CORE_API_URL } from "../../config/api-config";
-import type { Task } from "@done/entities";
+import type { Task } from "@paul/entities";
 
 export const taskApiService = {
   async getTasks(token: string, since?: number): Promise<Task[]> {

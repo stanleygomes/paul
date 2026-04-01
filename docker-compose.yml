@@ -1,7 +1,7 @@
 services:
   auth-db:
     image: postgres:17-alpine
-    container_name: done-auth-postgres
+    container_name: paul-auth-postgres
     environment:
       POSTGRES_USER: database_user
       POSTGRES_PASSWORD: database_password
@@ -11,12 +11,12 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - done-network
+      - paul-network
     restart: always
 
   core-db:
     image: postgres:17-alpine
-    container_name: done-core-postgres
+    container_name: paul-core-postgres
     environment:
       POSTGRES_USER: database_user
       POSTGRES_PASSWORD: database_password
@@ -26,12 +26,12 @@ services:
     ports:
       - "5433:5432"
     networks:
-      - done-network
+      - paul-network
     restart: always
 
   ai-db:
     image: ghcr.io/tursodatabase/libsql-server:latest
-    container_name: done-ai-libsql
+    container_name: paul-ai-libsql
     command:
       [
         "sqld",
@@ -45,11 +45,11 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - done-network
+      - paul-network
     restart: always
 
 networks:
-  done-network:
+  paul-network:
     driver: bridge
 
 volumes:

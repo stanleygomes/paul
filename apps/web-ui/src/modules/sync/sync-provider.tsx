@@ -12,8 +12,8 @@ import { useLocalStorage } from "usehooks-ts";
 import { useAuth } from "@modules/auth/use-auth";
 import { syncApiService } from "./sync-api.service";
 import { SyncManager } from "./sync-manager";
-import type { Task, Project } from "@done/entities";
-import { toast } from "@done/ui";
+import type { Task, Project } from "@paul/entities";
+import { toast } from "@paul/ui";
 
 export interface SyncContextType {
   isSyncing: boolean;

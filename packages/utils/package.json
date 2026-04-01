@@ -1,5 +1,5 @@
 {
-  "name": "@done/utils",
+  "name": "@paul/utils",
   "version": "0.0.0",
   "type": "module",
   "main": "src/index.ts",
@@ -17,7 +17,7 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "@done/typescript-config": "workspace:*",
+    "@paul/typescript-config": "workspace:*",
     "@types/uuid": "^10.0.0",
     "typescript": "5.9.2"
   }

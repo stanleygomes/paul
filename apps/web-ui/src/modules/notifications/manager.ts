@@ -1,4 +1,4 @@
-import { toast } from "@done/ui";
+import { toast } from "@paul/ui";
 
 export class NotificationManager {
   private static timeouts: Map<string, NodeJS.Timeout> = new Map();

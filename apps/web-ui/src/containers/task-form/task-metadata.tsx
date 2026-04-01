@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { formatDateTime } from "@done/utils";
-import type { Task } from "@done/entities";
+import { formatDateTime } from "@paul/utils";
+import type { Task } from "@paul/entities";
 
 interface TaskMetadataProps {
   task: Task;

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAuth } from "@modules/auth/use-auth";
 import { planningApiService, PlanningMessage } from "./planning-api.service";
-import { toast } from "@done/ui";
+import { toast } from "@paul/ui";
 
 export function usePlanning() {
   const { token } = useAuth();

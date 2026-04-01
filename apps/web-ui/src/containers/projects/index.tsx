@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useProjects } from "@modules/project/use-projects";
 import ProjectFormDrawer from "./form-drawer";
 import ProjectDeleteDrawer from "./delete-drawer";
-import { Project } from "@done/entities";
+import { Project } from "@paul/entities";
 import { PROJECT_COLORS } from "../../constants/project-colors";
 import TaskFilters from "./filters";
 import ProjectList from "./list";

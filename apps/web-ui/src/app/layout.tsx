@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "@done/ui/globals.css";
+import "@paul/ui/globals.css";
 import { Providers } from "./providers";
 import MenuRight from "@containers/menu-right";
 import MenuLeft from "@containers/menu-left";

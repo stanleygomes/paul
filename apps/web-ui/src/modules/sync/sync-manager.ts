@@ -1,4 +1,4 @@
-import type { Task, Project } from "@done/entities";
+import type { Task, Project } from "@paul/entities";
 
 interface SyncableEntity {
   id: string;

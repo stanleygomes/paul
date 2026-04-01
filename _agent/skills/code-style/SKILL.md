@@ -93,7 +93,7 @@ This project adopts the **Neobrutalism** aesthetics. All UI development should a
 
 ### Components
 
-- **Location:** All shared components must reside in [`packages/ui`](file:///media/stan_silva/Partition_3/projects/_personal/done/packages/ui) under the `@done/ui` scope.
+- **Location:** All shared components must reside in [`packages/ui`](file:///media/stan_silva/Partition_3/projects/_personal/paul/packages/ui) under the `@paul/ui` scope.
 - **Shadcn UI:** This project uses Shadcn components with neobrutalism variants.
 - **Installation:** To add new components to the shared library:
   1. Go to `packages/ui`.

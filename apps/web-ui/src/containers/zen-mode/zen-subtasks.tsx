@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
-import type { Task } from "@done/entities";
+import type { Task } from "@paul/entities";
 
 interface ZenSubtasksProps {
   subtasks: Task[];

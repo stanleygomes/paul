@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyRequest } from "fastify";
-import { createProjectSchema, updateProjectSchema } from "@done/entities";
+import { createProjectSchema, updateProjectSchema } from "@paul/entities";
 import {
   createProjectSchemaDoc,
   deleteProjectSchema,
@@ -7,7 +7,7 @@ import {
   listProjectsSchema,
   updateProjectSchemaDoc,
 } from "./project.doc.js";
-import type { Project } from "@done/entities";
+import type { Project } from "@paul/entities";
 import { ProjectService } from "../../services/project.service.js";
 import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware.js";
 

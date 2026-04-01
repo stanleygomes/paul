@@ -1,5 +1,5 @@
 {
-  "name": "@done/search-ranker",
+  "name": "@paul/search-ranker",
   "version": "0.0.0",
   "type": "module",
   "main": "src/index.ts",
@@ -11,7 +11,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@done/typescript-config": "workspace:*",
+    "@paul/typescript-config": "workspace:*",
     "typescript": "5.9.2"
   }
 }

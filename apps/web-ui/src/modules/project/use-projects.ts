@@ -1,8 +1,8 @@
 "use client";
 
 import { useLocalStorage } from "usehooks-ts";
-import { Project } from "@done/entities";
-import { generateUUID } from "@done/utils";
+import { Project } from "@paul/entities";
+import { generateUUID } from "@paul/utils";
 import { useSync } from "../sync/use-sync";
 
 export function useProjects() {

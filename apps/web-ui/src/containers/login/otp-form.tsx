@@ -2,20 +2,20 @@
 
 import React, { useState, useRef } from "react";
 import { useTranslation, Trans } from "react-i18next";
-import { Button } from "@done/ui/components/ui/button";
+import { Button } from "@paul/ui/components/ui/button";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@done/ui/components/ui/input-otp";
+} from "@paul/ui/components/ui/input-otp";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@done/ui/components/ui/card";
-import { Icon } from "@done/ui/components/ui/icon";
+} from "@paul/ui/components/ui/card";
+import { Icon } from "@paul/ui/components/ui/icon";
 
 interface OtpFormProps {
   email: string;

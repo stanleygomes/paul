@@ -1,10 +1,8 @@
-# Done
-
-App for listing videos from YouTube channels. No algorithms, no distractions. Just the essentials.
+# Paul - Task Assistant
 
 ## 🌟 About the Project
 
-lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+Paul is a task assistant that helps you manage your tasks and stay organized.
 
 ## 🛠️ Tech Stack
 

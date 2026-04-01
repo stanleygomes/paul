@@ -1,5 +1,5 @@
 {
-  "extends": "@done/typescript-config/nextjs.json",
+  "extends": "@paul/typescript-config/nextjs.json",
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext", "webworker"],
     "plugins": [
@@ -18,12 +18,12 @@
       "@styles/*": ["src/styles/*"],
       "@containers/*": ["src/containers/*"],
       "@constants/*": ["src/constants/*"],
-      "@done/ui": ["../../packages/ui/src"],
-      "@done/ui/*": ["../../packages/ui/src/*"],
-      "@done/utils": ["../../packages/utils/src"],
-      "@done/utils/*": ["../../packages/utils/src/*"],
-      "@done/http": ["../../packages/http/src"],
-      "@done/http/*": ["../../packages/http/src/*"]
+      "@paul/ui": ["../../packages/ui/src"],
+      "@paul/ui/*": ["../../packages/ui/src/*"],
+      "@paul/utils": ["../../packages/utils/src"],
+      "@paul/utils/*": ["../../packages/utils/src/*"],
+      "@paul/http": ["../../packages/http/src"],
+      "@paul/http/*": ["../../packages/http/src/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],

@@ -10,7 +10,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@done/ui/components/ui/alert-dialog";
+} from "@paul/ui/components/ui/alert-dialog";
 
 interface TaskDeleteProps {
   onDelete: () => void;

@@ -1,5 +1,5 @@
 import { FastifyInstance, FastifyRequest } from "fastify";
-import { createTaskSchema, updateTaskSchema } from "@done/entities";
+import { createTaskSchema, updateTaskSchema } from "@paul/entities";
 import {
   createTaskSchemaDoc,
   deleteTaskSchema,
@@ -8,7 +8,7 @@ import {
   suggestSubtasksSchema,
   updateTaskSchemaDoc,
 } from "./task.doc.js";
-import type { Task } from "@done/entities";
+import type { Task } from "@paul/entities";
 import { TaskService } from "../../services/task.service.js";
 import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware.js";
 

@@ -79,7 +79,7 @@
     "sections": {
       "data_collected": {
         "title": "1. Data Collected",
-        "p1": "Our application, <0>Done.</0>, collects and stores data necessary for task management. This includes task content, project names, due dates, and your preferences.",
+        "p1": "Our application, <0>Paul</0>, collects and stores data necessary for task management. This includes task content, project names, due dates, and your preferences.",
         "p2": "When you create an account, we may store your name and email address to sync your data across devices."
       },
       "usage": {
@@ -100,7 +100,7 @@
         "p1": "You have the right to access, export, or delete all your data at any time. Within the app settings, you can clear your local storage or delete your account."
       }
     },
-    "footer": "Done. Application © 2026"
+    "footer": "Paul Application © 2026"
   },
   "terms": {
     "title": "Terms of Service",
@@ -108,11 +108,11 @@
     "sections": {
       "acceptance": {
         "title": "1. Acceptance of Terms",
-        "p1": "By accessing or using <0>Done.</0>, you agree to be bound by these Terms of Service. If you do not agree to all these terms, you may not use the application."
+        "p1": "By accessing or using <0>Paul</0>, you agree to be bound by these Terms of Service. If you do not agree to all these terms, you may not use the application."
       },
       "description": {
         "title": "2. Description of Service",
-        "p1": "Done. is a task management application designed to help you organize your productivity. We provide tools to create, manage, and sync tasks across your devices."
+        "p1": "Paul is a task management application designed to help you organize your productivity. We provide tools to create, manage, and sync tasks across your devices."
       },
       "responsibilities": {
         "title": "3. User Responsibilities",
@@ -121,18 +121,18 @@
       },
       "property": {
         "title": "4. Intellectual Property",
-        "p1": "The application, including its design, code, and original content, is the property of Done. Application. You may not reproduce or distribute any part of the service without our permission."
+        "p1": "The application, including its design, code, and original content, is the property of Paul Application. You may not reproduce or distribute any part of the service without our permission."
       },
       "liability": {
         "title": "5. Limitation of Liability",
-        "p1": "Done. is provided \"as is\" without any warranties. We are not liable for any data loss or productivity issues resulting from the use of the application."
+        "p1": "Paul is provided \"as is\" without any warranties. We are not liable for any data loss or productivity issues resulting from the use of the application."
       },
       "modifications": {
         "title": "6. Modifications",
         "p1": "We reserve the right to modify these terms at any time. Your continued use of the app after such changes constitutes acceptance of the new terms."
       }
     },
-    "footer": "Done. Application © 2026"
+    "footer": "Paul Application © 2026"
   },
   "errors": {
     "not_found": {
@@ -305,7 +305,7 @@
     }
   },
   "sidebar": {
-    "title": "Done.",
+    "title": "Paul",
     "sections": {
       "filters": "Filters",
       "projects": "Projects"
@@ -343,7 +343,7 @@
       "framework": "Focused Work Framework",
       "title_main": "Focus on what",
       "title_highlight": "Matters.",
-      "description": "Done. is the minimalist task manager designed to clear your head and amplify your focus. No clutter, just your list.",
+      "description": "Paul is the minimalist task manager designed to clear your head and amplify your focus. No clutter, just your list.",
       "cta": "Get Started for free"
     },
     "features": {
@@ -351,7 +351,7 @@
       "cards": {
         "clarity": {
           "title": "Mental Clarity",
-          "description": "Stop holding everything in your head. Done. is designed to help you offload your thoughts instantly so you can actually focus on working."
+          "description": "Stop holding everything in your head. Paul is designed to help you offload your thoughts instantly so you can actually focus on working."
         },
         "distractions": {
           "title": "Zero Distractions",
@@ -370,11 +370,11 @@
     "comparison": {
       "title": "From Chaos to Clarity.",
       "before": {
-        "title": "Before Done.",
+        "title": "Before Paul",
         "subtitle": "Scattered thoughts, missed deadlines, and total mental clutter."
       },
       "after": {
-        "title": "With Done.",
+        "title": "With Paul",
         "subtitle": "Laser focus, clear priorities, and the peace of a finished list."
       }
     },
@@ -384,7 +384,7 @@
     },
     "pricing": {
       "title": "Choose Focus.",
-      "subtitle": "Get started for free or unlock the full power of Done.",
+      "subtitle": "Get started for free or unlock the full power of Paul",
       "best_fit": "Best fit",
       "month": "/month",
       "plans": {
@@ -451,8 +451,8 @@
     }
   },
   "login": {
-    "title": "Get more Done.",
-    "footer": "Done. © {{year}}",
+    "title": "Get more Paul",
+    "footer": "Paul © {{year}}",
     "links": {
       "privacy": "Privacy",
       "terms": "Terms",

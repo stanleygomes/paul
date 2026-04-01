@@ -4,7 +4,7 @@ applyTo: "**"
 
 ## Project Overview
 
-**Done** is a productivity-focused monorepo for task and project management. It includes a robust authentication service, AI-powered features, and a high-performance web interface.
+**Paul** is a productivity-focused monorepo for task and project management. It includes a robust authentication service, AI-powered features, and a high-performance web interface.
 
 ### Technology Stack
 
@@ -21,7 +21,7 @@ applyTo: "**"
 ### Project Structure
 
 ```
-done/
+paul/
 ├── apps/
 │   ├── auth-api/                     # Email authentication service (OTP + JWT RS256)
 │   ├── core-ai-api/                  # AI-powered features (Fastify + Google AI Studio)
@@ -34,7 +34,7 @@ done/
 │   ├── node-utils/                   # Node.js specific utility functions
 │   ├── search-ranker/                # Logic for ranking and searching
 │   ├── typescript-config/            # Shared TypeScript configuration
-│   ├── ui/                           # Shared Neobrutalism UI components (@done/ui)
+│   ├── ui/                           # Shared Neobrutalism UI components (@paul/ui)
 │   └── utils/                        # Shared general utilities
 ```
 
@@ -44,8 +44,8 @@ done/
 - Apply **SRP** and **OCP** (SOLID): each class has one responsibility; extend via new classes, not by modifying existing ones.
 - All code, identifiers, and UI labels must be in **English**.
 - All UI development must follow the **Neobrutalism** design system ([neobrutalism.dev](https://www.neobrutalism.dev)).
-- Shared UI components are managed centrally in [`packages/ui`](file:///media/stan_silva/Partition_3/projects/_personal/done/packages/ui) (`@done/ui`). Use Shadcn with Neobrutalism variants.
-- Prefer existing shared packages (`@done/*`) over duplicating logic across apps.
+- Shared UI components are managed centrally in [`packages/ui`](file:///media/stan_silva/Partition_3/projects/_personal/paul/packages/ui) (`@paul/ui`). Use Shadcn with Neobrutalism variants.
+- Prefer existing shared packages (`@paul/*`) over duplicating logic across apps.
 
 ## Skills available
 

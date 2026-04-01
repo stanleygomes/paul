@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { format, parseISO, isValid } from "date-fns";
 import { ptBR, enUS } from "date-fns/locale";
 import { CalendarIcon } from "lucide-react";
-import { Calendar, Popover, PopoverTrigger, PopoverContent } from "@done/ui";
+import { Calendar, Popover, PopoverTrigger, PopoverContent } from "@paul/ui";
 
 const locales = {
   en: enUS,

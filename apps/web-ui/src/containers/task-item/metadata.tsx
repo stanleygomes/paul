@@ -1,20 +1,20 @@
 import { useTranslation } from "react-i18next";
-import type { Task, Project } from "@done/entities";
+import type { Task, Project } from "@paul/entities";
 import { Clock, Globe, FileText, CheckCircle2, Tag, X } from "lucide-react";
 import { TaskDetailBadge } from "../../components/task-detail-badge";
 import { TaskProjectSelector as ProjectSelector } from "../../components/task-project-selector";
 import { TaskImportantToggle as ImportantToggle } from "../../components/task-important-toggle";
-import { formatDate, formatTime } from "@done/utils";
+import { formatDate, formatTime } from "@paul/utils";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@done/ui/components/ui/tooltip";
+} from "@paul/ui/components/ui/tooltip";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@done/ui/components/ui/popover";
+} from "@paul/ui/components/ui/popover";
 import { useState } from "react";
 
 interface TaskMetadataProps {

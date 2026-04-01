@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, KeyboardEvent, useState, useRef } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import { useDebouncedSave } from "../../hooks/use-debounced-save";
-import { Task } from "@done/entities";
+import { Task } from "@paul/entities";
 import { TaskDatePicker as DatePicker } from "../../components/task-date-picker";
 import { TaskProjectSelector as ProjectSelector } from "../../components/task-project-selector";
 import { TaskImportantToggle as ImportantToggle } from "../../components/task-important-toggle";

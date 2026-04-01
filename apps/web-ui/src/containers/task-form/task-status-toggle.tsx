@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import type { Task } from "@done/entities";
+import type { Task } from "@paul/entities";
 import { TaskToggle } from "../../components/task-toggle";
 
 interface TaskStatusToggleProps {

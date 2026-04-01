@@ -1,5 +1,5 @@
-import type { Task } from "@done/entities";
-import { generateUUID } from "@done/utils";
+import type { Task } from "@paul/entities";
+import { generateUUID } from "@paul/utils";
 
 export class TaskManager {
   constructor(

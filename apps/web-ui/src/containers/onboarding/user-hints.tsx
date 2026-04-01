@@ -8,8 +8,8 @@ import {
   DialogTrigger,
   DialogFooter,
   DialogClose,
-} from "@done/ui/components/ui/dialog";
-import { Button } from "@done/ui/components/ui/button";
+} from "@paul/ui/components/ui/dialog";
+import { Button } from "@paul/ui/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { HelpCircle, LayoutGrid, Settings, Info, Hand } from "lucide-react";
 

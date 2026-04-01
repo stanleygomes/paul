@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { Trash2, Maximize2, ChevronRight, RotateCcw } from "lucide-react";
-import type { Task } from "@done/entities";
+import type { Task } from "@paul/entities";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@done/ui/components/ui/tooltip";
+} from "@paul/ui/components/ui/tooltip";
 
 interface TaskItemActionsProps {
   task: Task;

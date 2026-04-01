@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Reorder, useDragControls } from "framer-motion";
-import type { Task } from "@done/entities";
+import type { Task } from "@paul/entities";
 import { useProjects } from "@modules/project/use-projects";
 import { useDebouncedSave } from "../../hooks/use-debounced-save";
 import { TaskToggle } from "../../components/task-toggle";

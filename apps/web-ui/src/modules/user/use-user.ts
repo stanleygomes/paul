@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useLocalStorage } from "usehooks-ts";
-import type { User } from "@done/entities";
+import type { User } from "@paul/entities";
 import { useAuth } from "../auth/use-auth";
 import { authService } from "../auth/auth-api.service";
 

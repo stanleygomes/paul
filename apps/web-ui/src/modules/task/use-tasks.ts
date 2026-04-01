@@ -5,10 +5,10 @@ import { useLocalStorage } from "usehooks-ts";
 import { taskApiService } from "./task-api.service";
 import { useAuth } from "@modules/auth/use-auth";
 import { TaskManager } from "@modules/task/task-manager";
-import type { Task } from "@done/entities";
-import { isUUID, generateUUID } from "@done/utils";
-import { SearchRanker } from "@done/search-ranker";
-import { toast } from "@done/ui";
+import type { Task } from "@paul/entities";
+import { isUUID, generateUUID } from "@paul/utils";
+import { SearchRanker } from "@paul/search-ranker";
+import { toast } from "@paul/ui";
 
 function normalizeTask(task: Task): Task {
   return {

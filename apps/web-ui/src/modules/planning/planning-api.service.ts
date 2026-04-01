@@ -1,4 +1,4 @@
-import { httpClient } from "@done/http";
+import { httpClient } from "@paul/http";
 import { CORE_API_URL } from "../../config/api-config";
 
 export interface PlanningMessage {

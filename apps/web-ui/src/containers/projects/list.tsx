@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { Trash2 } from "lucide-react";
-import { Project } from "@done/entities";
+import { Project } from "@paul/entities";
 
 interface ProjectListProps {
   projects: Project[];

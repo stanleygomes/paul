@@ -1,5 +1,5 @@
 {
-  "name": "@done/node-utils",
+  "name": "@paul/node-utils",
   "version": "0.0.0",
   "type": "module",
   "main": "src/index.ts",
@@ -8,14 +8,14 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@done/http": "^0.0.0",
+    "@paul/http": "^0.0.0",
     "jsonwebtoken": "^9.0.3",
     "mustache": "^4.2.0",
     "pino": "^9.7.0",
     "pino-pretty": "^13.0.0"
   },
   "devDependencies": {
-    "@done/typescript-config": "workspace:*",
+    "@paul/typescript-config": "workspace:*",
     "@types/jsonwebtoken": "^9.0.10",
     "typescript": "5.9.2"
   }

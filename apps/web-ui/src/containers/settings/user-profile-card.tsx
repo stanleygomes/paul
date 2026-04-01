@@ -1,9 +1,9 @@
 import { useState } from "react";
-import type { User } from "@done/entities";
+import type { User } from "@paul/entities";
 import { useUser } from "../../modules/user/use-user";
 import { useAuth } from "../../modules/auth/use-auth";
 import { Check, Pencil, X, LogOut } from "lucide-react";
-import { toast } from "@done/ui";
+import { toast } from "@paul/ui";
 import { useRouter } from "next/navigation";
 
 interface UserProfileCardProps {

@@ -79,7 +79,7 @@
     "sections": {
       "data_collected": {
         "title": "1. Dados Coletados",
-        "p1": "Nosso aplicativo, <0>Done.</0>, coleta e armazena os dados necessários para o gerenciamento de tarefas. Isso inclui o conteúdo das tarefas, nomes de projetos, datas de entrega e suas preferências.",
+        "p1": "Nosso aplicativo, <0>Paul</0>, coleta e armazena os dados necessários para o gerenciamento de tarefas. Isso inclui o conteúdo das tarefas, nomes de projetos, datas de entrega e suas preferências.",
         "p2": "Quando você cria uma conta, podemos armazenar seu nome e endereço de e-mail para sincronizar seus dados entre dispositivos."
       },
       "usage": {
@@ -100,7 +100,7 @@
         "p1": "Você tem o direito de acessar, exportar ou excluir todos os seus dados a qualquer momento. Nas configurações do aplicativo, você pode limpar seu armazenamento local ou excluir sua conta."
       }
     },
-    "footer": "Aplicativo Done. © 2026"
+    "footer": "Aplicativo Paul © 2026"
   },
   "terms": {
     "title": "Termos de Serviço",
@@ -108,11 +108,11 @@
     "sections": {
       "acceptance": {
         "title": "1. Aceitação dos Termos",
-        "p1": "Ao acessar ou usar o <0>Done.</0>, você concorda em cumprir estes Termos de Serviço. Se você não concordar com todos estes termos, não poderá usar o aplicativo."
+        "p1": "Ao acessar ou usar o <0>Paul</0>, você concorda em cumprir estes Termos de Serviço. Se você não concordar com todos estes termos, não poderá usar o aplicativo."
       },
       "description": {
         "title": "2. Descrição do Serviço",
-        "p1": "Done. é um aplicativo de gerenciamento de tarefas projetado para ajudar você a organizar sua produtividade. Fornecemos ferramentas para criar, gerenciar e sincronizar tarefas em seus dispositivos."
+        "p1": "Paul é um aplicativo de gerenciamento de tarefas projetado para ajudar você a organizar sua produtividade. Fornecemos ferramentas para criar, gerenciar e sincronizar tarefas em seus dispositivos."
       },
       "responsibilities": {
         "title": "3. Responsabilidades do Usuário",
@@ -121,18 +121,18 @@
       },
       "property": {
         "title": "4. Propriedade Intelectual",
-        "p1": "O aplicativo, incluindo seu design, código e conteúdo original, é de propriedade da Done. Application. Você não pode reproduzir ou distribuir qualquer parte do serviço sem nossa permissão."
+        "p1": "O aplicativo, incluindo seu design, código e conteúdo original, é de propriedade da Paul Application. Você não pode reproduzir ou distribuir qualquer parte do serviço sem nossa permissão."
       },
       "liability": {
         "title": "5. Limitação de Responsabilidade",
-        "p1": "O Done. é fornecido \"no estado em que se encontra\", sem quaisquer garantias. Não somos responsáveis por qualquer perda de dados ou problemas de produtividade resultantes do uso do aplicativo."
+        "p1": "O Paul é fornecido \"no estado em que se encontra\", sem quaisquer garantias. Não somos responsáveis por qualquer perda de dados ou problemas de produtividade resultantes do uso do aplicativo."
       },
       "modifications": {
         "title": "6. Modificações",
         "p1": "Reservamo-nos o direito de modificar estes termos a qualquer momento. O uso continuado do aplicativo após tais alterações constitui a aceitação dos novos termos."
       }
     },
-    "footer": "Aplicativo Done. © 2026"
+    "footer": "Aplicativo Paul © 2026"
   },
   "errors": {
     "not_found": {
@@ -305,7 +305,7 @@
     }
   },
   "sidebar": {
-    "title": "Done.",
+    "title": "Paul",
     "sections": {
       "filters": "Filtros",
       "projects": "Projetos"
@@ -343,7 +343,7 @@
       "framework": "Estrutura de Trabalho Focada",
       "title_main": "Foque no que",
       "title_highlight": "Importa.",
-      "description": "Done. é o gerenciador de tarefas minimalista projetado para limpar sua mente e amplificar seu foco. Sem bagunça, apenas sua lista.",
+      "description": "Paul é o gerenciador de tarefas minimalista projetado para limpar sua mente e amplificar seu foco. Sem bagunça, apenas sua lista.",
       "cta": "Começar gratuitamente"
     },
     "features": {
@@ -351,7 +351,7 @@
       "cards": {
         "clarity": {
           "title": "Clareza Mental",
-          "description": "Pare de segurar tudo na cabeça. Done. é projetado para ajudá-lo a descarregar seus pensamentos instantaneamente para que você possa realmente focar no trabalho."
+          "description": "Pare de segurar tudo na cabeça. Paul é projetado para ajudá-lo a descarregar seus pensamentos instantaneamente para que você possa realmente focar no trabalho."
         },
         "distractions": {
           "title": "Zero Distrações",
@@ -370,11 +370,11 @@
     "comparison": {
       "title": "Do Caos à Clareza.",
       "before": {
-        "title": "Antes do Done.",
+        "title": "Antes do Paul",
         "subtitle": "Pensamentos dispersos, prazos perdidos e caos mental total."
       },
       "after": {
-        "title": "Com o Done.",
+        "title": "Com o Paul",
         "subtitle": "Foco total, prioridades claras e a paz de uma lista finalizada."
       }
     },
@@ -384,7 +384,7 @@
     },
     "pricing": {
       "title": "Escolha o Foco.",
-      "subtitle": "Comece gratuitamente ou desbloqueie o poder total do Done.",
+      "subtitle": "Comece gratuitamente ou desbloqueie o poder total do Paul",
       "best_fit": "Melhor escolha",
       "month": "/mês",
       "plans": {
@@ -451,8 +451,8 @@
     }
   },
   "login": {
-    "title": "Faça mais com Done.",
-    "footer": "Done. © {{year}}",
+    "title": "Faça mais com Paul",
+    "footer": "Paul © {{year}}",
     "links": {
       "privacy": "Privacidade",
       "terms": "Termos",

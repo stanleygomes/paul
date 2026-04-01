@@ -1,9 +1,9 @@
-import { EmailService } from "@done/node-utils";
+import { EmailService } from "@paul/node-utils";
 import {
   buildVerificationCodeEmailHtml,
   generateVerificationCode,
   loadTemplateFile,
-} from "@done/node-utils";
+} from "@paul/node-utils";
 import { VerificationCodeRepository } from "../repositories/verification-code.repository.js";
 import { UserRepository } from "../repositories/user.repository.js";
 import { PinoLogger } from "../config/pino.logger.js";

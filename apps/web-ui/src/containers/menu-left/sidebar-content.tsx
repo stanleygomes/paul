@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { LayoutGrid, Menu as MenuIcon } from "lucide-react";
-import { Project } from "@done/entities";
+import { Project } from "@paul/entities";
 import { useSearchParams } from "next/navigation";
 import { SidebarFilters } from "./sidebar-filters";
 import { SidebarProjectList } from "./sidebar-project-list";

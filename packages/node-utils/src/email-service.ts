@@ -1,4 +1,4 @@
-import { httpClient } from "@done/http";
+import { httpClient } from "@paul/http";
 import { Logger } from "./logger.js";
 
 interface EmailResponse {

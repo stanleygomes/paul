@@ -5,7 +5,7 @@ import { useLocalStorage } from "usehooks-ts";
 
 export type Theme = "light" | "dark" | "auto";
 
-const THEME_KEY = "done-theme";
+const THEME_KEY = "app-theme";
 
 function applyTheme(isDark: boolean) {
   if (isDark) {

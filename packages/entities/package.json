@@ -1,5 +1,5 @@
 {
-  "name": "@done/entities",
+  "name": "@paul/entities",
   "version": "0.0.0",
   "type": "module",
   "main": "src/index.ts",
@@ -14,7 +14,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@done/typescript-config": "workspace:*",
+    "@paul/typescript-config": "workspace:*",
     "typescript": "5.9.2"
   }
 }

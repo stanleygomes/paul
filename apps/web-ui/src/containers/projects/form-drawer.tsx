@@ -1,5 +1,5 @@
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@done/ui";
-import { Project } from "@done/entities";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@paul/ui";
+import { Project } from "@paul/entities";
 import { PROJECT_COLORS } from "../../constants/project-colors";
 
 import { useTranslation } from "react-i18next";

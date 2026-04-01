@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { DrawerHeader, DrawerTitle, DrawerDescription } from "@done/ui";
+import { DrawerHeader, DrawerTitle, DrawerDescription } from "@paul/ui";
 
 export function TaskDrawerHeader() {
   const { t } = useTranslation();

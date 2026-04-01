@@ -5,7 +5,7 @@ import { usePlanning } from "@modules/planning/use-planning";
 import { useTasks } from "@modules/task/use-tasks";
 import { AutoResizeTextarea } from "../../components/auto-resize-textarea";
 import { UserAvatar } from "../../components/user-avatar";
-import { toast } from "@done/ui";
+import { toast } from "@paul/ui";
 import { useTranslation } from "react-i18next";
 
 export default function PlanPage() {

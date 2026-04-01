@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Project } from "@done/entities";
+import { Project } from "@paul/entities";
 
 export function SidebarProjectList({
   projects,

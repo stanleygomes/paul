@@ -1,6 +1,6 @@
-import { httpClient } from "@done/http";
+import { httpClient } from "@paul/http";
 import { CORE_API_URL } from "../../config/api-config";
-import type { Project } from "@done/entities";
+import type { Project } from "@paul/entities";
 
 export const projectApiService = {
   async getProjects(token: string): Promise<Project[]> {

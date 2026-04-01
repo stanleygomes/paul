@@ -1,6 +1,6 @@
 ---
 name: monorepo-architecture
-description: Workspace layout, app boundaries, and dependency rules for the Done Turborepo monorepo.
+description: Workspace layout, app boundaries, and dependency rules for the Turborepo monorepo.
 ---
 
 ## When to apply
@@ -18,21 +18,21 @@ Keywords: `monorepo`, `turborepo`, `workspace`, `package`, `boundary`, `dependen
 ## Workspace layout
 
 ```
-done/
+paul/
 ├── apps/
 │   ├── auth-api/     # Auth service — Fastify, SQLite/Drizzle/PostgreSQL, Resend, RS256 JWT
 │   ├── core-ai-api/  # AI-powered service — Fastify, Google AI Studio
 │   ├── desktop/      # Desktop application — Electron
 │   └── web-ui/       # Primary frontend — Next.js 16, React 19, TailwindCSS 4
 ├── packages/
-│   ├── entities/           # @done/entities — shared domain entities and types
-│   ├── eslint-config/      # @done/eslint-config — shared ESLint rules
-│   ├── typescript-config/  # @done/typescript-config — shared tsconfig bases
-│   ├── ui/                 # @done/ui — shared Neobrutalism UI components
-│   ├── utils/              # @done/utils — shared general utilities
-│   ├── node-utils/         # @done/node-utils — Node.js specific utilities
-│   ├── search-ranker/      # @done/search-ranker — ranking logic
-│   ├── http/               # @done/http — HTTP client abstraction
+│   ├── entities/           # @paul/entities — shared domain entities and types
+│   ├── eslint-config/      # @paul/eslint-config — shared ESLint rules
+│   ├── typescript-config/  # @paul/typescript-config — shared tsconfig bases
+│   ├── ui/                 # @paul/ui — shared Neobrutalism UI components
+│   ├── utils/              # @paul/utils — shared general utilities
+│   ├── node-utils/         # @paul/node-utils — Node.js specific utilities
+│   ├── search-ranker/      # @paul/search-ranker — ranking logic
+│   ├── http/               # @paul/http — HTTP client abstraction
 │   └── ...
 ```
 
@@ -41,7 +41,7 @@ done/
 - **`apps/*`** may depend on **`packages/*`** — never the other way around.
 - **`packages/*`** must not depend on **`apps/*`**.
 - Cross-app dependencies are **not allowed** — shared logic must be extracted to a package.
-- All shared packages are scoped under `@done/*`.
+- All shared packages are scoped under `@paul/*`.
 
 ## Internal app architecture (for `apps/api` and `apps/auth-api`)
 
@@ -89,8 +89,8 @@ npx turbo run lint --filter=auth-api
 
 ## Adding a new shared package
 
-1. Create `packages/<name>/` with `package.json` naming it `@done/<name>`.
-2. Add `"@done/<name>": "file:../packages/<name>"` to the consuming app's `package.json`.
+1. Create `packages/<name>/` with `package.json` naming it `@paul/<name>`.
+2. Add `"@paul/<name>": "file:../packages/<name>"` to the consuming app's `package.json`.
 3. Export from `packages/<name>/src/index.ts`.
 4. Reference the shared `packages/typescript-config/` in the package's `tsconfig.json`.
 
@@ -99,6 +99,6 @@ npx turbo run lint --filter=auth-api
 - [ ] New code placed in the correct layer (`domain` / `application` / `infra`)
 - [ ] Shared logic lives in `packages/` not duplicated across apps
 - [ ] No `apps/*` → `apps/*` imports
-- [ ] New package uses `@done/<name>` scope and a `src/index.ts` entry point
+- [ ] New package uses `@paul/<name>` scope and a `src/index.ts` entry point
 - [ ] New UI code follows **Neobrutalism** aesthetics
 - [ ] `turbo.json` updated if a new task is introduced

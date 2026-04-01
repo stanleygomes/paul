@@ -7,7 +7,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@done/ui";
+} from "@paul/ui";
 
 interface ProjectSelectorProps {
   value: string;

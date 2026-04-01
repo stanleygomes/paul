@@ -1,5 +1,5 @@
 {
-  "extends": "@done/typescript-config/react-library.json",
+  "extends": "@paul/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": ".",

@@ -1,8 +1,8 @@
 import { Reorder } from "framer-motion";
-import type { Task } from "@done/entities";
+import type { Task } from "@paul/entities";
 import { EmptyState } from "./empty-state";
 import { TaskListItem } from "../task-item";
-import { Skeleton } from "@done/ui";
+import { Skeleton } from "@paul/ui";
 
 interface TaskListProps {
   tasks: Task[];

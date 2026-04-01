@@ -1,7 +1,7 @@
-import type { Task } from "@done/entities";
-import { Logger } from "@done/node-utils";
+import type { Task } from "@paul/entities";
+import { Logger } from "@paul/node-utils";
 import type { Logger as PinoLogger } from "pino";
-import { generateUUID } from "@done/utils";
+import { generateUUID } from "@paul/utils";
 import { TaskRepository } from "../repositories/task.repository.js";
 import { TaskMapper } from "../mappers/task.mapper.js";
 import { BusinessError } from "../errors/BusinessError.js";
