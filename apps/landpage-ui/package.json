@@ -1,7 +1,7 @@
 {
   "name": "landpage-ui",
   "type": "module",
-  "version": "1.6.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev-https": "NODE_TLS_REJECT_UNAUTHORIZED=0 NEXT_TURBOPACK_EXPERIMENTAL_USE_SYSTEM_TLS_CERTS=1 next dev --experimental-https",
