@@ -7,7 +7,8 @@ export function MainWrapper({ children }: { children: React.ReactNode }) {
   const { isOpen, mounted } = useSidebar();
   const pathname = usePathname();
 
-  const isTasksPage = pathname === "/";
+  const SIDEBAR_PATHS = ["/", "/memories", "/plan", "/settings"];
+  const isSidebarPage = SIDEBAR_PATHS.includes(pathname);
 
   if (!mounted) {
     return (
@@ -20,7 +21,7 @@ export function MainWrapper({ children }: { children: React.ReactNode }) {
   return (
     <main
       className={`min-h-screen transition-all duration-300 ${
-        isOpen && isTasksPage ? "pl-0 lg:pl-72" : "pl-0"
+        isOpen && isSidebarPage ? "pl-0 lg:pl-72" : "pl-0"
       }`}
     >
       {children}

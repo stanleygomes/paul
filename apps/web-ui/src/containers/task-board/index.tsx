@@ -64,6 +64,14 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
     isLoading,
   } = useTasks(projectId, filter);
 
+  const handleOpenDrawer = (task: any) => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      router.push(`/task/${task.id}`);
+    } else {
+      openDrawer(task);
+    }
+  };
+
   const isRecentlyDeleted = filter === "recently-deleted";
 
   useEffect(() => {
@@ -122,7 +130,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
             onDelete={deleteTask}
             onRestore={restoreTask}
             onReorder={reorderTodoTasks}
-            onOpenDrawer={openDrawer}
+            onOpenDrawer={handleOpenDrawer}
             onUpdateDetails={updateTaskDetails}
             onEnterZenMode={enterZenMode}
             showProject={!projectId}
@@ -146,7 +154,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
               onDelete={deleteTask}
               onRestore={restoreTask}
               onReorder={reorderFinishedTasks}
-              onOpenDrawer={openDrawer}
+              onOpenDrawer={handleOpenDrawer}
               onUpdateDetails={updateTaskDetails}
               onEnterZenMode={enterZenMode}
               showProject={!projectId}

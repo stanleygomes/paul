@@ -308,8 +308,12 @@
     "title": "Paul",
     "sections": {
       "filters": "Filtros",
-      "projects": "Projetos"
+      "projects": "Projetos",
+      "more": "Mais"
     },
+    "memories": "Memórias",
+    "plan_mode": "Modo Planejamento",
+    "settings": "Configurações",
     "filters": {
       "today": "Hoje",
       "scheduled": "Agendadas",
@@ -327,7 +331,8 @@
     "links": {
       "tasks": "Tarefas",
       "projects": "Projetos",
-      "plan mode": "Modo Plano"
+      "plan mode": "Modo Plano",
+      "memories": "Memórias"
     }
   },
   "landing": {
@@ -508,5 +513,19 @@
   "metadata": {
     "title": "Paul, Seu Assistente de Tarefas",
     "description": "O Paul é um assistente que ajuda você a gerenciar suas tarefas e manter-se organizado."
+  },
+  "memories": {
+    "title": "Memórias",
+    "description": "Ajude o assistente a te conhecer melhor.",
+    "list_title": "Minhas Memórias",
+    "empty": "Nenhuma memória ainda. Crie a sua primeira!",
+    "new": "Nova Memória",
+    "edit": "Editar Memória",
+    "placeholder": "Escreva sua memória aqui...",
+    "char_limit": "{{current}}/{{limit}} caracteres",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "delete_confirm": "Tem certeza que deseja excluir esta memória?"
   }
 }

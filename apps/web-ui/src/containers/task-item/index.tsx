@@ -99,7 +99,14 @@ export function TaskListItem({
         onDelete={handleSoftDelete}
         className="h-full w-full"
       >
-        <div className="group bg-secondary-background p-4 flex items-start gap-3">
+        <div
+          onClick={(e) => {
+            if ((e.target as HTMLElement).closest("button, input, textarea"))
+              return;
+            onOpenDrawer(task);
+          }}
+          className="group bg-secondary-background p-4 flex items-start gap-3 cursor-pointer"
+        >
           <DragHandle controls={controls} />
 
           <div className="flex-1 min-w-0">

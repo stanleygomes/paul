@@ -1,8 +1,9 @@
-import type { Task, Project } from "@paul/entities";
+import type { Task, Project, Memory } from "@paul/entities";
 
 interface SyncableEntity {
   id: string;
   updatedAt?: number;
+  updated_at?: number | Date;
 }
 
 function mergeEntities<T extends SyncableEntity>(
@@ -11,16 +12,11 @@ function mergeEntities<T extends SyncableEntity>(
 ): T[] {
   const merged = [...localItems];
 
-  // Update existing items or add new ones from server
   for (const serverItem of serverItems) {
     const localIndex = merged.findIndex((item) => item.id === serverItem.id);
     if (localIndex !== -1) {
-      // Server version always wins in this simple implementation
-      // following the plan: "server wins via updatedAt"
-      // but only if the server actually sent it in tasksToUpdate
       merged[localIndex] = serverItem;
     } else {
-      // New item from server
       merged.push(serverItem);
     }
   }
@@ -38,5 +34,9 @@ export const SyncManager = {
     projectsToUpdate: Project[],
   ): Project[] {
     return mergeEntities(localProjects, projectsToUpdate);
+  },
+
+  mergeMemories(localMemories: Memory[], memoriesToUpdate: Memory[]): Memory[] {
+    return mergeEntities(localMemories, memoriesToUpdate);
   },
 };

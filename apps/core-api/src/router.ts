@@ -4,6 +4,7 @@ import {
   taskController,
   projectController,
   planningController,
+  memoryController,
 } from "./providers/dependencies.js";
 
 export class AppRouter {
@@ -12,5 +13,6 @@ export class AppRouter {
     taskController.registerRoutes(fastify, prefix);
     projectController.registerRoutes(fastify, prefix);
     planningController.registerRoutes(fastify, prefix);
+    memoryController.registerRoutes(fastify, prefix);
   }
 }

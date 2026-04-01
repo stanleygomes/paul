@@ -12,10 +12,10 @@ export default function MenuLeft() {
   const { projects } = useProjects();
   const pathname = usePathname();
 
-  // Sidebar ONLY on the main tasks page
-  const isTasksPage = pathname === "/";
+  const SIDEBAR_PATHS = ["/", "/memories", "/plan", "/settings"];
+  const isSidebarPage = SIDEBAR_PATHS.includes(pathname);
 
-  if (!mounted || !isTasksPage) return null;
+  if (!mounted || !isSidebarPage) return null;
 
   return (
     <>

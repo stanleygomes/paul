@@ -2,7 +2,7 @@
 
 ## 🌟 About the Project
 
-Paul is a task assistant that helps you manage your tasks and stay organized.
+Paul is here to help you achieve your goals, one task at a time.
 
 ## 🛠️ Tech Stack
 
@@ -13,7 +13,7 @@ Paul is a task assistant that helps you manage your tasks and stay organized.
 - **Linting:** ESLint
 - **Formatting:** Prettier
 - **TypeScript:** Shared configurations
-- **Runtime**: Node.js v20.x
+- **Runtime**: Node.js v24.x
 
 ## 🏛️ Architecture
 

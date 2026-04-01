@@ -12,7 +12,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { useAuth } from "@modules/auth/use-auth";
 import { syncApiService } from "./sync-api.service";
 import { SyncManager } from "./sync-manager";
-import type { Task, Project } from "@paul/entities";
+import type { Task, Project, Memory } from "@paul/entities";
 import { toast } from "@paul/ui";
 
 export interface SyncContextType {
@@ -31,6 +31,10 @@ export function SyncProvider({ children }: { children: ReactNode }) {
     "todo-projects",
     [],
   );
+  const [memories, setMemories] = useLocalStorage<Memory[]>(
+    "todo-memories",
+    [],
+  );
   const [lastSyncAt, setLastSyncAt] = useLocalStorage<number | null>(
     "done-last-sync-at",
     null,
@@ -41,8 +45,10 @@ export function SyncProvider({ children }: { children: ReactNode }) {
 
   const tasksRef = useRef(tasks);
   const projectsRef = useRef(projects);
+  const memoriesRef = useRef(memories);
   tasksRef.current = tasks;
   projectsRef.current = projects;
+  memoriesRef.current = memories;
 
   const performSync = useCallback(async () => {
     if (!token || isSyncing) return;
@@ -55,6 +61,7 @@ export function SyncProvider({ children }: { children: ReactNode }) {
         token,
         tasksRef.current,
         projectsRef.current,
+        memoriesRef.current,
       );
 
       const updatedTasks = SyncManager.mergeTasks(
@@ -65,19 +72,26 @@ export function SyncProvider({ children }: { children: ReactNode }) {
         projectsRef.current,
         response.projectsToUpdate,
       );
+      const updatedMemories = SyncManager.mergeMemories(
+        memoriesRef.current,
+        response.memoriesToUpdate,
+      );
 
       setTasks(updatedTasks);
       setProjects(updatedProjects);
+      setMemories(updatedMemories);
       setLastSyncAt(Date.now());
 
       console.info("Sync complete", {
         updatedTasks: response.tasksToUpdate.length,
         updatedProjects: response.projectsToUpdate.length,
+        updatedMemories: response.memoriesToUpdate.length,
       });
 
       if (
         response.tasksToUpdate.length > 0 ||
-        response.projectsToUpdate.length > 0
+        response.projectsToUpdate.length > 0 ||
+        response.memoriesToUpdate.length > 0
       ) {
         toast.success("Synced with cloud");
       }
@@ -95,7 +109,7 @@ export function SyncProvider({ children }: { children: ReactNode }) {
     } finally {
       setIsSyncing(false);
     }
-  }, [token, isSyncing, setLastSyncAt, setProjects, setTasks]);
+  }, [token, isSyncing, setLastSyncAt, setProjects, setTasks, setMemories]);
 
   const hasSyncedRef = useRef(false);
 

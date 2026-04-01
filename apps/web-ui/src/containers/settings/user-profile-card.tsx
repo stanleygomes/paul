@@ -98,7 +98,7 @@ export function UserProfileCard({ user }: UserProfileCardProps) {
       <div className="mt-6 border-t-2 border-border pt-6">
         <button
           onClick={handleLogout}
-          className="flex w-full items-center justify-center gap-2 rounded-base border-2 border-border bg-main py-2 text-sm font-bold shadow-shadow transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+          className="flex w-full items-center justify-center gap-2 rounded-base border-2 border-border bg-red-500 dark:bg-red-600 py-2 text-sm font-bold text-white shadow-shadow transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
         >
           <LogOut size={16} />
           Logout

@@ -308,8 +308,12 @@
     "title": "Paul",
     "sections": {
       "filters": "Filters",
-      "projects": "Projects"
+      "projects": "Projects",
+      "more": "More"
     },
+    "memories": "Memories",
+    "plan_mode": "Plan Mode",
+    "settings": "Settings",
     "filters": {
       "today": "Today",
       "scheduled": "Scheduled",
@@ -327,7 +331,8 @@
     "links": {
       "tasks": "Tasks",
       "projects": "Projects",
-      "plan mode": "Plan Mode"
+      "plan mode": "Plan Mode",
+      "memories": "Memories"
     }
   },
   "landing": {
@@ -508,5 +513,19 @@
   "metadata": {
     "title": "Paul, Your Task Assistant",
     "description": "Paul is a task assistant that helps you manage your tasks and stay organized."
+  },
+  "memories": {
+    "title": "Memories",
+    "description": "Help the assistant get to know you better.",
+    "list_title": "My Memories",
+    "empty": "No memories yet. Create your first one!",
+    "new": "New Memory",
+    "edit": "Edit Memory",
+    "placeholder": "Write your memory here...",
+    "char_limit": "{{current}}/{{limit}} characters",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "delete_confirm": "Are you sure you want to delete this memory?"
   }
 }

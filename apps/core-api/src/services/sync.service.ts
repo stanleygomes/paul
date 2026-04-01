@@ -3,23 +3,28 @@ import { Logger } from "@paul/node-utils";
 import type { Logger as PinoLogger } from "pino";
 import { TaskSyncService } from "./task-sync.service.js";
 import { ProjectSyncService } from "./project-sync.service.js";
+import { MemoryService } from "./memory.service.js";
+import type { Memory } from "@paul/entities";
 
 const logger: PinoLogger = Logger.getLogger();
 
 export interface SyncInput {
   tasks: Task[];
   projects: Project[];
+  memories: Memory[];
 }
 
 export interface SyncOutput {
   tasksToUpdate: Task[];
   projectsToUpdate: Project[];
+  memoriesToUpdate: Memory[];
 }
 
 export class SyncService {
   constructor(
     private readonly taskSyncService: TaskSyncService,
     private readonly projectSyncService: ProjectSyncService,
+    private readonly memoryService: MemoryService,
   ) {}
 
   async execute(userId: string, input: SyncInput): Promise<SyncOutput> {
@@ -28,24 +33,28 @@ export class SyncService {
         userId,
         tasksCount: input.tasks.length,
         projectsCount: input.projects.length,
+        memoriesCount: input.memories.length,
       },
       "Starting bulk sync",
     );
 
-    const [tasksToUpdate, projectsToUpdate] = await Promise.all([
-      this.taskSyncService.sync(userId, input.tasks),
-      this.projectSyncService.sync(userId, input.projects),
-    ]);
+    const [tasksToUpdate, projectsToUpdate, memoriesToUpdate] =
+      await Promise.all([
+        this.taskSyncService.sync(userId, input.tasks),
+        this.projectSyncService.sync(userId, input.projects),
+        this.memoryService.sync(userId, input.memories),
+      ]);
 
     logger.info(
       {
         userId,
         tasksToUpdate: tasksToUpdate.length,
         projectsToUpdate: projectsToUpdate.length,
+        memoriesToUpdate: memoriesToUpdate.length,
       },
       "Bulk sync completed",
     );
 
-    return { tasksToUpdate, projectsToUpdate };
+    return { tasksToUpdate, projectsToUpdate, memoriesToUpdate };
   }
 }

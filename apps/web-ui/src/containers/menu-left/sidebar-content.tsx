@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { SidebarFilters } from "./sidebar-filters";
 import { SidebarProjectList } from "./sidebar-project-list";
 import { useSidebar } from "src/hooks/use-sidebar";
+import { SidebarMoreSection } from "./sidebar-more-section";
 
 interface SidebarContentProps {
   projects: Project[];
@@ -55,6 +56,8 @@ export function SidebarContent({ projects }: SidebarContentProps) {
             searchParams={new URLSearchParams(searchParams.toString())}
           />
         </section>
+
+        <SidebarMoreSection />
 
         <Link
           href="/projects"
