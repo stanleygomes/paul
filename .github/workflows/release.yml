@@ -1,8 +1,7 @@
 name: Create a New Release
 
 on:
-  push:
-    branches: [master]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -23,6 +22,8 @@ jobs:
     needs: [build]
     name: Release
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release-please.outputs.release_created }}
     steps:
       - name: Delete draft releases
         env:
@@ -34,5 +35,70 @@ jobs:
               gh api --method DELETE repos/${{ github.repository }}/releases/$id
             done
       - uses: googleapis/release-please-action@v4
+        id: release-please
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    needs: [release]
+    if: ${{ github.event_name == 'release' || github.event_name == 'workflow_dispatch' || needs.release.outputs.release_created }}
+    name: Deploy ${{ matrix.app }}
+    runs-on: ubuntu-latest
+    environment: Production
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [auth-api, core-api, ai-api, web-ui, landpage-ui]
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set Vercel Project ID
+        run: |
+          case "${{ matrix.app }}" in
+            "auth-api") echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_AUTH_API_PROJECT_ID }}" >> $GITHUB_ENV ;;
+            "core-api") echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_CORE_API_PROJECT_ID }}" >> $GITHUB_ENV ;;
+            "ai-api")   echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_AI_API_PROJECT_ID }}"   >> $GITHUB_ENV ;;
+            "web-ui")   echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_UI_PROJECT_ID }}"       >> $GITHUB_ENV ;;
+            "landpage-ui") echo "VERCEL_PROJECT_ID=${{ secrets.VERCEL_LANDPAGE_PROJECT_ID }}" >> $GITHUB_ENV ;;
+          esac
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup pnpm
+        run: corepack prepare pnpm@10.31.0 --activate
+
+      - name: Setup pnpm cache
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify toolchain
+        run: |
+          node -v
+          pnpm -v
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Pull Vercel Environment
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
