@@ -93,7 +93,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
   }
 
   return (
-    <main className="min-h-screen bg-background pb-40 px-4">
+    <main className="min-h-screen bg-background pb-20 sm:pb-40 px-4">
       <div className="mx-auto max-w-2xl pt-28 sm:pt-32">
         {isSearchVisible && (
           <div className="mb-10 animate-in fade-in slide-in-from-top-4 duration-300">

@@ -82,7 +82,7 @@ export function CreateTaskInput({
   return (
     <form
       onSubmit={handleSubmit}
-      className={`fixed bottom-0 left-0 right-0 z-40 bg-background p-4 transition-all duration-300 ${
+      className={`fixed bottom-0 left-0 right-0 z-40 bg-background p-4 transition-all duration-300 hidden sm:block ${
         mounted && isOpen ? "pl-0 lg:pl-76" : "pl-4"
       }`}
     >
