@@ -48,9 +48,7 @@ export function ZenModeView({
 
   return (
     <div className="fixed inset-0 z-[9999] bg-background overflow-y-auto animate-in fade-in duration-300">
-      <div className="min-h-full flex flex-col items-center py-20">
-        <ZenExitButton onClick={onExit} />
-
+      <div className="min-h-full flex flex-col items-center pt-20 pb-32">
         <div className="w-full max-w-3xl px-6 flex flex-col items-center gap-10">
           <div className="w-full flex flex-col items-center justify-center gap-6">
             <AutoResizeTextarea
@@ -60,7 +58,7 @@ export function ZenModeView({
                 onUpdateContent?.(task.id, e.target.value);
               }}
               rows={1}
-              className="w-full resize-none overflow-hidden bg-transparent text-center text-5xl md:text-6xl font-black leading-tight outline-none placeholder:text-foreground/30 transition-all text-foreground"
+              className="w-full resize-none overflow-hidden bg-transparent text-center text-5xl md:text-6xl font-black leading-none outline-none placeholder:text-foreground/30 text-foreground py-2"
             />
 
             <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-bold mt-2">
@@ -118,6 +116,7 @@ export function ZenModeView({
           </div>
         </div>
       </div>
+      <ZenExitButton onClick={onExit} />
     </div>
   );
 }
