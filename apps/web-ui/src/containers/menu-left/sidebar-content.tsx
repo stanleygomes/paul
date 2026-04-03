@@ -7,6 +7,8 @@ import { SidebarFilters } from "./sidebar-filters";
 import { SidebarProjectList } from "./sidebar-project-list";
 import { useSidebar } from "src/hooks/use-sidebar";
 import { SidebarMoreSection } from "./sidebar-more-section";
+import { SyncIndicator } from "../../components/sync-indicator";
+import { UserHints } from "../onboarding/user-hints";
 
 interface SidebarContentProps {
   projects: Project[];
@@ -59,13 +61,22 @@ export function SidebarContent({ projects }: SidebarContentProps) {
 
         <SidebarMoreSection />
 
-        <Link
-          href="/projects"
-          className="mt-auto flex items-center justify-center gap-2 w-full bg-[#f0f0f0] dark:bg-[#222] border-2 border-black dark:border-white/20 rounded-xl p-3 text-xs font-black uppercase tracking-widest hover:bg-main hover:text-main-foreground hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all text-black dark:text-white"
-        >
-          <LayoutGrid className="w-4 h-4" />
-          {t("sidebar.buttons.manage_projects")}
-        </Link>
+        <div className="mt-auto flex flex-col gap-4">
+          <div className="flex items-center justify-between px-3 pt-4 border-t-2 border-black/5 dark:border-white/20">
+            <SyncIndicator />
+            <div className="flex items-center">
+              <UserHints />
+            </div>
+          </div>
+
+          <Link
+            href="/projects"
+            className="flex items-center justify-center gap-2 w-full bg-[#f0f0f0] dark:bg-[#222] border-2 border-black dark:border-white/20 rounded-xl p-3 text-xs font-black uppercase tracking-widest hover:bg-main hover:text-main-foreground hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all text-black dark:text-white"
+          >
+            <LayoutGrid className="w-4 h-4" />
+            {t("sidebar.buttons.manage_projects")}
+          </Link>
+        </div>
       </div>
     </aside>
   );

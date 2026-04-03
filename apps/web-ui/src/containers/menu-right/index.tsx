@@ -8,9 +8,6 @@ import { MobileMenu } from "./mobile-menu";
 import { MenuLinks } from "./menu-links";
 import { SearchToggle } from "./search-toggle";
 
-import { UserHints } from "../onboarding/user-hints";
-import { SyncIndicator } from "../../components/sync-indicator";
-
 export default function MenuRight() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -44,14 +41,8 @@ export default function MenuRight() {
           show={showSearch}
         />
 
-        <SyncIndicator />
-
         <div className="hidden md:flex items-center gap-4 px-1">
           <MenuLinks pathname={pathname} variant="desktop" />
-        </div>
-
-        <div className="hidden md:block">
-          <UserHints />
         </div>
 
         <UserAvatar className="h-10 w-10" />

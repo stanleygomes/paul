@@ -9,7 +9,7 @@ export function SyncIndicator() {
   const { isSyncing, lastSyncAt, syncError, performSync } = useSync();
 
   return (
-    <div className="flex items-center gap-2 text-xs text-muted-foreground mr-4 cursor-pointer">
+    <div className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer">
       <AnimatePresence mode="wait">
         {isSyncing ? (
           <motion.div
