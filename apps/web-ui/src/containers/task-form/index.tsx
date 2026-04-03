@@ -140,6 +140,7 @@ export function TaskForm({
         {
           id: generateSubtaskId(),
           content: "",
+          title: "",
           done: false,
           createdAt: Date.now(),
           updatedAt: Date.now(),

@@ -6,6 +6,7 @@ import MenuLeft from "@containers/menu-left";
 import { Suspense } from "react";
 import en from "@modules/i18n/locales/en.json";
 import { MainWrapper } from "./main-wrapper";
+import { AuthGuard } from "@modules/auth/auth-guard";
 
 export const metadata: Metadata = {
   title: en.metadata.title,
@@ -50,13 +51,15 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <Providers>
-          <Suspense fallback={null}>
-            <MenuRight />
-          </Suspense>
-          <Suspense fallback={null}>
-            <MenuLeft />
-          </Suspense>
-          <MainWrapper>{children}</MainWrapper>
+          <AuthGuard>
+            <Suspense fallback={null}>
+              <MenuRight />
+            </Suspense>
+            <Suspense fallback={null}>
+              <MenuLeft />
+            </Suspense>
+            <MainWrapper>{children}</MainWrapper>
+          </AuthGuard>
         </Providers>
       </body>
     </html>

@@ -10,10 +10,15 @@ import { isUUID, generateUUID } from "@paul/utils";
 import { SearchRanker } from "@paul/search-ranker";
 import { toast } from "@paul/ui";
 
-function normalizeTask(task: Task): Task {
+function normalizeTask(task: any): Task {
+  const content = task.content ?? task.title ?? "";
+  const title = task.title ?? task.content ?? "";
   return {
     ...task,
     id: task.id && isUUID(task.id) ? task.id : generateUUID(),
+    content,
+    title,
+    done: Boolean(task.done),
     createdAt: task.createdAt ?? Date.now(),
     updatedAt: task.updatedAt ?? task.createdAt ?? Date.now(),
     deletedAt: task.deletedAt ?? (task.isDeleted ? Date.now() : null),
@@ -22,21 +27,20 @@ function normalizeTask(task: Task): Task {
     dueDate: task.dueDate ?? "",
     dueTime: task.dueTime ?? "",
     url: task.url ?? "",
-    subtasks: (task.subtasks ?? []).map((subtask) => ({
-      ...subtask,
-      id: subtask.id && isUUID(subtask.id) ? subtask.id : generateUUID(),
-      done: Boolean(subtask.done),
-    })),
+    subtasks: (task.subtasks ?? []).map(normalizeTask),
     tags: task.tags ?? [],
     projectId: task.projectId,
     isDeleted: task.isDeleted ?? false,
   };
 }
 
-function hasLegacyFields(task: Task) {
-  return (
+function hasLegacyFields(task: any): boolean {
+  if (
     !task.id ||
     !isUUID(task.id) ||
+    task.content === undefined ||
+    task.title === undefined ||
+    task.done === undefined ||
     task.createdAt === undefined ||
     task.updatedAt === undefined ||
     (task.isDeleted && task.deletedAt === undefined) ||
@@ -46,9 +50,12 @@ function hasLegacyFields(task: Task) {
     task.dueTime === undefined ||
     task.url === undefined ||
     !Array.isArray(task.subtasks) ||
-    task.subtasks.some((st) => !st.id || !isUUID(st.id)) ||
     !Array.isArray(task.tags)
-  );
+  ) {
+    return true;
+  }
+
+  return task.subtasks.some(hasLegacyFields);
 }
 
 function deriveParentTaskDoneState(
@@ -293,6 +300,7 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
       const newSubtasks: Task[] = suggestions.map((content) => ({
         id: generateUUID(),
         content,
+        title: content,
         done: false,
         createdAt: Date.now(),
         updatedAt: Date.now(),

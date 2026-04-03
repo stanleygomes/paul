@@ -10,7 +10,7 @@ import { runMigrations } from "./config/database-client.js";
 import { setupErrorHandler } from "./middlewares/error-handler.middleware.js";
 
 export class AppServer {
-  private fastify: FastifyInstance;
+  private fastify: FastifyInstance<any, any, any, any>;
   private logger = PinoLogger.getLogger();
 
   constructor() {

@@ -25,9 +25,10 @@ type EmailFormData = z.infer<typeof emailSchema>;
 
 interface EmailFormProps {
   onSubmit: (data: EmailFormData) => void;
+  isLoading?: boolean;
 }
 
-export default function EmailForm({ onSubmit }: EmailFormProps) {
+export default function EmailForm({ onSubmit, isLoading }: EmailFormProps) {
   const { t } = useTranslation();
   const {
     register,
@@ -45,10 +46,10 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
   }, [setFocus]);
 
   return (
-    <Card className="w-full max-w-lg rounded-base border-4 border-border bg-secondary-background p-4 shadow-[10px_10px_0px_0px_var(--border)] md:p-8">
+    <Card className="w-full max-w-lg rounded-base border-2 md:border-4 border-border bg-secondary-background p-6 md:p-8 shadow-[6px_6px_0px_0px_var(--border)] md:shadow-[10px_10px_0px_0px_var(--border)]">
       <CardHeader className="pb-4">
         <CardTitle className="text-3xl font-black uppercase tracking-tighter text-foreground flex flex-col gap-4">
-          <div className="relative h-20 w-20 overflow-hidden rounded-base border-4 border-border bg-main shadow-shadow">
+          <div className="relative h-16 w-16 md:h-20 md:w-20 overflow-hidden rounded-base border-2 md:border-4 border-border bg-main shadow-shadow">
             <Image
               src="/images/logo.jpg"
               alt="Done Logo"
@@ -56,7 +57,7 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
               className="object-cover"
             />
           </div>
-          <div>{t("login.form.title")}</div>
+          <div className="text-2xl md:text-3xl">{t("login.form.title")}</div>
         </CardTitle>
       </CardHeader>
       <CardContent className="mt-4">
@@ -87,7 +88,8 @@ export default function EmailForm({ onSubmit }: EmailFormProps) {
         <Button
           type="submit"
           form="email-form"
-          disabled={!isValid}
+          disabled={!isValid || isLoading}
+          isLoading={isLoading}
           className="h-14 w-full rounded-base border-2 border-border bg-main text-lg font-black uppercase text-main-foreground shadow-shadow transition-all active:translate-x-1 active:translate-y-1 active:shadow-none hover:bg-main/90"
         >
           {t("login.form.submit")}

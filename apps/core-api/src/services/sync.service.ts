@@ -38,12 +38,17 @@ export class SyncService {
       "Starting bulk sync",
     );
 
-    const [tasksToUpdate, projectsToUpdate, memoriesToUpdate] =
-      await Promise.all([
-        this.taskSyncService.sync(userId, input.tasks),
-        this.projectSyncService.sync(userId, input.projects),
-        this.memoryService.sync(userId, input.memories),
-      ]);
+    const tasksToUpdate = await this.taskSyncService.sync(userId, input.tasks);
+
+    const projectsToUpdate = await this.projectSyncService.sync(
+      userId,
+      input.projects,
+    );
+
+    const memoriesToUpdate = await this.memoryService.sync(
+      userId,
+      input.memories,
+    );
 
     logger.info(
       {

@@ -22,6 +22,7 @@ interface OtpFormProps {
   isNewUser: boolean;
   onVerify: (code: string) => Promise<boolean>;
   onBack: () => void;
+  isLoading?: boolean;
 }
 
 export default function OtpForm({
@@ -29,6 +30,7 @@ export default function OtpForm({
   isNewUser,
   onVerify,
   onBack,
+  isLoading,
 }: OtpFormProps) {
   const { t } = useTranslation();
   const [value, setValue] = useState("");
@@ -45,13 +47,16 @@ export default function OtpForm({
   };
 
   return (
-    <Card className="w-full max-w-lg rounded-base border-4 border-border bg-secondary-background p-4 shadow-[10px_10px_0px_0px_var(--border)] md:p-8">
+    <Card className="w-full max-w-lg rounded-base border-2 md:border-4 border-border bg-secondary-background p-6 md:p-8 shadow-[6px_6px_0px_0px_var(--border)] md:shadow-[10px_10px_0px_0px_var(--border)]">
       <CardHeader className="pb-4">
         <CardTitle className="text-3xl font-black uppercase tracking-tighter text-foreground flex flex-col gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-base border-4 border-border bg-main text-main-foreground shadow-shadow">
-            <Icon icon="solar:letter-linear" className="h-8 w-8" />
+          <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-base border-2 md:border-4 border-border bg-main text-main-foreground shadow-shadow">
+            <Icon
+              icon="solar:letter-linear"
+              className="h-6 w-6 md:h-8 md:w-8"
+            />
           </div>
-          <div>
+          <div className="text-2xl md:text-3xl">
             {isNewUser
               ? t("login.otp.title_new")
               : t("login.otp.title_existing")}
@@ -80,6 +85,8 @@ export default function OtpForm({
             maxLength={6}
             value={value}
             onChange={(val) => setValue(val)}
+            onComplete={handleVerify}
+            disabled={isLoading}
             autoFocus
           >
             <InputOTPGroup>
@@ -103,7 +110,8 @@ export default function OtpForm({
       <CardFooter className="mt-4">
         <Button
           onClick={handleVerify}
-          disabled={value.length < 6}
+          disabled={value.length < 6 || isLoading}
+          isLoading={isLoading}
           className="h-14 w-full rounded-base border-2 border-border bg-main text-lg font-black uppercase text-main-foreground shadow-shadow transition-all active:translate-x-1 active:translate-y-1 active:shadow-none hover:bg-main/90"
         >
           {isNewUser

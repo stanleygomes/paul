@@ -18,6 +18,7 @@ export class TaskManager {
       {
         id: this.generateId(),
         content: value,
+        title: value,
         done: false,
         createdAt: this.now(),
         updatedAt: this.now(),
@@ -52,7 +53,12 @@ export class TaskManager {
 
     return this.tasks.map((task) =>
       task.id === id
-        ? { ...task, content: value, updatedAt: this.now() }
+        ? {
+            ...task,
+            content: value,
+            title: task.title === task.content ? value : task.title,
+            updatedAt: this.now(),
+          }
         : task,
     );
   }

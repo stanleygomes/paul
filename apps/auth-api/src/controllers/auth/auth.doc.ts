@@ -13,7 +13,9 @@ export const sendCodeSchema = {
       type: "object",
       properties: {
         message: { type: "string" },
+        isRegistered: { type: "boolean" },
       },
+      required: ["message", "isRegistered"],
     },
   },
 };
@@ -35,7 +37,9 @@ export const verifyCodeSchema = {
       properties: {
         token: { type: "string" },
         refreshToken: { type: "string" },
+        isNew: { type: "boolean" },
       },
+      required: ["token", "refreshToken", "isNew"],
     },
   },
 };

@@ -26,15 +26,23 @@ export class AuthMiddleware {
     }
 
     const token = authHeader.replace("Bearer ", "").trim();
-    const payload = jwtService.verify(token);
+    try {
+      const payload = jwtService.verify(token);
 
-    if (!payload.id || !payload.email) {
-      throw new AuthError("Invalid token payload");
+      if (!payload.id || !payload.email) {
+        throw new AuthError("Invalid token payload");
+      }
+
+      (request as AuthenticatedRequest).user = {
+        id: payload.id,
+        email: payload.email,
+      };
+    } catch (error) {
+      if (error instanceof AuthError) {
+        throw error;
+      }
+
+      throw new AuthError("Token expired or invalid");
     }
-
-    (request as AuthenticatedRequest).user = {
-      id: payload.id,
-      email: payload.email,
-    };
   }
 }

@@ -33,7 +33,7 @@ export interface Environment {
       baseUrl?: string;
     };
     cors: {
-      allowedOrigin: string;
+      allowedOrigin: string | string[];
       allowedMethods: string;
       allowedHeaders: string;
     };
@@ -78,7 +78,7 @@ export const config: Environment = {
       baseUrl: APP_PUBLIC_BASE_URL,
     },
     cors: {
-      allowedOrigin: APP_CORS_ORIGIN || "*localhost*",
+      allowedOrigin: (APP_CORS_ORIGIN || "*localhost*").split(","),
       allowedMethods: "GET,POST,PUT,DELETE,OPTIONS",
       allowedHeaders: "Content-Type,Authorization",
     },

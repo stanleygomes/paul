@@ -33,6 +33,7 @@ export function EmptyState() {
           alt={t("task_board.empty_state.title")}
           width={240}
           height={240}
+          priority
           className="h-auto w-48 object-contain md:w-60"
         />
       </motion.div>

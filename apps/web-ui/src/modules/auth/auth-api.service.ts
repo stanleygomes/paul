@@ -58,4 +58,15 @@ export const authService = {
 
     return response.data;
   },
+
+  async refreshToken(refreshToken: string): Promise<VerifyCodeResponse> {
+    const response = await httpClient.post<VerifyCodeResponse>(
+      `${AUTH_API_URL}/v1/auth/refresh-token`,
+      {
+        refreshToken,
+      },
+    );
+
+    return response.data;
+  },
 };

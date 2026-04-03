@@ -17,10 +17,12 @@ export default function Login() {
   const { login } = useAuth();
   const router = useRouter();
   const [step, setStep] = useState<"email" | "otp">("email");
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [isNewUser, setIsNewUser] = useState(false);
 
   const handleProceed = async (data: { email: string }) => {
+    setIsLoading(true);
     try {
       const response = await authService.sendCode(data.email);
       setEmail(data.email);
@@ -29,10 +31,13 @@ export default function Login() {
     } catch (error) {
       console.error("Error sending code:", error);
       toast.error(t("login.errors.send_code"));
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleVerify = async (code: string) => {
+    setIsLoading(true);
     try {
       const response = await authService.verifyCode(email, code);
 
@@ -45,22 +50,25 @@ export default function Login() {
       console.error("Error verifying code:", error);
       toast.error(t("login.errors.verify_code"));
       return false;
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-base">
-      <div className="flex-1 flex flex-col items-center justify-center p-6 bg-secondary-background bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px]">
+      <div className="flex-1 flex flex-col items-center justify-center p-4 md:p-6 bg-secondary-background bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] md:bg-[size:70px_70px]">
         {/* <LoginHeader /> */}
 
         {step === "email" ? (
-          <EmailForm onSubmit={handleProceed} />
+          <EmailForm onSubmit={handleProceed} isLoading={isLoading} />
         ) : (
           <OtpForm
             email={email}
             isNewUser={isNewUser}
             onVerify={handleVerify}
             onBack={() => setStep("email")}
+            isLoading={isLoading}
           />
         )}
 

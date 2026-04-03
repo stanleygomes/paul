@@ -10,6 +10,7 @@ function mergeEntities<T extends SyncableEntity>(
   localItems: T[],
   serverItems: T[],
 ): T[] {
+  if (!serverItems || !Array.isArray(serverItems)) return localItems;
   const merged = [...localItems];
 
   for (const serverItem of serverItems) {

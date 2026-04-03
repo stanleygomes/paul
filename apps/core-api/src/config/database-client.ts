@@ -15,6 +15,10 @@ const logger = PinoLogger.getLogger();
 
 export async function runMigrations() {
   logger.info("Running database migrations...");
-  await migrate(db, { migrationsFolder: config.database.migrationsFolder });
+  await migrate(db, {
+    migrationsFolder: config.database.migrationsFolder,
+    migrationsTable: "__drizzle_migrations",
+    migrationsSchema: "public",
+  });
   logger.info("Database migrations completed");
 }

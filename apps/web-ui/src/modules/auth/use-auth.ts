@@ -31,5 +31,6 @@ export function useAuth() {
     login,
     logout,
     isAuthenticated: !!(mounted && token),
+    isLoaded: mounted,
   };
 }

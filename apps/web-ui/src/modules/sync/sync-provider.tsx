@@ -41,6 +41,7 @@ export function SyncProvider({ children }: { children: ReactNode }) {
   );
 
   const [isSyncing, setIsSyncing] = useState(false);
+  const isSyncingRef = useRef(false);
   const [syncError, setSyncError] = useState<string | null>(null);
 
   const tasksRef = useRef(tasks);
@@ -51,12 +52,14 @@ export function SyncProvider({ children }: { children: ReactNode }) {
   memoriesRef.current = memories;
 
   const performSync = useCallback(async () => {
-    if (!token || isSyncing) return;
+    if (!token || isSyncingRef.current) return;
 
     try {
+      isSyncingRef.current = true;
       setIsSyncing(true);
       setSyncError(null);
 
+      console.info("Starting sync API call...");
       const response = await syncApiService.syncTasksAndProjects(
         token,
         tasksRef.current,
@@ -64,18 +67,22 @@ export function SyncProvider({ children }: { children: ReactNode }) {
         memoriesRef.current,
       );
 
+      console.info("Sync response received, merging...");
       const updatedTasks = SyncManager.mergeTasks(
         tasksRef.current,
-        response.tasksToUpdate,
+        response.tasksToUpdate || [],
       );
+      console.info("Tasks merged");
       const updatedProjects = SyncManager.mergeProjects(
         projectsRef.current,
-        response.projectsToUpdate,
+        response.projectsToUpdate || [],
       );
+      console.info("Projects merged");
       const updatedMemories = SyncManager.mergeMemories(
         memoriesRef.current,
-        response.memoriesToUpdate,
+        response.memoriesToUpdate || [],
       );
+      console.info("Memories merged");
 
       setTasks(updatedTasks);
       setProjects(updatedProjects);
@@ -83,15 +90,15 @@ export function SyncProvider({ children }: { children: ReactNode }) {
       setLastSyncAt(Date.now());
 
       console.info("Sync complete", {
-        updatedTasks: response.tasksToUpdate.length,
-        updatedProjects: response.projectsToUpdate.length,
-        updatedMemories: response.memoriesToUpdate.length,
+        updatedTasks: response.tasksToUpdate?.length || 0,
+        updatedProjects: response.projectsToUpdate?.length || 0,
+        updatedMemories: response.memoriesToUpdate?.length || 0,
       });
 
       if (
-        response.tasksToUpdate.length > 0 ||
-        response.projectsToUpdate.length > 0 ||
-        response.memoriesToUpdate.length > 0
+        (response.tasksToUpdate?.length || 0) > 0 ||
+        (response.projectsToUpdate?.length || 0) > 0 ||
+        (response.memoriesToUpdate?.length || 0) > 0
       ) {
         toast.success("Synced with cloud");
       }
@@ -107,9 +114,10 @@ export function SyncProvider({ children }: { children: ReactNode }) {
         setSyncError(message);
       }
     } finally {
+      isSyncingRef.current = false;
       setIsSyncing(false);
     }
-  }, [token, isSyncing, setLastSyncAt, setProjects, setTasks, setMemories]);
+  }, [token, setLastSyncAt, setProjects, setTasks, setMemories]);
 
   const hasSyncedRef = useRef(false);
 

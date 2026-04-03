@@ -4,7 +4,7 @@ import { AuthError } from "../errors/AuthError.js";
 export class RefreshTokenService {
   constructor(private readonly jwtService: JwtService) {}
 
-  execute(refreshToken: string): { token: string } {
+  execute(refreshToken: string): { token: string; refreshToken: string } {
     let payload: JwtPayload;
 
     try {
@@ -22,6 +22,11 @@ export class RefreshTokenService {
       email: payload.email,
     });
 
-    return { token };
+    const newRefreshToken = this.jwtService.signRefreshToken({
+      id: payload.id,
+      email: payload.email,
+    });
+
+    return { token, refreshToken: newRefreshToken };
   }
 }
