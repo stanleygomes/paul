@@ -7,7 +7,7 @@ import { TaskList } from "./task-list";
 import { CreateTaskInput } from "../create-task-input";
 import { TaskDrawer } from "../task-drawer";
 import { ZenModeView } from "../zen-mode";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { TaskSearch } from "./task-search";
 import { BoardHeader } from "./project-header";
 import { FinishedHeader } from "./finished-header";
@@ -18,7 +18,6 @@ interface TaskBoardProps {
 }
 
 export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const isSearchVisible = searchParams.get("search") === "true";
 
@@ -65,11 +64,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
   } = useTasks(projectId, filter);
 
   const handleOpenDrawer = (task: any) => {
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      router.push(`/task/${task.id}`);
-    } else {
-      openDrawer(task);
-    }
+    openDrawer(task);
   };
 
   const isRecentlyDeleted = filter === "recently-deleted";
@@ -194,7 +189,6 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
         onUpdateDetails={updateTaskDetails}
         onSuggestSubtasks={suggestSubtasks}
         isSuggestingSubtasks={isSuggestingSubtasks}
-        onOpenFullPage={(id) => router.push(`/task/${id}`)}
         isRecentlyDeleted={isRecentlyDeleted}
       />
     </main>

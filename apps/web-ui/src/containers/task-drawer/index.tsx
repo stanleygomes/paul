@@ -4,7 +4,6 @@ import { Drawer, DrawerContent } from "@paul/ui";
 import type { Task } from "@paul/entities";
 import { TaskForm } from "../task-form";
 import { TaskDrawerZenButton } from "./zen-button";
-import { TaskDrawerFullPageButton } from "./full-page-button";
 import { TaskDrawerHeader } from "./header";
 
 interface TaskDrawerProps {
@@ -35,7 +34,6 @@ interface TaskDrawerProps {
       | "projectId"
     >,
   ) => void;
-  onOpenFullPage?: (id: string) => void;
   isRecentlyDeleted?: boolean;
   onSuggestSubtasks?: (id: string) => void;
   isSuggestingSubtasks?: boolean;
@@ -56,7 +54,6 @@ export function TaskDrawer({
   onRestore,
   onEnterZenMode,
   onUpdateDetails,
-  onOpenFullPage,
   isRecentlyDeleted,
   onSuggestSubtasks,
   isSuggestingSubtasks,
@@ -100,12 +97,6 @@ export function TaskDrawer({
                   taskId={task.id}
                   onClick={onEnterZenMode}
                   onClose={onClose}
-                />
-              )}
-              {onOpenFullPage && (
-                <TaskDrawerFullPageButton
-                  taskId={task.id}
-                  onClick={onOpenFullPage}
                 />
               )}
             </div>
