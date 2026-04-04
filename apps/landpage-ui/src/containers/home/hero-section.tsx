@@ -23,7 +23,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8 text-6xl font-black uppercase tracking-tighter text-foreground md:text-8xl lg:text-8xl"
+          className="mb-8 break-words text-4xl font-black uppercase tracking-tighter text-foreground sm:text-6xl md:text-8xl lg:text-8xl"
         >
           {t("landing.hero.title_main")}{" "}
           <span className="bg-main px-4 py-2 text-main-foreground shadow-[10px_10px_0px_0px_var(--border)]">

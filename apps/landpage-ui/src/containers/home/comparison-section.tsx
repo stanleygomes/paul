@@ -18,7 +18,7 @@ export function ComparisonSection() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-16 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-4">
-            <h2 className="inline-block border-4 border-border bg-main px-8 py-4 text-4xl font-black uppercase tracking-tighter text-main-foreground shadow-[8px_8px_0px_0px_var(--border)] md:text-6xl">
+            <h2 className="inline-block break-words border-4 border-border bg-main px-6 py-3 text-2xl font-black uppercase tracking-tighter text-main-foreground shadow-[8px_8px_0px_0px_var(--border)] sm:px-8 sm:py-4 sm:text-4xl md:text-6xl">
               {t("landing.comparison.title")}
             </h2>
           </div>

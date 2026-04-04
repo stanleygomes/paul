@@ -8,7 +8,7 @@ export function FeaturesSection() {
   return (
     <section id="features" className="mx-auto max-w-6xl px-6 py-24 md:py-32">
       <div className="mb-20">
-        <h2 className="inline-block border-4 border-border bg-secondary-background px-8 py-4 text-4xl font-black uppercase tracking-tighter text-foreground shadow-[8px_8px_0px_0px_var(--border)] md:text-6xl">
+        <h2 className="inline-block break-words border-4 border-border bg-secondary-background px-6 py-3 text-2xl font-black uppercase tracking-tighter text-foreground shadow-[8px_8px_0px_0px_var(--border)] sm:px-8 sm:py-4 sm:text-4xl md:text-6xl">
           {t("landing.features.title")}
         </h2>
       </div>

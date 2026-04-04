@@ -7,8 +7,8 @@ export function CTASection() {
 
   return (
     <section className="mx-auto max-w-5xl px-6 py-24 text-center md:py-32">
-      <div className="rounded-base border-8 border-border bg-secondary-background p-12 shadow-[16px_16px_0px_0px_var(--border)] md:p-20">
-        <h2 className="mb-8 text-5xl font-black uppercase tracking-tighter text-foreground md:text-7xl">
+      <div className="rounded-base border-8 border-border bg-secondary-background p-8 shadow-[16px_16px_0px_0px_var(--border)] md:p-20">
+        <h2 className="mb-8 break-words text-3xl font-black uppercase tracking-tighter text-foreground md:text-7xl lg:text-8xl">
           {t("landing.cta.title")}
         </h2>
         <p className="mb-12 text-xl font-bold text-foreground/50">
