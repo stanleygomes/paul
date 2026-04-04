@@ -3,18 +3,16 @@ import type { Task } from "@paul/entities";
 import { generateUUID } from "@paul/utils";
 import { useDebouncedSave } from "../../hooks/use-debounced-save";
 import { TaskTitle } from "./task-title";
-import { TaskStatusToggle } from "./task-status-toggle";
 import { TaskProject } from "./task-project";
 import { TaskNotes } from "./task-notes";
 import { TaskTags } from "./task-tags";
 import { TaskSubtasks } from "./task-subtasks";
 import { TaskDueDate } from "./task-due-date";
-import { TaskImportant } from "./task-important";
 import { TaskUrl } from "./task-url";
 import { TaskDelete } from "./task-delete";
 import { TaskMetadata } from "./task-metadata";
-import { TaskPinnedToggle } from "./task-pinned-toggle";
 import { TaskColorPicker } from "./task-color-picker";
+import { TaskHighlights } from "./task-highlights";
 
 interface TaskFormProps {
   task: Task;
@@ -46,6 +44,8 @@ interface TaskFormProps {
   onSuggestSubtasks?: (id: string) => void;
   isSuggestingSubtasks?: boolean;
   isRecentlyDeleted?: boolean;
+  onEnterZenMode?: (id: string) => void;
+  onClose?: () => void;
 }
 
 export function TaskForm({
@@ -63,6 +63,8 @@ export function TaskForm({
   onSuggestSubtasks,
   isSuggestingSubtasks,
   isRecentlyDeleted,
+  onEnterZenMode,
+  onClose,
 }: TaskFormProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const { save, flush } = useDebouncedSave(600);
@@ -180,21 +182,13 @@ export function TaskForm({
         />
       </div>
 
-      <div className="flex items-center justify-between rounded-base border-2 border-border bg-secondary-background p-4">
-        <div className="flex items-center gap-3">
-          <TaskStatusToggle task={task} onToggle={onToggle} />
-        </div>
-        <div className="flex items-center gap-2">
-          <TaskPinnedToggle
-            isPinned={task.isPinned ?? false}
-            onToggle={() => patchDetails({ isPinned: !task.isPinned })}
-          />
-          <TaskImportant
-            isImportant={task.important}
-            onToggle={() => patchDetails({ important: !task.important })}
-          />
-        </div>
-      </div>
+      <TaskHighlights
+        task={task}
+        onToggle={onToggle}
+        onEnterZenMode={onEnterZenMode}
+        onClose={onClose}
+        onUpdateDetails={patchDetails}
+      />
 
       <TaskColorPicker
         color={task.color}

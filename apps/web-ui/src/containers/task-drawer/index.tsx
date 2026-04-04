@@ -4,7 +4,6 @@ import { useMediaQuery } from "usehooks-ts";
 import { Drawer, DrawerContent } from "@paul/ui";
 import type { Task } from "@paul/entities";
 import { TaskForm } from "../task-form";
-import { TaskDrawerZenButton } from "./zen-button";
 import { TaskDrawerHeader } from "./header";
 import { cn } from "@paul/ui/lib/utils";
 
@@ -34,6 +33,8 @@ interface TaskDrawerProps {
       | "subtasks"
       | "tags"
       | "projectId"
+      | "isPinned"
+      | "color"
     >,
   ) => void;
   isRecentlyDeleted?: boolean;
@@ -100,17 +101,9 @@ export function TaskDrawer({
               onSuggestSubtasks={onSuggestSubtasks}
               isSuggestingSubtasks={isSuggestingSubtasks}
               isRecentlyDeleted={isRecentlyDeleted}
+              onEnterZenMode={onEnterZenMode}
+              onClose={onClose}
             />
-
-            <div className="mt-4 flex flex-col gap-3">
-              {onEnterZenMode && (
-                <TaskDrawerZenButton
-                  taskId={task.id}
-                  onClick={onEnterZenMode}
-                  onClose={onClose}
-                />
-              )}
-            </div>
           </div>
         )}
       </DrawerContent>

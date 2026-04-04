@@ -34,7 +34,7 @@ export function PinnedTaskCard({
             e.stopPropagation();
             onToggle(task.id);
           }}
-          className={`transition-colors duration-200 ${
+          className={`transition-colors duration-200 cursor-pointer ${
             task.done ? "text-main" : "text-secondary-text hover:text-main"
           }`}
         >
@@ -46,7 +46,7 @@ export function PinnedTaskCard({
             e.stopPropagation();
             onUnpin(task.id);
           }}
-          className="p-1.5 rounded-full bg-background/50 backdrop-blur-sm border border-border text-secondary-text hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all opacity-0 group-hover:opacity-100"
+          className="p-1.5 rounded-full bg-background/50 backdrop-blur-sm border border-border cursor-pointer text-secondary-text hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all opacity-0 group-hover:opacity-100"
           title="Remover destaque"
         >
           <PinOff size={16} />

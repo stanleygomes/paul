@@ -104,7 +104,11 @@
       "breakdown": "Breakdown",
       "breakdown_tooltip": "Use AI to break this task into smaller subtasks",
       "delete_task": "Delete Task",
-      "restore_task": "Restore Task"
+      "restore_task": "Restore Task",
+      "pin": "Pin",
+      "unpin": "Unpin",
+      "important": "Important",
+      "unimportant": "Not Important"
     },
     "placeholders": {
       "subtask_title": "Subtask title",

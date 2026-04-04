@@ -104,7 +104,11 @@
       "breakdown": "Desmembrar",
       "breakdown_tooltip": "Usar IA para dividir esta tarefa em subtarefas menores",
       "delete_task": "Excluir Tarefa",
-      "restore_task": "Restaurar Tarefa"
+      "restore_task": "Restaurar Tarefa",
+      "pin": "Fixar",
+      "unpin": "Desafixar",
+      "important": "Importante",
+      "unimportant": "Não Importante"
     },
     "placeholders": {
       "subtask_title": "Título da subtarefa",
