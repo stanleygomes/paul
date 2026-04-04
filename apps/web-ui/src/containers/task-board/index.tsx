@@ -151,7 +151,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
         <section className="flex flex-col gap-4">
           <TaskList
             tasks={todoTasks}
-            editingTaskId={editingTaskId}
+            editingTaskId={selectedTask === null ? editingTaskId : null}
             editingContent={editingContent}
             onEditingContentChange={setEditingContent}
             onToggle={toggleTask}
@@ -175,7 +175,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
             <FinishedHeader onClear={clearFinishedTasks} />
             <TaskList
               tasks={finishedTasks}
-              editingTaskId={editingTaskId}
+              editingTaskId={selectedTask === null ? editingTaskId : null}
               editingContent={editingContent}
               onEditingContentChange={setEditingContent}
               onToggle={toggleTask}

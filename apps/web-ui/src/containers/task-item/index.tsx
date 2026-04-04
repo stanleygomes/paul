@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Reorder, useDragControls } from "framer-motion";
 import type { Task } from "@paul/entities";
 import { useProjects } from "@modules/project/use-projects";
+import { useMediaQuery } from "usehooks-ts";
 import { useDebouncedSave } from "../../hooks/use-debounced-save";
 import { TaskToggle } from "../../components/task-toggle";
 import { DragHandle } from "./drag-handle";
@@ -47,6 +48,7 @@ export function TaskListItem({
   showProject,
   isRecentlyDeleted,
 }: TaskListItemProps) {
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   const controls = useDragControls();
   const { projects } = useProjects();
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -101,8 +103,15 @@ export function TaskListItem({
       >
         <div
           onClick={(e) => {
-            if ((e.target as HTMLElement).closest("button, input, textarea"))
+            const target = e.target as HTMLElement;
+            if (target.closest("button, input, textarea")) return;
+
+            // In desktop mode, clicking the title area triggers inline edit, not drawer.
+            // But we allow drawer to open if clicking elsewhere.
+            if (isDesktop && target.closest(".task-title-area")) {
               return;
+            }
+
             onOpenDrawer(task);
           }}
           className="group bg-secondary-background p-4 flex items-start gap-3 cursor-pointer"
@@ -117,15 +126,18 @@ export function TaskListItem({
                 className="mt-1 cursor-pointer hidden md:flex"
               />
 
-              <TaskItemDescription
-                ref={inputRef}
-                task={task}
-                isEditing={isEditing}
-                editingContent={editingContent}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                onStartEdit={onStartEdit}
-              />
+              <div className="flex-1 min-w-0 task-title-area">
+                <TaskItemDescription
+                  ref={inputRef}
+                  task={task}
+                  isEditing={isEditing}
+                  editingContent={editingContent}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  onStartEdit={onStartEdit}
+                  isDesktop={isDesktop}
+                />
+              </div>
 
               <TaskItemActions
                 task={task}
