@@ -10,7 +10,7 @@ import { NotificationWatcher } from "@containers/notifications/watcher";
 
 import { SidebarProvider } from "../hooks/use-sidebar";
 import { SyncProvider } from "../modules/sync/sync-provider";
-import { setupHttpClient } from "@modules/auth/setup-http-client";
+import { setupHttpClient } from "@modules/http/http-client-setup";
 import { TopMenuProvider } from "../hooks/use-top-menu";
 import { PomodoroProvider } from "../context/pomodoro-context";
 
