@@ -92,9 +92,12 @@ export function TaskListItem({
       value={task}
       dragListener={false}
       dragControls={controls}
-      className={`relative overflow-hidden rounded-base border-2 border-border transition-opacity ${
+      className={`relative overflow-hidden rounded-base border-2 transition-opacity ${
         task.done ? "opacity-60" : ""
       }`}
+      style={{
+        borderColor: task.color || "var(--border)",
+      }}
     >
       <SwipeableActionItem
         onComplete={() => onToggle(task.id)}
@@ -114,7 +117,12 @@ export function TaskListItem({
 
             onOpenDrawer(task);
           }}
-          className="group bg-secondary-background p-4 flex items-start gap-3 cursor-pointer"
+          className="group p-4 flex items-start gap-3 cursor-pointer"
+          style={{
+            backgroundColor: task.color
+              ? `${task.color}10`
+              : "var(--secondary-background)",
+          }}
         >
           <DragHandle controls={controls} />
 

@@ -198,6 +198,9 @@
     }
   },
   "task_board": {
+    "pinned_tasks": {
+      "title": "Em destaque"
+    },
     "empty_state": {
       "title": "Tudo em dia. Aproveite o intervalo!",
       "body": "Sua lista está vazia por enquanto. Que tal relaxar um pouco antes de começar algo novo?"

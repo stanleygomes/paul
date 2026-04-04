@@ -158,6 +158,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
           onToggle={toggleTask}
           onUnpin={(id) => updateTaskDetails(id, { isPinned: false })}
           onOpenDrawer={handleOpenDrawer}
+          onUpdateDetails={updateTaskDetails}
         />
 
         <section className="flex flex-col gap-4">

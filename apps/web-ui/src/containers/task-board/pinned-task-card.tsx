@@ -1,11 +1,13 @@
 import { Task } from "@paul/entities";
 import { PinOff, CheckCircle2, Circle } from "lucide-react";
+import { TaskMetadata } from "../task-item/metadata";
 
 interface PinnedTaskCardProps {
   task: Task;
   onToggle: (id: string) => void;
   onUnpin: (id: string) => void;
   onOpenDrawer: (task: Task) => void;
+  onUpdateDetails: (id: string, details: any) => void;
 }
 
 export function PinnedTaskCard({
@@ -13,11 +15,12 @@ export function PinnedTaskCard({
   onToggle,
   onUnpin,
   onOpenDrawer,
+  onUpdateDetails,
 }: PinnedTaskCardProps) {
   return (
     <div
       onClick={() => onOpenDrawer(task)}
-      className="relative h-44 border-2 border-border p-5 flex flex-col justify-between cursor-pointer group shadow-lg transition-shadow shadow-shadow overflow-hidden"
+      className="border-2 border-border p-5 flex flex-col justify-between cursor-pointer group shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-shadow overflow-hidden"
       style={{
         backgroundColor: task.color
           ? `${task.color}15`
@@ -25,7 +28,6 @@ export function PinnedTaskCard({
         borderColor: task.color || "var(--border)",
       }}
     >
-      {/* Background gradient hint */}
       {task.color && (
         <div
           className="absolute -right-10 -top-10 w-32 h-32 blur-3xl opacity-20"
@@ -33,7 +35,7 @@ export function PinnedTaskCard({
         />
       )}
 
-      <div className="flex justify-between items-start z-10">
+      <div className="flex justify-between items-start z-10 mb-10">
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -71,19 +73,9 @@ export function PinnedTaskCard({
         )}
       </div>
 
-      {/* Tag indicator if present */}
-      {task.tags && task.tags.length > 0 && (
-        <div className="flex gap-1 mt-auto z-10">
-          {task.tags.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] px-2 py-0.5 rounded-full bg-border/50 text-secondary-text"
-            >
-              #{tag}
-            </span>
-          ))}
-        </div>
-      )}
+      <div className="z-10 mt-auto">
+        <TaskMetadata task={task} onUpdateDetails={onUpdateDetails} />
+      </div>
     </div>
   );
 }

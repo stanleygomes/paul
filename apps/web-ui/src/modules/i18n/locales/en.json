@@ -198,6 +198,9 @@
     }
   },
   "task_board": {
+    "pinned_tasks": {
+      "title": "Pinned"
+    },
     "empty_state": {
       "title": "All caught up. Enjoy the break!",
       "body": "Your task list is empty for now. How about relaxing for a bit before starting something new?"
