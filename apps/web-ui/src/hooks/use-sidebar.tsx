@@ -12,7 +12,7 @@ interface SidebarContextType {
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export function SidebarProvider({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useLocalStorage("done-left-menu-open", false);
+  const [isOpen, setIsOpen] = useLocalStorage("app-left-menu-open", false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

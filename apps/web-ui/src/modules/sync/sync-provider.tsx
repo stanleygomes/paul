@@ -35,7 +35,7 @@ export function SyncProvider({ children }: { children: ReactNode }) {
     [],
   );
   const [lastSyncAt, setLastSyncAt] = useLocalStorage<number | null>(
-    "done-last-sync-at",
+    "app-ast-sync-at",
     null,
   );
 

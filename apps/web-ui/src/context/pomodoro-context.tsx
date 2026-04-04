@@ -39,7 +39,7 @@ interface PomodoroContextType {
 
 const PomodoroContext = createContext<PomodoroContextType | null>(null);
 
-const STORAGE_KEY = "done-pomodoro-settings";
+const STORAGE_KEY = "app-pomodoro-settings";
 
 export function PomodoroProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<PomodoroSettings>(() => {

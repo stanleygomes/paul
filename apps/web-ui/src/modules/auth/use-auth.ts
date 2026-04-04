@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 
 export function useAuth() {
-  const [token, setToken] = useLocalStorage<string | null>("done-token", null);
+  const [token, setToken] = useLocalStorage<string | null>("app-token", null);
   const [refreshToken, setRefreshToken] = useLocalStorage<string | null>(
-    "done-refresh-token",
+    "app-refresh-token",
     null,
   );
   const [mounted, setMounted] = useState(false);

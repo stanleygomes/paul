@@ -7,7 +7,7 @@ import { useAuth } from "../auth/use-auth";
 import { authService } from "../auth/auth-api.service";
 
 export function useUser() {
-  const [user, setUser] = useLocalStorage<User | null>("done-user", null);
+  const [user, setUser] = useLocalStorage<User | null>("app-user", null);
   const { token, isAuthenticated } = useAuth();
   const [mounted, setMounted] = useState(false);
 

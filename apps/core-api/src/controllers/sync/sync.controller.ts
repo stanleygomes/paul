@@ -28,6 +28,8 @@ export class SyncController {
       async (request, reply) => {
         const authRequest = request as AuthenticatedRequest;
 
+        throw new Error("teste");
+
         const validatedTasks = bulkSyncTasksSchema.parse({
           tasks: request.body.tasks || [],
         });
