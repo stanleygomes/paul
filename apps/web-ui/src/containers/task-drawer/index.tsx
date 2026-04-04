@@ -1,10 +1,12 @@
 "use client";
 
+import { useMediaQuery } from "usehooks-ts";
 import { Drawer, DrawerContent } from "@paul/ui";
 import type { Task } from "@paul/entities";
 import { TaskForm } from "../task-form";
 import { TaskDrawerZenButton } from "./zen-button";
 import { TaskDrawerHeader } from "./header";
+import { cn } from "@paul/ui/lib/utils";
 
 interface TaskDrawerProps {
   task: Task | null;
@@ -58,6 +60,8 @@ export function TaskDrawer({
   onSuggestSubtasks,
   isSuggestingSubtasks,
 }: TaskDrawerProps) {
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
   function handleDelete(id: string) {
     onDelete(id);
     onClose();
@@ -67,9 +71,16 @@ export function TaskDrawer({
     <Drawer
       open={isOpen}
       onOpenChange={(open) => !open && onClose()}
-      direction="right"
+      direction={isDesktop ? "right" : "bottom"}
     >
-      <DrawerContent className="bg-background flex flex-col sm:!max-w-2xl w-[calc(100%-1.5rem)] ml-auto">
+      <DrawerContent
+        className={cn(
+          "bg-background flex flex-col",
+          isDesktop
+            ? "sm:!max-w-2xl w-[calc(100%-1.5rem)] ml-auto"
+            : "w-full max-h-[90vh]",
+        )}
+      >
         <TaskDrawerHeader />
 
         {task && (
