@@ -81,7 +81,7 @@ export function TaskDrawer({
             : "w-full max-h-[90vh]",
         )}
       >
-        <TaskDrawerHeader />
+        {isDesktop && <TaskDrawerHeader />}
 
         {task && (
           <div className="p-6 flex-1 overflow-y-auto h-full">

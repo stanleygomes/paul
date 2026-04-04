@@ -81,22 +81,24 @@ export function TaskMetadata({
         </div>
       )}
 
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <div className="flex items-center">
-            <ImportantToggle
-              isImportant={task.important}
-              onToggle={() => handleUpdate({ important: !task.important })}
-              className="h-8 px-1.5"
-            />
-          </div>
-        </TooltipTrigger>
-        <TooltipContent>
-          {task.important
-            ? t("common.components.important_toggle.unmark")
-            : t("common.components.important_toggle.mark")}
-        </TooltipContent>
-      </Tooltip>
+      {task.important && (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className="flex items-center">
+              <ImportantToggle
+                isImportant={task.important}
+                onToggle={() => handleUpdate({ important: !task.important })}
+                className="h-8 px-1.5"
+              />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            {task.important
+              ? t("common.components.important_toggle.unmark")
+              : t("common.components.important_toggle.mark")}
+          </TooltipContent>
+        </Tooltip>
+      )}
 
       {hasDueDate && (
         <Tooltip>
