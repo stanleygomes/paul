@@ -12,7 +12,7 @@ interface TaskSubtasksProps {
 }
 
 import { useTranslation } from "react-i18next";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Check } from "lucide-react";
 
 export function TaskSubtasks({
   subtasks,
@@ -71,10 +71,10 @@ export function TaskSubtasks({
           <div key={subtask.id} className="flex items-center gap-2">
             <button
               type="button"
-              className={`h-7 w-7 shrink-0 rounded-base border-2 border-border text-xs font-black ${
+              className={`h-8 w-8 shrink-0 rounded-base border-2 border-border flex items-center justify-center transition-all active:scale-90 ${
                 subtask.done
                   ? "bg-[#a7f3d0] dark:bg-[#a7f3d0]/30"
-                  : "bg-zinc-100 dark:bg-zinc-800"
+                  : "bg-secondary-background"
               }`}
               onClick={() => onToggleSubtask(subtask.id)}
               aria-label={
@@ -83,7 +83,7 @@ export function TaskSubtasks({
                   : t("task_form.aria.mark_subtask_done")
               }
             >
-              {subtask.done ? "✓" : ""}
+              {subtask.done && <Check className="h-4 w-4" strokeWidth={4} />}
             </button>
             <input
               value={subtask.content}

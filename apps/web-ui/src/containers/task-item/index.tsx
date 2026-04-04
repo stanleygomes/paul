@@ -131,7 +131,7 @@ export function TaskListItem({
               <TaskToggle
                 task={task}
                 onToggle={onToggle}
-                className="mt-1 cursor-pointer hidden md:flex"
+                className="cursor-pointer hidden md:flex"
               />
 
               <div className="flex-1 min-w-0 task-title-area">
