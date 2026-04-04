@@ -24,11 +24,11 @@ export function SidebarContent({ projects }: SidebarContentProps) {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-full w-72 bg-white dark:bg-[#111] border-r-4 border-black dark:border-white/20 z-[60] transition-transform duration-300 ease-in-out ${
+      className={`fixed left-0 top-0 h-full w-72 bg-white dark:bg-[#111] border-r-4 border-black/20 dark:border-white/20 z-[60] transition-transform duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="border-b-4 border-black dark:border-white/20 p-4 flex items-center gap-2">
+      <div className="border-b-2 border-black/20 dark:border-white/20 p-4 flex items-center gap-2">
         <button
           onClick={() => setIsOpen(false)}
           className="p-1 hover:bg-black/5 dark:hover:bg-white/5 rounded-full transition-colors cursor-pointer text-black dark:text-white"
@@ -61,7 +61,7 @@ export function SidebarContent({ projects }: SidebarContentProps) {
         <SidebarMoreSection showProjects={projects.length === 0} />
 
         <div className="mt-auto flex flex-col gap-4">
-          <div className="flex items-center justify-between px-3 pt-4 border-t-2 border-black/5 dark:border-white/20">
+          <div className="flex items-center justify-between px-3 pt-4 border-t-2 border-black/20 dark:border-white/20">
             <SyncIndicator />
             <div className="flex items-center">
               <UserHints />
