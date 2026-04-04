@@ -59,7 +59,7 @@ export function SidebarContent({ projects }: SidebarContentProps) {
           />
         </section>
 
-        <SidebarMoreSection />
+        <SidebarMoreSection showProjects={projects.length === 0} />
 
         <div className="mt-auto flex flex-col gap-4">
           <div className="flex items-center justify-between px-3 pt-4 border-t-2 border-black/5 dark:border-white/20">

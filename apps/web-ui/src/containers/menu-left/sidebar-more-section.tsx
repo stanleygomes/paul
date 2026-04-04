@@ -1,13 +1,28 @@
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { StickyNote, Sparkles, Settings } from "lucide-react";
+import { StickyNote, Sparkles, Settings, LayoutGrid } from "lucide-react";
 
-export function SidebarMoreSection() {
+interface SidebarMoreSectionProps {
+  showProjects?: boolean;
+}
+
+export function SidebarMoreSection({ showProjects }: SidebarMoreSectionProps) {
   const { t } = useTranslation();
   const pathname = usePathname();
 
   const links = [
+    ...(showProjects
+      ? [
+          {
+            href: "/projects",
+            label: t("menu.links.projects"),
+            icon: LayoutGrid,
+            colorClass: "bg-blue-100 dark:bg-blue-900",
+            iconColorClass: "text-blue-600 dark:text-blue-400",
+          },
+        ]
+      : []),
     {
       href: "/memories",
       label: t("sidebar.memories"),
