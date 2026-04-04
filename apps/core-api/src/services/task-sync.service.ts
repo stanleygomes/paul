@@ -112,7 +112,7 @@ export class TaskSyncService {
 
   private async persistUpserts(userId: string, tasks: Task[]): Promise<void> {
     if (tasks.length === 0) return;
-    const dbTasks = TaskMapper.toDatabaseList(tasks, userId);
+    const dbTasks = tasks.map((t) => TaskMapper.toDatabase(t, userId));
     await this.taskRepository.bulkUpsert(userId, dbTasks);
   }
 }

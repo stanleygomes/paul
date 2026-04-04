@@ -13,7 +13,6 @@ import { useAuth } from "@modules/auth/use-auth";
 import { syncApiService } from "./sync-api.service";
 import { SyncManager } from "./sync-manager";
 import type { Task, Project, Memory } from "@paul/entities";
-import { toast } from "@paul/ui";
 
 export interface SyncContextType {
   isSyncing: boolean;
@@ -59,7 +58,6 @@ export function SyncProvider({ children }: { children: ReactNode }) {
       setIsSyncing(true);
       setSyncError(null);
 
-      console.info("Starting sync API call...");
       const response = await syncApiService.syncTasksAndProjects(
         token,
         tasksRef.current,
@@ -67,41 +65,23 @@ export function SyncProvider({ children }: { children: ReactNode }) {
         memoriesRef.current,
       );
 
-      console.info("Sync response received, merging...");
       const updatedTasks = SyncManager.mergeTasks(
         tasksRef.current,
         response.tasksToUpdate || [],
       );
-      console.info("Tasks merged");
       const updatedProjects = SyncManager.mergeProjects(
         projectsRef.current,
         response.projectsToUpdate || [],
       );
-      console.info("Projects merged");
       const updatedMemories = SyncManager.mergeMemories(
         memoriesRef.current,
         response.memoriesToUpdate || [],
       );
-      console.info("Memories merged");
 
       setTasks(updatedTasks);
       setProjects(updatedProjects);
       setMemories(updatedMemories);
       setLastSyncAt(Date.now());
-
-      console.info("Sync complete", {
-        updatedTasks: response.tasksToUpdate?.length || 0,
-        updatedProjects: response.projectsToUpdate?.length || 0,
-        updatedMemories: response.memoriesToUpdate?.length || 0,
-      });
-
-      if (
-        (response.tasksToUpdate?.length || 0) > 0 ||
-        (response.projectsToUpdate?.length || 0) > 0 ||
-        (response.memoriesToUpdate?.length || 0) > 0
-      ) {
-        toast.success("Synced with cloud");
-      }
     } catch (err: any) {
       console.error("Sync failed", err);
       const status = err.response?.status;
