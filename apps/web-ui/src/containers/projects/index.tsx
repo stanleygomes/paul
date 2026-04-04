@@ -5,7 +5,7 @@ import { useProjects } from "@modules/project/use-projects";
 import ProjectFormDrawer from "./form-drawer";
 import ProjectDeleteDrawer from "./delete-drawer";
 import { Project } from "@paul/entities";
-import { PROJECT_COLORS } from "../../constants/project-colors";
+import { COLORS } from "../../constants/colors";
 import TaskFilters from "./filters";
 import ProjectList from "./list";
 import ProjectHeader from "./header";
@@ -18,7 +18,7 @@ export default function Projects() {
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const [projectName, setProjectName] = useState("");
   const [projectColor, setProjectColor] = useState<string>(
-    PROJECT_COLORS[0] || "#ef4444",
+    COLORS[0] || "#ef4444",
   );
 
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
@@ -27,7 +27,7 @@ export default function Projects() {
   const openCreateDrawer = () => {
     setEditingProject(null);
     setProjectName("");
-    setProjectColor(PROJECT_COLORS[0] || "#ef4444");
+    setProjectColor(COLORS[0] || "#ef4444");
     setIsDrawerOpen(true);
   };
 

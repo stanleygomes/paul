@@ -1,6 +1,6 @@
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@paul/ui";
 import { Project } from "@paul/entities";
-import { PROJECT_COLORS } from "../../constants/project-colors";
+import { COLORS } from "../../constants/colors";
 
 import { useTranslation } from "react-i18next";
 
@@ -55,7 +55,7 @@ export default function ProjectFormDrawer({
               {t("projects.form.color_label")}
             </label>
             <div className="flex flex-wrap gap-4">
-              {PROJECT_COLORS.map((c) => (
+              {COLORS.map((c) => (
                 <button
                   key={c}
                   onClick={() => onProjectColorChange(c)}

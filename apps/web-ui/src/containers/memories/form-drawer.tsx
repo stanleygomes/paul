@@ -16,7 +16,7 @@ interface MemoryFormDrawerProps {
 
 import { useLocalStorage } from "usehooks-ts";
 import { useDebouncedSave } from "../../hooks/use-debounced-save";
-import { PROJECT_COLORS } from "../../constants/project-colors";
+import { COLORS } from "../../constants/colors";
 
 export function MemoryFormDrawer({
   isOpen,
@@ -139,7 +139,7 @@ export function MemoryFormDrawer({
               >
                 <div className="w-4 h-4 border-2 border-foreground/20 rounded-full" />
               </button>
-              {PROJECT_COLORS.map((c) => (
+              {COLORS.map((c) => (
                 <button
                   key={c}
                   type="button"

@@ -1,4 +1,4 @@
-export const PROJECT_COLORS: string[] = [
+export const COLORS: string[] = [
   "#ef4444",
   "#f97316",
   "#f59e0b",
