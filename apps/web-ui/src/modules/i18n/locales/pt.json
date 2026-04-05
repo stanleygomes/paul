@@ -160,8 +160,27 @@
         "create_task": "Criar Tarefa",
         "thinking": "Pensando...",
         "input_placeholder": "Digite seu plano...",
-        "empty_state": "Comece a planejar seu próximo grande objetivo.",
-        "footer_hint": "Planeje seu projeto, uma mensagem por vez."
+        "empty_state": "Respire fundo. Vamos resolver isso juntos.",
+        "empty_state_description": "Sentindo sobrecarga? Me conte o que está na sua cabeça e vamos transformar isso em um plano simples e possível.",
+        "empty_state_examples": {
+          "label": "Exemplo",
+          "organize_week": "Encontrar uma igreja pra frequentar",
+          "new_project": "Começar academia",
+          "morning_tasks": "Organizar fatura do cartão"
+        },
+        "footer_hint": "Planeje seu projeto, uma mensagem por vez. A IA pode cometer erros.",
+        "history": {
+          "title": "Conversas",
+          "new_session": "Nova Sessão de Planejamento",
+          "recently": "Recentemente",
+          "no_sessions": "Nenhuma sessão encontrada",
+          "engine_version": "Cérebro v2.4",
+          "syncing": "Sincronizando Cérebro...",
+          "button": "Histórico"
+        },
+        "actions": {
+          "new_chat": "Nova Conversa"
+        }
       }
     }
   },

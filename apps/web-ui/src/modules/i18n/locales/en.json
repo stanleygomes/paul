@@ -160,8 +160,27 @@
         "create_task": "Create Task",
         "thinking": "Thinking...",
         "input_placeholder": "Type your plan...",
-        "empty_state": "Start planning your next big thing.",
-        "footer_hint": "Plan your project, one message at a time."
+        "empty_state": "Let's figure this out together.",
+        "empty_state_description": "Feeling overwhelmed? Just tell me what's on your mind, and we'll break it down into a simple, manageable plan.",
+        "empty_state_examples": {
+          "label": "Example",
+          "organize_week": "Find a church to attend",
+          "new_project": "Start going to the gym",
+          "morning_tasks": "Organize credit card statement"
+        },
+        "footer_hint": "Plan your project, one message at a time. AI may provide inaccurate info.",
+        "history": {
+          "title": "Conversations",
+          "new_session": "New Planning Session",
+          "recently": "Recently",
+          "no_sessions": "No sessions found",
+          "engine_version": "Brain Engine v2.4",
+          "syncing": "Syncing Brain...",
+          "button": "History"
+        },
+        "actions": {
+          "new_chat": "New Chat"
+        }
       }
     }
   },

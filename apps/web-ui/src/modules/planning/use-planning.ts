@@ -49,7 +49,6 @@ export function usePlanning() {
     try {
       await planningApiService.clearHistory(token);
       setMessages([]);
-      toast.success("Chat history cleared");
     } catch (error) {
       toast.error("Failed to clear chat history");
       console.error(error);
