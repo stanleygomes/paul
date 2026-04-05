@@ -16,6 +16,8 @@ const {
   DATABASE_MIGRATIONS_FOLDER,
   LOG_LEVEL,
   LOG_TRANSPORT,
+  RATE_LIMIT_MAX,
+  RATE_LIMIT_WINDOW_MS,
 } = process.env;
 
 export interface Environment {
@@ -37,6 +39,10 @@ export interface Environment {
       allowedHeaders: string;
     };
     env?: string;
+    rateLimit: {
+      max: number;
+      timeWindow: number;
+    };
   };
   logger: {
     level: string;
@@ -79,6 +85,10 @@ export const config: Environment = {
       allowedHeaders: "Content-Type,Authorization",
     },
     env: NODE_ENV,
+    rateLimit: {
+      max: Number(RATE_LIMIT_MAX) || (NODE_ENV === "development" ? 10000 : 100),
+      timeWindow: Number(RATE_LIMIT_WINDOW_MS) || 60 * 1000,
+    },
   },
   logger: {
     level: LOG_LEVEL || "info",

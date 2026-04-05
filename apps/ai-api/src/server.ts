@@ -18,8 +18,8 @@ export class AppServer {
 
     this.fastify.register(rateLimit, {
       global: true,
-      max: 100,
-      timeWindow: 60 * 1000, // 1 minute
+      max: config.app.rateLimit.max,
+      timeWindow: config.app.rateLimit.timeWindow,
     });
 
     this.fastify.register(cors, {

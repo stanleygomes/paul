@@ -66,7 +66,7 @@ export class AuthController {
       { schema: refreshTokenSchema },
       async (request, reply) => {
         const validatedData = validateRefreshToken(request.body);
-        const result = this.refreshTokenService.execute(
+        const result = await this.refreshTokenService.execute(
           validatedData.refreshToken,
         );
         reply.send(result);

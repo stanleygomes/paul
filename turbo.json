@@ -11,6 +11,8 @@
         ".env*"
       ],
       "env": [
+        "RATE_LIMIT_MAX",
+        "RATE_LIMIT_WINDOW_MS",
         "AI_API_URL",
         "NEXT_PUBLIC_AUTH_API_URL",
         "NEXT_PUBLIC_CORE_API_URL",
