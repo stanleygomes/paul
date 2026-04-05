@@ -2,11 +2,21 @@
   "name": "@paul/http",
   "version": "0.0.0",
   "type": "module",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "types": "src/index.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./http-client.js": "./src/http-client.ts"
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./http-client.js": {
+      "types": "./src/http-client.ts",
+      "import": "./dist/http-client.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
   },
   "dependencies": {
     "axios": "^1.13.6"

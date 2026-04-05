@@ -1,6 +1,7 @@
 {
   "extends": "@paul/typescript-config/base.json",
   "compilerOptions": {
+    "outDir": "dist",
     "module": "esnext",
     "moduleResolution": "bundler"
   },
