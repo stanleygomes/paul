@@ -5,6 +5,7 @@ import { PromptExecutionService } from "../services/prompt-execution.service.js"
 
 const promptLogRepository = new PromptLogRepository();
 const googleAiStudioService = new GoogleAiStudioService();
+
 const promptExecutionService = new PromptExecutionService(
   googleAiStudioService,
   promptLogRepository,

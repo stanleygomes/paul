@@ -3,7 +3,8 @@ import {
   syncController,
   taskController,
   projectController,
-  planningController,
+  planningConversationController,
+  planningMessageController,
   memoryController,
 } from "./providers/dependencies.js";
 
@@ -12,7 +13,8 @@ export class AppRouter {
     syncController.registerRoutes(fastify, prefix);
     taskController.registerRoutes(fastify, prefix);
     projectController.registerRoutes(fastify, prefix);
-    planningController.registerRoutes(fastify, prefix);
+    planningConversationController.registerRoutes(fastify, prefix);
+    planningMessageController.registerRoutes(fastify, prefix);
     memoryController.registerRoutes(fastify, prefix);
   }
 }

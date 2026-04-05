@@ -15,6 +15,13 @@
       "when": 1775302198039,
       "tag": "0001_nebulous_ares",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1775415607101,
+      "tag": "0002_exotic_adam_destine",
+      "breakpoints": true
     }
   ]
 }

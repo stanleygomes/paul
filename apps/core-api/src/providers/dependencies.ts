@@ -7,8 +7,11 @@ import { SyncController } from "../controllers/sync/sync.controller.js";
 import { TaskController } from "../controllers/task/task.controller.js";
 import { ProjectController } from "../controllers/project/project.controller.js";
 import { PlanningRepository } from "../repositories/planning.repository.js";
-import { PlanningService } from "../services/planning.service.js";
-import { PlanningController } from "../controllers/planning/planning.controller.js";
+import { AiService } from "../services/ai.service.js";
+import { PlanningConversationService } from "../services/planning-conversation.service.js";
+import { PlanningMessageService } from "../services/planning-message.service.js";
+import { PlanningConversationController } from "../controllers/planning-conversation/planning-conversation.controller.js";
+import { PlanningMessageController } from "../controllers/planning-message/planning-message.controller.js";
 import { MemoryService } from "../services/memory.service.js";
 import { MemoryController } from "../controllers/memory/memory.controller.js";
 
@@ -18,6 +21,7 @@ import { ProjectSyncService } from "../services/project-sync.service.js";
 const taskRepository = new TaskRepository();
 const projectRepository = new ProjectRepository();
 const planningRepository = new PlanningRepository();
+const aiService = new AiService();
 
 const taskSyncService = new TaskSyncService(taskRepository);
 const projectSyncService = new ProjectSyncService(projectRepository);
@@ -30,10 +34,20 @@ const syncService = new SyncService(
 );
 const taskService = new TaskService(taskRepository);
 const projectService = new ProjectService(projectRepository);
-const planningService = new PlanningService(planningRepository);
+const planningConversationService = new PlanningConversationService(
+  planningRepository,
+);
+const planningMessageService = new PlanningMessageService(
+  planningRepository,
+  aiService,
+);
 
 export const syncController = new SyncController(syncService);
 export const taskController = new TaskController(taskService);
 export const projectController = new ProjectController(projectService);
-export const planningController = new PlanningController(planningService);
+export const planningConversationController =
+  new PlanningConversationController(planningConversationService);
+export const planningMessageController = new PlanningMessageController(
+  planningMessageService,
+);
 export const memoryController = new MemoryController(memoryService);
