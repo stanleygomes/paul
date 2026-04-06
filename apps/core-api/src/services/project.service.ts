@@ -17,8 +17,9 @@ export class ProjectService {
   ): Promise<Project> {
     const now = Date.now();
     const project: Project = {
-      ...projectData,
       id: projectData.id || generateUUID(),
+      name: projectData.name,
+      color: projectData.color,
       createdAt: now,
       updatedAt: now,
       isDeleted: false,
