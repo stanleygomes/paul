@@ -14,11 +14,6 @@ const EXPIRES_IN_MINUTES = 30;
 
 const logger = PinoLogger.getLogger();
 
-const verificationCodeTemplate = loadTemplateFile(
-  import.meta.url,
-  "../templates/verification-code.html",
-);
-
 export class SendEmailCodeService {
   constructor(
     private readonly verificationCodeRepository: VerificationCodeRepository,
@@ -27,6 +22,11 @@ export class SendEmailCodeService {
   ) {}
 
   async execute(email: string): Promise<{ isRegistered: boolean }> {
+    const verificationCodeTemplate = loadTemplateFile(
+      import.meta.url,
+      "../templates/verification-code.html",
+    );
+
     const user = await this.userRepository.findByEmail(email);
     const isRegistered = !!user;
 
