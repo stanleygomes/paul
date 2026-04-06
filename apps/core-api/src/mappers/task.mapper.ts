@@ -6,13 +6,13 @@ export class TaskMapper {
     return {
       id: dbRow.id,
       content: dbRow.content ?? "",
-      title: dbRow.title,
-      done: dbRow.is_completed,
+      title: dbRow.title || dbRow.content || "",
+      done: dbRow.done,
       createdAt: dbRow.created_at.getTime(),
       updatedAt: dbRow.updated_at.getTime(),
       notes: dbRow.notes ?? "",
-      important: dbRow.is_important,
-      dueDate: dbRow.due_date ? dbRow.due_date.toISOString() : "",
+      important: dbRow.important,
+      dueDate: dbRow.due_date ?? "",
       dueTime: dbRow.due_time ?? "",
       url: dbRow.url ?? "",
       subtasks: [],
@@ -30,67 +30,53 @@ export class TaskMapper {
     return {
       id: task.id,
       user_id: userId,
-      content: task.content,
-      description: task.content, // Map content to description as well
-      title: task.title,
-      is_completed: task.done,
+      content: task.content || "",
+      title: task.title || "",
+      done: task.done,
       created_at: task.createdAt ? new Date(task.createdAt) : undefined,
       updated_at: task.updatedAt ? new Date(task.updatedAt) : undefined,
-      notes: task.notes,
-      is_important: task.important,
-      due_date: task.dueDate ? new Date(task.dueDate) : null,
-      due_time: task.dueTime || null,
-      url: task.url || null,
-      tags: task.tags,
+      notes: task.notes || "",
+      important: task.important,
+      due_date: task.dueDate || "",
+      due_time: task.dueTime || "",
+      url: task.url || "",
+      tags: task.tags || [],
       project_id: task.projectId ?? null,
       parent_id: task.parentId ?? null,
-      completed_at: null, // Default
       is_deleted: task.isDeleted ?? false,
       deleted_at: task.deletedAt ? new Date(task.deletedAt) : null,
       is_pinned: task.isPinned ?? false,
       color: task.color ?? null,
-      zen_mode: false,
     };
   }
 
   static toDatabasePartial(task: Partial<Task>): Partial<DbTaskInsert> {
-    const dbPartial: Partial<DbTaskInsert> = {
-      id: task.id,
-      content: task.content,
-      description: task.content, // Sync description with content
-      title: task.title,
-      is_completed: task.done,
-      created_at: task.createdAt ? new Date(task.createdAt) : undefined,
-      updated_at: task.updatedAt ? new Date(task.updatedAt) : undefined,
-      notes: task.notes,
-      is_important: task.important,
-      due_date:
-        task.dueDate === undefined
-          ? undefined
-          : task.dueDate
-            ? new Date(task.dueDate)
-            : null,
-      due_time: task.dueTime === undefined ? undefined : task.dueTime || null,
-      url: task.url === undefined ? undefined : task.url || null,
-      tags: task.tags,
-      project_id:
-        task.projectId === undefined ? undefined : (task.projectId ?? null),
-      parent_id:
-        task.parentId === undefined ? undefined : (task.parentId ?? null),
-      is_deleted: task.isDeleted,
-      deleted_at:
-        task.deletedAt === undefined
-          ? undefined
-          : task.deletedAt
-            ? new Date(task.deletedAt)
-            : null,
-      is_pinned: task.isPinned,
-      color: task.color === undefined ? undefined : (task.color ?? null),
-    };
+    const dbPartial: any = {};
+    if (task.id !== undefined) dbPartial.id = task.id;
+    if (task.content !== undefined) dbPartial.content = task.content;
+    if (task.title !== undefined) dbPartial.title = task.title;
+    if (task.done !== undefined) dbPartial.done = task.done;
+    if (task.createdAt !== undefined)
+      dbPartial.created_at = new Date(task.createdAt);
+    if (task.updatedAt !== undefined)
+      dbPartial.updated_at = new Date(task.updatedAt);
+    if (task.notes !== undefined) dbPartial.notes = task.notes;
+    if (task.important !== undefined) dbPartial.important = task.important;
+    if (task.dueDate !== undefined) dbPartial.due_date = task.dueDate;
+    if (task.dueTime !== undefined) dbPartial.due_time = task.dueTime;
+    if (task.url !== undefined) dbPartial.url = task.url;
+    if (task.tags !== undefined) dbPartial.tags = task.tags;
+    if (task.projectId !== undefined)
+      dbPartial.project_id = task.projectId ?? null;
+    if (task.parentId !== undefined)
+      dbPartial.parent_id = task.parentId ?? null;
+    if (task.isDeleted !== undefined) dbPartial.is_deleted = task.isDeleted;
+    if (task.deletedAt !== undefined)
+      dbPartial.deleted_at = task.deletedAt ? new Date(task.deletedAt) : null;
+    if (task.isPinned !== undefined) dbPartial.is_pinned = task.isPinned;
+    if (task.color !== undefined) dbPartial.color = task.color ?? null;
 
-    return Object.fromEntries(
-      Object.entries(dbPartial).filter(([, value]) => value !== undefined),
-    );
+    return dbPartial;
   }
 
   static toDomainList(dbRows: DbTask[]): Task[] {

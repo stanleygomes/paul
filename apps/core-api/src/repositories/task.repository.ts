@@ -7,23 +7,20 @@ export interface DbTask {
   user_id: string;
   project_id: string | null;
   parent_id: string | null;
+  content: string;
   title: string;
-  content: string | null;
-  description: string | null;
-  notes: string | null;
-  is_completed: boolean;
-  is_important: boolean;
-  is_pinned: boolean;
-  due_date: Date | null;
-  due_time: string | null;
-  url: string | null;
-  tags: string[] | null;
-  completed_at: Date | null;
+  done: boolean;
   created_at: Date;
   updated_at: Date;
+  notes: string;
+  important: boolean;
+  due_date: string;
+  due_time: string;
+  url: string;
+  tags: string[];
   is_deleted: boolean;
   deleted_at: Date | null;
-  zen_mode: boolean;
+  is_pinned: boolean;
   color: string | null;
 }
 
@@ -52,22 +49,19 @@ export class TaskRepository {
         set: {
           project_id: sql`excluded.project_id`,
           parent_id: sql`excluded.parent_id`,
-          title: sql`excluded.title`,
           content: sql`excluded.content`,
-          description: sql`excluded.description`,
+          title: sql`excluded.title`,
+          done: sql`excluded.done`,
+          updated_at: sql`excluded.updated_at`,
           notes: sql`excluded.notes`,
-          is_completed: sql`excluded.is_completed`,
-          is_important: sql`excluded.is_important`,
-          is_pinned: sql`excluded.is_pinned`,
+          important: sql`excluded.important`,
           due_date: sql`excluded.due_date`,
           due_time: sql`excluded.due_time`,
           url: sql`excluded.url`,
           tags: sql`excluded.tags`,
-          completed_at: sql`excluded.completed_at`,
-          updated_at: sql`excluded.updated_at`,
           is_deleted: sql`excluded.is_deleted`,
           deleted_at: sql`excluded.deleted_at`,
-          zen_mode: sql`excluded.zen_mode`,
+          is_pinned: sql`excluded.is_pinned`,
           color: sql`excluded.color`,
         },
       });
