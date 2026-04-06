@@ -30,6 +30,29 @@ export class ProjectMapper {
     };
   }
 
+  static toDatabasePartial(
+    project: Partial<Project>,
+  ): Partial<DbProjectInsert> {
+    const dbPartial: Partial<DbProjectInsert> = {
+      id: project.id,
+      name: project.name,
+      color: project.color,
+      created_at: project.createdAt ? new Date(project.createdAt) : undefined,
+      updated_at: project.updatedAt ? new Date(project.updatedAt) : undefined,
+      is_deleted: project.isDeleted,
+      deleted_at:
+        project.deletedAt === undefined
+          ? undefined
+          : project.deletedAt
+            ? new Date(project.deletedAt)
+            : null,
+    };
+
+    return Object.fromEntries(
+      Object.entries(dbPartial).filter(([, value]) => value !== undefined),
+    );
+  }
+
   static toDomainList(dbRows: DbProject[]): Project[] {
     return dbRows.map((row) => ProjectMapper.toDomain(row));
   }

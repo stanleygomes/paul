@@ -3,5 +3,5 @@ export {
   formatDate,
   formatTime,
   formatDateTime,
-} from "./date-utils.js";
-export { generateUUID, isUUID } from "./uuid-utils.js";
+} from "./date-utils";
+export { generateUUID, isUUID } from "./uuid-utils";

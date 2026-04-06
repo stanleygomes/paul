@@ -43,10 +43,11 @@ export class ProjectService {
       throw new BusinessError("Project not found");
     }
 
-    const updated = await this.projectRepository.update(userId, projectId, {
-      ...projectData,
-      updated_at: new Date(),
-    });
+    const updated = await this.projectRepository.update(
+      userId,
+      projectId,
+      ProjectMapper.toDatabasePartial(projectData),
+    );
 
     if (!updated) {
       throw new BusinessError("Project update failed");

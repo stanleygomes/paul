@@ -1,5 +1,5 @@
 import pino, { Logger as PinoLogger } from "pino";
-import type { LoggerConfig } from "./types/logger.js";
+import type { LoggerConfig } from "./types/logger";
 
 export class Logger {
   private static instances = new Map<string, PinoLogger>();

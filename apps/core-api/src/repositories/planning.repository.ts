@@ -8,7 +8,7 @@ import {
 export interface SavePlanningMessageInput {
   userId: string;
   conversationId: string;
-  role: "user" | "model";
+  role: "user" | "assistant";
   content: string;
 }
 
@@ -16,7 +16,6 @@ export class PlanningRepository {
   async save(data: SavePlanningMessageInput) {
     await db.insert(planning_messages).values({
       conversation_id: data.conversationId,
-      user_id: data.userId,
       role: data.role,
       content: data.content,
     });

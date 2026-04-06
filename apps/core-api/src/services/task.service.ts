@@ -53,10 +53,11 @@ export class TaskService {
       throw new BusinessError("Task not found");
     }
 
-    const updated = await this.taskRepository.update(userId, taskId, {
-      ...taskData,
-      updated_at: new Date(),
-    });
+    const updated = await this.taskRepository.update(
+      userId,
+      taskId,
+      TaskMapper.toDatabasePartial(taskData),
+    );
 
     if (!updated) {
       throw new BusinessError("Task update failed");

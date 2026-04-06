@@ -5,16 +5,16 @@ export class TaskMapper {
   static toDomain(dbRow: DbTask): Task {
     return {
       id: dbRow.id,
-      content: dbRow.content,
+      content: dbRow.content ?? "",
       title: dbRow.title,
-      done: dbRow.done,
+      done: dbRow.is_completed,
       createdAt: dbRow.created_at.getTime(),
       updatedAt: dbRow.updated_at.getTime(),
-      notes: dbRow.notes,
-      important: dbRow.important,
-      dueDate: dbRow.due_date,
-      dueTime: dbRow.due_time,
-      url: dbRow.url,
+      notes: dbRow.notes ?? "",
+      important: dbRow.is_important,
+      dueDate: dbRow.due_date ? dbRow.due_date.toISOString() : "",
+      dueTime: dbRow.due_time ?? "",
+      url: dbRow.url ?? "",
       subtasks: [],
       tags: dbRow.tags || [],
       projectId: dbRow.project_id ?? undefined,
@@ -31,23 +31,66 @@ export class TaskMapper {
       id: task.id,
       user_id: userId,
       content: task.content,
+      description: task.content, // Map content to description as well
       title: task.title,
-      done: task.done,
-      created_at: new Date(task.createdAt),
-      updated_at: new Date(task.updatedAt),
+      is_completed: task.done,
+      created_at: task.createdAt ? new Date(task.createdAt) : undefined,
+      updated_at: task.updatedAt ? new Date(task.updatedAt) : undefined,
       notes: task.notes,
-      important: task.important,
-      due_date: task.dueDate,
-      due_time: task.dueTime,
-      url: task.url,
+      is_important: task.important,
+      due_date: task.dueDate ? new Date(task.dueDate) : null,
+      due_time: task.dueTime || null,
+      url: task.url || null,
       tags: task.tags,
       project_id: task.projectId ?? null,
       parent_id: task.parentId ?? null,
+      completed_at: null, // Default
       is_deleted: task.isDeleted ?? false,
       deleted_at: task.deletedAt ? new Date(task.deletedAt) : null,
       is_pinned: task.isPinned ?? false,
       color: task.color ?? null,
+      zen_mode: false,
     };
+  }
+
+  static toDatabasePartial(task: Partial<Task>): Partial<DbTaskInsert> {
+    const dbPartial: Partial<DbTaskInsert> = {
+      id: task.id,
+      content: task.content,
+      description: task.content, // Sync description with content
+      title: task.title,
+      is_completed: task.done,
+      created_at: task.createdAt ? new Date(task.createdAt) : undefined,
+      updated_at: task.updatedAt ? new Date(task.updatedAt) : undefined,
+      notes: task.notes,
+      is_important: task.important,
+      due_date:
+        task.dueDate === undefined
+          ? undefined
+          : task.dueDate
+            ? new Date(task.dueDate)
+            : null,
+      due_time: task.dueTime === undefined ? undefined : task.dueTime || null,
+      url: task.url === undefined ? undefined : task.url || null,
+      tags: task.tags,
+      project_id:
+        task.projectId === undefined ? undefined : (task.projectId ?? null),
+      parent_id:
+        task.parentId === undefined ? undefined : (task.parentId ?? null),
+      is_deleted: task.isDeleted,
+      deleted_at:
+        task.deletedAt === undefined
+          ? undefined
+          : task.deletedAt
+            ? new Date(task.deletedAt)
+            : null,
+      is_pinned: task.isPinned,
+      color: task.color === undefined ? undefined : (task.color ?? null),
+    };
+
+    return Object.fromEntries(
+      Object.entries(dbPartial).filter(([, value]) => value !== undefined),
+    );
   }
 
   static toDomainList(dbRows: DbTask[]): Task[] {

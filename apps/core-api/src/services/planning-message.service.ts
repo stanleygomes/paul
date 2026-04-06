@@ -52,7 +52,7 @@ export class PlanningMessageService {
       await this.planningRepository.save({
         userId,
         conversationId,
-        role: "model",
+        role: "assistant",
         content: aiResponse,
       });
 
@@ -89,7 +89,7 @@ export class PlanningMessageService {
         parts: [{ text: `INSTRUÇÃO DE SISTEMA: ${this.getSystemPrompt()}` }],
       },
       ...history.map((m) => ({
-        role: m.role,
+        role: m.role === "assistant" ? "model" : "user",
         parts: [{ text: m.content }],
       })),
     ];

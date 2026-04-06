@@ -5,22 +5,25 @@ import { tasks } from "../schemas/database/index.js";
 export interface DbTask {
   id: string;
   user_id: string;
-  content: string;
-  title: string;
-  done: boolean;
-  created_at: Date;
-  updated_at: Date;
-  notes: string;
-  important: boolean;
-  due_date: string;
-  due_time: string;
-  url: string;
-  tags: string[];
   project_id: string | null;
   parent_id: string | null;
+  title: string;
+  content: string | null;
+  description: string | null;
+  notes: string | null;
+  is_completed: boolean;
+  is_important: boolean;
+  is_pinned: boolean;
+  due_date: Date | null;
+  due_time: string | null;
+  url: string | null;
+  tags: string[] | null;
+  completed_at: Date | null;
+  created_at: Date;
+  updated_at: Date;
   is_deleted: boolean;
   deleted_at: Date | null;
-  is_pinned: boolean;
+  zen_mode: boolean;
   color: string | null;
 }
 
@@ -47,21 +50,24 @@ export class TaskRepository {
       .onConflictDoUpdate({
         target: tasks.id,
         set: {
-          content: sql`excluded.content`,
+          project_id: sql`excluded.project_id`,
+          parent_id: sql`excluded.parent_id`,
           title: sql`excluded.title`,
-          done: sql`excluded.done`,
-          updated_at: sql`excluded.updated_at`,
+          content: sql`excluded.content`,
+          description: sql`excluded.description`,
           notes: sql`excluded.notes`,
-          important: sql`excluded.important`,
+          is_completed: sql`excluded.is_completed`,
+          is_important: sql`excluded.is_important`,
+          is_pinned: sql`excluded.is_pinned`,
           due_date: sql`excluded.due_date`,
           due_time: sql`excluded.due_time`,
           url: sql`excluded.url`,
           tags: sql`excluded.tags`,
-          project_id: sql`excluded.project_id`,
-          parent_id: sql`excluded.parent_id`,
+          completed_at: sql`excluded.completed_at`,
+          updated_at: sql`excluded.updated_at`,
           is_deleted: sql`excluded.is_deleted`,
           deleted_at: sql`excluded.deleted_at`,
-          is_pinned: sql`excluded.is_pinned`,
+          zen_mode: sql`excluded.zen_mode`,
           color: sql`excluded.color`,
         },
       });
@@ -79,7 +85,7 @@ export class TaskRepository {
       .from(tasks)
       .where(and(...conditions));
 
-    return result;
+    return result as DbTask[];
   }
 
   async findById(userId: string, taskId: string): Promise<DbTask | null> {
@@ -89,7 +95,7 @@ export class TaskRepository {
       .where(and(eq(tasks.id, taskId), eq(tasks.user_id, userId)))
       .limit(1);
 
-    return result[0] ?? null;
+    return (result[0] as DbTask) ?? null;
   }
 
   async update(
@@ -97,18 +103,18 @@ export class TaskRepository {
     taskId: string,
     data: Partial<DbTaskInsert>,
   ): Promise<DbTask | null> {
-    const result = await db
+    const [result] = await db
       .update(tasks)
       .set({ ...data, updated_at: new Date() })
       .where(and(eq(tasks.id, taskId), eq(tasks.user_id, userId)))
       .returning();
 
-    return result[0] ?? null;
+    return (result as DbTask) ?? null;
   }
 
   async softDelete(userId: string, taskId: string): Promise<DbTask | null> {
     const now = new Date();
-    const result = await db
+    const [result] = await db
       .update(tasks)
       .set({
         is_deleted: true,
@@ -118,7 +124,7 @@ export class TaskRepository {
       .where(and(eq(tasks.id, taskId), eq(tasks.user_id, userId)))
       .returning();
 
-    return result[0] ?? null;
+    return (result as DbTask) ?? null;
   }
 
   async hardDelete(userId: string, taskId: string): Promise<void> {
