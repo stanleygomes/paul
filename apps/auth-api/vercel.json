@@ -9,7 +9,8 @@
   "functions": {
     "api/server.ts": {
       "memory": 1024,
-      "maxDuration": 30
+      "maxDuration": 30,
+      "includeFiles": "src/templates/**"
     }
   },
   "outputDirectory": "dist"
