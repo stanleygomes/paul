@@ -2,8 +2,8 @@ import type { Memory } from "@paul/entities";
 import {
   MemoryRepository,
   DbMemoryInsert,
-} from "../repositories/memory.repository.js";
-import { MemoryMapper } from "../mappers/memory.mapper.js";
+} from "../repositories/memory.repository";
+import { MemoryMapper } from "../mappers/memory.mapper";
 
 export class MemoryService {
   private memoryRepository: MemoryRepository;

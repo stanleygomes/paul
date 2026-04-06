@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 import { JwtService, JwtPayload } from "@paul/node-utils";
-import { AuthError } from "../errors/AuthError.js";
-import { VerificationCodeRepository } from "../repositories/verification-code.repository.js";
-import { UserRepository } from "../repositories/user.repository.js";
+import { AuthError } from "../errors/AuthError";
+import { VerificationCodeRepository } from "../repositories/verification-code.repository";
+import { UserRepository } from "../repositories/user.repository";
 
 export class VerifyEmailCodeService {
   constructor(

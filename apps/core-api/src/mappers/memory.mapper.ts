@@ -2,7 +2,7 @@ import type { Memory } from "@paul/entities";
 import type {
   DbMemory,
   DbMemoryInsert,
-} from "../repositories/memory.repository.js";
+} from "../repositories/memory.repository";
 
 export class MemoryMapper {
   static toDomain(dbRow: DbMemory): Memory {

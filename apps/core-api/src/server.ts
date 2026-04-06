@@ -2,12 +2,12 @@ import "dotenv/config";
 import Fastify, { FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
-import { AppRouter } from "./router.js";
-import { PinoLogger } from "./config/pino.logger.js";
-import { config } from "./config/environment.js";
-import { Docs } from "./config/docs.js";
-import { runMigrations } from "./config/database-client.js";
-import { setupErrorHandler } from "./middlewares/error-handler.middleware.js";
+import { AppRouter } from "./router";
+import { PinoLogger } from "./config/pino.logger";
+import { config } from "./config/environment";
+import { Docs } from "./config/docs";
+import { runMigrations } from "./config/database-client";
+import { setupErrorHandler } from "./middlewares/error-handler.middleware";
 
 export class AppServer {
   private fastify: FastifyInstance;

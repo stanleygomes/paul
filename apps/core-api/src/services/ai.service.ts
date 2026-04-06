@@ -1,5 +1,5 @@
-import { config } from "../config/environment.js";
-import { BusinessError } from "../errors/BusinessError.js";
+import { config } from "../config/environment";
+import { BusinessError } from "../errors/BusinessError";
 import { Logger } from "@paul/node-utils";
 
 const logger = Logger.getLogger();

@@ -2,10 +2,10 @@ import type { Task } from "@paul/entities";
 import { Logger } from "@paul/node-utils";
 import type { Logger as PinoLogger } from "pino";
 import { generateUUID } from "@paul/utils";
-import { TaskRepository } from "../repositories/task.repository.js";
-import { TaskMapper } from "../mappers/task.mapper.js";
-import { BusinessError } from "../errors/BusinessError.js";
-import { config } from "../config/environment.js";
+import { TaskRepository } from "../repositories/task.repository";
+import { TaskMapper } from "../mappers/task.mapper";
+import { BusinessError } from "../errors/BusinessError";
+import { config } from "../config/environment";
 
 const logger: PinoLogger = Logger.getLogger();
 

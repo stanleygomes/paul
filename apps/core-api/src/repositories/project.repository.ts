@@ -1,6 +1,6 @@
 import { and, eq, sql } from "drizzle-orm";
-import { db } from "../config/database-client.js";
-import { projects } from "../schemas/database/index.js";
+import { db } from "../config/database-client";
+import { projects } from "../schemas/database/index";
 
 export interface DbProject {
   id: string;

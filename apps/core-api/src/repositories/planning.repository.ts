@@ -1,9 +1,9 @@
 import { eq, asc, desc } from "drizzle-orm";
-import { db } from "../config/database-client.js";
+import { db } from "../config/database-client";
 import {
   planning_conversations,
   planning_messages,
-} from "../schemas/database/index.js";
+} from "../schemas/database/index";
 
 export interface SavePlanningMessageInput {
   userId: string;

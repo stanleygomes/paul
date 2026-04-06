@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyRequest } from "fastify";
-import { PlanningMessageService } from "../../services/planning-message.service.js";
-import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware.js";
-import { chatSchema, getMessagesSchema } from "./planning-message.doc.js";
+import { PlanningMessageService } from "../../services/planning-message.service";
+import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware";
+import { chatSchema, getMessagesSchema } from "./planning-message.doc";
 
 type AuthenticatedRequest = FastifyRequest & {
   user: UserAuth;

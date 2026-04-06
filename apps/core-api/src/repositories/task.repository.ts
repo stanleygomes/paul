@@ -1,6 +1,6 @@
 import { and, eq, gte, sql } from "drizzle-orm";
-import { db } from "../config/database-client.js";
-import { tasks } from "../schemas/database/index.js";
+import { db } from "../config/database-client";
+import { tasks } from "../schemas/database/index";
 
 export interface DbTask {
   id: string;

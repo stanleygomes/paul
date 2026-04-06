@@ -5,9 +5,9 @@ import {
   deleteMemorySchema,
   listMemoriesSchema,
   updateMemorySchemaDoc,
-} from "./memory.doc.js";
-import { MemoryService } from "../../services/memory.service.js";
-import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware.js";
+} from "./memory.doc";
+import { MemoryService } from "../../services/memory.service";
+import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware";
 
 type AuthenticatedRequest = FastifyRequest & {
   user: UserAuth;

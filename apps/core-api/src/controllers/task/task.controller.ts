@@ -7,10 +7,10 @@ import {
   listTasksSchema,
   suggestSubtasksSchema,
   updateTaskSchemaDoc,
-} from "./task.doc.js";
+} from "./task.doc";
 import type { Task } from "@paul/entities";
-import { TaskService } from "../../services/task.service.js";
-import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware.js";
+import { TaskService } from "../../services/task.service";
+import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware";
 
 type AuthenticatedRequest = FastifyRequest & {
   user: UserAuth;

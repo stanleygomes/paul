@@ -1,5 +1,5 @@
 import type { Task } from "@paul/entities";
-import type { DbTask, DbTaskInsert } from "../repositories/task.repository.js";
+import type { DbTask, DbTaskInsert } from "../repositories/task.repository";
 
 export class TaskMapper {
   static toDomain(dbRow: DbTask): Task {

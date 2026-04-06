@@ -1,7 +1,7 @@
 import { and, eq, gt } from "drizzle-orm";
 import { v4 as uuidv4 } from "uuid";
-import { db } from "../config/database-client.js";
-import { verification_codes } from "../schemas/database/index.js";
+import { db } from "../config/database-client";
+import { verification_codes } from "../schemas/database/index";
 
 export class VerificationCodeRepository {
   async create(email: string, code: string, expiresAt: Date): Promise<void> {

@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
-import { AuthError } from "../errors/AuthError.js";
-import { BusinessError } from "../errors/BusinessError.js";
-import { PinoLogger } from "../config/pino.logger.js";
+import { AuthError } from "../errors/AuthError";
+import { BusinessError } from "../errors/BusinessError";
+import { PinoLogger } from "../config/pino.logger";
 import { ZodError } from "zod";
 
 export function setupErrorHandler(fastify: FastifyInstance) {

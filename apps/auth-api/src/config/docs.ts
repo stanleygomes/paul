@@ -1,6 +1,6 @@
 import swagger from "@fastify/swagger";
 import swaggerUI from "@fastify/swagger-ui";
-import { config } from "./environment.js";
+import { config } from "./environment";
 import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const pkg = require("../../../../package.json");

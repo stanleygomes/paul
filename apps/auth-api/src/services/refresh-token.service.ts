@@ -1,5 +1,5 @@
 import { JwtService, JwtPayload } from "@paul/node-utils";
-import { AuthError } from "../errors/AuthError.js";
+import { AuthError } from "../errors/AuthError";
 
 export class RefreshTokenService {
   constructor(private readonly jwtService: JwtService) {}

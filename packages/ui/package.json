@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    ".": "./src/index.ts",
     "./*": "./src/*.tsx",
     "./button": "./src/components/ui/button.tsx",
     "./input": "./src/components/ui/input.tsx",

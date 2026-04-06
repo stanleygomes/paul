@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcryptjs";
-import { ApiClientRepository } from "../repositories/api-client.repository.js";
+import { ApiClientRepository } from "../repositories/api-client.repository";
 
 const BCRYPT_SALT_ROUNDS = 12;
 

@@ -4,10 +4,10 @@ import {
   bulkSyncProjectsSchema,
   bulkSyncMemoriesSchema,
 } from "@paul/entities";
-import { syncSchema } from "./sync.doc.js";
+import { syncSchema } from "./sync.doc";
 import type { Task, Project, Memory } from "@paul/entities";
-import { SyncService } from "../../services/sync.service.js";
-import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware.js";
+import { SyncService } from "../../services/sync.service";
+import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware";
 
 type AuthenticatedRequest = FastifyRequest & {
   user: UserAuth;

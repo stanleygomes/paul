@@ -2,8 +2,8 @@ import type { Project } from "@paul/entities";
 import {
   ProjectRepository,
   type DbProject,
-} from "../repositories/project.repository.js";
-import { ProjectMapper } from "../mappers/project.mapper.js";
+} from "../repositories/project.repository";
+import { ProjectMapper } from "../mappers/project.mapper";
 
 export class ProjectSyncService {
   constructor(private readonly projectRepository: ProjectRepository) {}

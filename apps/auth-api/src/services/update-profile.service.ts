@@ -1,5 +1,5 @@
-import { UserRepository } from "../repositories/user.repository.js";
-import { User } from "../types/user.entity.js";
+import { UserRepository } from "../repositories/user.repository";
+import { User } from "../types/user.entity";
 
 export class UpdateProfileService {
   constructor(private readonly userRepository: UserRepository) {}

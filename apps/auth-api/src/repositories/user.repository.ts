@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
-import { db } from "../config/database-client.js";
-import { users } from "../schemas/database/index.js";
-import { User } from "../types/user.entity.js";
+import { db } from "../config/database-client";
+import { users } from "../schemas/database/index";
+import { User } from "../types/user.entity";
 
 export class UserRepository {
   async findByEmail(email: string): Promise<User | null> {

@@ -6,7 +6,7 @@ import {
   planningConversationController,
   planningMessageController,
   memoryController,
-} from "./providers/dependencies.js";
+} from "./providers/dependencies";
 
 export class AppRouter {
   public register(fastify: FastifyInstance, prefix = "") {

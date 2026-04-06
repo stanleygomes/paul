@@ -1,5 +1,5 @@
-import { taskResponseSchema } from "../task/task.doc.js";
-import { projectResponseSchema } from "../project/project.doc.js";
+import { taskResponseSchema } from "../task/task.doc";
+import { projectResponseSchema } from "../project/project.doc";
 
 export const syncSchema = {
   description: "Bulk synchronize tasks and projects between client and server",
