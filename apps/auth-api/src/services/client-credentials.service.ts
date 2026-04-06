@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import { JwtService } from "@paul/node-utils";
-import { AuthError } from "../errors/AuthError";
-import { ApiClientRepository } from "../repositories/api-client.repository";
+import { AuthError } from "../errors/AuthError.js";
+import { ApiClientRepository } from "../repositories/api-client.repository.js";
 
 const ACCESS_TOKEN_EXPIRES_IN_SECONDS = 3600;
 

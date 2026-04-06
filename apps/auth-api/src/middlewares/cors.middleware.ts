@@ -1,4 +1,4 @@
-import { config } from "../config/environment";
+import { config } from "../config/environment.js";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export class CorsMiddleware {

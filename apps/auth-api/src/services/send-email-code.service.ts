@@ -4,10 +4,10 @@ import {
   generateVerificationCode,
   loadTemplateFile,
 } from "@paul/node-utils";
-import { VerificationCodeRepository } from "../repositories/verification-code.repository";
-import { UserRepository } from "../repositories/user.repository";
-import { PinoLogger } from "../config/pino.logger";
-import { config } from "../config/environment";
+import { VerificationCodeRepository } from "../repositories/verification-code.repository.js";
+import { UserRepository } from "../repositories/user.repository.js";
+import { PinoLogger } from "../config/pino.logger.js";
+import { config } from "../config/environment.js";
 
 const CODE_LENGTH = 6;
 const EXPIRES_IN_MINUTES = 30;

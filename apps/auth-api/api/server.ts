@@ -1,4 +1,4 @@
-import app from "../src/server";
+import app from "../src/server.js";
 
 /**
  * Entry point para a Vercel Serverless Function.

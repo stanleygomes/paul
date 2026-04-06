@@ -1,5 +1,5 @@
 import { httpClient } from "@paul/http";
-import { Logger } from "./logger";
+import { Logger } from "./logger.js";
 
 interface EmailResponse {
   id: string;

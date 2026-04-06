@@ -1,7 +1,7 @@
 import { JwtService } from "@paul/node-utils";
 import { FastifyRequest } from "fastify";
-import { AuthError } from "../errors/AuthError";
-import { config } from "../config/environment";
+import { AuthError } from "../errors/AuthError.js";
+import { config } from "../config/environment.js";
 
 const jwtService = new JwtService(
   config.auth.jwtPrivateKey,

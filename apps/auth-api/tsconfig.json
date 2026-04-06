@@ -2,8 +2,8 @@
   "extends": "../../packages/typescript-config/node.json",
   "compilerOptions": {
     "outDir": "dist",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "target": "ESNext"
   },
   "include": ["src", "api"],

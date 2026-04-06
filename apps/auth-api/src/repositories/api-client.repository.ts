@@ -1,8 +1,8 @@
 import { eq } from "drizzle-orm";
-import { db } from "../config/database-client";
-import { api_clients } from "../schemas/database/index";
-import { ApiClient } from "../types/api-client.entity";
-import { BusinessError } from "../errors/BusinessError";
+import { db } from "../config/database-client.js";
+import { api_clients } from "../schemas/database/index.js";
+import { ApiClient } from "../types/api-client.entity.js";
+import { BusinessError } from "../errors/BusinessError.js";
 
 export class ApiClientRepository {
   async findByClientId(clientId: string): Promise<ApiClient | null> {

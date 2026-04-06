@@ -1,6 +1,6 @@
-import app from "./server";
-import { config } from "./config/environment";
-import { PinoLogger } from "./config/pino.logger";
+import app from "./server.js";
+import { config } from "./config/environment.js";
+import { PinoLogger } from "./config/pino.logger.js";
 
 const logger = PinoLogger.getLogger();
 

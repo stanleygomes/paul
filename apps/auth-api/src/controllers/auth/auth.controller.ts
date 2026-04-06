@@ -1,17 +1,17 @@
 import { FastifyInstance } from "fastify";
-import { SendEmailCodeService } from "../../services/send-email-code.service";
-import { VerifyEmailCodeService } from "../../services/verify-email-code.service";
-import { RefreshTokenService } from "../../services/refresh-token.service";
-import { ClientCredentialsService } from "../../services/client-credentials.service";
-import { CreateApiClientService } from "../../services/create-api-client.service";
-import { GetProfileService } from "../../services/get-profile.service";
-import { UpdateProfileService } from "../../services/update-profile.service";
-import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware";
-import { validateSendCode } from "../../schemas/validators/send-code.validator";
-import { validateVerifyCode } from "../../schemas/validators/verify-code.validator";
-import { validateRefreshToken } from "../../schemas/validators/refresh-token.validator";
-import { validateClientCredentials } from "../../schemas/validators/client-credentials.validator";
-import { validateCreateClient } from "../../schemas/validators/create-client.validator";
+import { SendEmailCodeService } from "../../services/send-email-code.service.js";
+import { VerifyEmailCodeService } from "../../services/verify-email-code.service.js";
+import { RefreshTokenService } from "../../services/refresh-token.service.js";
+import { ClientCredentialsService } from "../../services/client-credentials.service.js";
+import { CreateApiClientService } from "../../services/create-api-client.service.js";
+import { GetProfileService } from "../../services/get-profile.service.js";
+import { UpdateProfileService } from "../../services/update-profile.service.js";
+import { AuthMiddleware, UserAuth } from "../../middlewares/auth.middleware.js";
+import { validateSendCode } from "../../schemas/validators/send-code.validator.js";
+import { validateVerifyCode } from "../../schemas/validators/verify-code.validator.js";
+import { validateRefreshToken } from "../../schemas/validators/refresh-token.validator.js";
+import { validateClientCredentials } from "../../schemas/validators/client-credentials.validator.js";
+import { validateCreateClient } from "../../schemas/validators/create-client.validator.js";
 import {
   createClientSchema,
   refreshTokenSchema,
@@ -20,7 +20,7 @@ import {
   verifyCodeSchema,
   getProfileSchema,
   updateProfileSchema,
-} from "./auth.doc";
+} from "./auth.doc.js";
 
 export class AuthController {
   constructor(
