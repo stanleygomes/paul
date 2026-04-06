@@ -1,5 +1,5 @@
 import { boolean, index, pgTable, text, timestamp } from "drizzle-orm/pg-core";
-import { projects } from "./projects";
+import { projects } from "./projects.js";
 
 export const tasks = pgTable(
   "tasks",

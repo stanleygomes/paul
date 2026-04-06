@@ -1,5 +1,5 @@
-export { projects } from "./projects";
-export { tasks } from "./tasks";
-export { planning_conversations } from "./planning-conversations";
-export { planning_messages } from "./planning-messages";
-export { memories } from "./memories";
+export { projects } from "./projects.js";
+export { tasks } from "./tasks.js";
+export { planning_conversations } from "./planning-conversations.js";
+export { planning_messages } from "./planning-messages.js";
+export { memories } from "./memories.js";

@@ -1,5 +1,5 @@
-export { Button } from "./components/ui/button";
-export { Input } from "./components/ui/input";
+export { Button } from "./components/ui/button.js";
+export { Input } from "./components/ui/input.js";
 export {
   Card,
   CardHeader,
@@ -8,15 +8,15 @@ export {
   CardDescription,
   CardContent,
   CardAction,
-} from "./components/ui/card";
-export { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar";
-export { Icon } from "./components/ui/icon";
+} from "./components/ui/card.js";
+export { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar.js";
+export { Icon } from "./components/ui/icon.js";
 export {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "./components/ui/accordion";
+} from "./components/ui/accordion.js";
 export {
   Drawer,
   DrawerPortal,
@@ -28,7 +28,7 @@ export {
   DrawerFooter,
   DrawerTitle,
   DrawerDescription,
-} from "./components/ui/drawer";
+} from "./components/ui/drawer.js";
 export {
   Select,
   SelectGroup,
@@ -40,12 +40,12 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
-} from "./components/ui/select";
-export { Calendar } from "./components/ui/calendar";
+} from "./components/ui/select.js";
+export { Calendar } from "./components/ui/calendar.js";
 export {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "./components/ui/popover";
-export { Toaster, toast } from "./components/ui/sonner";
-export { Skeleton } from "./components/ui/skeleton";
+} from "./components/ui/popover.js";
+export { Toaster, toast } from "./components/ui/sonner.js";
+export { Skeleton } from "./components/ui/skeleton.js";

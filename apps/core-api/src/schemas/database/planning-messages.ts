@@ -1,5 +1,5 @@
 import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
-import { planning_conversations } from "./planning-conversations";
+import { planning_conversations } from "./planning-conversations.js";
 
 export const planning_messages = pgTable("planning_messages", {
   id: uuid("id").primaryKey().defaultRandom(),
