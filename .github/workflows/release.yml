@@ -18,8 +18,49 @@ jobs:
     needs: [checks]
     uses: ./.github/workflows/build.yml
 
-  release:
+  migrate:
     needs: [build]
+    name: Migrate ${{ matrix.api }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        api: [auth-api, core-api, ai-api]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.31.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Set database environment variables
+        run: |
+          case "${{ matrix.api }}" in
+            "auth-api")
+              echo "DATABASE_URL=${{ secrets.DB_URL_AUTH_API }}" >> $GITHUB_ENV ;;
+            "core-api")
+              echo "DATABASE_URL=${{ secrets.DB_URL_CORE_API }}" >> $GITHUB_ENV ;;
+            "ai-api")
+              echo "DATABASE_URL=${{ secrets.DB_URL_AI_API }}" >> $GITHUB_ENV
+              echo "DATABASE_AUTH_TOKEN=${{ secrets.DB_AUTH_TOKEN_AI_API }}" >> $GITHUB_ENV ;;
+          esac
+
+      - name: Run Migrations for ${{ matrix.api }}
+        run: pnpm turbo run db:migrate --filter=${{ matrix.api }}
+
+  release:
+    needs: [migrate]
     name: Release
     runs-on: ubuntu-latest
     outputs:

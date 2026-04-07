@@ -19,6 +19,7 @@
     "check": "pnpm format:check && pnpm lint && pnpm check-types",
     "fix": "pnpm format && pnpm lint:fix && pnpm check-types",
     "prepare": "husky",
+    "db:migrate": "turbo run db:migrate",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down"
   },

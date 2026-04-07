@@ -89,6 +89,9 @@
     "electron:dev": {
       "cache": false,
       "persistent": true
+    },
+    "db:migrate": {
+      "cache": false
     }
   }
 }

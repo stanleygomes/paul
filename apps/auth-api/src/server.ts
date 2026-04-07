@@ -3,14 +3,11 @@ import Fastify, { FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
 import { AppRouter } from "./router.js";
-import { PinoLogger } from "./config/pino.logger.js";
 import { config } from "./config/environment.js";
 import { Docs } from "./config/docs.js";
-import { runMigrations } from "./config/database-client.js";
 import { setupErrorHandler } from "./middlewares/error-handler.middleware.js";
 
 const app: FastifyInstance = Fastify();
-const logger = PinoLogger.getLogger();
 
 app.register(rateLimit, {
   global: true,
@@ -27,12 +24,6 @@ app.register(cors, {
 setupErrorHandler(app);
 
 app.register(async (instance) => {
-  try {
-    await runMigrations();
-  } catch (error) {
-    logger.error(error, "Migration failed");
-  }
-
   await Docs.register(instance);
 
   const router = new AppRouter();

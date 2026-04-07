@@ -6,7 +6,6 @@ import { AppRouter } from "./router.js";
 import { PinoLogger } from "./config/pino.logger.js";
 import { config } from "./config/environment.js";
 import { Docs } from "./config/docs.js";
-import { runMigrations } from "./config/database-client.js";
 import { setupErrorHandler } from "./middlewares/error-handler.middleware.js";
 
 export class AppServer {
@@ -36,13 +35,6 @@ export class AppServer {
   }
 
   public async start() {
-    try {
-      await runMigrations();
-    } catch (error) {
-      this.logger.error(error, "Database setup failed");
-      process.exit(1);
-    }
-
     await Docs.register(this.fastify);
 
     const router = new AppRouter();

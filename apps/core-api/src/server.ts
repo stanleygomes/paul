@@ -6,7 +6,6 @@ import { AppRouter } from "./router";
 import { PinoLogger } from "./config/pino.logger";
 import { config } from "./config/environment";
 import { Docs } from "./config/docs";
-import { runMigrations } from "./config/database-client";
 import { setupErrorHandler } from "./middlewares/error-handler.middleware";
 
 export class AppServer {
@@ -36,13 +35,6 @@ export class AppServer {
   }
 
   public async start() {
-    try {
-      await runMigrations();
-    } catch (error) {
-      this.logger.error(error, "Migration failed");
-      process.exit(1);
-    }
-
     await Docs.register(this.fastify);
 
     const router = new AppRouter();
