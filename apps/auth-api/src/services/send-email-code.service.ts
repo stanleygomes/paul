@@ -1,13 +1,13 @@
-import { EmailService } from "@paul/node-utils";
 import {
+  EmailService,
   buildVerificationCodeEmailHtml,
   generateVerificationCode,
-  loadTemplateFile,
 } from "@paul/node-utils";
 import { VerificationCodeRepository } from "../repositories/verification-code.repository.js";
 import { UserRepository } from "../repositories/user.repository.js";
 import { PinoLogger } from "../config/pino.logger.js";
 import { config } from "../config/environment.js";
+import { verificationCodeHtmlTemplate } from "../templates/verification-code-template.js";
 
 const CODE_LENGTH = 6;
 const EXPIRES_IN_MINUTES = 30;
@@ -22,11 +22,6 @@ export class SendEmailCodeService {
   ) {}
 
   async execute(email: string): Promise<{ isRegistered: boolean }> {
-    const verificationCodeTemplate = loadTemplateFile(
-      import.meta.url,
-      "../templates/verification-code.html",
-    );
-
     const user = await this.userRepository.findByEmail(email);
     const isRegistered = !!user;
 
@@ -34,7 +29,7 @@ export class SendEmailCodeService {
     const expiresAt = new Date(Date.now() + EXPIRES_IN_MINUTES * 60 * 1000);
 
     const html = buildVerificationCodeEmailHtml(
-      verificationCodeTemplate,
+      verificationCodeHtmlTemplate,
       code,
       EXPIRES_IN_MINUTES,
       config.app.web.baseUrl ?? "#",
