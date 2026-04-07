@@ -7,6 +7,12 @@ interface TaskTagsProps {
 }
 
 import { useTranslation } from "react-i18next";
+import { X } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@paul/ui/components/ui/tooltip";
 
 export function TaskTags({ tags, onTagsChange }: TaskTagsProps) {
   const { t } = useTranslation();
@@ -33,17 +39,24 @@ export function TaskTags({ tags, onTagsChange }: TaskTagsProps) {
         {tags?.map((tag) => (
           <span
             key={tag}
-            className="flex items-center gap-1 rounded-base border-2 border-border bg-[#cbf0f8] dark:bg-[#cbf0f8]/20 px-2 py-1 text-xs font-bold"
+            className="flex items-center gap-1.5 rounded-base border-2 border-border bg-[#cbf0f8] dark:bg-[#cbf0f8]/20 px-2 py-1 text-xs font-bold"
           >
             {tag}
-            <button
-              type="button"
-              className="hover:text-red-500"
-              onClick={() => removeTag(tag)}
-              aria-label={t("task_form.aria.remove_tag", { tag })}
-            >
-              &times;
-            </button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  type="button"
+                  className="p-0.5 rounded-full cursor-pointer hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+                  onClick={() => removeTag(tag)}
+                  aria-label={t("task_form.aria.remove_tag", { tag })}
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                {t("task_form.aria.remove_tag", { tag })}
+              </TooltipContent>
+            </Tooltip>
           </span>
         ))}
       </div>

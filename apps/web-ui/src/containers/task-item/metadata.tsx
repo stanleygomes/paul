@@ -192,13 +192,19 @@ export function TaskMetadata({
           <Tag className="w-3.5 h-3.5" />
           {tag}
           {isHoveredTag === tag && (
-            <button
-              onClick={() => removeTag(tag)}
-              className="ml-1 p-0.5 rounded-full hover:bg-black/10 transition-colors"
-              title={t("task_item.metadata.remove_tag")}
-            >
-              <X className="w-3 h-3" />
-            </button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={() => removeTag(tag)}
+                  className="ml-1 p-0.5 rounded-full cursor-pointer hover:bg-black/10 transition-colors"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                {t("task_item.metadata.remove_tag")}
+              </TooltipContent>
+            </Tooltip>
           )}
         </TaskDetailBadge>
       ))}

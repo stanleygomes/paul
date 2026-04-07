@@ -13,6 +13,11 @@ interface TaskSubtasksProps {
 
 import { useTranslation } from "react-i18next";
 import { Sparkles, Check } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@paul/ui/components/ui/tooltip";
 
 export function TaskSubtasks({
   subtasks,
@@ -43,18 +48,24 @@ export function TaskSubtasks({
       action={
         <div className="flex items-center gap-2">
           {onSuggestSubtasks && (
-            <button
-              type="button"
-              className={`rounded-base cursor-pointer border-2 border-border bg-violet-500 dark:bg-violet-600/60 text-white flex items-center justify-center gap-1.5 px-3 h-7 shadow-shadow transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none disabled:opacity-50 disabled:cursor-not-allowed text-xs font-bold ring-violet-500/30 focus:ring-2`}
-              onClick={onSuggestSubtasks}
-              disabled={isSuggesting}
-              title={t("task_form.buttons.breakdown_tooltip")}
-            >
-              <Sparkles
-                className={`h-3.5 w-3.5 ${isSuggesting ? "animate-pulse" : ""}`}
-              />
-              <span>{t("task_form.buttons.breakdown")}</span>
-            </button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  type="button"
+                  className={`rounded-base cursor-pointer border-2 border-border bg-violet-500 dark:bg-violet-600/60 text-white flex items-center justify-center gap-1.5 px-3 h-7 shadow-shadow transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none disabled:opacity-50 disabled:cursor-not-allowed text-xs font-bold ring-violet-500/30 focus:ring-2`}
+                  onClick={onSuggestSubtasks}
+                  disabled={isSuggesting}
+                >
+                  <Sparkles
+                    className={`h-3.5 w-3.5 ${isSuggesting ? "animate-pulse" : ""}`}
+                  />
+                  <span>{t("task_form.buttons.breakdown")}</span>
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                {t("task_form.buttons.breakdown_tooltip")}
+              </TooltipContent>
+            </Tooltip>
           )}
           <button
             type="button"
