@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --filter=!desktop,!cli",
+    "dev": "turbo run dev --filter=!desktop --filter=!cli",
     "app:auth": "turbo run dev --filter=auth-api",
     "app:core": "turbo run dev --filter=core-api",
     "app:ai": "turbo run dev --filter=ai-api",
