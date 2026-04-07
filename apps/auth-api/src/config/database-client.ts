@@ -4,7 +4,7 @@ import { Pool } from "pg";
 import * as schema from "../schemas/database/index.js";
 import { config } from "./environment.js";
 import { PinoLogger } from "./pino.logger.js";
-import { joinWithMeta } from "@paul/node-utils";
+import { resolve } from "path";
 
 const isDevelopment = config.app.env === "development";
 
@@ -18,10 +18,7 @@ export const db = drizzle(pool, { schema });
 const logger = PinoLogger.getLogger();
 
 export async function runMigrations() {
-  const migrationsPath = joinWithMeta(
-    import.meta.url,
-    "../database/migrations",
-  );
+  const migrationsPath = resolve(process.cwd(), "src/database/migrations");
 
   logger.info(`Running database migrations from ${migrationsPath}...`);
   await migrate(db, {

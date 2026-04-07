@@ -10,7 +10,10 @@
     "api/server.ts": {
       "memory": 1024,
       "maxDuration": 30,
-      "includeFiles": "src/templates/**,src/database/migrations/**"
+      "includeFiles": [
+        "src/templates/**",
+        "src/database/migrations/**/*"
+      ]
     }
   },
   "outputDirectory": "dist"
