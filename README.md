@@ -28,6 +28,7 @@ This Turborepo includes the following apps:
 - `ai-api`: API for AI features.
 - `web-ui`: primary web app built with Next.js.
 - `desktop`: Electron desktop client.
+- `cli`: terminal client for authentication, tasks, and projects.
 
 Each app/package is 100% [TypeScript](https://www.typescriptlang.org/).
 

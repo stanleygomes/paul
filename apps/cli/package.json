@@ -1,0 +1,39 @@
+{
+  "name": "cli",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "bin": {
+    "paul": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "dev": "tsx src/index.ts",
+    "lint": "eslint --max-warnings 0",
+    "lint:fix": "eslint --fix",
+    "check-types": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.0.1",
+    "@paul/http": "workspace:*",
+    "@paul/utils": "workspace:*",
+    "boxen": "^8.0.1",
+    "chalk": "^5.6.2",
+    "commander": "^14.0.1",
+    "figlet": "^1.9.3",
+    "ora": "^8.2.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@paul/eslint-config": "workspace:*",
+    "@paul/typescript-config": "workspace:*",
+    "@types/node": "^24.0.3",
+    "eslint": "^9.39.1",
+    "prettier": "^3.8.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "5.9.2"
+  }
+}
