@@ -3,51 +3,31 @@ import Fastify, { FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
 import { AppRouter } from "./router.js";
-import { PinoLogger } from "./config/pino.logger.js";
 import { config } from "./config/environment.js";
 import { Docs } from "./config/docs.js";
 import { setupErrorHandler } from "./middlewares/error-handler.middleware.js";
 
-export class AppServer {
-  private fastify: FastifyInstance;
-  private logger = PinoLogger.getLogger();
+const app: FastifyInstance = Fastify();
 
-  constructor() {
-    this.fastify = Fastify();
+app.register(rateLimit, {
+  global: true,
+  max: config.app.rateLimit.max,
+  timeWindow: config.app.rateLimit.timeWindow,
+});
 
-    this.fastify.register(rateLimit, {
-      global: true,
-      max: config.app.rateLimit.max,
-      timeWindow: config.app.rateLimit.timeWindow,
-    });
+app.register(cors, {
+  origin: config.app.cors.allowedOrigin,
+  methods: config.app.cors.allowedMethods.split(","),
+  allowedHeaders: config.app.cors.allowedHeaders.split(","),
+});
 
-    this.fastify.register(cors, {
-      origin: config.app.cors.allowedOrigin,
-      methods: config.app.cors.allowedMethods.split(","),
-      allowedHeaders: config.app.cors.allowedHeaders.split(","),
-    });
+setupErrorHandler(app);
 
-    setupErrorHandler(this.fastify);
-  }
+app.register(async (instance) => {
+  await Docs.register(instance);
 
-  private getPort(): number {
-    return config.app.server.port ? Number(config.app.server.port) : 3001;
-  }
+  const router = new AppRouter();
+  router.register(instance, config.app.server.path);
+});
 
-  public async start() {
-    await Docs.register(this.fastify);
-
-    const router = new AppRouter();
-    router.register(this.fastify, config.app.server.path);
-
-    const port = this.getPort();
-    const { url, path } = config.app.server;
-    const { path: pathDocs } = config.app.docs;
-
-    await this.fastify.listen({ port });
-    this.logger.info(`Fastify server running on ${url}:${port}${path}`);
-    this.logger.info(`Swagger docs available at ${url}:${port}${pathDocs}`);
-  }
-}
-
-new AppServer().start();
+export default app;

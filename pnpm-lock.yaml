@@ -47,6 +47,9 @@ importers:
       '@libsql/client':
         specifier: ^0.15.15
         version: 0.15.15
+      '@paul/http':
+        specifier: ^0.0.0
+        version: link:../../packages/http
       '@paul/node-utils':
         specifier: ^0.0.0
         version: link:../../packages/node-utils
@@ -111,15 +114,15 @@ importers:
       '@fastify/swagger-ui':
         specifier: ^5.2.3
         version: 5.2.5
+      '@paul/http':
+        specifier: ^0.0.0
+        version: link:../../packages/http
       '@paul/node-utils':
         specifier: ^0.0.0
         version: link:../../packages/node-utils
       '@paul/utils':
         specifier: ^0.0.0
         version: link:../../packages/utils
-      axios:
-        specifier: ^1.10.0
-        version: 1.14.0
       bcryptjs:
         specifier: ^3.0.3
         version: 3.0.3
@@ -129,9 +132,6 @@ importers:
       drizzle-orm:
         specifier: ^0.45.1
         version: 0.45.2(@libsql/client@0.15.15)(@types/pg@8.20.0)(pg@8.20.0)
-      express:
-        specifier: ^5.1.0
-        version: 5.2.1
       fastify:
         specifier: ^5.4.0
         version: 5.8.4
@@ -148,9 +148,6 @@ importers:
       '@paul/typescript-config':
         specifier: '*'
         version: link:../../packages/typescript-config
-      '@types/axios':
-        specifier: ^0.9.36
-        version: 0.9.36
       '@types/bcryptjs':
         specifier: ^2.4.6
         version: 2.4.6
@@ -211,27 +208,21 @@ importers:
       '@fastify/swagger-ui':
         specifier: ^5.2.3
         version: 5.2.5
+      '@paul/http':
+        specifier: ^0.0.0
+        version: link:../../packages/http
       '@paul/node-utils':
         specifier: ^0.0.0
         version: link:../../packages/node-utils
       '@paul/utils':
         specifier: ^0.0.0
         version: link:../../packages/utils
-      axios:
-        specifier: ^1.10.0
-        version: 1.14.0
-      bcryptjs:
-        specifier: ^3.0.3
-        version: 3.0.3
       dotenv:
         specifier: ^16.5.0
         version: 16.6.1
       drizzle-orm:
         specifier: ^0.45.1
         version: 0.45.2(@libsql/client@0.15.15)(@types/pg@8.20.0)(pg@8.20.0)
-      express:
-        specifier: ^5.1.0
-        version: 5.2.1
       fastify:
         specifier: ^5.4.0
         version: 5.8.4
@@ -248,21 +239,9 @@ importers:
       '@paul/typescript-config':
         specifier: '*'
         version: link:../../packages/typescript-config
-      '@types/axios':
-        specifier: ^0.9.36
-        version: 0.9.36
-      '@types/bcryptjs':
-        specifier: ^2.4.6
-        version: 2.4.6
-      '@types/express':
-        specifier: ^5.0.3
-        version: 5.0.6
       '@types/jsonwebtoken':
         specifier: ^9.0.10
         version: 9.0.10
-      '@types/mustache':
-        specifier: ^4.2.6
-        version: 4.2.6
       '@types/node':
         specifier: ^24.0.3
         version: 24.12.2
@@ -3272,9 +3251,6 @@ packages:
     resolution: {integrity: sha512-dlko15TQVu/BFYmIY018Y3covWMRQlUgAkD+OOk+Rokcfj6VY02Vv4mCfT/Zns6B4q8jGbOd6IZhnCFYsE8Viw==}
     cpu: [arm64]
     os: [win32]
-
-  '@types/axios@0.9.36':
-    resolution: {integrity: sha512-NLOpedx9o+rxo/X5ChbdiX6mS1atE4WHmEEIcR9NLenRVa5HoVjAvjafwU3FPTqnZEstpoqCaW7fagqSoTDNeg==}
 
   '@types/bcryptjs@2.4.6':
     resolution: {integrity: sha512-9xlo6R2qDs5uixm0bcIqCeMCE6HiQsIyel9KQySStiyqNl2tnj2mP3DX1Nf56MD6KMenNNlBBsy3LJ7gUEQPXQ==}
@@ -8974,8 +8950,6 @@ snapshots:
 
   '@turbo/windows-arm64@2.9.4':
     optional: true
-
-  '@types/axios@0.9.36': {}
 
   '@types/bcryptjs@2.4.6': {}
 

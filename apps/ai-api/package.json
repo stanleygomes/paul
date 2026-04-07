@@ -3,9 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup --dts",
     "start": "npx vercel dev",
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/index.ts",
     "lint": "eslint --max-warnings 0",
     "lint:fix": "eslint --fix",
     "check-types": "tsc --noEmit",
@@ -16,6 +16,7 @@
     "@": "src"
   },
   "dependencies": {
+    "@paul/http": "^0.0.0",
     "@paul/node-utils": "^0.0.0",
     "@paul/utils": "^0.0.0",
     "@fastify/cors": "^10.1.0",
