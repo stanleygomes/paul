@@ -9,8 +9,7 @@
   "functions": {
     "api/server.ts": {
       "memory": 1024,
-      "maxDuration": 30,
-      "includeFiles": "src/templates/**,src/database/migrations/**/*"
+      "maxDuration": 30
     }
   },
   "outputDirectory": "dist"
