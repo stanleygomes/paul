@@ -8,10 +8,10 @@ import { ProjectCommand } from "./commands/project.command";
 import { SettingsCommand } from "./commands/settings.command";
 import { renderBanner, renderError } from "./utils/output";
 import { initializeI18n, t } from "./utils/i18n";
-import { setupHttpClient } from "./api/config/http-setup";
+import { HttpManager } from "./api/config/http.config";
 
 async function run() {
-  setupHttpClient();
+  HttpManager.setup();
 
   const program = new Command();
 

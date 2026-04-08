@@ -1,15 +1,22 @@
 import type { AxiosInstance } from "axios";
-import { handleUnauthorized } from "../handlers/unauthorized/unauthorized-handler";
-import { isUnauthorizedError } from "../handlers/unauthorized/is-unauthorized-error";
+import { UnauthorizedHandler } from "../handlers/unauthorized/unauthorized.handler";
 
-export function setupAuthInterceptor(httpClient: AxiosInstance) {
-  httpClient.interceptors.response.use(
-    (response) => response,
-    async (error) => {
-      if (isUnauthorizedError(error)) {
-        return handleUnauthorized(httpClient, error.config);
-      }
-      return Promise.reject(error);
-    },
-  );
+export class AuthInterceptor {
+  private handler: UnauthorizedHandler;
+
+  constructor(private readonly httpClient: AxiosInstance) {
+    this.handler = new UnauthorizedHandler(this.httpClient);
+  }
+
+  public setup(): void {
+    this.httpClient.interceptors.response.use(
+      (response) => response,
+      async (error) => {
+        if (UnauthorizedHandler.isUnauthorizedError(error) && error.config) {
+          return this.handler.handle(error.config);
+        }
+        return Promise.reject(error);
+      },
+    );
+  }
 }

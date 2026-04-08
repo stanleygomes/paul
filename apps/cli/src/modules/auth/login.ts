@@ -1,4 +1,4 @@
-import { createApiClient } from "../../api";
+import { createApiClient } from "../../api/api";
 import { askAndParse } from "../../utils/prompt";
 import { runWithLoading } from "../../utils/spinner";
 import { AuthValidator } from "../../validators/auth.validators";

@@ -1,4 +1,4 @@
-import { createApiClient } from "../../api";
+import { createApiClient } from "../../api/api";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderInfo } from "../../utils/output";

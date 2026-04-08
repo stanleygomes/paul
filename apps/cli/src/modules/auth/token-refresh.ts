@@ -1,4 +1,4 @@
-import { createApiClient } from "../../api";
+import { createApiClient } from "../../api/api";
 import { sessionStore } from "../../store/session-store";
 
 export async function runTokenRefreshModule() {

@@ -1,5 +1,5 @@
-import { authClient } from "./client/auth";
-import { coreClient } from "./client/core";
+import { authClient } from "./client/auth.client";
+import { coreClient } from "./client/core.client";
 import { AuthResource } from "./resources/auth.resource";
 import { ProjectResource } from "./resources/project.resource";
 import { TaskResource } from "./resources/task.resource";

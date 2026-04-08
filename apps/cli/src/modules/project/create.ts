@@ -1,5 +1,5 @@
 import { generateUUID } from "@paul/utils";
-import { createApiClient } from "../../api";
+import { createApiClient } from "../../api/api";
 import { DEFAULT_PROJECT_COLOR } from "../../constants/project.constants";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
