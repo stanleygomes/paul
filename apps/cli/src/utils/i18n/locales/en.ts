@@ -27,4 +27,7 @@ export const en = {
   projectDeactivated: "Project active project cleared.",
   none: "None",
   activeProjectInfo: "Active project: {name}",
+  logoutSuccess: "Logout completed successfully.",
+  sessionExpired: "Your session has expired. Please login again.",
+  loginAgain: "Please run 'paul login' to authenticate.",
 } as const;

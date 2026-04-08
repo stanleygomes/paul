@@ -9,3 +9,7 @@ export async function getSession(): Promise<SessionData | null> {
 export async function saveSession(session: SessionData): Promise<void> {
   await writeJsonFile(SESSION_FILE_PATH, session);
 }
+
+export async function clearSession(): Promise<void> {
+  await writeJsonFile(SESSION_FILE_PATH, null);
+}
