@@ -1,8 +1,8 @@
 import { createApiClient } from "../../api/api";
-import { requireSessionToken } from "../../utils/auth-guard";
-import { t } from "../../utils/i18n";
-import { renderSuccess } from "../../utils/output";
-import { runWithLoading } from "../../utils/spinner";
+import { requireSessionToken } from "../../utils/auth-guard.util";
+import { t } from "../../utils/i18n/i18n.util";
+import { renderSuccess } from "../../utils/output.util";
+import { runWithLoading } from "../../utils/spinner.util";
 import { resolveTaskId } from "./resolve";
 
 export async function runDeleteTaskModule(taskIdArg?: string): Promise<void> {

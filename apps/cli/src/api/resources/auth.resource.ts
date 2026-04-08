@@ -1,7 +1,7 @@
 import type {
   SendCodeResponse,
   VerifyCodeResponse,
-} from "../../types/auth.types";
+} from "../../types/auth.type";
 import { AuthValidator } from "../../validators/auth.validators";
 import { BaseResource } from "../base.resource";
 

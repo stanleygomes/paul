@@ -1,5 +1,5 @@
-import type { Language } from "../../types/language.types";
-import { settingsStore } from "../../store/settings-store";
+import type { Language } from "../../types/language.type";
+import { settingsStore } from "../../store/settings.store";
 
 import { en } from "./locales/en";
 import { pt } from "./locales/pt";

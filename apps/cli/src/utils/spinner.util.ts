@@ -1,5 +1,5 @@
 import ora from "ora";
-import { t, type DictionaryKey } from "./i18n";
+import { t, type DictionaryKey } from "./i18n/i18n.util";
 
 export async function runWithLoading<T>(
   action: () => Promise<T>,

@@ -1,7 +1,7 @@
-import { requireSessionToken } from "../../utils/auth-guard";
-import { t } from "../../utils/i18n";
-import { selectAndParse } from "../../utils/prompt";
-import { runWithLoading } from "../../utils/spinner";
+import { requireSessionToken } from "../../utils/auth-guard.util";
+import { t } from "../../utils/i18n/i18n.util";
+import { selectAndParse } from "../../utils/prompt.util";
+import { runWithLoading } from "../../utils/spinner.util";
 import { ProjectValidator } from "../../validators/project.validators";
 import { getActiveProjects } from "./list";
 

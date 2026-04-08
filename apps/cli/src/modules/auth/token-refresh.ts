@@ -1,5 +1,5 @@
 import { createApiClient } from "../../api/api";
-import { sessionStore } from "../../store/session-store";
+import { sessionStore } from "../../store/session.store";
 
 export async function runTokenRefreshModule() {
   const session = await sessionStore.get();

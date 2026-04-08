@@ -1,10 +1,10 @@
 import { createApiClient } from "../../api/api";
-import { askAndParse } from "../../utils/prompt";
-import { runWithLoading } from "../../utils/spinner";
+import { askAndParse } from "../../utils/prompt.util";
+import { runWithLoading } from "../../utils/spinner.util";
 import { AuthValidator } from "../../validators/auth.validators";
-import { sessionStore } from "../../store/session-store";
-import { renderInfo, renderSuccess } from "../../utils/output";
-import { t } from "../../utils/i18n";
+import { sessionStore } from "../../store/session.store";
+import { renderInfo, renderSuccess } from "../../utils/output.util";
+import { t } from "../../utils/i18n/i18n.util";
 
 export async function runLoginModule(): Promise<void> {
   const email = await askAndParse({

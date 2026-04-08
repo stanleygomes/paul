@@ -1,6 +1,6 @@
 import { input, select } from "@inquirer/prompts";
 import type { z } from "zod";
-import { t, type DictionaryKey } from "./i18n";
+import { t, type DictionaryKey } from "./i18n/i18n.util";
 
 interface AskAndParseParams<T> {
   messageKey: DictionaryKey;

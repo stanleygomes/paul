@@ -1,7 +1,11 @@
 import { SettingsValidator } from "../../validators/settings.validators";
-import { languageLabel, setCurrentLanguage, t } from "../../utils/i18n";
-import { settingsStore } from "../../store/settings-store";
-import { renderInfo, renderSuccess } from "../../utils/output";
+import {
+  languageLabel,
+  setCurrentLanguage,
+  t,
+} from "../../utils/i18n/i18n.util";
+import { settingsStore } from "../../store/settings.store";
+import { renderInfo, renderSuccess } from "../../utils/output.util";
 import { askLanguage } from "./ask-language";
 
 export async function runSetLanguageModule(

@@ -1,7 +1,7 @@
-import { sessionStore } from "../store/session-store";
+import { sessionStore } from "../store/session.store";
 import { runLoginModule } from "../modules/auth";
-import { t } from "./i18n";
-import { renderInfo } from "./output";
+import { t } from "./i18n/i18n.util";
+import { renderInfo } from "./output.util";
 
 export async function requireSessionToken(): Promise<string> {
   let session = await sessionStore.get();

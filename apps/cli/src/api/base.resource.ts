@@ -1,5 +1,5 @@
 import type { AxiosRequestConfig } from "@paul/http";
-import type { HttpClient } from "../types/http.types";
+import type { HttpClient } from "../types/http.type";
 
 export abstract class BaseResource {
   constructor(

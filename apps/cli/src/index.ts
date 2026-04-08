@@ -6,8 +6,8 @@ import { LogoutCommand } from "./commands/logout.command";
 import { TaskCommand } from "./commands/task.command";
 import { ProjectCommand } from "./commands/project.command";
 import { SettingsCommand } from "./commands/settings.command";
-import { renderBanner, renderError } from "./utils/output";
-import { initializeI18n, t } from "./utils/i18n";
+import { renderBanner, renderError } from "./utils/output.util";
+import { initializeI18n, t } from "./utils/i18n/i18n.util";
 import { HttpManager } from "./api/config/http.config";
 
 async function run() {

@@ -1,9 +1,9 @@
 import { createApiClient } from "../../api/api";
-import { requireSessionToken } from "../../utils/auth-guard";
-import { t } from "../../utils/i18n";
-import { renderSuccess } from "../../utils/output";
-import { askAndParse } from "../../utils/prompt";
-import { runWithLoading } from "../../utils/spinner";
+import { requireSessionToken } from "../../utils/auth-guard.util";
+import { t } from "../../utils/i18n/i18n.util";
+import { renderSuccess } from "../../utils/output.util";
+import { askAndParse } from "../../utils/prompt.util";
+import { runWithLoading } from "../../utils/spinner.util";
 import { TaskValidator } from "../../validators/task.validators";
 import { resolveTaskId } from "./resolve";
 

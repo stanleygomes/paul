@@ -1,6 +1,6 @@
-import type { SessionData } from "../types/session.types";
-import { SESSION_FILE_PATH } from "../utils/path-utils";
-import { readJsonFile, writeJsonFile } from "../utils/json-storage";
+import type { SessionData } from "../types/session.type";
+import { SESSION_FILE_PATH } from "../utils/path.util";
+import { readJsonFile, writeJsonFile } from "../utils/json-storage.util";
 
 export class SessionStore {
   constructor(private readonly filePath: string) {}
