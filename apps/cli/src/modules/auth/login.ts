@@ -1,4 +1,4 @@
-import { sendLoginCode, verifyLoginCode } from "../../api/resources/auth";
+import { createApiClient } from "../../api";
 import { askAndParse } from "../../utils/prompt";
 import { runWithLoading } from "../../utils/spinner";
 import { emailSchema, otpCodeSchema } from "../../validators/auth.validators";
@@ -12,7 +12,10 @@ export async function runLoginModule(): Promise<void> {
     schema: emailSchema,
   });
 
-  const sendCodeResult = await runWithLoading(() => sendLoginCode(email));
+  const api = createApiClient();
+  const sendCodeResult = await runWithLoading(() =>
+    api.auth.sendLoginCode(email),
+  );
 
   renderInfo(
     sendCodeResult.isRegistered
@@ -26,7 +29,7 @@ export async function runLoginModule(): Promise<void> {
   });
 
   const verifyCodeResult = await runWithLoading(() =>
-    verifyLoginCode(email, code),
+    api.auth.verifyLoginCode(email, code),
   );
 
   await saveSession({

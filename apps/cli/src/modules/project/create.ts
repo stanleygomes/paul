@@ -1,5 +1,5 @@
 import { generateUUID } from "@paul/utils";
-import { createProject } from "../../api/resources/project";
+import { createApiClient } from "../../api";
 import { DEFAULT_PROJECT_COLOR } from "../../constants/project.constants";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
@@ -25,7 +25,8 @@ export async function runCreateProjectModule(nameArg?: string): Promise<void> {
     color: DEFAULT_PROJECT_COLOR,
   });
 
-  await runWithLoading(() => createProject(token, payload));
+  const api = createApiClient(token);
+  await runWithLoading(() => api.project.create(payload));
 
   renderSuccess(await t("projectCreated"));
 }

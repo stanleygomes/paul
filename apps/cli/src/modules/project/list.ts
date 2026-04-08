@@ -1,4 +1,4 @@
-import { listProjects } from "../../api/resources/project";
+import { createApiClient } from "../../api";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderInfo } from "../../utils/output";
@@ -6,7 +6,8 @@ import { runWithLoading } from "../../utils/spinner";
 import { formatProjectLine } from "../../utils/format/project-format";
 
 export async function getActiveProjects(token: string) {
-  const allProjects = await listProjects(token);
+  const api = createApiClient(token);
+  const allProjects = await api.project.list();
   return allProjects.filter((project) => !project.isDeleted);
 }
 

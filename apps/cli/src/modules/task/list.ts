@@ -1,4 +1,4 @@
-import { listTasks } from "../../api/resources/task";
+import { createApiClient } from "../../api";
 import { getSettings } from "../../store/settings-store";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
@@ -7,7 +7,8 @@ import { runWithLoading } from "../../utils/spinner";
 import { formatTaskLine } from "../../utils/format/task-format";
 
 export async function getActiveTasks(token: string) {
-  const allTasks = await listTasks(token);
+  const api = createApiClient(token);
+  const allTasks = await api.task.list();
   return allTasks.filter((task) => !task.isDeleted);
 }
 

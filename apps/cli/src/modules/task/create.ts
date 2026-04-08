@@ -1,5 +1,5 @@
 import { generateUUID } from "@paul/utils";
-import { createTask } from "../../api/resources/task";
+import { createApiClient } from "../../api";
 import { getSettings } from "../../store/settings-store";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
@@ -38,7 +38,8 @@ export async function runCreateTaskModule(titleArg?: string): Promise<void> {
     projectId: activeProjectId || null,
   });
 
-  await runWithLoading(() => createTask(token, payload));
+  const api = createApiClient(token);
+  await runWithLoading(() => api.task.create(payload));
 
   renderSuccess(await t("taskCreated"));
 }

@@ -1,4 +1,4 @@
-import { deleteProject } from "../../api/resources/project";
+import { createApiClient } from "../../api";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderSuccess } from "../../utils/output";
@@ -11,7 +11,8 @@ export async function runDeleteProjectModule(
   const token = await requireSessionToken();
   const projectId = await resolveProjectId(projectIdArg);
 
-  await runWithLoading(() => deleteProject(token, projectId));
+  const api = createApiClient(token);
+  await runWithLoading(() => api.project.delete(projectId));
 
   renderSuccess(await t("projectDeleted"));
 }

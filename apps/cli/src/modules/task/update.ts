@@ -1,4 +1,4 @@
-import { updateTask } from "../../api/resources/task";
+import { createApiClient } from "../../api";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderSuccess } from "../../utils/output";
@@ -19,8 +19,9 @@ export async function runUpdateTaskModule(
     initialValue: titleArg,
   });
 
+  const api = createApiClient(token);
   await runWithLoading(() =>
-    updateTask(token, taskId, {
+    api.task.update(taskId, {
       title,
       updatedAt: Date.now(),
     }),

@@ -1,4 +1,4 @@
-import { deleteTask } from "../../api/resources/task";
+import { createApiClient } from "../../api";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderSuccess } from "../../utils/output";
@@ -9,7 +9,8 @@ export async function runDeleteTaskModule(taskIdArg?: string): Promise<void> {
   const token = await requireSessionToken();
   const taskId = await resolveTaskId(taskIdArg);
 
-  await runWithLoading(() => deleteTask(token, taskId));
+  const api = createApiClient(token);
+  await runWithLoading(() => api.task.delete(taskId));
 
   renderSuccess(await t("taskDeleted"));
 }

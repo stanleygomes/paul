@@ -1,4 +1,4 @@
-import { updateProject } from "../../api/resources/project";
+import { createApiClient } from "../../api";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderSuccess } from "../../utils/output";
@@ -19,8 +19,9 @@ export async function runEditProjectModule(
     initialValue: nameArg,
   });
 
+  const api = createApiClient(token);
   await runWithLoading(() =>
-    updateProject(token, projectId, {
+    api.project.update(projectId, {
       name,
       updatedAt: Date.now(),
     }),
