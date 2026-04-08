@@ -1,4 +1,3 @@
-import { select } from "@inquirer/prompts";
 import {
   clearActiveProject,
   setActiveProject,
@@ -6,6 +5,7 @@ import {
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderSuccess } from "../../utils/output";
+import { selectAndParse } from "../../utils/prompt";
 import { runWithLoading } from "../../utils/spinner";
 import { getActiveProjects } from "./list";
 
@@ -24,8 +24,8 @@ export async function runUseProjectModule(): Promise<void> {
     })),
   ];
 
-  const selectedProjectId = await select({
-    message: await t("selectProjectToUse"),
+  const selectedProjectId = await selectAndParse({
+    messageKey: "selectProjectToUse",
     choices,
   });
 

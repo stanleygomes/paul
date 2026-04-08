@@ -1,6 +1,6 @@
-import { select } from "@inquirer/prompts";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
+import { selectAndParse } from "../../utils/prompt";
 import { runWithLoading } from "../../utils/spinner";
 import { projectIdSchema } from "../../validators/project.validators";
 import { getActiveProjects } from "./list";
@@ -17,8 +17,8 @@ export async function resolveProjectId(projectId?: string): Promise<string> {
     throw new Error(await t("noProjects"));
   }
 
-  return select({
-    message: await t("selectProject"),
+  return selectAndParse({
+    messageKey: "selectProject",
     choices: projects.map((project) => ({
       name: project.name,
       value: project.id,

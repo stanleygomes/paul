@@ -1,7 +1,7 @@
-import { select } from "@inquirer/prompts";
 import { getSettings } from "../../store/settings-store";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
+import { selectAndParse } from "../../utils/prompt";
 import { runWithLoading } from "../../utils/spinner";
 import { taskIdSchema } from "../../validators/task.validators";
 import { getActiveTasks } from "./list";
@@ -25,8 +25,8 @@ export async function resolveTaskId(taskId?: string): Promise<string> {
     throw new Error(await t("noTasks"));
   }
 
-  return select({
-    message: await t("selectTask"),
+  return selectAndParse({
+    messageKey: "selectTask",
     choices: tasks.map((task) => ({
       name: task.title,
       value: task.id,

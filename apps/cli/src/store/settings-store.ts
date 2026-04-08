@@ -15,7 +15,10 @@ export async function saveSettings(settings: CliSettings): Promise<void> {
   await writeJsonFile(SETTINGS_FILE_PATH, settings);
 }
 
-export async function setActiveProject(id: string, name: string): Promise<void> {
+export async function setActiveProject(
+  id: string,
+  name: string,
+): Promise<void> {
   const settings = await getSettings();
   await saveSettings({
     ...settings,

@@ -1,4 +1,4 @@
-import { input } from "@inquirer/prompts";
+import { input, select } from "@inquirer/prompts";
 import type { z } from "zod";
 import { t, type DictionaryKey } from "./i18n";
 
@@ -16,4 +16,24 @@ export async function askAndParse<T>({
   const message = await t(messageKey);
   const rawValue = initialValue ?? (await input({ message }));
   return schema.parse(rawValue);
+}
+
+interface SelectAndParseParams<V> {
+  messageKey: DictionaryKey;
+  choices: { name: string; value: V }[];
+  initialValue?: V | null;
+}
+
+export async function selectAndParse<V>({
+  messageKey,
+  choices,
+  initialValue,
+}: SelectAndParseParams<V>): Promise<V> {
+  if (initialValue) return initialValue;
+
+  const message = await t(messageKey);
+  return select({
+    message,
+    choices,
+  });
 }
