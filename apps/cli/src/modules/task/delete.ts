@@ -3,14 +3,16 @@ import { AuthGuard } from "../../utils/auth-guard.util";
 import { t } from "../../utils/i18n/i18n.util";
 import { Output } from "../../utils/output.util";
 import { Loader } from "../../utils/spinner.util";
-import { resolveTaskId } from "./resolve";
+import { ResolveTaskModule } from "./resolve";
 
-export async function runDeleteTaskModule(taskIdArg?: string): Promise<void> {
-  const token = await AuthGuard.requireToken();
-  const taskId = await resolveTaskId(taskIdArg);
+export class DeleteTaskModule {
+  public static async run(taskIdArg?: string): Promise<void> {
+    const token = await AuthGuard.requireToken();
+    const taskId = await ResolveTaskModule.resolveId(taskIdArg);
 
-  const api = createApiClient(token);
-  await Loader.run(() => api.task.delete(taskId));
+    const api = createApiClient(token);
+    await Loader.run(() => api.task.delete(taskId));
 
-  Output.success(await t("taskDeleted"));
+    Output.success(await t("taskDeleted"));
+  }
 }

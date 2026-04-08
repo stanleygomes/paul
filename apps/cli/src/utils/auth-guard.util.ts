@@ -1,5 +1,5 @@
 import { sessionStore } from "../store/session.store";
-import { runLoginModule } from "../modules/auth";
+import { LoginModule } from "../modules/auth";
 import { t } from "./i18n/i18n.util";
 import { Output } from "./output.util";
 
@@ -9,7 +9,7 @@ export class AuthGuard {
 
     if (!session?.token) {
       Output.info(await t("loginRequired"));
-      await runLoginModule();
+      await LoginModule.run();
       session = await sessionStore.get();
     }
 

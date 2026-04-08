@@ -1,4 +1,4 @@
-import { runLoginModule } from "../modules/auth";
+import { LoginModule } from "../modules/auth";
 import { BaseCommand } from "./base.command";
 
 export class LoginCommand extends BaseCommand {
@@ -6,6 +6,6 @@ export class LoginCommand extends BaseCommand {
     this.program
       .command("login")
       .description("Login with email and verification code")
-      .action(runLoginModule);
+      .action(LoginModule.run);
   }
 }

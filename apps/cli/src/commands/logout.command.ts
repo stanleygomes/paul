@@ -1,4 +1,4 @@
-import { runLogoutModule } from "../modules/auth";
+import { LogoutModule } from "../modules/auth";
 import { BaseCommand } from "./base.command";
 
 export class LogoutCommand extends BaseCommand {
@@ -6,6 +6,6 @@ export class LogoutCommand extends BaseCommand {
     this.program
       .command("logout")
       .description("Clear local session data")
-      .action(runLogoutModule);
+      .action(LogoutModule.run);
   }
 }

@@ -1,4 +1,4 @@
-import { runSetLanguageModule } from "../modules/settings";
+import { SetLanguageModule } from "../modules/settings";
 import { BaseCommand } from "./base.command";
 
 export class SettingsCommand extends BaseCommand {
@@ -11,6 +11,6 @@ export class SettingsCommand extends BaseCommand {
       .command("language")
       .description("Change language (en|pt)")
       .argument("[language]", "Language code")
-      .action(runSetLanguageModule);
+      .action(SetLanguageModule.run);
   }
 }

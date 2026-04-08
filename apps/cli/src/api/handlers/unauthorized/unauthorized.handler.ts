@@ -1,7 +1,7 @@
 import type { AxiosInstance, AxiosRequestConfig, AxiosError } from "axios";
 import {
-  runTokenRefreshFailureModule,
-  runTokenRefreshModule,
+  TokenRefreshFailureModule,
+  TokenRefreshModule,
 } from "../../../modules/auth";
 import { RequestRetryer } from "../../retry-request";
 
@@ -39,13 +39,13 @@ export class UnauthorizedHandler {
     this.isRefreshing = true;
 
     try {
-      const newToken = await runTokenRefreshModule();
+      const newToken = await TokenRefreshModule.run();
       this.onRefreshed(newToken);
       this.isRefreshing = false;
       return RequestRetryer.retry(this.httpClient, originalRequest, newToken);
     } catch (error) {
       this.isRefreshing = false;
-      await runTokenRefreshFailureModule();
+      await TokenRefreshFailureModule.run();
       return Promise.reject(error);
     }
   }

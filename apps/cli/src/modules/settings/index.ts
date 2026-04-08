@@ -1,4 +1,4 @@
-import { askLanguage } from "./ask-language";
-import { runSetLanguageModule } from "./set-language";
+import { AskLanguageModule } from "./ask-language";
+import { SetLanguageModule } from "./set-language";
 
-export { askLanguage, runSetLanguageModule };
+export { AskLanguageModule, SetLanguageModule };

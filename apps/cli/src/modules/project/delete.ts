@@ -3,16 +3,16 @@ import { AuthGuard } from "../../utils/auth-guard.util";
 import { t } from "../../utils/i18n/i18n.util";
 import { Output } from "../../utils/output.util";
 import { Loader } from "../../utils/spinner.util";
-import { resolveProjectId } from "./resolve";
+import { ResolveProjectModule } from "./resolve";
 
-export async function runDeleteProjectModule(
-  projectIdArg?: string,
-): Promise<void> {
-  const token = await AuthGuard.requireToken();
-  const projectId = await resolveProjectId(projectIdArg);
+export class DeleteProjectModule {
+  public static async run(projectIdArg?: string): Promise<void> {
+    const token = await AuthGuard.requireToken();
+    const projectId = await ResolveProjectModule.resolveId(projectIdArg);
 
-  const api = createApiClient(token);
-  await Loader.run(() => api.project.delete(projectId));
+    const api = createApiClient(token);
+    await Loader.run(() => api.project.delete(projectId));
 
-  Output.success(await t("projectDeleted"));
+    Output.success(await t("projectDeleted"));
+  }
 }

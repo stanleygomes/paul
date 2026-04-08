@@ -5,22 +5,24 @@ import { Output } from "../../utils/output.util";
 import { Loader } from "../../utils/spinner.util";
 import { ProjectFormatter } from "../../utils/format/project-format.util";
 
-export async function getActiveProjects(token: string) {
-  const api = createApiClient(token);
-  const allProjects = await api.project.list();
-  return allProjects.filter((project) => !project.isDeleted);
-}
-
-export async function runListProjectsModule(): Promise<void> {
-  const token = await AuthGuard.requireToken();
-  const projects = await Loader.run(() => getActiveProjects(token));
-
-  if (projects.length === 0) {
-    Output.info(await t("noProjects"));
-    return;
+export class ListProjectsModule {
+  public static async getActiveProjects(token: string) {
+    const api = createApiClient(token);
+    const allProjects = await api.project.list();
+    return allProjects.filter((project) => !project.isDeleted);
   }
 
-  for (const project of projects) {
-    console.log(ProjectFormatter.formatLine(project));
+  public static async run(): Promise<void> {
+    const token = await AuthGuard.requireToken();
+    const projects = await Loader.run(() => this.getActiveProjects(token));
+
+    if (projects.length === 0) {
+      Output.info(await t("noProjects"));
+      return;
+    }
+
+    for (const project of projects) {
+      console.log(ProjectFormatter.formatLine(project));
+    }
   }
 }

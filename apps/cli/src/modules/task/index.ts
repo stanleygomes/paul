@@ -1,13 +1,13 @@
-import { runCreateTaskModule } from "./create";
-import { runDeleteTaskModule } from "./delete";
-import { runUpdateTaskModule } from "./update";
-import { runListTasksModule } from "./list";
-import { resolveTaskId } from "./resolve";
+import { CreateTaskModule } from "./create";
+import { DeleteTaskModule } from "./delete";
+import { EditTaskModule } from "./update";
+import { ListTasksModule } from "./list";
+import { ResolveTaskModule } from "./resolve";
 
 export {
-  runCreateTaskModule,
-  runDeleteTaskModule,
-  runUpdateTaskModule as runEditTaskModule,
-  runListTasksModule,
-  resolveTaskId,
+  CreateTaskModule,
+  DeleteTaskModule,
+  EditTaskModule,
+  ListTasksModule,
+  ResolveTaskModule,
 };

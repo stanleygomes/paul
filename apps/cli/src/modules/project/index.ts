@@ -1,15 +1,15 @@
-import { runCreateProjectModule } from "./create";
-import { runDeleteProjectModule } from "./delete";
-import { runListProjectsModule } from "./list";
-import { runEditProjectModule } from "./update";
-import { runUseProjectModule } from "./use";
-import { resolveProjectId } from "./resolve";
+import { CreateProjectModule } from "./create";
+import { DeleteProjectModule } from "./delete";
+import { ListProjectsModule } from "./list";
+import { EditProjectModule } from "./update";
+import { UseProjectModule } from "./use";
+import { ResolveProjectModule } from "./resolve";
 
 export {
-  runCreateProjectModule,
-  runDeleteProjectModule,
-  runListProjectsModule,
-  runEditProjectModule,
-  runUseProjectModule,
-  resolveProjectId,
+  CreateProjectModule,
+  DeleteProjectModule,
+  ListProjectsModule,
+  EditProjectModule,
+  UseProjectModule,
+  ResolveProjectModule,
 };

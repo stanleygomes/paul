@@ -1,9 +1,9 @@
 import {
-  runCreateProjectModule,
-  runDeleteProjectModule,
-  runEditProjectModule,
-  runListProjectsModule,
-  runUseProjectModule,
+  CreateProjectModule,
+  DeleteProjectModule,
+  EditProjectModule,
+  ListProjectsModule,
+  UseProjectModule,
 } from "../modules/project";
 import { BaseCommand } from "./base.command";
 
@@ -16,30 +16,30 @@ export class ProjectCommand extends BaseCommand {
     projectCommand
       .command("list")
       .description("List projects")
-      .action(runListProjectsModule);
+      .action(ListProjectsModule.run);
 
     projectCommand
       .command("create")
       .description("Create a project")
       .argument("[title]", "Project title")
-      .action(runCreateProjectModule);
+      .action(CreateProjectModule.run);
 
     projectCommand
       .command("edit")
       .description("Edit project title")
       .argument("[projectId]", "Project id")
       .argument("[title]", "Project title")
-      .action(runEditProjectModule);
+      .action(EditProjectModule.run);
 
     projectCommand
       .command("delete")
       .description("Delete project")
       .argument("[projectId]", "Project id")
-      .action(runDeleteProjectModule);
+      .action(DeleteProjectModule.run);
 
     projectCommand
       .command("use")
       .description("Set active project for terminal session")
-      .action(runUseProjectModule);
+      .action(UseProjectModule.run);
   }
 }

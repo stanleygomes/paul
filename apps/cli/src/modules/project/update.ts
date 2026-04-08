@@ -5,27 +5,29 @@ import { Output } from "../../utils/output.util";
 import { Prompt } from "../../utils/prompt.util";
 import { Loader } from "../../utils/spinner.util";
 import { ProjectValidator } from "../../validators/project.validators";
-import { resolveProjectId } from "./resolve";
+import { ResolveProjectModule } from "./resolve";
 
-export async function runEditProjectModule(
-  projectIdArg?: string,
-  nameArg?: string,
-): Promise<void> {
-  const token = await AuthGuard.requireToken();
-  const projectId = await resolveProjectId(projectIdArg);
-  const name = await Prompt.ask({
-    messageKey: "askProjectTitle",
-    schema: ProjectValidator.name,
-    initialValue: nameArg,
-  });
+export class EditProjectModule {
+  public static async run(
+    projectIdArg?: string,
+    nameArg?: string,
+  ): Promise<void> {
+    const token = await AuthGuard.requireToken();
+    const projectId = await ResolveProjectModule.resolveId(projectIdArg);
+    const name = await Prompt.ask({
+      messageKey: "askProjectTitle",
+      schema: ProjectValidator.name,
+      initialValue: nameArg,
+    });
 
-  const api = createApiClient(token);
-  await Loader.run(() =>
-    api.project.update(projectId, {
-      name,
-      updatedAt: Date.now(),
-    }),
-  );
+    const api = createApiClient(token);
+    await Loader.run(() =>
+      api.project.update(projectId, {
+        name,
+        updatedAt: Date.now(),
+      }),
+    );
 
-  Output.success(await t("projectUpdated"));
+    Output.success(await t("projectUpdated"));
+  }
 }

@@ -5,27 +5,29 @@ import { Output } from "../../utils/output.util";
 import { Prompt } from "../../utils/prompt.util";
 import { Loader } from "../../utils/spinner.util";
 import { TaskValidator } from "../../validators/task.validators";
-import { resolveTaskId } from "./resolve";
+import { ResolveTaskModule } from "./resolve";
 
-export async function runUpdateTaskModule(
-  taskIdArg?: string,
-  titleArg?: string,
-): Promise<void> {
-  const token = await AuthGuard.requireToken();
-  const taskId = await resolveTaskId(taskIdArg);
-  const title = await Prompt.ask({
-    messageKey: "askTaskTitle",
-    schema: TaskValidator.title,
-    initialValue: titleArg,
-  });
+export class EditTaskModule {
+  public static async run(
+    taskIdArg?: string,
+    titleArg?: string,
+  ): Promise<void> {
+    const token = await AuthGuard.requireToken();
+    const taskId = await ResolveTaskModule.resolveId(taskIdArg);
+    const title = await Prompt.ask({
+      messageKey: "askTaskTitle",
+      schema: TaskValidator.title,
+      initialValue: titleArg,
+    });
 
-  const api = createApiClient(token);
-  await Loader.run(() =>
-    api.task.update(taskId, {
-      title,
-      updatedAt: Date.now(),
-    }),
-  );
+    const api = createApiClient(token);
+    await Loader.run(() =>
+      api.task.update(taskId, {
+        title,
+        updatedAt: Date.now(),
+      }),
+    );
 
-  Output.success(await t("taskUpdated"));
+    Output.success(await t("taskUpdated"));
+  }
 }
