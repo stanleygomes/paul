@@ -7,7 +7,7 @@ import { renderSuccess } from "../../utils/output";
 import { taskTitleSchema } from "../../validators/task.validators";
 import { resolveTaskId } from "./resolve";
 
-export async function runEditTaskModule(
+export async function runUpdateTaskModule(
   taskIdArg?: string,
   titleArg?: string,
 ): Promise<void> {
