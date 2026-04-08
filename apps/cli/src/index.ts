@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { registerLoginCommand } from "./commands/login.command";
-import { registerLogoutCommand } from "./commands/logout.command";
-import { registerTaskCommand } from "./commands/task.command";
-import { registerProjectCommand } from "./commands/project.command";
-import { registerSettingsCommand } from "./commands/settings.command";
+import { LoginCommand } from "./commands/login.command";
+import { LogoutCommand } from "./commands/logout.command";
+import { TaskCommand } from "./commands/task.command";
+import { ProjectCommand } from "./commands/project.command";
+import { SettingsCommand } from "./commands/settings.command";
 import { renderBanner, renderError } from "./utils/output";
 import { initializeI18n, t } from "./utils/i18n";
 import { setupHttpClient } from "./api/config/http-setup";
@@ -17,11 +17,15 @@ async function run() {
 
   program.name("paul").description("Paul CLI").showHelpAfterError();
 
-  registerLoginCommand(program);
-  registerLogoutCommand(program);
-  registerTaskCommand(program);
-  registerProjectCommand(program);
-  registerSettingsCommand(program);
+  const commands = [
+    new LoginCommand(program),
+    new LogoutCommand(program),
+    new TaskCommand(program),
+    new ProjectCommand(program),
+    new SettingsCommand(program),
+  ];
+
+  commands.forEach((cmd) => cmd.register());
 
   await initializeI18n();
 

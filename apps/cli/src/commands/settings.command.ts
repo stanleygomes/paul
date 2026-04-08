@@ -1,14 +1,16 @@
-import type { Command } from "commander";
 import { runSetLanguageModule } from "../modules/settings";
+import { BaseCommand } from "./base.command";
 
-export function registerSettingsCommand(program: Command): void {
-  const settingsCommand = program
-    .command("settings")
-    .description("CLI settings");
+export class SettingsCommand extends BaseCommand {
+  public register(): void {
+    const settingsCommand = this.program
+      .command("settings")
+      .description("CLI settings");
 
-  settingsCommand
-    .command("language")
-    .description("Change language (en|pt)")
-    .argument("[language]", "Language code")
-    .action(runSetLanguageModule);
+    settingsCommand
+      .command("language")
+      .description("Change language (en|pt)")
+      .argument("[language]", "Language code")
+      .action(runSetLanguageModule);
+  }
 }

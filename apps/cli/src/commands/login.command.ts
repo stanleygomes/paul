@@ -1,9 +1,11 @@
-import type { Command } from "commander";
 import { runLoginModule } from "../modules/auth";
+import { BaseCommand } from "./base.command";
 
-export function registerLoginCommand(program: Command): void {
-  program
-    .command("login")
-    .description("Login with email and verification code")
-    .action(runLoginModule);
+export class LoginCommand extends BaseCommand {
+  public register(): void {
+    this.program
+      .command("login")
+      .description("Login with email and verification code")
+      .action(runLoginModule);
+  }
 }
