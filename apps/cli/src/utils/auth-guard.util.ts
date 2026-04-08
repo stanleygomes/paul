@@ -1,5 +1,5 @@
 import { sessionStore } from "../store/session.store";
-import { LoginModule } from "../modules/auth";
+import { LoginModule } from "../modules/auth/login.module";
 import { t } from "./i18n/i18n.util";
 import { Output } from "./output.util";
 

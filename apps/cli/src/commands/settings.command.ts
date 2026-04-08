@@ -1,4 +1,4 @@
-import { SetLanguageModule } from "../modules/settings";
+import { SetLanguageModule } from "../modules/settings/set-language.module";
 import { BaseCommand } from "./base.command";
 
 export class SettingsCommand extends BaseCommand {

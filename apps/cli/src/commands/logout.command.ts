@@ -1,4 +1,4 @@
-import { LogoutModule } from "../modules/auth";
+import { LogoutModule } from "../modules/auth/logout.module";
 import { BaseCommand } from "./base.command";
 
 export class LogoutCommand extends BaseCommand {

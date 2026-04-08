@@ -4,7 +4,7 @@ import { t } from "../../utils/i18n/i18n.util";
 import { Prompt } from "../../utils/prompt.util";
 import { Loader } from "../../utils/spinner.util";
 import { TaskValidator } from "../../validators/task.validators";
-import { ListTasksModule } from "./list";
+import { ListTasksModule } from "./list.module";
 
 export class ResolveTaskModule {
   public static async resolveId(taskId?: string): Promise<string> {

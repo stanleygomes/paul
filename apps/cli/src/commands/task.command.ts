@@ -1,9 +1,8 @@
-import {
-  CreateTaskModule,
-  DeleteTaskModule,
-  EditTaskModule,
-  ListTasksModule,
-} from "../modules/task";
+import { CreateTaskModule } from "../modules/task/create.module";
+import { DeleteTaskModule } from "../modules/task/delete.module";
+import { ListTasksModule } from "../modules/task/list.module";
+import { UpdateTaskModule } from "../modules/task/update.module";
+
 import { BaseCommand } from "./base.command";
 
 export class TaskCommand extends BaseCommand {
@@ -28,7 +27,7 @@ export class TaskCommand extends BaseCommand {
       .description("Edit task title")
       .argument("[taskId]", "Task id")
       .argument("[title]", "Task title")
-      .action(EditTaskModule.run);
+      .action(UpdateTaskModule.run);
 
     taskCommand
       .command("delete")

@@ -4,7 +4,7 @@ import { t } from "../../utils/i18n/i18n.util";
 import { Output } from "../../utils/output.util";
 import { Prompt } from "../../utils/prompt.util";
 import { Loader } from "../../utils/spinner.util";
-import { ListProjectsModule } from "./list";
+import { ListProjectsModule } from "./list.module";
 
 export class UseProjectModule {
   public static async run(): Promise<void> {

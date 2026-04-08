@@ -3,7 +3,7 @@ import { t } from "../../utils/i18n/i18n.util";
 import { Prompt } from "../../utils/prompt.util";
 import { Loader } from "../../utils/spinner.util";
 import { ProjectValidator } from "../../validators/project.validators";
-import { ListProjectsModule } from "./list";
+import { ListProjectsModule } from "./list.module";
 
 export class ResolveProjectModule {
   public static async resolveId(projectId?: string): Promise<string> {

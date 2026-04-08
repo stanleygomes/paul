@@ -1,10 +1,9 @@
-import {
-  CreateProjectModule,
-  DeleteProjectModule,
-  EditProjectModule,
-  ListProjectsModule,
-  UseProjectModule,
-} from "../modules/project";
+import { CreateProjectModule } from "../modules/project/create.module";
+import { DeleteProjectModule } from "../modules/project/delete.module";
+import { ListProjectsModule } from "../modules/project/list.module";
+import { UpdateProjectModule } from "../modules/project/update.module";
+import { UseProjectModule } from "../modules/project/use.module";
+
 import { BaseCommand } from "./base.command";
 
 export class ProjectCommand extends BaseCommand {
@@ -29,7 +28,7 @@ export class ProjectCommand extends BaseCommand {
       .description("Edit project title")
       .argument("[projectId]", "Project id")
       .argument("[title]", "Project title")
-      .action(EditProjectModule.run);
+      .action(UpdateProjectModule.run);
 
     projectCommand
       .command("delete")

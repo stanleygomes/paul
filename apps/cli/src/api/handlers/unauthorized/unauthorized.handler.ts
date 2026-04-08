@@ -1,8 +1,6 @@
 import type { AxiosInstance, AxiosRequestConfig, AxiosError } from "axios";
-import {
-  TokenRefreshFailureModule,
-  TokenRefreshModule,
-} from "../../../modules/auth";
+import { TokenRefreshFailureModule } from "../../../modules/auth/token-refresh-failure.module";
+import { TokenRefreshModule } from "../../../modules/auth/token-refresh.module";
 import { RequestRetryer } from "../../retry-request";
 
 export class UnauthorizedHandler {
