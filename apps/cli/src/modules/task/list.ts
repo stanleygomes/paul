@@ -1,9 +1,9 @@
-import ora from "ora";
 import { listTasks } from "../../api/resources/task";
 import { getSettings } from "../../store/settings-store";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderInfo } from "../../utils/output";
+import { runWithLoading } from "../../utils/spinner";
 import { formatTaskLine } from "../../utils/format/task-format";
 
 export async function runListTasksModule(): Promise<void> {
@@ -11,9 +11,10 @@ export async function runListTasksModule(): Promise<void> {
   const settings = await getSettings();
   const activeProjectId = settings.activeProjectId;
 
-  const spinner = ora(await t("loading")).start();
-  let tasks = (await listTasks(token)).filter((task) => !task.isDeleted);
-  spinner.stop();
+  let tasks = await runWithLoading(async () => {
+    const allTasks = await listTasks(token);
+    return allTasks.filter((task) => !task.isDeleted);
+  });
 
   if (activeProjectId) {
     tasks = tasks.filter((task) => task.projectId === activeProjectId);

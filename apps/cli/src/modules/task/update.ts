@@ -1,9 +1,9 @@
-import ora from "ora";
 import { updateTask } from "../../api/resources/task";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderSuccess } from "../../utils/output";
 import { askAndParse } from "../../utils/prompt";
+import { runWithLoading } from "../../utils/spinner";
 import { taskTitleSchema } from "../../validators/task.validators";
 import { resolveTaskId } from "./resolve";
 
@@ -19,12 +19,12 @@ export async function runUpdateTaskModule(
     initialValue: titleArg,
   });
 
-  const spinner = ora(await t("loading")).start();
-  await updateTask(token, taskId, {
-    title,
-    updatedAt: Date.now(),
-  });
-  spinner.succeed();
+  await runWithLoading(() =>
+    updateTask(token, taskId, {
+      title,
+      updatedAt: Date.now(),
+    }),
+  );
 
   renderSuccess(await t("taskUpdated"));
 }

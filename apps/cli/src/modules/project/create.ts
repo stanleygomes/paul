@@ -1,10 +1,10 @@
 import { generateUUID } from "@paul/utils";
-import ora from "ora";
 import { createProject } from "../../api/resources/project";
 import { requireSessionToken } from "../../utils/auth-guard";
 import { t } from "../../utils/i18n";
 import { renderSuccess } from "../../utils/output";
 import { askAndParse } from "../../utils/prompt";
+import { runWithLoading } from "../../utils/spinner";
 import {
   createProjectPayloadSchema,
   projectNameSchema,
@@ -26,9 +26,7 @@ export async function runCreateProjectModule(nameArg?: string): Promise<void> {
     color: DEFAULT_PROJECT_COLOR,
   });
 
-  const spinner = ora(await t("loading")).start();
-  await createProject(token, payload);
-  spinner.succeed();
+  await runWithLoading(() => createProject(token, payload));
 
   renderSuccess(await t("projectCreated"));
 }

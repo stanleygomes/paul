@@ -1,6 +1,6 @@
-import ora from "ora";
 import { sendLoginCode, verifyLoginCode } from "../../api/resources/auth";
 import { askAndParse } from "../../utils/prompt";
+import { runWithLoading } from "../../utils/spinner";
 import { emailSchema, otpCodeSchema } from "../../validators/auth.validators";
 import { saveSession } from "../../store/session-store";
 import { renderInfo, renderSuccess } from "../../utils/output";
@@ -12,9 +12,7 @@ export async function runLoginModule(): Promise<void> {
     schema: emailSchema,
   });
 
-  const sendCodeSpinner = ora(await t("loading")).start();
-  const sendCodeResult = await sendLoginCode(email);
-  sendCodeSpinner.succeed();
+  const sendCodeResult = await runWithLoading(() => sendLoginCode(email));
 
   renderInfo(
     sendCodeResult.isRegistered
@@ -27,9 +25,9 @@ export async function runLoginModule(): Promise<void> {
     schema: otpCodeSchema,
   });
 
-  const verifyCodeSpinner = ora(await t("loading")).start();
-  const verifyCodeResult = await verifyLoginCode(email, code);
-  verifyCodeSpinner.succeed();
+  const verifyCodeResult = await runWithLoading(() =>
+    verifyLoginCode(email, code),
+  );
 
   await saveSession({
     token: verifyCodeResult.token,
