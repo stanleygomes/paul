@@ -9,7 +9,7 @@ export default function LoginLinks() {
   const { t } = useTranslation();
 
   return (
-    <div className="flex gap-4 md:gap-6 text-[10px] md:text-sm font-bold text-background dark:text-main-foreground uppercase tracking-widest">
+    <div className="flex gap-4 md:gap-6 text-sm font-bold text-background dark:text-main-foreground uppercase tracking-widest">
       <Link
         href={LANDPAGE_URL || "/"}
         className="hover:text-main dark:hover:opacity-70 underline decoration-2 underline-offset-2"
