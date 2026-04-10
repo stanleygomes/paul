@@ -1,6 +1,3 @@
-if (process.env.NODE_ENV !== "production") {
-  await import("dotenv/config");
-}
 import cookie from "@fastify/cookie";
 import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";

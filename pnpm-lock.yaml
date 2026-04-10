@@ -30,185 +30,6 @@ importers:
         specifier: 5.9.2
         version: 5.9.2
 
-  apps/ai-api:
-    dependencies:
-      '@fastify/cors':
-        specifier: ^10.1.0
-        version: 10.1.0
-      '@fastify/rate-limit':
-        specifier: ^10.3.0
-        version: 10.3.0
-      '@fastify/swagger':
-        specifier: ^9.5.1
-        version: 9.7.0
-      '@fastify/swagger-ui':
-        specifier: ^5.2.3
-        version: 5.2.5
-      '@neondatabase/serverless':
-        specifier: ^1.0.2
-        version: 1.0.2
-      '@paul/http':
-        specifier: ^0.0.0
-        version: link:../../packages/http
-      '@paul/node-utils':
-        specifier: ^0.0.0
-        version: link:../../packages/node-utils
-      '@paul/utils':
-        specifier: ^0.0.0
-        version: link:../../packages/utils
-      dotenv:
-        specifier: ^16.5.0
-        version: 16.6.1
-      drizzle-orm:
-        specifier: ^0.45.1
-        version: 0.45.2(@libsql/client@0.15.15)(@neondatabase/serverless@1.0.2)(@types/pg@8.20.0)(pg@8.20.0)
-      fastify:
-        specifier: ^5.4.0
-        version: 5.8.4
-      pg:
-        specifier: ^8.20.0
-        version: 8.20.0
-      zod:
-        specifier: ^4.3.6
-        version: 4.3.6
-    devDependencies:
-      '@paul/eslint-config':
-        specifier: '*'
-        version: link:../../packages/eslint-config
-      '@paul/typescript-config':
-        specifier: '*'
-        version: link:../../packages/typescript-config
-      '@types/node':
-        specifier: ^24.0.3
-        version: 24.12.2
-      '@types/pg':
-        specifier: ^8.20.0
-        version: 8.20.0
-      '@vercel/node':
-        specifier: ^5.6.6
-        version: 5.7.0(rollup@4.60.1)
-      drizzle-kit:
-        specifier: ^0.31.9
-        version: 0.31.10
-      eslint:
-        specifier: ^9.39.1
-        version: 9.39.4(jiti@2.6.1)
-      pino:
-        specifier: ^9.14.0
-        version: 9.14.0
-      prettier:
-        specifier: ^3.5.3
-        version: 3.8.1
-      tsup:
-        specifier: ^8.5.1
-        version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(tsx@4.21.0)(typescript@5.9.2)(yaml@2.8.3)
-      tsx:
-        specifier: ^4.19.2
-        version: 4.21.0
-      typescript:
-        specifier: 5.9.2
-        version: 5.9.2
-
-  apps/auth-api:
-    dependencies:
-      '@fastify/cookie':
-        specifier: ^11.0.2
-        version: 11.0.2
-      '@fastify/cors':
-        specifier: ^10.1.0
-        version: 10.1.0
-      '@fastify/rate-limit':
-        specifier: ^10.3.0
-        version: 10.3.0
-      '@fastify/swagger':
-        specifier: ^9.5.1
-        version: 9.7.0
-      '@fastify/swagger-ui':
-        specifier: ^5.2.3
-        version: 5.2.5
-      '@paul/http':
-        specifier: ^0.0.0
-        version: link:../../packages/http
-      '@paul/node-utils':
-        specifier: ^0.0.0
-        version: link:../../packages/node-utils
-      '@paul/utils':
-        specifier: ^0.0.0
-        version: link:../../packages/utils
-      argon2:
-        specifier: ^0.41.1
-        version: 0.41.1
-      bcryptjs:
-        specifier: ^3.0.3
-        version: 3.0.3
-      dotenv:
-        specifier: ^16.5.0
-        version: 16.6.1
-      drizzle-orm:
-        specifier: ^0.45.1
-        version: 0.45.2(@libsql/client@0.15.15)(@neondatabase/serverless@1.0.2)(@types/pg@8.20.0)(pg@8.20.0)
-      fastify:
-        specifier: ^5.4.0
-        version: 5.8.4
-      pg:
-        specifier: ^8.17.6
-        version: 8.20.0
-      zod:
-        specifier: ^4.3.6
-        version: 4.3.6
-    devDependencies:
-      '@paul/eslint-config':
-        specifier: '*'
-        version: link:../../packages/eslint-config
-      '@paul/typescript-config':
-        specifier: '*'
-        version: link:../../packages/typescript-config
-      '@types/bcryptjs':
-        specifier: ^2.4.6
-        version: 2.4.6
-      '@types/express':
-        specifier: ^5.0.3
-        version: 5.0.6
-      '@types/jsonwebtoken':
-        specifier: ^9.0.10
-        version: 9.0.10
-      '@types/mustache':
-        specifier: ^4.2.6
-        version: 4.2.6
-      '@types/node':
-        specifier: ^24.0.3
-        version: 24.12.2
-      '@types/pg':
-        specifier: ^8.15.6
-        version: 8.20.0
-      '@types/uuid':
-        specifier: ^10.0.0
-        version: 10.0.0
-      '@vercel/node':
-        specifier: ^5.6.6
-        version: 5.7.0(rollup@4.60.1)
-      drizzle-kit:
-        specifier: ^0.31.9
-        version: 0.31.10
-      eslint:
-        specifier: ^9.39.1
-        version: 9.39.4(jiti@2.6.1)
-      globals:
-        specifier: ^16.2.0
-        version: 16.5.0
-      prettier:
-        specifier: ^3.5.3
-        version: 3.8.1
-      ts-node:
-        specifier: ^10.9.1
-        version: 10.9.2(@types/node@24.12.2)(typescript@5.9.2)
-      tsup:
-        specifier: ^8.5.1
-        version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(tsx@4.21.0)(typescript@5.9.2)(yaml@2.8.3)
-      typescript:
-        specifier: 5.9.2
-        version: 5.9.2
-
   apps/cli:
     dependencies:
       '@inquirer/prompts':
@@ -272,6 +93,9 @@ importers:
 
   apps/core-api:
     dependencies:
+      '@fastify/cookie':
+        specifier: ^11.0.2
+        version: 11.0.2
       '@fastify/cors':
         specifier: ^10.1.0
         version: 10.1.0
@@ -284,9 +108,6 @@ importers:
       '@fastify/swagger-ui':
         specifier: ^5.2.3
         version: 5.2.5
-      '@paul/entities':
-        specifier: workspace:*
-        version: link:../../packages/entities
       '@paul/http':
         specifier: ^0.0.0
         version: link:../../packages/http
@@ -296,6 +117,12 @@ importers:
       '@paul/utils':
         specifier: ^0.0.0
         version: link:../../packages/utils
+      argon2:
+        specifier: ^0.41.1
+        version: 0.41.1
+      bcryptjs:
+        specifier: ^3.0.3
+        version: 3.0.3
       dotenv:
         specifier: ^16.5.0
         version: 16.6.1
@@ -306,7 +133,7 @@ importers:
         specifier: ^5.4.0
         version: 5.8.4
       pg:
-        specifier: ^8.17.6
+        specifier: ^8.20.0
         version: 8.20.0
       zod:
         specifier: ^4.3.6
@@ -318,14 +145,23 @@ importers:
       '@paul/typescript-config':
         specifier: '*'
         version: link:../../packages/typescript-config
+      '@types/bcryptjs':
+        specifier: ^2.4.6
+        version: 2.4.6
+      '@types/express':
+        specifier: ^5.0.3
+        version: 5.0.6
       '@types/jsonwebtoken':
         specifier: ^9.0.10
         version: 9.0.10
+      '@types/mustache':
+        specifier: ^4.2.6
+        version: 4.2.6
       '@types/node':
         specifier: ^24.0.3
         version: 24.12.2
       '@types/pg':
-        specifier: ^8.15.6
+        specifier: ^8.20.0
         version: 8.20.0
       '@types/uuid':
         specifier: ^10.0.0
@@ -342,6 +178,9 @@ importers:
       globals:
         specifier: ^16.2.0
         version: 16.5.0
+      pino:
+        specifier: ^9.14.0
+        version: 9.14.0
       prettier:
         specifier: ^3.5.3
         version: 3.8.1
@@ -351,6 +190,9 @@ importers:
       tsup:
         specifier: ^8.5.1
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(tsx@4.21.0)(typescript@5.9.2)(yaml@2.8.3)
+      tsx:
+        specifier: ^4.19.2
+        version: 4.21.0
       typescript:
         specifier: 5.9.2
         version: 5.9.2
@@ -8242,6 +8084,7 @@ snapshots:
     dependencies:
       '@types/node': 22.19.17
       '@types/pg': 8.20.0
+    optional: true
 
   '@next/env@15.5.14': {}
 
@@ -9485,7 +9328,7 @@ snapshots:
 
   '@types/pg@8.20.0':
     dependencies:
-      '@types/node': 24.12.2
+      '@types/node': 25.5.2
       pg-protocol: 1.13.0
       pg-types: 2.2.0
 

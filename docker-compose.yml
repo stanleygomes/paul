@@ -9,7 +9,7 @@ services:
     volumes:
       - core-db-data:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - "5555:5432"
     networks:
       - paul-network
     restart: always
@@ -19,6 +19,4 @@ networks:
     driver: bridge
 
 volumes:
-  auth-db-data:
   core-db-data:
-  ai-db-data:

@@ -10,6 +10,7 @@
     "app:landpage": "turbo run dev --filter=landpage-ui",
     "app:desktop": "turbo run electron:dev --filter=desktop",
     "studio": "turbo run studio --filter=core-api",
+    "migrate": "turbo run db:migrate --filter=core-api",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

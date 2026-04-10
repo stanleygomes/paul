@@ -1,3 +1,4 @@
+import "dotenv/config";
 import app from "./server.js";
 import { config } from "./config/environment.js";
 import { PinoLogger } from "./config/pino.logger.js";
@@ -15,8 +16,10 @@ const start = async () => {
       host: "0.0.0.0",
     });
 
-    logger.info(`Fastify server running on ${address}${path}`);
-    logger.info(`Swagger docs available at ${url}:${port}${pathDocs}`);
+    logger.info(`Fastify server running on ${address}${path || ""}`);
+    logger.info(
+      `Swagger docs available at ${url || "http://localhost"}:${port}${pathDocs || ""}`,
+    );
   } catch (err) {
     logger.error(err);
     process.exit(1);
