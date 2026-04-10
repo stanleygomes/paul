@@ -72,11 +72,19 @@
     "studio": {
       "dependsOn": [
         "^studio"
+      ],
+      "env": [
+        "DATABASE_URL",
+        "DATABASE_MIGRATIONS_FOLDER"
       ]
     },
     "db:migrate": {
       "dependsOn": [
         "^db:migrate"
+      ],
+      "env": [
+        "DATABASE_URL",
+        "DATABASE_MIGRATIONS_FOLDER"
       ]
     }
   }

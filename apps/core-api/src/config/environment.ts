@@ -70,7 +70,6 @@ export interface Environment {
   };
   database: {
     url: string;
-    authToken?: string;
     migrationsFolder: string;
   };
   services: {
