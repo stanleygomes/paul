@@ -12,13 +12,19 @@ export class EmailService {
   constructor(
     private readonly apiKey: string,
     private readonly fromEmail: string,
-  ) {}
+  ) {
+    this.apiKey = this.apiKey?.trim();
+  }
 
   async sendVerificationCode(
     subject: string,
     email: string,
     html?: string,
   ): Promise<EmailResponse> {
+    if (!this.apiKey) {
+      throw new Error("Failed to send email: RESEND_API_KEY is not defined");
+    }
+
     try {
       const response = await httpClient.post<EmailResponse>(
         `${this.baseUrl}/emails`,
@@ -42,11 +48,17 @@ export class EmailService {
       const statusCode = error.response?.status;
 
       this.logger.error(
-        { err: error.response?.data || error, status: statusCode },
+        {
+          err: error,
+          responseData: error.response?.data,
+          status: statusCode,
+        },
         `Failed to send email: ${errorMessage}`,
       );
 
-      throw new Error(`Failed to send email: ${errorMessage}`);
+      throw new Error(`Failed to send email: ${errorMessage}`, {
+        cause: error,
+      });
     }
   }
 }
