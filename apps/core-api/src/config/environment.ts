@@ -22,7 +22,6 @@ const {
   GOOGLE_AI_STUDIO_API_KEY,
   GOOGLE_AI_STUDIO_MODEL,
   DATABASE_AUTH_TOKEN,
-  AI_API_URL,
 } = process.env;
 
 export interface Environment {
@@ -152,7 +151,7 @@ export const config: Environment = {
       model: GOOGLE_AI_STUDIO_MODEL || "gemini-2.0-flash",
     },
     ai: {
-      url: AI_API_URL || "http://localhost:5003/api",
+      url: "http://localhost:5003/api",
     },
   },
 };

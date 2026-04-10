@@ -53,7 +53,6 @@ pnpm install
 | `pnpm run app:desktop` | Starts desktop (Electron).                        |
 | `pnpm run build`       | Builds all workspaces.                            |
 | `pnpm run lint`        | Runs lint across all workspaces.                  |
-| `pnpm run check-types` | Runs type-check across all workspaces.            |
 | `pnpm run check`       | `format:check + lint + check-types`.              |
 | `pnpm run fix`         | `format + lint:fix + check-types`.                |
 

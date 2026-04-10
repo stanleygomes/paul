@@ -56,7 +56,7 @@ jobs:
       - name: Check formatting
         run: pnpm run format:check
 
-  check-types:
+  types:
     name: Type Check
     runs-on: ubuntu-latest
     permissions:
