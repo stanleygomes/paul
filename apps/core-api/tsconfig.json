@@ -4,7 +4,13 @@
     "outDir": "dist",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "target": "ESNext"
+    "target": "ESNext",
+    "paths": {
+      "@paul/entities": ["../../packages/entities/src/index.ts"],
+      "@paul/http": ["../../packages/http/src/index.ts"],
+      "@paul/node-utils": ["../../packages/node-utils/src/index.ts"],
+      "@paul/utils": ["../../packages/utils/src/index.ts"]
+    }
   },
   "include": ["src", "api"],
   "exclude": ["node_modules", "dist"]

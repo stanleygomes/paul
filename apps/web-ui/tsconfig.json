@@ -23,7 +23,8 @@
       "@paul/utils": ["../../packages/utils/src"],
       "@paul/utils/*": ["../../packages/utils/src/*"],
       "@paul/http": ["../../packages/http/src"],
-      "@paul/http/*": ["../../packages/http/src/*"]
+      "@paul/http/*": ["../../packages/http/src/*"],
+      "@paul/entities": ["../../packages/entities/src/index.ts"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
