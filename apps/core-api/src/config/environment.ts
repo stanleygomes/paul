@@ -21,7 +21,6 @@ const {
   AUTH_PEPPER,
   GOOGLE_AI_STUDIO_API_KEY,
   GOOGLE_AI_STUDIO_MODEL,
-  DATABASE_AUTH_TOKEN,
 } = process.env;
 
 export interface Environment {
@@ -138,7 +137,6 @@ export const config: Environment = {
     url:
       DATABASE_URL ||
       "postgres://database_user:database_password@localhost:5432/database_name",
-    authToken: DATABASE_AUTH_TOKEN,
     migrationsFolder: DATABASE_MIGRATIONS_FOLDER || "./src/database/migrations",
   },
   services: {
