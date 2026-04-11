@@ -408,5 +408,10 @@
   "metadata": {
     "title": "Paul, Seu Assistente de Tarefas",
     "description": "O Paul é um assistente que ajuda você a gerenciar suas tarefas e manter-se organizado."
+  },
+  "actions": {
+    "create_task": "Criar Tarefa",
+    "create_project": "Criar Projeto",
+    "search": "Pesquisar"
   }
 }

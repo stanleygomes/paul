@@ -14,10 +14,10 @@ export default function ProjectListHeader({ onAdd }: ProjectListHeaderProps) {
       <h2 className="text-2xl">{t("projects.list.title")}</h2>
       <button
         onClick={onAdd}
-        className="bg-main border-2 border-border text-main-foreground p-2 sm:px-4 sm:py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-main hover:shadow-shadow active:scale-95 transition-all cursor-pointer"
+        className="hidden sm:flex bg-main border-2 border-border text-main-foreground p-2 sm:px-4 sm:py-2 rounded-xl font-bold flex items-center gap-2 hover:bg-main hover:shadow-shadow active:scale-95 transition-all cursor-pointer"
       >
         <Plus className="w-5 h-5" />
-        <span className="hidden sm:inline">{t("projects.list.new")}</span>
+        <span>{t("projects.list.new")}</span>
       </button>
     </div>
   );

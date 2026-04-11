@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { useProjects } from "@modules/project/use-projects";
 import { useTasks } from "@modules/task/use-tasks";
 import { TaskList } from "./task-list";
@@ -11,7 +12,8 @@ import { useSearchParams } from "next/navigation";
 import { TaskSearch } from "./task-search";
 import { BoardHeader } from "./project-header";
 import { FinishedHeader } from "./finished-header";
-import { BoardTopActions } from "./board-top-actions";
+import { PageActions } from "src/components/page-actions";
+import { Plus, Search } from "lucide-react";
 import { PinnedTasks } from "./pinned-tasks";
 import { useTopMenu } from "@modules/menu-layout/use-top-menu";
 import { UserAvatar } from "src/components/user-avatar";
@@ -24,6 +26,7 @@ interface TaskBoardProps {
 }
 
 export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const isSearchVisible = searchParams.get("search") === "true";
@@ -97,10 +100,20 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
   useEffect(() => {
     setLeftContent(<UserAvatar className="h-12 w-12 ml-2" />);
     setRightContent(
-      <BoardTopActions
-        onToggleSearch={toggleSearch}
-        isSearchVisible={isSearchVisible}
-        onCreateTask={() => setIsCreateDrawerOpen(true)}
+      <PageActions
+        actions={[
+          {
+            icon: Plus,
+            onClick: () => setIsCreateDrawerOpen(true),
+            label: t("actions.create_task"),
+          },
+          {
+            icon: Search,
+            onClick: toggleSearch,
+            isActive: isSearchVisible,
+            label: t("actions.search"),
+          },
+        ]}
       />,
     );
 
@@ -108,7 +121,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
       setLeftContent(null);
       setRightContent(null);
     };
-  }, [setLeftContent, setRightContent, isSearchVisible, toggleSearch]);
+  }, [setLeftContent, setRightContent, isSearchVisible, toggleSearch, t]);
 
   useEffect(() => {
     if (!isSearchVisible && searchQuery !== "") {

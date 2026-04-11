@@ -408,5 +408,10 @@
   "metadata": {
     "title": "Paul, Your Task Assistant",
     "description": "Paul is a task assistant that helps you manage your tasks and stay organized."
+  },
+  "actions": {
+    "create_task": "Create Task",
+    "create_project": "Create Project",
+    "search": "Search"
   }
 }
