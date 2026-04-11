@@ -31,7 +31,7 @@ export function ZenModeView({ task, onExit }: ZenModeViewProps) {
   return (
     <div className="fixed inset-0 z-[9999] bg-background border-2 border-border overflow-y-auto animate-in fade-in duration-300">
       <div className="min-h-full flex flex-col items-center pb-32">
-        <div className="w-full max-w-4xl px-2 flex flex-col items-center">
+        <div className="w-full max-w-4xl px-6 flex flex-col items-center">
           <PomodoroTimer />
           <div className="w-full flex flex-col items-center justify-center gap-6">
             <ZenTitle content={task.content} />
