@@ -29,45 +29,54 @@ export default function ProjectFormDrawer({
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange} direction="bottom">
-      <DrawerContent className="bg-background border-t-2 border-border rounded-t-[30px] p-6 pb-10">
-        <DrawerHeader className="px-6 pb-4 pt-2 text-left shrink-0">
-          <DrawerTitle className="text-2xl font-black">
+      <DrawerContent className="bg-background border-t-4 border-border rounded-t-[32px] overflow-hidden focus:outline-none">
+        <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted flex-shrink-0" />
+
+        <DrawerHeader className="px-6 pb-4 pt-6 text-left shrink-0">
+          <DrawerTitle className="text-3xl font-black uppercase tracking-tighter">
             {editingProject
               ? t("projects.form.edit_title")
               : t("projects.form.new_title")}
           </DrawerTitle>
         </DrawerHeader>
-        <div className="p-6">
-          <div className="mb-6">
-            <label className="block font-bold mb-3 text-lg">
+
+        <div className="p-6 pt-0 pb-12 overflow-y-auto max-h-[80vh]">
+          <div className="mb-8">
+            <label className="block font-black uppercase tracking-wider mb-2 text-sm text-foreground/60">
               {t("projects.form.name_label")}
             </label>
             <input
               type="text"
               value={projectName}
               onChange={(e) => onProjectNameChange(e.target.value)}
-              className="w-full bg-white border-2 border-black rounded-xl px-4 py-4 text-lg font-bold focus:outline-none focus:ring-4 focus:ring-black/20"
+              className="w-full bg-secondary-background border-2 border-border rounded-xl px-5 py-5 text-xl font-bold text-foreground focus:outline-none focus:ring-4 focus:ring-main/20 transition-all placeholder:text-foreground/20"
               placeholder={t("projects.form.name_placeholder")}
             />
           </div>
+
           <div className="mb-10">
-            <label className="block font-bold mb-3 text-lg">
+            <label className="block font-black uppercase tracking-wider mb-3 text-sm text-foreground/60">
               {t("projects.form.color_label")}
             </label>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar py-4 -mx-2 px-2">
               {COLORS.map((c) => (
                 <button
                   key={c}
                   onClick={() => onProjectColorChange(c)}
-                  className={`w-12 h-12 rounded-full border-4 cursor-pointer transition-all ${projectColor === c ? "border-black scale-110 shadow-md" : "border-transparent hover:scale-105"}`}
+                  className={`w-12 h-12 shrink-0 rounded-full border-4 cursor-pointer transition-all ${
+                    projectColor === c
+                      ? "border-foreground scale-110 shadow-lg"
+                      : "border-transparent hover:scale-105 opacity-80"
+                  }`}
                   style={{ backgroundColor: c }}
                 />
               ))}
             </div>
           </div>
+
           <button
             onClick={onSave}
-            className="w-full bg-black text-[#fef6d9] py-5 rounded-xl font-bold text-xl hover:opacity-90 transition-opacity cursor-pointer"
+            className="w-full bg-main text-main-foreground border-2 border-border py-5 rounded-xl font-black text-xl uppercase tracking-tighter shadow-shadow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:scale-95 transition-all cursor-pointer"
           >
             {t("projects.form.save_button")}
           </button>
