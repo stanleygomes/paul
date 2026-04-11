@@ -107,7 +107,7 @@ export function SyncProvider({ children }: { children: ReactNode }) {
 
     const interval = setInterval(
       () => {
-        if (!document.hidden && !isSyncing) {
+        if (!document.hidden && !isSyncingRef.current) {
           performSync();
         }
       },
@@ -115,7 +115,7 @@ export function SyncProvider({ children }: { children: ReactNode }) {
     );
 
     return () => clearInterval(interval);
-  }, [token, performSync, isSyncing]);
+  }, [token, performSync]);
 
   return (
     <SyncContext.Provider

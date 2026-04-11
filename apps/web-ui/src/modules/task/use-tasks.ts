@@ -94,13 +94,10 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
     "todo-zen-mode",
     null,
   );
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 250);
-    return () => clearTimeout(timer);
+    setIsLoading(false);
   }, []);
 
   const hasLegacyTasks = useMemo(() => tasks.some(hasLegacyFields), [tasks]);
@@ -245,7 +242,7 @@ export function useTasks(projectId?: string | null, filter?: string | null) {
     setTasks((prev) =>
       prev.map((task) => {
         if (task.id !== id) {
-          return normalizeTask(task);
+          return task;
         }
 
         const normalizedTask = normalizeTask(task);

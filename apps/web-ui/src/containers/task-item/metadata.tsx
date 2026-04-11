@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import type { Task, Project } from "@paul/entities";
+import type { Task } from "@paul/entities";
 import { Clock, Globe, FileText, CheckCircle2, Tag, X } from "lucide-react";
 import { TaskDetailBadge } from "../../components/task-detail-badge";
 import { TaskProjectSelector as ProjectSelector } from "../../components/task-project-selector";
@@ -19,7 +19,6 @@ import { useState } from "react";
 
 interface TaskMetadataProps {
   task: Task;
-  project?: Project | null;
   showProject?: boolean;
   onUpdateDetails?: (id: string, details: any) => void;
 }

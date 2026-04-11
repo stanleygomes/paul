@@ -1,4 +1,5 @@
 import { Reorder } from "framer-motion";
+import { useMediaQuery } from "usehooks-ts";
 import type { Task } from "@paul/entities";
 import { EmptyState } from "./empty-state";
 import { TaskListItem } from "../task-item";
@@ -43,6 +44,7 @@ export function TaskList({
   isLoading,
   isRecentlyDeleted,
 }: TaskListProps) {
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   if (isLoading) {
     return (
       <div className="flex flex-col gap-3 pb-10">
@@ -82,6 +84,7 @@ export function TaskList({
           onEnterZenMode={onEnterZenMode}
           showProject={showProject}
           isRecentlyDeleted={isRecentlyDeleted}
+          isDesktop={isDesktop}
         />
       ))}
     </Reorder.Group>

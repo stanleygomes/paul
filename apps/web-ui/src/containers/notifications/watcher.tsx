@@ -1,12 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useTasks } from "@modules/task/use-tasks";
+import { useEffect, useMemo, useRef } from "react";
+import { useLocalStorage } from "usehooks-ts";
 import { NotificationManager } from "@modules/notifications/manager";
 import { parseISO, isAfter } from "date-fns";
+import type { Task } from "@paul/entities";
 
 export function NotificationWatcher() {
-  const { todoTasks } = useTasks();
+  const [tasks] = useLocalStorage<Task[]>("todo-tasks", []);
+
+  const todoTasks = useMemo(
+    () => tasks.filter((t) => !t.isDeleted && !t.done),
+    [tasks],
+  );
+
   const prevTasksRef = useRef<string>("");
 
   useEffect(() => {

@@ -148,16 +148,6 @@ export function PomodoroProvider({ children }: { children: ReactNode }) {
     [],
   );
 
-  useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      "Notification" in window &&
-      Notification.permission === "default"
-    ) {
-      Notification.requestPermission();
-    }
-  }, []);
-
   return (
     <PomodoroContext.Provider
       value={{

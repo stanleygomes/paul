@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Reorder, useDragControls } from "framer-motion";
 import type { Task } from "@paul/entities";
-import { useProjects } from "@modules/project/use-projects";
-import { useMediaQuery } from "usehooks-ts";
 import { useDebouncedSave } from "../../modules/create-task/use-debounced-save";
 import { TaskToggle } from "../../components/task-toggle";
 import { DragHandle } from "./drag-handle";
@@ -27,6 +25,7 @@ interface TaskListItemProps {
   onEnterZenMode?: (id: string) => void;
   showProject?: boolean;
   isRecentlyDeleted?: boolean;
+  isDesktop: boolean;
 }
 
 import { SwipeableActionItem } from "../../components/swipe-to-complete";
@@ -47,17 +46,12 @@ export function TaskListItem({
   onEnterZenMode,
   showProject,
   isRecentlyDeleted,
+  isDesktop,
 }: TaskListItemProps) {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
   const controls = useDragControls();
-  const { projects } = useProjects();
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const { save, flush } = useDebouncedSave(600);
-
-  const project = task.projectId
-    ? projects.find((p) => p.id === task.projectId)
-    : null;
 
   useEffect(() => {
     if (isEditing) {
@@ -161,7 +155,6 @@ export function TaskListItem({
 
             <TaskMetadata
               task={task}
-              project={project}
               showProject={showProject}
               onUpdateDetails={onUpdateTaskDetails}
             />
