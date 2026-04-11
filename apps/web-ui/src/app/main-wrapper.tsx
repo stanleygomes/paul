@@ -12,7 +12,7 @@ export function MainWrapper({ children }: { children: React.ReactNode }) {
 
   if (!mounted) {
     return (
-      <main className="min-h-screen transition-all duration-300">
+      <main className="min-h-screen pt-safe-top transition-all duration-300">
         {children}
       </main>
     );
@@ -20,7 +20,7 @@ export function MainWrapper({ children }: { children: React.ReactNode }) {
 
   return (
     <main
-      className={`min-h-screen transition-all duration-300 ${
+      className={`min-h-screen pt-safe-top transition-all duration-300 ${
         isOpen && isSidebarPage ? "pl-0 lg:pl-72" : "pl-0"
       }`}
     >
