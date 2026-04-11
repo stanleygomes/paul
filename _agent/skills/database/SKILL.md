@@ -44,3 +44,7 @@ If you use `npx drizzle-kit generate`, you MUST rename the generated file to fol
 - [ ] Migration files follow the `XXXX_descriptive_name.sql` pattern.
 - [ ] Schemas are exported from `src/schemas/database/index.ts`.
 - [ ] Foreign keys and indexes are explicitly defined where needed.
+
+## Self-Improvement
+
+- If the user corrects a database convention or migration pattern, **you must update this SKILL.md file** immediately to reflect the new preference.

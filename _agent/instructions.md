@@ -58,3 +58,10 @@ Detailed, task-specific guidance lives in `_agent/skills/`. The agent loads a sk
 | **code-style**            | `_agent/skills/code-style/SKILL.md`            | Lint, format, or style questions                      |
 | **monorepo-architecture** | `_agent/skills/monorepo-architecture/SKILL.md` | Workspace layout, package boundaries, Turborepo tasks |
 | **frontend-ui**           | `_agent/skills/frontend-ui/SKILL.md`           | Building or refactoring Next.js/React UI code         |
+| **database**              | `_agent/skills/database/SKILL.md`              | Database schema, migrations, or Drizzle ORM usage     |
+
+## Continuous Improvement & Learning
+
+- **Correction Loop**: If you notice the user correcting your approach, logic, or code style, you **MUST immediately update** the relevant documentation (`_agent/instructions.md` or a specific skill in `_agent/skills//SKILL.md`) to reflect the correct implementation for future tasks.
+- **Proactive Updates**: Do not wait for explicit permission to update instructions when a clear correction has been made.
+- **Validation**: Every response should implicitly check if current instructions align with the user's latest feedback and preferences.

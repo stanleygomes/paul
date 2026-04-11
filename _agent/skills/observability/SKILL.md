@@ -69,4 +69,8 @@ export class SendEmailCodeService {
     }
   }
 }
+
+## Self-Improvement
+
+- If the user corrects a logging level or transport convention, **you must update this SKILL.md file** immediately to reflect the new preference.
 ```

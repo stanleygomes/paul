@@ -105,3 +105,8 @@ This project adopts the **Neobrutalism** aesthetics. All UI development should a
 - **Custom Components:** Ensure they have the signature "box-shadow" and thick black borders to match the existing UI in `packages/ui`.
 
 Refer to [neobrutalism.dev](https://www.neobrutalism.dev) for patterns and reference implementations.
+
+## Self-Improvement
+
+- If the user corrects a code style or naming convention, **you must update this SKILL.md file** immediately to reflect the new preference.
+- All future code reviews and generation must adhere to the updated rules in this file.

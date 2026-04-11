@@ -104,3 +104,7 @@ Follow the existing design rules (see `code-style` skill):
   - shows `<EmptyState />` when needed
 - `TaskListItem`:
   - handles item-level UI (](#)
+
+## Self-Improvement
+
+- If the user corrects a UI architecture decision or frontend pattern, **you must update this SKILL.md file** immediately to reflect the new preference.

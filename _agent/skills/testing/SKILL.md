@@ -70,4 +70,8 @@ describe("GetVideoUseCase", () => {
     await expect(useCase.execute("missing")).rejects.toThrow(NotFoundError);
   });
 });
+
+## Self-Improvement
+
+- If the user corrects a test pattern or coverage rule, **you must update this SKILL.md file** immediately to reflect the new preference.
 ```

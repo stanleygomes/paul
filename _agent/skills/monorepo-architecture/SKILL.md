@@ -100,3 +100,7 @@ npx turbo run lint --filter=auth-api
 - [ ] New package uses `@paul/<name>` scope and a `src/index.ts` entry point
 - [ ] New UI code follows **Neobrutalism** aesthetics
 - [ ] `turbo.json` updated if a new task is introduced
+
+## Self-Improvement
+
+- If the user corrects a workspace boundary or dependency rule, **you must update this SKILL.md file** immediately to reflect the new preference.
