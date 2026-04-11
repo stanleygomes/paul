@@ -22,10 +22,16 @@ export function LandingFooter() {
           <Link href="/login" className="hover:underline">
             {t("landing.menu.login")}
           </Link>
-          <Link href="/privacy" className="hover:underline">
+          <Link
+            href={`${process.env.NEXT_PUBLIC_WEB_UI_URL || ""}/privacy`}
+            className="hover:underline"
+          >
             {t("login.links.privacy")}
           </Link>
-          <Link href="/terms" className="hover:underline">
+          <Link
+            href={`${process.env.NEXT_PUBLIC_WEB_UI_URL || ""}/terms`}
+            className="hover:underline"
+          >
             {t("login.links.terms")}
           </Link>
         </div>
