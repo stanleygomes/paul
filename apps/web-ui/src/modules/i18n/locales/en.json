@@ -61,6 +61,67 @@
       "email_change_warning": "Account email cannot be changed."
     }
   },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: March 29, 2026",
+    "sections": {
+      "data_collected": {
+        "title": "1. Data Collected",
+        "p1": "Our application, <0>Paul</0>, collects and stores data necessary for task management. This includes task content, project names, due dates, and your preferences.",
+        "p2": "When you create an account, we may store your name and email address to sync your data across devices."
+      },
+      "usage": {
+        "title": "2. How We Use Your Data",
+        "p1": "Your data is used exclusively to facilitate your productivity. We organize your tasks and send you notifications for due dates. We do not use your task content for training AI models or for any advertising profiling."
+      },
+      "storage": {
+        "title": "3. Local vs. Cloud Storage",
+        "p1": "We prioritize your privacy by keeping most of your data in your device's local storage.",
+        "p2": "If you use our cloud sync feature, your tasks are encrypted during transmission and when stored on our secure servers."
+      },
+      "sharing": {
+        "title": "4. Sharing and Disclosure",
+        "p1": "We <0>NEVER</0> sell, trade, or otherwise transfer your personal data to third parties. Your productivity is private."
+      },
+      "rights": {
+        "title": "5. Your Rights",
+        "p1": "You have the right to access, export, or delete all your data at any time. Within the app settings, you can clear your local storage or delete your account."
+      }
+    },
+    "footer": "Paul Application © 2026"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "last_updated": "Last updated: March 29, 2026",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "p1": "By accessing or using <0>Paul</0>, you agree to be bound by these Terms of Service. If you do not agree to all these terms, you may not use the application."
+      },
+      "description": {
+        "title": "2. Description of Service",
+        "p1": "Paul is a task management application designed to help you organize your productivity. We provide tools to create, manage, and sync tasks across your devices."
+      },
+      "responsibilities": {
+        "title": "3. User Responsibilities",
+        "p1": "You are responsible for the content you create within the app. You agree not to use the service for any illegal or unauthorized purpose.",
+        "p2": "You must maintain the security of your account and notify us immediately of any unauthorized use."
+      },
+      "property": {
+        "title": "4. Intellectual Property",
+        "p1": "The application, including its design, code, and original content, is the property of Paul Application. You may not reproduce or distribute any part of the service without our permission."
+      },
+      "liability": {
+        "title": "5. Limitation of Liability",
+        "p1": "Paul is provided \"as is\" without any warranties. We are not liable for any data loss or productivity issues resulting from the use of the application."
+      },
+      "modifications": {
+        "title": "6. Modifications",
+        "p1": "We reserve the right to modify these terms at any time. Your continued use of the app after such changes constitutes acceptance of the new terms."
+      }
+    },
+    "footer": "Paul Application © 2026"
+  },
   "projects": {
     "header": {
       "back": "Back to Tasks",

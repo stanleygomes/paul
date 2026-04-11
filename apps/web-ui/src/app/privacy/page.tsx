@@ -1,6 +1,6 @@
 "use client";
 
-import Privacy from "src/containers/privacy";
+import Privacy from "@containers/privacy";
 
 export default function PrivacyPage() {
   return <Privacy />;

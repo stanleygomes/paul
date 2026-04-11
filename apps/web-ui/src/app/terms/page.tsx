@@ -1,6 +1,6 @@
 "use client";
 
-import Terms from "src/containers/terms";
+import Terms from "@containers/terms";
 
 export default function TermsPage() {
   return <Terms />;

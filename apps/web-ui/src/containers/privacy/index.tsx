@@ -1,4 +1,4 @@
-import { useTranslation, Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 interface SectionProps {
   title: string;
@@ -69,7 +69,7 @@ export default function Privacy() {
           </PrivacySection>
         </div>
 
-        <div className="mt-16 text-center text-xs font-bold text-foreground/40 pb-20">
+        <div className="mt-16 pb-20 text-center text-xs font-bold text-foreground/40">
           {t("privacy.footer")}
         </div>
       </div>

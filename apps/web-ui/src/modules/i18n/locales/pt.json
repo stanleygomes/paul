@@ -61,6 +61,67 @@
       "email_change_warning": "O e-mail da conta não pode ser alterado."
     }
   },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "last_updated": "Última atualização: 29 de Março de 2026",
+    "sections": {
+      "data_collected": {
+        "title": "1. Dados Coletados",
+        "p1": "Nosso aplicativo, <0>Paul</0>, coleta e armazena os dados necessários para o gerenciamento de tarefas. Isso inclui o conteúdo das tarefas, nomes de projetos, datas de entrega e suas preferências.",
+        "p2": "Quando você cria uma conta, podemos armazenar seu nome e endereço de e-mail para sincronizar seus dados entre dispositivos."
+      },
+      "usage": {
+        "title": "2. Como Usamos Seus Dados",
+        "p1": "Seus dados são usados exclusivamente para facilitar sua produtividade. Organizamos suas tarefas e enviamos notificações de prazos. Não usamos o conteúdo de suas tarefas para treinar modelos de IA ou para qualquer perfil publicitário."
+      },
+      "storage": {
+        "title": "3. Armazenamento Local vs. Nuvem",
+        "p1": "Priorizamos sua privacidade mantendo a maioria de seus dados no armazenamento local do seu dispositivo.",
+        "p2": "Se você usar nosso recurso de sincronização na nuvem, suas tarefas serão criptografadas durante a transmissão e quando armazenadas em nossos servidores seguros."
+      },
+      "sharing": {
+        "title": "4. Compartilhamento e Divulgação",
+        "p1": "Nós <0>NUNCA</0> vendemos, trocamos ou de outra forma transferimos seus dados pessoais para terceiros. Sua produtividade é privada."
+      },
+      "rights": {
+        "title": "5. Seus Direitos",
+        "p1": "Você tem o direito de acessar, exportar ou excluir todos os seus dados a qualquer momento. Nas configurações do aplicativo, você pode limpar seu armazenamento local ou excluir sua conta."
+      }
+    },
+    "footer": "Aplicativo Paul © 2026"
+  },
+  "terms": {
+    "title": "Termos de Serviço",
+    "last_updated": "Última atualização: 29 de Março de 2026",
+    "sections": {
+      "acceptance": {
+        "title": "1. Aceitação dos Termos",
+        "p1": "Ao acessar ou usar o <0>Paul</0>, você concorda em cumprir estes Termos de Serviço. Se você não concordar com todos estes termos, não poderá usar o aplicativo."
+      },
+      "description": {
+        "title": "2. Descrição do Serviço",
+        "p1": "Paul é um aplicativo de gerenciamento de tarefas projetado para ajudar você a organizar sua produtividade. Fornecemos ferramentas para criar, gerenciar e sincronizar tarefas em seus dispositivos."
+      },
+      "responsibilities": {
+        "title": "3. Responsabilidades do Usuário",
+        "p1": "Você é responsável pelo conteúdo que cria no aplicativo. Você concorda em não usar o serviço para qualquer finalidade ilegal ou não autorizada.",
+        "p2": "Você deve manter a segurança de sua conta e nos notificar imediatamente sobre qualquer uso não autorizado."
+      },
+      "property": {
+        "title": "4. Propriedade Intelectual",
+        "p1": "O aplicativo, incluindo seu design, código e conteúdo original, é de propriedade da Paul Application. Você não pode reproduzir ou distribuir qualquer parte do serviço sem nossa permissão."
+      },
+      "liability": {
+        "title": "5. Limitação de Responsabilidade",
+        "p1": "O Paul é fornecido \"no estado em que se encontra\", sem quaisquer garantias. Não somos responsáveis por qualquer perda de dados ou problemas de produtividade resultantes do uso do aplicativo."
+      },
+      "modifications": {
+        "title": "6. Modificações",
+        "p1": "Reservamo-nos o direito de modificar estes termos a qualquer momento. O uso continuado do aplicativo após tais alterações constitui a aceitação dos novos termos."
+      }
+    },
+    "footer": "Aplicativo Paul © 2026"
+  },
   "projects": {
     "header": {
       "back": "Voltar para Tarefas",

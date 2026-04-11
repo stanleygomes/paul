@@ -17,13 +17,13 @@ export default function LoginLinks() {
         {t("login.links.home")}
       </Link>
       <Link
-        href={`${LANDPAGE_URL}/privacy`}
+        href="/privacy"
         className="hover:text-main underline decoration-2 underline-offset-2"
       >
         {t("login.links.privacy")}
       </Link>
       <Link
-        href={`${LANDPAGE_URL}/terms`}
+        href="/terms"
         className="hover:text-main underline decoration-2 underline-offset-2"
       >
         {t("login.links.terms")}
