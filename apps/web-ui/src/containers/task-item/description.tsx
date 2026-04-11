@@ -50,11 +50,9 @@ export const TaskItemDescription = forwardRef<
               task.done ? "text-foreground/50 line-through" : "text-foreground"
             }`}
             onClick={(e) => {
-              if (!task.done) {
+              if (!task.done && isDesktop) {
                 onStartEdit(task);
-                if (isDesktop) {
-                  e.stopPropagation();
-                }
+                e.stopPropagation();
               }
             }}
           >

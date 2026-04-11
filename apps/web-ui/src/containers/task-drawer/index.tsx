@@ -75,6 +75,9 @@ export function TaskDrawer({
       direction={isDesktop ? "right" : "bottom"}
     >
       <DrawerContent
+        onOpenAutoFocus={(e) => {
+          if (!isDesktop) e.preventDefault();
+        }}
         className={cn(
           "bg-background flex flex-col",
           isDesktop
