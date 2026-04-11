@@ -128,7 +128,7 @@ export function PomodoroTimer() {
         </div>
 
         <Link
-          href="/settings"
+          href="/settings/pomodoro"
           className="text-sm text-foreground/40 hover:text-foreground/80 transition-all font-bold tracking-tight hover:scale-105 active:scale-95"
         >
           {t("zen_mode.pomodoro.timer.settings_link")}
