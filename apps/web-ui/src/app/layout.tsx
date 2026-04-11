@@ -3,7 +3,7 @@ import "@paul/ui/globals.css";
 import { Providers } from "./providers";
 import MenuTop from "@containers/menu-top";
 import MenuLeft from "@containers/menu-left";
-import { MobileMenu } from "@containers/menu-bottom";
+import { MenuBottom } from "@containers/menu-bottom";
 import { Suspense } from "react";
 import en from "@modules/i18n/locales/en.json";
 import { MainWrapper } from "./main-wrapper";
@@ -83,7 +83,7 @@ export default function RootLayout({
                 <MenuLeft />
               </Suspense>
               <Suspense fallback={null}>
-                <MobileMenu />
+                <MenuBottom />
               </Suspense>
               <MainWrapper>{children}</MainWrapper>
             </AuthGuard>
