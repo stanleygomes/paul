@@ -22,7 +22,27 @@ export const AutoResizeTextarea = forwardRef<
     }
   }, [value]);
 
-  return <textarea ref={internalRef} value={value} {...props} />;
+  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    setTimeout(() => {
+      e.target.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 300);
+
+    if (props.onFocus) {
+      props.onFocus(e);
+    }
+  };
+
+  return (
+    <textarea
+      ref={internalRef}
+      value={value}
+      {...props}
+      onFocus={handleFocus}
+    />
+  );
 });
 
 AutoResizeTextarea.displayName = "AutoResizeTextarea";
