@@ -6,11 +6,13 @@ export interface SendCodeResponse {
   isRegistered: boolean;
 }
 
-export interface VerifyCodeResponse {
-  token: string;
-  refreshToken: string;
-  isNew: boolean;
+export interface AuthResponse {
+  message: string;
 }
+
+export type VerifyCodeResponse = AuthResponse;
+
+export type RefreshTokenResponse = AuthResponse;
 
 export interface CheckEmailResponse {
   isRegistered: boolean;

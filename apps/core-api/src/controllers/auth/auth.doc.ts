@@ -79,10 +79,8 @@ export const registerSchema = {
       type: "object",
       properties: {
         message: { type: "string" },
-        token: { type: "string" },
-        refreshToken: { type: "string" },
       },
-      required: ["message", "token", "refreshToken"],
+      required: ["message"],
     },
   },
 };
@@ -125,11 +123,9 @@ export const verifyCodeSchema = {
     200: {
       type: "object",
       properties: {
-        token: { type: "string" },
-        refreshToken: { type: "string" },
-        isNew: { type: "boolean" },
+        message: { type: "string" },
       },
-      required: ["token", "refreshToken", "isNew"],
+      required: ["message"],
     },
   },
 };
@@ -147,11 +143,9 @@ export const refreshTokenSchema = {
     200: {
       type: "object",
       properties: {
-        token: { type: "string" },
-        refreshToken: { type: "string" },
-        isNew: { type: "boolean" },
+        message: { type: "string" },
       },
-      required: ["token", "refreshToken"],
+      required: ["message"],
     },
   },
 };
