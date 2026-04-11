@@ -92,11 +92,10 @@ export class AuthController {
           validatedData.password,
         );
 
-        reply.status(201).setAuthCookies(token, refreshToken).send({
-          message: "User registered successfully",
-          token,
-          refreshToken,
-        });
+        reply
+          .status(201)
+          .setAuthCookies(token, refreshToken)
+          .send({ message: "User registered successfully" });
       },
     );
 
@@ -141,7 +140,9 @@ export class AuthController {
           validatedData.code,
         );
 
-        reply.setAuthCookies(result.token, result.refreshToken).send(result);
+        reply
+          .setAuthCookies(result.token, result.refreshToken)
+          .send({ message: "Code verified successfully" });
       },
     );
 
@@ -149,16 +150,24 @@ export class AuthController {
       `${prefix}/v1/auth/refresh-token`,
       { schema: refreshTokenSchema },
       async (request, reply) => {
-        const refreshToken =
-          request.body?.refreshToken || (request as any).cookies?.refresh_token;
+        try {
+          const refreshToken =
+            request.body?.refreshToken ||
+            (request as any).cookies?.refresh_token;
 
-        if (!refreshToken) {
-          throw new AuthError("Refresh token is required");
+          if (!refreshToken) {
+            throw new AuthError("Refresh token is required");
+          }
+
+          const result = this.refreshTokenService.execute(refreshToken);
+
+          reply
+            .setAuthCookies(result.token, result.refreshToken)
+            .send({ message: "Token refreshed successfully" });
+        } catch (error) {
+          fastify.log.error(error);
+          throw error;
         }
-
-        const result = await this.refreshTokenService.execute(refreshToken);
-
-        reply.setAuthCookies(result.token, result.refreshToken).send(result);
       },
     );
 

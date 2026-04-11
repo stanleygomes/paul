@@ -139,7 +139,6 @@ export const refreshTokenSchema = {
   tags: ["Auth"],
   body: {
     type: "object",
-    required: ["refreshToken"],
     properties: {
       refreshToken: { type: "string" },
     },
