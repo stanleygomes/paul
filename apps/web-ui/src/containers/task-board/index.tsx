@@ -148,7 +148,7 @@ export default function TaskBoard({ projectId, filter }: TaskBoardProps) {
 
   return (
     <main className="min-h-screen bg-background pb-32 sm:pb-40 px-4">
-      <div className="mx-auto max-w-2xl pt-12">
+      <div className="mx-auto max-w-2xl pt-28">
         {isSearchVisible && (
           <div className="mb-10 animate-in fade-in slide-in-from-top-4 duration-300">
             <TaskSearch query={searchQuery} onQueryChange={setSearchQuery} />
