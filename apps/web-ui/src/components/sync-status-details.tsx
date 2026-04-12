@@ -54,7 +54,7 @@ export function SyncStatusDetails() {
           performSync();
         }}
         disabled={isSyncing}
-        className="mt-1 w-full py-2 text-[10px] font-black uppercase bg-black text-white dark:bg-white dark:text-black rounded border border-black dark:border-white hover:bg-black/80 dark:hover:bg-white/80 transition-colors disabled:opacity-50"
+        className="mt-1 w-full py-2 text-[10px] cursor-pointer font-black uppercase bg-black text-white dark:bg-white dark:text-black rounded border border-black dark:border-white hover:bg-black/80 dark:hover:bg-white/80 transition-colors disabled:opacity-50"
       >
         {isSyncing ? t("sync.status.syncing") : t("sync.synchronize_now")}
       </button>

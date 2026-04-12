@@ -22,6 +22,7 @@ const authCookiePluginCallback: FastifyPluginAsync = async (
         secure: cookie.secure,
         sameSite: cookie.sameSite,
         path: cookie.path,
+        maxAge: cookie.maxAge.accessToken,
       });
 
       this.setCookie("refresh_token", refreshToken, {
