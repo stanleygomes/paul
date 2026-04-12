@@ -1,19 +1,25 @@
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
+import { SimpleCard } from "src/components/simple-card";
+import { Typography } from "src/components/typography";
+import { Button } from "src/components/button";
 
 export function GuestCard() {
   const { t } = useTranslation();
 
   return (
-    <div className="rounded-base border-2 border-border bg-main p-8 text-center shadow-shadow text-main-foreground">
-      <p className="text-2xl font-black">{t("settings.guest.title")}</p>
-      <p className="mt-3 text-sm font-medium">{t("settings.guest.subtitle")}</p>
-      <Link
-        href="/login"
-        className="mt-6 inline-block rounded-base border-2 border-border bg-black px-6 py-2.5 text-sm font-bold text-[#fef6d9] shadow-shadow transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-      >
-        {t("settings.guest.login_button")}
+    <SimpleCard className="bg-main p-8 text-center !shadow-shadow border-black">
+      <Typography variant="h2" className="text-black">
+        {t("settings.guest.title")}
+      </Typography>
+      <Typography variant="p" className="mt-3 font-bold text-black/80">
+        {t("settings.guest.subtitle")}
+      </Typography>
+      <Link href="/login" className="mt-6 block no-underline">
+        <Button className="w-full bg-black text-white hover:bg-black/90 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          {t("settings.guest.login_button")}
+        </Button>
       </Link>
-    </div>
+    </SimpleCard>
   );
 }

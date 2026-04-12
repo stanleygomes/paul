@@ -508,6 +508,7 @@
     "create_project": "Criar Projeto",
     "search": "Pesquisar",
     "select": "Selecionar",
-    "selected": "Selecionado"
+    "selected": "Selecionado",
+    "saving": "Salvando..."
   }
 }
