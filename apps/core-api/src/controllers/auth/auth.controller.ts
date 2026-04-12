@@ -151,9 +151,11 @@ export class AuthController {
 
           const result = this.refreshTokenService.execute(refreshToken);
 
-          reply
-            .setAuthCookies(result.token, result.refreshToken)
-            .send({ message: "Token refreshed successfully" });
+          reply.setAuthCookies(result.token, result.refreshToken).send({
+            message: "Token refreshed successfully",
+            token: result.token,
+            refreshToken: result.refreshToken,
+          });
         } catch (error) {
           fastify.log.error(error);
           throw error;
