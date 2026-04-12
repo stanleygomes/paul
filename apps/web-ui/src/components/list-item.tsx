@@ -1,10 +1,10 @@
-import { ChevronRight, LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { SimpleCard } from "./simple-card";
 import { Typography } from "./typography";
 
 interface ListItemProps {
-  icon: LucideIcon;
-  iconBackgroundColor: string;
+  icon?: LucideIcon;
+  iconBackgroundColor?: string;
   title: string;
   description?: string;
   className?: string;
@@ -25,11 +25,13 @@ export function ListItem({
       className={`group !flex-row items-center justify-between !p-4 ${className}`}
     >
       <div className="flex items-center gap-4">
-        <div
-          className={`rounded-base border-2 border-border ${iconBackgroundColor} p-3 text-white shadow-[2px_2px_0px_0px_var(--border)]`}
-        >
-          <Icon size={24} strokeWidth={3} />
-        </div>
+        {Icon && (
+          <div
+            className={`rounded-base border-2 border-border ${iconBackgroundColor} p-3 text-white shadow-[2px_2px_0px_0px_var(--border)]`}
+          >
+            <Icon size={24} strokeWidth={3} />
+          </div>
+        )}
         <div className="flex flex-col">
           <Typography
             variant="large"
@@ -44,7 +46,9 @@ export function ListItem({
           )}
         </div>
       </div>
-      <ChevronRight className="text-foreground/40 transition-colors group-hover:text-foreground" />
+      <div className="flex h-8 w-8 items-center justify-center rounded-base border-2 border-border bg-main text-main-foreground shadow-[2px_2px_0px_0px_var(--border)] transition-all group-hover:translate-x-[1px] group-hover:translate-y-[1px] group-hover:shadow-none">
+        →
+      </div>
     </SimpleCard>
   );
 }

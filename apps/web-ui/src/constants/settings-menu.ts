@@ -47,3 +47,16 @@ export const SETTINGS_MENU_ITEMS: SettingsMenuItem[] = [
     color: "bg-gray-500",
   },
 ];
+
+export const LEGAL_MENU_ITEMS = [
+  {
+    href: "/privacy",
+    titleKey: "settings.legal.privacy",
+    descKey: "settings.legal.privacy_desc",
+  },
+  {
+    href: "/terms",
+    titleKey: "settings.legal.terms",
+    descKey: "settings.legal.terms_desc",
+  },
+];

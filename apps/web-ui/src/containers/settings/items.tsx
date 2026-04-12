@@ -15,7 +15,7 @@ export function SettingsItems() {
       {SETTINGS_MENU_ITEMS.map((item) => (
         <Link
           href={item.href}
-          className="block active:scale-95 transition-transform"
+          className="block no-underline active:scale-95 transition-transform"
           key={item.href}
         >
           <ListItem
