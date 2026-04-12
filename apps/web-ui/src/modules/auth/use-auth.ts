@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
+import { tokenStorage } from "./token-storage";
 
 const SENSITIVE_KEYS = [
   "todo-tasks",
@@ -12,6 +13,7 @@ const SENSITIVE_KEYS = [
 ];
 
 export function clearUserData() {
+  tokenStorage.clearTokens();
   SENSITIVE_KEYS.forEach((key) => {
     localStorage.removeItem(key);
   });

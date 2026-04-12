@@ -77,10 +77,11 @@ export class AuthController {
           validatedData.password,
         );
 
-        reply
-          .status(201)
-          .setAuthCookies(token, refreshToken)
-          .send({ message: "User registered successfully" });
+        reply.status(201).setAuthCookies(token, refreshToken).send({
+          message: "User registered successfully",
+          token,
+          refreshToken,
+        });
       },
     );
 
@@ -94,9 +95,11 @@ export class AuthController {
           validatedData.password,
         );
 
-        reply
-          .setAuthCookies(token, refreshToken)
-          .send({ message: "Logged in successfully" });
+        reply.setAuthCookies(token, refreshToken).send({
+          message: "Logged in successfully",
+          token,
+          refreshToken,
+        });
       },
     );
 
@@ -125,9 +128,11 @@ export class AuthController {
           validatedData.code,
         );
 
-        reply
-          .setAuthCookies(result.token, result.refreshToken)
-          .send({ message: "Code verified successfully" });
+        reply.setAuthCookies(result.token, result.refreshToken).send({
+          message: "Code verified successfully",
+          token: result.token,
+          refreshToken: result.refreshToken,
+        });
       },
     );
 

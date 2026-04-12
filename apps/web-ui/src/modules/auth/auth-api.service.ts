@@ -1,5 +1,6 @@
 import { httpClient } from "@paul/http";
 import { AUTH_API_URL } from "../../config/api-config";
+import { tokenStorage } from "./token-storage";
 
 export interface SendCodeResponse {
   message: string;
@@ -8,6 +9,8 @@ export interface SendCodeResponse {
 
 export interface AuthResponse {
   message: string;
+  token?: string;
+  refreshToken?: string;
 }
 
 export type VerifyCodeResponse = AuthResponse;
@@ -39,6 +42,10 @@ export const authService = {
       },
     );
 
+    if (response.data.token && response.data.refreshToken) {
+      tokenStorage.setTokens(response.data.token, response.data.refreshToken);
+    }
+
     return response.data;
   },
 
@@ -64,6 +71,10 @@ export const authService = {
         withCredentials: true,
       },
     );
+
+    if (response.data.token && response.data.refreshToken) {
+      tokenStorage.setTokens(response.data.token, response.data.refreshToken);
+    }
 
     return response.data;
   },
@@ -93,14 +104,24 @@ export const authService = {
       },
     );
 
+    if (response.data.token && response.data.refreshToken) {
+      tokenStorage.setTokens(response.data.token, response.data.refreshToken);
+    }
+
     return response.data;
   },
 
   async refreshToken(): Promise<any> {
+    const refreshToken = tokenStorage.getRefreshToken();
     const response = await httpClient.post(
       `${AUTH_API_URL}/v1/auth/refresh-token`,
-      {},
+      { refreshToken },
     );
+
+    if (response.data.token && response.data.refreshToken) {
+      tokenStorage.setTokens(response.data.token, response.data.refreshToken);
+    }
+
     return response.data;
   },
 };

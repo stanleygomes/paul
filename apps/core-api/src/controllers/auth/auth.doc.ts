@@ -57,8 +57,10 @@ export const loginPasswordSchema = {
       type: "object",
       properties: {
         message: { type: "string" },
+        token: { type: "string" },
+        refreshToken: { type: "string" },
       },
-      required: ["message"],
+      required: ["message", "token", "refreshToken"],
     },
   },
 };
@@ -79,8 +81,10 @@ export const registerSchema = {
       type: "object",
       properties: {
         message: { type: "string" },
+        token: { type: "string" },
+        refreshToken: { type: "string" },
       },
-      required: ["message"],
+      required: ["message", "token", "refreshToken"],
     },
   },
 };
@@ -124,8 +128,10 @@ export const verifyCodeSchema = {
       type: "object",
       properties: {
         message: { type: "string" },
+        token: { type: "string" },
+        refreshToken: { type: "string" },
       },
-      required: ["message"],
+      required: ["message", "token", "refreshToken"],
     },
   },
 };
@@ -144,8 +150,10 @@ export const refreshTokenSchema = {
       type: "object",
       properties: {
         message: { type: "string" },
+        token: { type: "string" },
+        refreshToken: { type: "string" },
       },
-      required: ["message"],
+      required: ["message", "token", "refreshToken"],
     },
   },
 };
