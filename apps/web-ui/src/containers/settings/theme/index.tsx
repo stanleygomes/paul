@@ -5,6 +5,7 @@ import { useTheme, type Theme } from "@modules/theme/use-theme";
 import { SettingsMain } from "../settings-main";
 import { SettingsHeader } from "../settings-header";
 import { Monitor, Moon, Sun, Snowflake, LucideIcon } from "lucide-react";
+import { Typography } from "../../../components/typography";
 
 interface ThemeOption {
   value: Theme;
@@ -49,12 +50,10 @@ export function ThemeSelector() {
       <SettingsHeader />
 
       <div className="mb-8">
-        <h2 className="text-2xl font-black">
-          {t("settings.theme_page.title")}
-        </h2>
-        <p className="text-foreground/60 font-bold">
+        <Typography variant="h2">{t("settings.theme_page.title")}</Typography>
+        <Typography variant="p" className="font-bold">
           {t("settings.theme_page.subtitle")}
-        </p>
+        </Typography>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -75,12 +74,16 @@ export function ThemeSelector() {
                   : "text-foreground/40"
               }`}
             />
-            <span className="text-lg font-black uppercase tracking-tighter">
+            <Typography
+              variant="large"
+              as="span"
+              className="uppercase tracking-tighter"
+            >
               {option.label}
-            </span>
-            <span className="mt-1 text-xs font-bold text-foreground/40 text-center">
+            </Typography>
+            <Typography variant="small" as="span" className="mt-1 text-center">
               {option.description}
-            </span>
+            </Typography>
           </button>
         ))}
       </div>
