@@ -46,7 +46,9 @@
     "productivity": "Produtividade",
     "language": {
       "title": "Idioma",
-      "language_description": "Escolha o idioma para o aplicativo."
+      "language_description": "Escolha o idioma para o aplicativo.",
+      "active_language": "Este é o idioma atual do aplicativo.",
+      "switch_to_language": "Mudar o idioma para {{lang}}."
     },
     "pomodoro": {
       "title": "Pomodoro",
