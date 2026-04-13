@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { TaskProjectSelector } from "../../components/task-project-selector";
+import { TaskProjectSelector } from "@components/task-project-selector";
 import { FormField } from "./form-field";
 
 interface TaskProjectProps {

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { AutoResizeTextarea } from "../../components/auto-resize-textarea";
+import { AutoResizeTextarea } from "@components/auto-resize-textarea";
 import { SendHorizontal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSidebar } from "@modules/menu-layout/use-sidebar";

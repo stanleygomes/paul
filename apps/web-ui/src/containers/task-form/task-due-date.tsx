@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { TaskDatePicker } from "../../components/task-date-picker";
-import { TaskTimeInput } from "../../components/task-time-input";
+import { TaskDatePicker } from "@components/task-date-picker";
+import { TaskTimeInput } from "@components/task-time-input";
 import { FormField } from "./form-field";
 
 interface TaskDueDateProps {

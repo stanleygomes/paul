@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { Typography } from "../../../components/typography";
+import { Typography } from "@components/typography";
 import { SettingsHeader } from "../header";
 import { SettingsContainer } from "../container";
 import { ThemeList } from "./theme-list";

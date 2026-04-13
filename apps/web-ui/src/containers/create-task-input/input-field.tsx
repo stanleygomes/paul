@@ -1,7 +1,7 @@
 import { forwardRef, KeyboardEvent } from "react";
 import { Rocket } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { AutoResizeTextarea } from "../../components/auto-resize-textarea";
+import { AutoResizeTextarea } from "@components/auto-resize-textarea";
 
 interface InputFieldProps {
   value: string;

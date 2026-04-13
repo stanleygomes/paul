@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { TaskImportantToggle } from "../../components/task-important-toggle";
+import { TaskImportantToggle } from "@components/task-important-toggle";
 import { FormField } from "./form-field";
 
 interface TaskImportantProps {

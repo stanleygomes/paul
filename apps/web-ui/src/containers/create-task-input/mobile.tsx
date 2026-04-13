@@ -1,10 +1,10 @@
 import { DrawerHeader } from "@paul/ui";
 import { Rocket, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { AutoResizeTextarea } from "../../components/auto-resize-textarea";
-import { TaskDatePicker as DatePicker } from "../../components/task-date-picker";
-import { TaskProjectSelector as ProjectSelector } from "../../components/task-project-selector";
-import { TaskTimeInput as TimeInput } from "../../components/task-time-input";
+import { AutoResizeTextarea } from "@components/auto-resize-textarea";
+import { TaskDatePicker as DatePicker } from "@components/task-date-picker";
+import { TaskProjectSelector as ProjectSelector } from "@components/task-project-selector";
+import { TaskTimeInput as TimeInput } from "@components/task-time-input";
 import { useProjects } from "../../modules/project/use-projects";
 
 interface CreateTaskMobileProps {

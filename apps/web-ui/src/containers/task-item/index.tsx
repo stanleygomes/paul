@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Reorder, useDragControls } from "framer-motion";
 import type { Task } from "@paul/entities";
 import { useDebouncedSave } from "../../modules/create-task/use-debounced-save";
-import { TaskToggle } from "../../components/task-toggle";
+import { TaskToggle } from "@components/task-toggle";
 import { DragHandle } from "./drag-handle";
 import { TaskMetadata } from "./metadata";
 import { TaskItemActions } from "./actions";
@@ -28,7 +28,7 @@ interface TaskListItemProps {
   isDesktop: boolean;
 }
 
-import { SwipeableActionItem } from "../../components/swipe-to-complete";
+import { SwipeableActionItem } from "@components/swipe-to-complete";
 
 export function TaskListItem({
   task,

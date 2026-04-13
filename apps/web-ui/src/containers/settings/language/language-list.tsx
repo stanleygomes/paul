@@ -2,9 +2,9 @@
 
 import { useTranslation } from "react-i18next";
 import { LANGUAGE_OPTIONS } from "@constants/languages.constant";
-import { SimpleCard } from "../../../components/simple-card";
-import { Typography } from "../../../components/typography";
-import { IconBadge } from "../../../components/icon-badge";
+import { SimpleCard } from "@components/simple-card";
+import { Typography } from "@components/typography";
+import { IconBadge } from "@components/icon-badge";
 import { Languages } from "lucide-react";
 
 export function LanguageList() {

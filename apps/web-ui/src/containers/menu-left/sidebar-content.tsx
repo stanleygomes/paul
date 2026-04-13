@@ -6,7 +6,7 @@ import { SidebarFilters } from "./sidebar-filters";
 import { SidebarProjectList } from "./sidebar-project-list";
 import { useSidebar } from "@modules/menu-layout/use-sidebar";
 import { SidebarMoreSection } from "./sidebar-more-section";
-import { SyncIndicator } from "../../components/sync-indicator";
+import { SyncIndicator } from "@components/sync-indicator";
 import { UserHints } from "../onboarding/user-hints";
 
 import { AppLogo } from "./app-logo";

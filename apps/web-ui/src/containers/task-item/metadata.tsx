@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import type { Task } from "@paul/entities";
 import { Clock, Globe, FileText, CheckCircle2, Tag, X } from "lucide-react";
-import { TaskDetailBadge } from "../../components/task-detail-badge";
-import { TaskProjectSelector as ProjectSelector } from "../../components/task-project-selector";
-import { TaskImportantToggle as ImportantToggle } from "../../components/task-important-toggle";
+import { TaskDetailBadge } from "@components/task-detail-badge";
+import { TaskProjectSelector as ProjectSelector } from "@components/task-project-selector";
+import { TaskImportantToggle as ImportantToggle } from "@components/task-important-toggle";
 import { formatDate, formatTime } from "@paul/utils";
 import {
   Tooltip,

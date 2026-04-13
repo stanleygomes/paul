@@ -1,6 +1,6 @@
 "use client";
 
-import { UserAvatar } from "../../components/user-avatar";
+import { UserAvatar } from "@components/user-avatar";
 import { SyncStatusBadge } from "../sync/sync-status-badge";
 
 interface UserMenuProps {

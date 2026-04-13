@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UserAvatar } from "../../components/user-avatar";
+import { UserAvatar } from "@components/user-avatar";
 import { Sparkles, Calendar, PlusCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

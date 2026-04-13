@@ -4,7 +4,7 @@ import { SETTINGS_MENU_ITEMS } from "@constants/settings-menu.constant";
 import { useUser } from "@modules/user/use-user";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { ListItem } from "../../components/list-item";
+import { ListItem } from "@components/list-item";
 
 export function SettingsItems() {
   const { t } = useTranslation();

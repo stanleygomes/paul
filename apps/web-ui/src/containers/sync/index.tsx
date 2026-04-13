@@ -4,8 +4,8 @@ import { useSync } from "@modules/sync/use-sync";
 import { formatDistanceToNow } from "date-fns";
 import { AlertCircle, Cloud, RefreshCw } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Button } from "../../components/button";
-import { Typography } from "../../components/typography";
+import { Button } from "@components/button";
+import { Typography } from "@components/typography";
 
 function getSyncStatusInfo(isSyncing: boolean, hasError: boolean) {
   if (isSyncing) {
