@@ -1,6 +1,6 @@
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@paul/ui";
 import { Project } from "@paul/entities";
-import { COLORS } from "../../constants/colors";
+import { COLORS } from "../../constants/colors.constant";
 
 import { useTranslation } from "react-i18next";
 

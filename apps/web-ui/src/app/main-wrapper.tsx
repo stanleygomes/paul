@@ -2,7 +2,7 @@
 
 import { useSidebar } from "@modules/menu-layout/use-sidebar";
 import { usePathname } from "next/navigation";
-import { SIDEBAR_PATHS } from "@constants/sidebar";
+import { SIDEBAR_PATHS } from "@constants/sidebar.constant";
 
 export function MainWrapper({ children }: { children: React.ReactNode }) {
   const { isOpen, mounted } = useSidebar();

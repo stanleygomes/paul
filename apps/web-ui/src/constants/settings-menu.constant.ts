@@ -6,7 +6,7 @@ import {
   Timer,
   ShieldCheck,
 } from "lucide-react";
-import { SettingsMenuItem } from "../types/settings-menu";
+import { SettingsMenuItem } from "../types/settings-menu.type";
 
 export const SETTINGS_MENU_ITEMS: SettingsMenuItem[] = [
   {

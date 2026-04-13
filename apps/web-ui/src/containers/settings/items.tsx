@@ -1,6 +1,6 @@
 "use client";
 
-import { SETTINGS_MENU_ITEMS } from "@constants/settings-menu";
+import { SETTINGS_MENU_ITEMS } from "@constants/settings-menu.constant";
 import { useUser } from "@modules/user/use-user";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";

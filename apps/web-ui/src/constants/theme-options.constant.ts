@@ -1,5 +1,5 @@
 import { Monitor, Moon, Sun, Snowflake } from "lucide-react";
-import { ThemeOption } from "../types/theme-option";
+import { ThemeOption } from "../types/theme-option.type";
 
 export const THEME_OPTIONS: ThemeOption[] = [
   {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PROJECT_FILTERS } from "src/constants/task-filters";
+import { PROJECT_FILTERS } from "@constants/task-filters.constant";
 
 import { useTranslation } from "react-i18next";
 

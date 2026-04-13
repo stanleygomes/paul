@@ -5,7 +5,7 @@ import { useTheme } from "@modules/theme/use-theme";
 import { IconBadge } from "../../../components/icon-badge";
 import { SimpleCard } from "../../../components/simple-card";
 import { Typography } from "../../../components/typography";
-import { THEME_OPTIONS } from "../../../constants/theme-options";
+import { THEME_OPTIONS } from "../../../constants/theme-options.constant";
 
 export function ThemeList() {
   const { t } = useTranslation();

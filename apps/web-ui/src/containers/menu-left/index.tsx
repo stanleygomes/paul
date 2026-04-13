@@ -6,7 +6,7 @@ import { SidebarToggle } from "./sidebar-toggle";
 import { AppLogo } from "./app-logo";
 import { SidebarContent } from "./sidebar-content";
 import { usePathname } from "next/navigation";
-import { SIDEBAR_PATHS } from "@constants/sidebar";
+import { SIDEBAR_PATHS } from "@constants/sidebar.constant";
 
 export default function MenuLeft() {
   const { isOpen, mounted } = useSidebar();

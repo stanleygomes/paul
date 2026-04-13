@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { MobileNavbar } from "./mobile-navbar";
-import { MENU_BOTTOM_HIDDEN_ROUTES } from "@constants/routes";
+import { MENU_BOTTOM_HIDDEN_ROUTES } from "@constants/routes.constant";
 
 export function MenuBottom() {
   const pathname = usePathname();

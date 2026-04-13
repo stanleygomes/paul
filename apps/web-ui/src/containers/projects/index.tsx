@@ -6,7 +6,7 @@ import { useProjects } from "@modules/project/use-projects";
 import ProjectFormDrawer from "./form-drawer";
 import ProjectDeleteDrawer from "./delete-drawer";
 import { Project } from "@paul/entities";
-import { COLORS } from "../../constants/colors";
+import { COLORS } from "../../constants/colors.constant";
 import TaskFilters from "./filters";
 import ProjectList from "./list";
 import ProjectHeader from "./header";

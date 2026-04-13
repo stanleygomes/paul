@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 
-import { Theme } from "../../types/theme";
+import { Theme } from "../../types/theme.type";
 
 const THEME_KEY = "app-theme";
 const AVAILABLE_THEMES: Exclude<Theme, "auto">[] = ["classic", "dark", "ice"];

@@ -1,4 +1,4 @@
-import { COLORS } from "../../constants/colors";
+import { COLORS } from "../../constants/colors.constant";
 import { X } from "lucide-react";
 import { FormField } from "./form-field";
 
