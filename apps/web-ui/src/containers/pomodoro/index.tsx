@@ -114,7 +114,7 @@ function usePomodoroLocal() {
   return { phase, timeLeft, isRunning, cycles, toggleTimer, skipPhase };
 }
 
-export default function PomodoroPageContainer() {
+export default function Pomodoro() {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   const router = useRouter();
