@@ -59,14 +59,20 @@ paul/
 
 Detailed, task-specific guidance lives in `_agent/skills/`. The agent loads a skill when the task matches its keywords.
 
-| Skill                     | Path                                           | When to use                                           |
-| ------------------------- | ---------------------------------------------- | ----------------------------------------------------- |
-| **testing**               | `_agent/skills/testing/SKILL.md`               | Writing or reviewing unit tests                       |
-| **observability**         | `_agent/skills/observability/SKILL.md`         | Adding or reviewing log statements                    |
-| **code-style**            | `_agent/skills/code-style/SKILL.md`            | Lint, format, or style questions                      |
-| **monorepo-architecture** | `_agent/skills/monorepo-architecture/SKILL.md` | Workspace layout, package boundaries, Turborepo tasks |
-| **frontend-ui**           | `_agent/skills/frontend-ui/SKILL.md`           | Building or refactoring Next.js/React UI code         |
-| **database**              | `_agent/skills/database/SKILL.md`              | Database schema, migrations, or Drizzle ORM usage     |
+| Skill                     | Path                                           | When to use                                                      |
+| ------------------------- | ---------------------------------------------- | ---------------------------------------------------------------- |
+| **testing**               | `_agent/skills/testing/SKILL.md`               | Writing or reviewing unit tests                                  |
+| **observability**         | `_agent/skills/observability/SKILL.md`         | Adding or reviewing log statements                               |
+| **code-style**            | `_agent/skills/code-style/SKILL.md`            | Lint, format, or style questions                                 |
+| **monorepo-architecture** | `_agent/skills/monorepo-architecture/SKILL.md` | Workspace layout, package boundaries, Turborepo tasks            |
+| **frontend-ui**           | `_agent/skills/frontend-ui/SKILL.md`           | Building or refactoring Next.js/React UI code                    |
+| **database**              | `_agent/skills/database/SKILL.md`              | Database schema, migrations, or Drizzle ORM usage                |
+| **security**              | `_agent/skills/security/SKILL.md`              | Security analysis, hardening, auth, and vulnerability prevention |
+
+## Mandatory Security Validation (Every Action)
+
+- Before every action in any task, validate the security checklist from `_agent/skills/security/SKILL.md`.
+- If any checklist item is not satisfied, adjust the action before continuing.
 
 ## Continuous Improvement & Learning
 
