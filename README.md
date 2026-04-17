@@ -1,5 +1,7 @@
 # Paul - Task Assistant
 
+![paul](https://raw.githubusercontent.com/stanleygomes/paul/refs/heads/master/assets/screenshot.png)
+
 ## 🌟 About the Project
 
 Paul is here to help you achieve your goals, one task at a time.
