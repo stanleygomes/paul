@@ -17,7 +17,7 @@ async function run() {
 
   program
     .name("paul")
-    .description("Paul CLI - Your personal assistant")
+    .description("Paul CLI - Your task assistant")
     .version("1.0.0")
     .hook("preAction", async () => {
       await I18n.initialize();
