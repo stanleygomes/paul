@@ -84,5 +84,3 @@ This project is under the MIT license. See the `LICENSE` file for details.
 - [Turborepo Docs](https://turborepo.dev/docs)
 - [Next.js Docs](https://nextjs.org/docs)
 - [Vercel](https://vercel.com)
-
-Made with 🔥 by Lumen HQ
